@@ -31,6 +31,14 @@
 				</header>
 
 				<div class="inner">
+					<h1 class="strike">
+						<span><%= controller.controller_name %></span>
+						<menu>
+							<li><%= link_to 'Tools', admin_tools_path, class: cp(admin_tools_path) %></li>
+							<li><%= link_to 'Community', admin_community_index_path, class: cp(admin_community_index_path) %></li>
+							<li><%= link_to 'Blog', admin_articles_path, class: cp(admin_articles_path) %></li>
+						</menu>
+					</h1>
 					<%= yield %>
 				</div>
 			</div>

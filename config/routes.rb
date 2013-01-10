@@ -31,6 +31,12 @@ Thetoolbox::Application.routes.draw do
     resources :tools do
       get 'page/:page', action: :index, on: :collection
     end
+    resources :community do
+      get 'page/:page', action: :index, on: :collection
+    end
+    resources :articles do
+      get 'page/:page', action: :index, on: :collection
+    end
   end
 
   resources :sessions

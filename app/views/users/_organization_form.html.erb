@@ -17,7 +17,7 @@
 		<%= f.label :name, "Organization Name" %>
 		<%= f.text_field :name %>
 	</div>
-	<div class="field inline">
+	<div class="field inline last">
 		<%= f.label :sector, "Sector" %>
 		<%= select("organization", "sector", Organization.sectors_for_select) %>
 	</div>
@@ -29,7 +29,7 @@
 		<%= f.label :password, "Password" %>
 		<%= f.password_field :password %>
 	</div>
-	<div class="field inline">
+	<div class="field inline last">
 		<%= f.label :password_confirmation, "Password Again" %>
 		<%= f.password_field :password_confirmation %>
 	</div>
@@ -37,6 +37,6 @@
 	<%# f.hidden_field :mixpanel_id %>
 
 	<div class="actions">
-		<%= f.submit "Sign Up", class: "yellow button inset-text" %>
+		<%= f.submit "Sign Up", class: "submit button" %>
 	</div>
 <% end %>

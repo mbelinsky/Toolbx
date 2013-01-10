@@ -2,6 +2,8 @@
 
 html.users.new, html.users.create {
 	div#signup-container {
+		@include width(8);
+
 		form#new_organization { display: none; }
 	}
 }
