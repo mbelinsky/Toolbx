@@ -1,0 +1,14 @@
+<h1 class="strike"><span>Sign Up</span></h1>
+
+<div id="signup-container">
+	<label for="user_type_person">
+		<input <%= 'checked' unless @user_type == 'organization' %> type="radio" name="user_type" value="person" id="user_type_person">
+		Person
+	</label>
+	<label for="user_type_organization">
+		<input <%= 'checked' if @user_type == 'organization' %> type="radio" name="user_type" value="organization" id="user_type_organization">
+		Organization
+	</label>
+	<%= render 'person_form' %>
+	<%= render 'organization_form' %>
+</div>

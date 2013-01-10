@@ -1,0 +1,77 @@
+@import 'mixins.css.scss';
+
+* { margin: 0; padding: 0; border: 0; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; }
+body, input, select, textarea, button { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+html { height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+img { -ms-interpolation-mode: bicubic; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+::selection { background: red; color: white; }
+::-moz-selection { background: red; color: white; }
+img::selection { background: transparent; }
+img::-moz-selection { background: transparent; }
+body { -webkit-tap-highlight-color: rgba(255,0,0, 0.62); }
+
+/*
+Sticky Footer Solution
+by Steve Hatcher
+http://stever.ca
+http://www.cssstickyfooter.com
+*/
+html, body { height: 100%; }
+div.wrap-outer {
+	min-height: 100%;
+
+	div.wrap-inner { padding-top: 50px; overflow: auto; padding-bottom: 120px; }
+}
+
+footer#bottom { position: relative; margin-top: -50px; clear: both; overflow: hidden; }
+
+
+/* Clearfix: */
+.group:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+* html .group { height: 1%; }
+*:first-child+html .group { min-height: 1px; }
+/* End clearfix */
+
+
+// End resets and stuff.
+body { background: #F0F0F0; font-family: sans-serif; font-size: 14px; color: #7D7D7D; }
+
+header#top, footer#bottom {
+	background: #646464; color: #fff; height: 50px;
+
+	a { color: #fff; text-decoration: none; }
+
+	menu { list-style: none; }
+}
+
+header#top {
+	position: fixed; top: 0; left: 0; width: 100%;
+
+	h6 { float: left; font-size: 24px; }
+	menu {
+		float: right; height: 50px;
+
+		li {
+			float: left; border-right: 1px solid #515151; height: 100%;
+
+			&:first-child { border-left: 1px solid #515151; }
+
+			a {
+				display: block; height: 100%; padding: 15px 20px 0;
+
+				&.current { border-bottom: 4px solid #505050; }
+			}
+		}
+	}
+}
+
+div.field {
+	label { display: block; }
+}
+
+div.inner { position: relative; margin: 0 auto; width: 960px; }

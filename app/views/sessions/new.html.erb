@@ -1,0 +1,17 @@
+<h1 class="strike four col"><span>Log In</span></h1>
+
+<%= form_tag sessions_path do %>
+	<div class="field">
+		<label for="email">Email</label>
+		<%= text_field_tag :email, params[:email] %>
+	</div>
+	<div class="field">
+		<label for="password">Password <%= link_to "forgot?", new_password_reset_path %></label>
+		<%= password_field_tag :password %>
+	</div>
+
+	<p class="button"><%= submit_tag "Log in" %></p>
+	<div class="sign-up">
+		New? <%= link_to "Sign up now", signup_path %>
+	</div>
+<% end %>

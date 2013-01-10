@@ -1,0 +1,7 @@
+@import 'mixins.css.scss';
+
+html.users.new, html.users.create {
+	div#signup-container {
+		form#new_organization { display: none; }
+	}
+}
