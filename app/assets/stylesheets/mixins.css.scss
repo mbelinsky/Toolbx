@@ -1,0 +1,182 @@
+//Mixins go in here
+@mixin text-shadow ($val1: none, $val2: none, $val3: none, $val4: none, $val5: none, $val6: none) {
+	$val: $val1, $val2, $val3, $val4, $val5, $val6;
+
+	@if $val6 == none {
+		$val: $val1, $val2, $val3, $val4, $val6;
+	}
+	@if $val5 == none {
+		$val: $val1, $val2, $val3, $val4;
+	}
+	@if $val4 == none {
+		$val: $val1, $val2, $val3;
+	}
+	@if $val3 == none {
+		$val: $val1, $val2;
+	}
+	@if $val2 == none {
+		$val: $val1;
+	}
+
+	text-shadow: $val;
+	-webkit-text-shadow: $val;
+	-moz-text-shadow: $val;
+	-o-text-shadow: $val;
+}
+
+@mixin border-radius ($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-o-border-radius: $radius;
+}
+
+@mixin background-clip ($clip) {
+	background-clip: $clip !important;
+	-webkit-background-clip: $clip !important;
+	-moz-background-clip: $clip !important;
+	-o-background-clip: $clip !important;
+	-ms-background-clip: $clip !important;
+}
+
+@mixin box-shadow ($val1: none, $val2: none, $val3: none, $val4: none, $val5: none) {
+
+	$val: $val1, $val2, $val3, $val4, $val5;
+
+	@if $val5 == none {
+		$val: $val1, $val2, $val3, $val4;
+	}
+	@if $val4 == none {
+		$val: $val1, $val2, $val3;
+	}
+	@if $val3 == none {
+		$val: $val1, $val2;
+	}
+	@if $val2 == none {
+		$val: $val1;
+	}
+
+	box-shadow: $val;
+	-webkit-box-shadow: $val;
+	-moz-box-shadow: $val;
+	-o-box-shadow: $val;
+}
+
+@mixin transition ($properties) {
+	transition: $properties;
+	-webkit-transition: $properties;
+	-moz-transition: $properties;
+	-o-transition: $properties;
+	-ms-transition: $properties;
+}
+
+@mixin transform ($properties) {
+	transform: $properties;
+	-webkit-transform: $properties;
+	-moz-transform: $properties;
+	-o-transform: $properties;
+	-ms-transform: $properties;
+}
+
+@mixin background-y ($top, $bottom, $fallback: transparent) {
+	background-color: $fallback;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
+	background-image: -webkit-linear-gradient($top, $bottom);
+	background-image: -moz-linear-gradient(center top, $top 0%, $bottom 100%);
+	background-image: -moz-gradient(center top, $top 0%, $bottom 100%);
+	background-image: -o-linear-gradient(top, $top 0%, $bottom 100%);
+	background-image: -ms-linear-gradient(top, $top 0%, $bottom 100%);
+}
+
+@mixin background-y-image ($top, $bottom, $image, $fallback) {
+	background-color: $fallback;
+	background-image: $image;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom)), $image;
+	background-image: -webkit-linear-gradient($top, $bottom), $image;
+	background-image: -moz-linear-gradient(center top, $top 0%, $bottom 100%), $image;
+	background-image: -moz-gradient(center top, $top 0%, $bottom 100%), $image;
+	background-image: -o-linear-gradient(top, $top 0%, $bottom 100%), $image;
+	background-image: -ms-linear-gradient(top, $top 0%, $bottom 100%), $image;
+}
+
+@mixin background-y-multi ($fallback: transparent, $val1: none, $val2: none, $val3: none, $val4: none, $val5: none) {
+	$val: $val1, $val2, $val3, $val4, $val5;
+
+	@if $val5 == none {
+		$val: $val1, $val2, $val3, $val4;
+	}
+	@if $val4 == none {
+		$val: $val1, $val2, $val3;
+	}
+	@if $val3 == none {
+		$val: $val1, $val2;
+	}
+	@if $val2 == none {
+		$val: $val1;
+	}
+
+	background: $fallback;
+	background-image: -webkit-linear-gradient($val);
+	background-image: -moz-linear-gradient(center top, $val);
+	background-image: -moz-gradient(center top, $val);
+	background-image: -o-linear-gradient(center top, $val);
+	background-image: -ms-linear-gradient(center top, $val);
+	background-image: linear-gradient(top, $val);
+}
+
+@mixin opacity ($opacity) {
+	$ieval: $opacity * 100;
+
+	zoom: 1;
+	opacity: $opacity;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$ieval})";
+	filter: alpha(opacity=$ieval);
+}
+
+/*
+	Frameless			<http://framelessgrid.com/>
+	by Joni Korpi 		<http://jonikorpi.com/>
+	licensed under CC0	<http://creativecommons.org/publicdomain/zero/1.0/>
+*/
+
+
+//
+// Configuration
+//
+
+$font-size: 14px; 		// Your base font-size in pixels
+$em: $font-size / 1em;	// Shorthand for outputting ems
+
+$column: 60px;	// The column-width of your grid in pixels
+$gutter: 20px;	// The gutter-width of your grid in pixels
+
+
+//
+// Column-widths in variables, in ems
+//
+
+ $cols1: ( 1 * ($column + $gutter) - $gutter)px; // / $em;
+ $cols2: ( 2 * ($column + $gutter) - $gutter)px; // / $em;
+ $cols3: ( 3 * ($column + $gutter) - $gutter)px; // / $em;
+ $cols4: ( 4 * ($column + $gutter) - $gutter)px; // / $em;
+ $cols5: ( 5 * ($column + $gutter) - $gutter)px; // / $em;
+ $cols6: ( 6 * ($column + $gutter) - $gutter)px; // / $em;
+ $cols7: ( 7 * ($column + $gutter) - $gutter)px; // / $em;
+ $cols8: ( 8 * ($column + $gutter) - $gutter)px; // / $em;
+ $cols9: ( 9 * ($column + $gutter) - $gutter)px; // / $em;
+$cols10: (10 * ($column + $gutter) - $gutter)px; // / $em;
+$cols11: (11 * ($column + $gutter) - $gutter)px; // / $em;
+$cols12: (12 * ($column + $gutter) - $gutter)px; // / $em;
+$cols13: (13 * ($column + $gutter) - $gutter)px; // / $em;
+$cols14: (14 * ($column + $gutter) - $gutter)px; // / $em;
+$cols15: (15 * ($column + $gutter) - $gutter)px; // / $em;
+$cols16: (16 * ($column + $gutter) - $gutter)px; // / $em;
+
+
+//
+// Column-widths in a function, in ems
+//
+
+@mixin width ($cols:1) {
+	width: ($cols * ($column + $gutter) - $gutter) / $em;
+}
