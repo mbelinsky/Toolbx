@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
 
     if user && user.authenticate(params[:password])
-      cookies.permanent[:auth_token] = user.auth_token
+      cookies.permanent[:toolbox_auth_token] = user.toolbox_auth_token
       user.touch :last_login
 
       redirect_to root_url, notice: "Hey there! Nice to see you."
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    cookies.delete(:auth_token)
+    cookies.delete(:toolbox_auth_token)
     redirect_to root_url, notice: "You've been logged out. See you again soon!"
   end
 end

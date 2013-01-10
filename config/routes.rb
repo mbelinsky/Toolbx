@@ -12,19 +12,26 @@ Thetoolbox::Application.routes.draw do
   get 'logout' => 'sessions#destroy', as: 'logout'
   get 'signup' => 'users#new', as: 'signup'
 
+  get 'contact' => 'contact#index', as: 'contact'
+  get 'privacy' => 'privacy#index', as: 'privacy'
+
   root to: 'home#index'
 
   resources :users do
     get 'page/:page', action: :index, on: :collection
   end
-  resources :tools do
+  resources :tools, only: [:index, :show] do
     get 'page/:page', action: :index, on: :collection
   end
   resources :articles, only: [:index, :show] do
     get 'page/:page', action: :index, on: :collection
   end
-  resources :contact, only: [:index]
-  resources :privacy, only: [:index]
+
+  namespace :admin do
+    resources :tools do
+      get 'page/:page', action: :index, on: :collection
+    end
+  end
 
   resources :sessions
   resources :password_resets
