@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130109233955) do
+ActiveRecord::Schema.define(:version => 20130110011008) do
 
   create_table "cities", :force => true do |t|
     t.string  "name",       :limit => 70
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(:version => 20130109233955) do
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
     t.string   "type"
-    t.string   "auth_token"
+    t.string   "toolbox_auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.datetime "last_login"

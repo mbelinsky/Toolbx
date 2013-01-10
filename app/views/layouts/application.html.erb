@@ -14,10 +14,18 @@
 						<h6><%= link_to 'The Toolbox', root_path %></h6>
 
 						<menu>
-							<li><%= link_to 'Tools', tools_path %></li>
-							<li><%= link_to 'Community', users_path %></li>
-							<li><%= link_to 'Blog', articles_path %></li>
-							<li><%= link_to 'Login', login_path %></li>
+							<% if current_user && current_user.admin %>
+								<li><%= link_to 'Admin', admin_tools_path, class: cp(admin_tools_path) %></li>
+							<% end %>
+							<li><%= link_to 'Tools', tools_path, class: cp(tools_path) %></li>
+							<li><%= link_to 'Community', users_path, class: cp(users_path) %></li>
+							<li><%= link_to 'Blog', articles_path, class: cp(articles_path) %></li>
+							<% if current_user %>
+								<li><a href="#">P</a></li>
+								<li><a href="#">G</a></li>
+							<% else %>
+								<li><%= link_to 'Login', login_path, class: cp(login_path) %></li>
+							<% end %>
 						</menu>
 					</div>
 				</header>
@@ -37,11 +45,11 @@
 					<li><a class="twitter" href="#">Twitter</a></li>
 				</menu>
 				<menu class="nav">
-					<li><%= link_to "Tools", tools_path %></li>
-					<li><%= link_to "Community", users_path %></li>
-					<li><%= link_to "Blog", articles_path %></li>
-					<li><%= link_to "Contact", contact_index_path %></li>
-					<li><%= link_to "Privacy", privacy_index_path %></li>
+					<li><%= link_to "Tools", tools_path, class: cp(tools_path) %></li>
+					<li><%= link_to "Community", users_path, class: cp(users_path) %></li>
+					<li><%= link_to "Blog", articles_path, class: cp(articles_path) %></li>
+					<li><%= link_to "Contact", contact_index_path, class: cp(contact_index_path) %></li>
+					<li><%= link_to "Privacy", privacy_index_path, class: cp(privacy_index_path) %></li>
 				</menu>
 			</div>
 		</footer>

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   belongs_to :city
   has_many :languages, through: :user_languages
   has_many :tools, through: :user_tools
-  attr_accessible :description, :email, :facebook_username, :linkedin_username, :name, :password_digest, :sector_cd, :surname, :twitter_username, :website_url, :password, :password_confirmation
+  attr_accessible :description, :email, :facebook_username, :linkedin_username, :name, :password_digest, :sector_cd, :surname, :twitter_username, :website_url, :password, :password_confirmation, :sector
 
   validates_presence_of :name
   validates_presence_of :email
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8 }, if: :validate_password?
   validates :password_confirmation, on: :update, presence: true, if: :validate_password?
 
-  before_create { generate_token(:auth_token) }
+  before_create { generate_token(:toolbox_auth_token) }
 
   has_attached_file :profile_picture, styles: { small: "100x100>", thumb: "75x75>" }
   validates_attachment_content_type :profile_picture, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'

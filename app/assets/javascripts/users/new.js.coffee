@@ -1,4 +1,4 @@
-if $('html').is '.users.new'
+if $('html').is '.users.new, .users.create'
   $(document).ready ->
     switchType = ->
       if $('#user_type_organization').prop 'checked'
