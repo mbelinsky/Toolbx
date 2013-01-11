@@ -15,7 +15,7 @@ html.admin.tools.new, html.admin.tools.create, html.admin.tools.edit, html.admin
 
 					img { position: absolute; top: 10px; left: 10px; }
 					input { display: none; }
-					button { position: absolute; display: block; top: 50%; left: 50%; margin-top: -13px; margin-left: -45px; }
+					button { position: absolute; display: block; top: 50%; left: 50%; margin-top: -13px; margin-left: -45px; width: 90px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 				}
 			}
 		}

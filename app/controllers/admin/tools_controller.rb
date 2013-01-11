@@ -32,7 +32,7 @@ class Admin::ToolsController < AdminController
       if @tool.update_attributes params[:tool]
         format.html { redirect_to admin_tools_path, notice: "#{@tool.name} has been updated." }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'edit' }
       end
     end
   end
