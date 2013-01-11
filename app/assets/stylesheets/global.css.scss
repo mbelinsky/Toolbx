@@ -50,7 +50,7 @@ header#top, footer#bottom {
 }
 
 header#top {
-	position: fixed; top: 0; left: 0; width: 100%;
+	position: fixed; top: 0; left: 0; width: 100%; z-index: 9999;
 
 	h6 { float: left; font-size: 24px; }
 	menu {
@@ -96,21 +96,31 @@ h1.strike {
 }
 
 button, .button {
+	background: #4C4C4C; font-size: 12px; color: #fff; padding: 6px 18px; @include border-radius(30px); font-weight: 600; text-transform: uppercase; cursor: pointer;
+
 	&.submit {
-		background: #7D7D7D; @include border-radius(30px); font-size: 16px; padding: 9px 30px; color: #fff; font-weight: 600; text-transform: uppercase;
+		background: #7D7D7D; font-size: 16px; padding: 9px 30px;
 	}
 }
 
-div.field {
-	@include width(4); margin: 0 20px 18px 0;
+form {
+	div.field {
+		@include width(4); margin: 0 20px 18px 0;
 
-	&.last, &.full { margin-right: 0; }
-	&.full { @include width(8); clear: left; }
-	&.inline { float: left; }
+		&.last, &.full { margin-right: 0; }
+		&.full { @include width(8); clear: left; }
+		&.tiny { width: 80px; }
+		&.check { width: 200px; }
+		&.inline { float: left; }
 
-	label { display: block; font-size: 16px; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; }
-	input { display: block; width: 100%; }
-	input, select { font-size: 14px; padding: 16px 9px 17px; }
+		label { display: block; font-size: 16px; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; }
+		input, select, textarea { font-size: 14px; padding: 16px 9px 17px; display: block; width: 100%; }
+		textarea { height: 130px; resize: vertical; }
+	}
+
+	div.actions {
+		clear: both;
+	}
 }
 
-div.inner { position: relative; margin: 0 auto; width: 960px; }
+div.inner { position: relative; margin: 0 auto; @include width(12); }
