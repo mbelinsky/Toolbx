@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :profile_picture, styles: { small: "100x100>", thumb: "75x75>" }
   validates_attachment_content_type :profile_picture, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
+  validates_attachment_size :profile_picture, less_than: 1.megabyte
 
 
   def send_password_reset
