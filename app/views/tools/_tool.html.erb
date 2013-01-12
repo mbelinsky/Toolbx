@@ -1,0 +1,20 @@
+<% path ||= tool_path(tool) %>
+
+<li class="tool">
+	<%= link_to path do %>
+		<div class="banner">
+			<%= if tool.screens.count > 0 then image_tag tool.screens.first.screenshot.url(:banner) end %>
+		</div>
+		<div class="meta group">
+			<%= image_tag tool.icon.url(:thumb), class: 'icon' %>
+			<div class="right">
+				<h3><%= tool.name %></h3>
+				<ul class="categories">
+					<% tool.categories.each do |category| %>
+						<li><%= category.name %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	<% end %>
+</li>

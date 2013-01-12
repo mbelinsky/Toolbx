@@ -1,0 +1,28 @@
+@import 'mixins.css.scss';
+
+div.chzn-container, div.chzn-container-multi {
+	ul.chzn-choices {
+		height: 50px !important; padding: 5px 0 0;
+
+		li.search-choice {
+			padding: 8px 24px 8px 9px; margin-left: 8px;
+
+			span { font-size: 12px; }
+			a.search-choice-close { top: 9px; right: 6px; }
+		}
+
+		li.search-field {
+			input { height: 34px; }
+		}
+	}
+
+	a.chzn-single {
+		height: 50px; padding-top: 12px;
+
+		&.chzn-single-with-drop {
+			b { background-position: -16px 14px; }
+		}
+
+		b { background-position: 2px 15px; }
+	}
+}

@@ -52,6 +52,7 @@ header#top, footer#bottom {
 header#top {
 	position: fixed; top: 0; left: 0; width: 100%; z-index: 9999;
 
+	div.inner { padding: 0 10px; }
 	h6 { float: left; font-size: 24px; }
 	menu {
 		float: right; height: 50px;
@@ -70,11 +71,23 @@ header#top {
 	}
 }
 
+ul.items {
+	list-style: none;
+
+	li {
+		margin: 10px;
+
+		&.link {
+			@include width(4); float: left; background: #DCDCDC; height: $cols4;
+		}
+	}
+}
+
 h1.strike:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 * html h1.strike { height: 1%; }
 *:first-child+html h1.strike { min-height: 1px; }
 h1.strike {
-	@include width(8); position: relative; margin: 80px 0 30px;
+	@include width(8); position: relative; margin: 80px 10px 30px;
 
 	&:before { border-top: 1px solid #C8C8C8; border-bottom: 1px solid #C8C8C8; height: 0; content: ""; display: block; position: absolute; top: 50%; left: 0; width: 100%; }
 
@@ -115,7 +128,7 @@ form {
 
 		label { display: block; font-size: 16px; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; }
 		input, select, textarea { font-size: 14px; padding: 16px 9px 17px; display: block; width: 100%; }
-		textarea { height: 130px; resize: vertical; }
+		textarea { height: 130px; resize: vertical; padding: 6px 9px; }
 	}
 
 	div.actions {
@@ -123,4 +136,4 @@ form {
 	}
 }
 
-div.inner { position: relative; margin: 0 auto; @include width(12); }
+div.inner { position: relative; margin: 0 auto; width: 960px; }

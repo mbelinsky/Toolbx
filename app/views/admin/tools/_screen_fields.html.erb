@@ -1,0 +1,17 @@
+<li class="screen group">
+	<div class="handle">&varr;</div>
+	<%= f.file_field :screenshot, class: 'screen-file' %>
+
+	<div class="picker">
+		<% if f.object.screenshot.exists? %>
+			<%= image_tag f.object.screenshot.url(:thumb) %>
+			<span class="name"><%= f.object.screenshot_file_name %></span>
+		<% else %>
+			<span class="name">No file chosen</span>
+		<% end %>
+	</div>
+
+	<%= f.hidden_field :_destroy, class: 'destroy' %>
+	<%= f.hidden_field :order, class: 'order' %>
+	<%= link_to '×', '#', class: 'delete' %>
+</li>

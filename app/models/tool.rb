@@ -1,10 +1,21 @@
 class Tool < ActiveRecord::Base
   belongs_to :license
+  has_many :user_tools, dependent: :destroy
   has_many :users, through: :user_tools
-  has_many :screens
-  attr_accessible :app_store_url, :cost, :description, :featured, :github_url, :google_play_url, :name, :site_url, :license_id, :icon
 
-  validates_presence_of :name, :description, :icon, :license
+  has_many :tool_categories, dependent: :destroy
+  has_many :categories, through: :tool_categories
+
+
+  has_many :tool_platforms, dependent: :destroy
+  has_many :platforms, through: :tool_platforms
+
+  has_many :screens, dependent: :destroy, limit: 4, order: 'screens.order ASC', inverse_of: :tool
+  attr_accessible :app_store_url, :cost, :description, :featured, :github_url, :google_play_url, :name, :site_url, :license_id, :icon, :screens_attributes, :platform_ids, :category_ids
+
+  validates_presence_of :name, :description, :icon
+
+  accepts_nested_attributes_for :screens, allow_destroy: true
 
   has_attached_file :icon, styles: { small: "120x120#", thumb: "60x60#" }
   validates_attachment_presence :icon
