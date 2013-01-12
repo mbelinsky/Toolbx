@@ -11,7 +11,46 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130110011008) do
+ActiveRecord::Schema.define(:version => 20130111233023) do
+
+  create_table "article_categories", :force => true do |t|
+    t.integer  "article_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "article_categories", ["article_id"], :name => "index_article_categories_on_article_id"
+  add_index "article_categories", ["category_id"], :name => "index_article_categories_on_category_id"
+
+  create_table "article_images", :force => true do |t|
+    t.integer  "article_id"
+    t.boolean  "featured"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "article_images", ["article_id"], :name => "index_article_images_on_article_id"
+
+  create_table "articles", :force => true do |t|
+    t.string   "title"
+    t.integer  "author_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
+
+  create_table "categories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "cities", :force => true do |t|
     t.string  "name",       :limit => 70
@@ -44,6 +83,12 @@ ActiveRecord::Schema.define(:version => 20130110011008) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "platforms", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "regions", :force => true do |t|
     t.string  "name",       :limit => 35
     t.string  "short_name", :limit => 25
@@ -60,6 +105,26 @@ ActiveRecord::Schema.define(:version => 20130110011008) do
     t.datetime "screenshot_updated_at"
     t.integer  "order"
   end
+
+  create_table "tool_categories", :force => true do |t|
+    t.integer  "tool_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "tool_categories", ["category_id"], :name => "index_tool_categories_on_category_id"
+  add_index "tool_categories", ["tool_id"], :name => "index_tool_categories_on_tool_id"
+
+  create_table "tool_platforms", :force => true do |t|
+    t.integer  "tool_id"
+    t.integer  "platform_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "tool_platforms", ["platform_id"], :name => "index_tool_platforms_on_platform_id"
+  add_index "tool_platforms", ["tool_id"], :name => "index_tool_platforms_on_tool_id"
 
   create_table "tools", :force => true do |t|
     t.string   "name"

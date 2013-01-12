@@ -9,6 +9,7 @@ class Admin::ToolsController < AdminController
   end
 
   def create
+    @page_header = 'Add Tool'
     @tool = Tool.new(params[:tool])
 
     respond_to do |format|
@@ -26,6 +27,7 @@ class Admin::ToolsController < AdminController
   end
 
   def update
+    @page_header = 'Edit Tool'
     @tool = Tool.find(params[:id])
 
     respond_to do |format|

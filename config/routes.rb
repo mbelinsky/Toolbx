@@ -12,6 +12,7 @@ Thetoolbox::Application.routes.draw do
   get 'logout' => 'sessions#destroy', as: 'logout'
   get 'signup' => 'users#new', as: 'signup'
 
+  get 'about' => 'about#index', as: 'about'
   get 'contact' => 'contact#index', as: 'contact'
   get 'privacy' => 'privacy#index', as: 'privacy'
 

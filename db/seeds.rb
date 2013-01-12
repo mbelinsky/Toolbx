@@ -8,6 +8,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Platform.create([
+  {name: "iOS"},
+  {name: "Android"},
+  {name: "Desktop"},
+  {name: "Web"},
+])
+
 Language.create([
   {name: "Antekish"},
   {name: "'Are'are"},

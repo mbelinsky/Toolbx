@@ -17,6 +17,16 @@
 			<%= f.text_field :name %>
 		</div>
 
+		<div class="field full">
+			<%= f.label :category_ids, "Categories" %><br />
+			<%= f.collection_select :category_ids, Category.order(:title), :id, :title, {}, {multiple: true} %>
+		</div>
+
+		<div class="field full">
+			<%= f.label :platform_ids, "Platforms" %><br />
+			<%= f.collection_select :platform_ids, Platform.order(:name), :id, :name, {}, {multiple: true} %>
+		</div>
+
 		<div class="field inline check">
 			<%= f.label :featured %>
 			<%= f.check_box :featured %>
@@ -64,9 +74,23 @@
 
 			<div class="inside">
 				<%= f.file_field :icon %>
-				<%= image_tag @tool.icon.url(:small) %>
+				<%= if @tool.icon.exists? then image_tag @tool.icon.url(:small) end %>
 				<button>Browse</button>
 			</div>
+		</div>
+
+		<div class="field screens">
+			<label>
+				Screenshots
+
+				<%= link_to_add_fields "Add", f, :screens %>
+			</label>
+
+			<ul>
+				<%= f.fields_for :screens do |builder| %>
+					<%= render 'screen_fields', f: builder %>
+				<% end %>
+			</ul>
 		</div>
 	</div>
 
