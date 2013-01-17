@@ -1,0 +1,17 @@
+@import 'mixins';
+
+menu#filter {
+	background: #E55453; @include border-radius(5px); @include width(12); margin-left: 10px; height: 60px;
+
+	ul {
+		list-style: none;
+
+		li {
+			float: left;
+		}
+	}
+}
+
+header#top + menu#filter, menu#filter.docked {
+	@include border-radius(0 0 5px 5px); position: fixed; top: 50px; left: 50%; margin-left: -470px;
+}

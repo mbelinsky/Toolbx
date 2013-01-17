@@ -34,4 +34,14 @@ Thetoolbox::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # Paperclip S3 stuff
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: Settings.s3.bucket,
+      access_key_id: Settings.s3.access_key_id,
+      secret_access_key: Settings.s3.secret_access_key
+    }
+  }
 end

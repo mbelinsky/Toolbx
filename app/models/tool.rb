@@ -3,17 +3,22 @@ class Tool < ActiveRecord::Base
   has_many :user_tools, dependent: :destroy
   has_many :users, through: :user_tools
 
-  has_many :tool_categories, dependent: :destroy
+  has_many :tool_categories, dependent: :destroy, inverse_of: :tool
   has_many :categories, through: :tool_categories
 
 
-  has_many :tool_platforms, dependent: :destroy
+  has_many :tool_platforms, dependent: :destroy, inverse_of: :tool
   has_many :platforms, through: :tool_platforms
 
   has_many :screens, dependent: :destroy, limit: 4, order: 'screens.order ASC', inverse_of: :tool
   attr_accessible :app_store_url, :cost, :description, :featured, :github_url, :google_play_url, :name, :site_url, :license_id, :icon, :screens_attributes, :platform_ids, :category_ids
 
-  validates_presence_of :name, :description, :icon
+  validates_presence_of :name, :description, :icon, :categories, :platforms
+
+  validates_format_of :site_url, with: URI::regexp(%w(http https)), allow_blank: true
+  validates_format_of :app_store_url, with: URI::regexp(%w(http https)), allow_blank: true
+  validates_format_of :google_play_url, with: URI::regexp(%w(http https)), allow_blank: true
+  validates_format_of :github_url, with: URI::regexp(%w(http https)), allow_blank: true
 
   accepts_nested_attributes_for :screens, allow_destroy: true
 
@@ -21,4 +26,20 @@ class Tool < ActiveRecord::Base
   validates_attachment_presence :icon
   validates_attachment_content_type :icon, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
   validates_attachment_size :icon, less_than: 1.megabyte
+
+  def self.search(query)
+    if query
+      where('name like ?', "%#{query}%")
+    else
+      scoped
+    end
+  end
+
+  def self.in_categories(category_ids = nil)
+    if category_ids
+      joins(:tool_categories).where('tool_categories.category_id in (?)', category_ids).group(:id)
+    else
+      scoped
+    end
+  end
 end

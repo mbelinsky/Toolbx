@@ -1,0 +1,49 @@
+<%= form_for @user, url: { action: 'create' }, method: 'post' do |f| %>
+	<% if @user.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+			<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="field full username">
+		<%= f.label :username, "Desired Username" %>
+		<div class="username-mask">thetoolbox.org/users/</div>
+		<%= f.text_field :username %>
+	</div>
+	<div class="field inline">
+		<%= f.label :first_name, "First Name" %>
+		<%= f.text_field :first_name %>
+	</div>
+	<div class="field inline last">
+		<%= f.label :last_name, "Last Name" %>
+		<%= f.text_field :last_name %>
+	</div>
+	<div class="field full">
+		<%= f.label :email, "Email" %>
+		<%= f.text_field :email %>
+	</div>
+	<div class="field inline">
+		<%= f.label :password, "Password" %>
+		<%= f.password_field :password %>
+	</div>
+	<div class="field inline last">
+		<%= f.label :password_confirmation, "Password Again" %>
+		<%= f.password_field :password_confirmation %>
+	</div>
+
+	<%# f.hidden_field :mixpanel_id %>
+
+	<div class="actions">
+		<%= f.submit "Sign Up", class: "submit button" %>
+
+		<div class="sign-up">
+			<em>Have an account?</em> <%= link_to "Log in", login_path %>
+		</div>
+	</div>
+<% end %>

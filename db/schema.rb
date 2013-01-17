@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130111233023) do
+ActiveRecord::Schema.define(:version => 20130117183404) do
 
   create_table "article_categories", :force => true do |t|
     t.integer  "article_id"
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(:version => 20130111233023) do
     t.string   "icon_content_type"
     t.integer  "icon_file_size"
     t.datetime "icon_updated_at"
+    t.integer  "users_count",                                     :default => 0
   end
 
   add_index "tools", ["license_id"], :name => "index_tools_on_license_id"
@@ -167,15 +168,14 @@ ActiveRecord::Schema.define(:version => 20130111233023) do
   add_index "user_tools", ["user_id"], :name => "index_user_tools_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "surname"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "facebook_username"
     t.string   "twitter_username"
     t.string   "linkedin_username"
     t.string   "website_url"
-    t.integer  "sector_cd"
     t.text     "description"
     t.integer  "city_id"
     t.datetime "created_at",                                      :null => false
@@ -184,12 +184,13 @@ ActiveRecord::Schema.define(:version => 20130111233023) do
     t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
-    t.string   "type"
     t.string   "toolbox_auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.datetime "last_login"
     t.boolean  "admin",                        :default => false
+    t.string   "username"
+    t.integer  "tools_count",                  :default => 0
   end
 
   add_index "users", ["city_id"], :name => "index_users_on_city_id"

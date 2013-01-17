@@ -15,6 +15,18 @@ Platform.create([
   {name: "Web"},
 ])
 
+Category.create([
+  {title: "Activism"},
+  {title: "Education"},
+  {title: "Environment"},
+  {title: "Governance"},
+  {title: "Health"},
+  {title: "Relief"},
+  {title: "Social Enterprise"},
+  # {title: "Media"},
+  # {title: "Philanthropy"}
+])
+
 Language.create([
   {name: "Antekish"},
   {name: "'Are'are"},

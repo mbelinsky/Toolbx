@@ -4,4 +4,6 @@ class UserLanguage < ActiveRecord::Base
 
   validates_presence_of :user
   validates_presence_of :language
+
+  validates_uniqueness_of :user_id, scope: :language_id
 end

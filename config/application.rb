@@ -55,6 +55,7 @@ module Thetoolbox
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
@@ -68,17 +69,17 @@ module Thetoolbox
         controller_specs: true,
         request_specs: true
       g.fixture_replacement :factory_girl, dir: "spec/factories"
-
-      ActionMailer::Base.default :from => 'The Toolbox <support@thetoolbox.org>'
-      ActionMailer::Base.smtp_settings = {
-        user_name: 'toolbox',
-        password: '1sdado345',
-        domain: 'thetoolbox.org',
-        address: 'smtp.sendgrid.net',
-        port: 587,
-        authentication: :plain,
-        enable_starttls_auto: true
-      }
     end
+
+    ActionMailer::Base.default :from => 'The Toolbox <support@thetoolbox.org>'
+    ActionMailer::Base.smtp_settings = {
+      user_name: 'toolbox',
+      password: '1sdado345',
+      domain: 'thetoolbox.org',
+      address: 'smtp.sendgrid.net',
+      port: 587,
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
   end
 end

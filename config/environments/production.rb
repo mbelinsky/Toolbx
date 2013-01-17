@@ -63,4 +63,14 @@ Thetoolbox::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # Paperclip S3 stuff
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: Settings.s3.bucket,
+      access_key_id: Settings.s3.access_key_id,
+      secret_access_key: Settings.s3.secret_access_key
+    }
+  }
 end

@@ -28,6 +28,7 @@ Thetoolbox::Application.routes.draw do
     get 'page/:page', action: :index, on: :collection
   end
 
+  match '/admin' => redirect('/admin/tools')
   namespace :admin do
     resources :tools do
       get 'page/:page', action: :index, on: :collection
