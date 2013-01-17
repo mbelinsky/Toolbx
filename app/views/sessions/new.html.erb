@@ -2,16 +2,16 @@
 
 <%= form_tag sessions_path do %>
 	<div class="field">
-		<label for="email">Email</label>
-		<%= text_field_tag :email, params[:email] %>
+		<label for="email">Username or Email</label>
+		<%= text_field_tag :email_or_username, params[:email_or_username] %>
 	</div>
 	<div class="field">
-		<label for="password">Password <%= link_to "forgot?", new_password_reset_path %></label>
+		<label for="password">Password <%= link_to "forgot?", new_password_reset_path, tabindex: -1 %></label>
 		<%= password_field_tag :password %>
 	</div>
 
-	<p class="button"><%= submit_tag "Log In", class: "submit button" %></p>
+	<%= submit_tag "Log In", class: "submit button" %>
 	<div class="sign-up">
-		New? <%= link_to "Sign up now", signup_path %>
+		<em>New?</em> <%= link_to "Sign up now", signup_path %>
 	</div>
 <% end %>

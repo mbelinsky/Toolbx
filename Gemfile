@@ -49,6 +49,7 @@ gem 'thin'
 
 # Paperclip for imagey stuff
 gem 'paperclip'
+gem 'aws-sdk'
 
 # simple_enum
 gem 'simple_enum'
@@ -78,3 +79,6 @@ end
 
 # Kaminari for pagination
 gem 'kaminari'
+
+# rails_config for global Settings object
+gem 'rails_config'

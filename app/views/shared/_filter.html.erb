@@ -1,0 +1,20 @@
+<% categories = Category.all %>
+<% docked ||= false %>
+<menu id="filter" class="<%= 'docked' if docked %>">
+	<form action="">
+		<ul>
+			<% categories.each do |category| %>
+				<% checked = params[:category_ids] && params[:category_ids].include?(category.id.to_s) %>
+				<li><label><%= check_box_tag 'category_ids[]', category.id, checked %> <%= category.title %></label></li>
+			<% end %>
+		</ul>
+
+		<input name="keyword" value="<%= params[:keyword] %>" placeholder="Filter by keyword">
+
+		<select name="order">
+			<% @orders.each do |order, val| %>
+				<option <%= 'selected' if params[:order] == order %>><%= order %></option>
+			<% end %>
+		</select>
+	</form>
+</menu>

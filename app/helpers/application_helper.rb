@@ -1,6 +1,6 @@
 module ApplicationHelper
   def cp(path)
-    'current' if request.env['PATH_INFO'].include? path
+    'current' if request.env['PATH_INFO'].start_with? path
   end
 
   def link_to_add_fields(name, f, association)

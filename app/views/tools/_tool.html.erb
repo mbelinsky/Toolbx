@@ -11,10 +11,12 @@
 				<h3><%= tool.name %></h3>
 				<ul class="categories">
 					<% tool.categories.each do |category| %>
-						<li><%= category.name %></li>
+						<li><%= category.title %></li>
 					<% end %>
 				</ul>
 			</div>
 		</div>
+
+		<%= tool.users_count %>
 	<% end %>
 </li>

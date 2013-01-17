@@ -18,8 +18,9 @@ li.tool {
 				list-style: none; color: #B0B0B0; font-size: 13px; font-style: italic;
 
 				li {
-					&:after { content: ", "; }
+					margin: 0;
 
+					&:after { content: ", "; }
 					&:last-child:after { content: ""; }
 				}
 			}

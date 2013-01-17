@@ -5,8 +5,9 @@ class SessionsController < ApplicationController
 
   end
 
+
   def create
-    user = User.find_by_email(params[:email])
+    user = User.find_by_email(params[:email_or_username]) || User.find_by_username(params[:email_or_username])
 
     if user && user.authenticate(params[:password])
       cookies.permanent[:toolbox_auth_token] = user.toolbox_auth_token
@@ -18,6 +19,7 @@ class SessionsController < ApplicationController
       redirect_to "/login"
     end
   end
+
 
   def destroy
     cookies.delete(:toolbox_auth_token)

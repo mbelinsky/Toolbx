@@ -2,8 +2,13 @@
 
 html.users.new, html.users.create {
 	div#signup-container {
-		@include width(8);
+		@include width(8); margin-left: 10px;
 
-		form#new_organization { display: none; }
+		div.field.username {
+			position: relative;
+
+			div.username-mask { font-style: italic; position: absolute; top: 42px; left: 18px; pointer-events: none; }
+			input { padding-left: 151px; }
+		}
 	}
 }
