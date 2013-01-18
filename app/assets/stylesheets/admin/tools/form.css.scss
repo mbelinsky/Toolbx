@@ -12,12 +12,19 @@ html.admin.tools.new, html.admin.tools.create, html.admin.tools.edit, html.admin
 			float: right; @include width(4);
 
 			div.icon {
-				div.inside {
-					width: 140px; height: 140px; background: #fff; position: relative;
+				div.icon-inner {
+					width: 140px; height: 140px; padding: 8px; background: #fff; border: 2px solid #D9D8D4; @include border-radius(6px);
 
-					img { position: absolute; top: 10px; left: 10px; }
-					input { display: none; }
-					button { position: absolute; display: block; top: 50%; left: 50%; margin-top: -13px; margin-left: -45px; width: 90px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+					div.inside {
+						width: 120px; height: 120px; background: #F2F1ED; position: relative; @include border-radius(3px);
+
+						img { position: absolute; top: 0; left: 0; @include border-radius(3px); }
+						input { display: none; }
+						button {
+							position: absolute; display: block; top: 50%; left: 50%; margin-top: -13px; margin-left: -45px; width: 90px; background: #BFBDB6; padding: 6px 9px;
+							span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; width: 100%; }
+						}
+					}
 				}
 			}
 

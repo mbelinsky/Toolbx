@@ -1,14 +1,85 @@
 @import 'mixins';
 
 menu#filter {
-	background: #E55453; @include border-radius(5px); @include width(12); margin-left: 10px; height: 60px;
+	background: #E55453; @include border-radius(5px); @include width(12); margin: 0 0 10px 10px; height: 60px;
+
+	select.category-select { display: none; }
+
+	input::-webkit-input-placeholder { color: #fff; }
+	input::-moz-placeholder { color: #fff; }
 
 	ul {
-		list-style: none;
+		list-style: none; float: left;
 
 		li {
-			float: left;
+			float: left; background: url("/assets/category-icons.png"); width: 40px; height: 40px; margin: 10px 0 0 10px;
+
+			&:hover { cursor: pointer; }
+
+			&.activism {
+				background-position: 0 -80px;
+
+				&.active { background-position: 0 0; }
+				&:hover { background-position: 0 -40px; }
+				&.active:hover { background-position: 0 -840px; }
+			}
+			&.education {
+				background-position: 0 -200px;
+
+				&.active { background-position: 0 -120px; }
+				&:hover { background-position: 0 -160px; }
+				&.active:hover { background-position: 0 -880px; }
+			}
+			&.environment {
+				background-position: 0 -320px;
+
+				&.active { background-position: 0 -240px; }
+				&:hover { background-position: 0 -280px; }
+				&.active:hover { background-position: 0 -920px; }
+			}
+			&.governance {
+				background-position: 0 -440px;
+
+				&.active { background-position: 0 -360px; }
+				&:hover { background-position: 0 -400px; }
+				&.active:hover { background-position: 0 -960px; }
+			}
+			&.health {
+				background-position: 0 -560px;
+
+				&.active { background-position: 0 -480px; }
+				&:hover { background-position: 0 -520px; }
+				&.active:hover { background-position: 0 -1000px; }
+			}
+			&.relief {
+				background-position: 0 -680px;
+
+				&.active { background-position: 0 -600px; }
+				&:hover { background-position: 0 -640px; }
+				&.active:hover { background-position: 0 -1040px; }
+			}
+			&.social-enterprise {
+				background-position: 0 -800px;
+
+				&.active { background-position: 0 -720px; }
+				&:hover { background-position: 0 -760px; }
+				&.active:hover { background-position: 0 -1080px; }
+			}
 		}
+	}
+
+	input.keyword {
+		background: #A43B3B url("/assets/keyword-icon.png") 335px 12px no-repeat; color: #fff; font-size: 13px; height: 40px; @include border-radius(3px); padding: 6px 33px 6px 12px; display: block; width: 360px; float: left; margin: 10px 0 0 10px;
+
+		&:focus { background-color: #732827; outline: 0; }
+	}
+
+	div.select-container {
+		position: relative; width: 200px; margin: 10px 0 0 10px; float: left;
+
+		div.trigger { background: #A43B3B url("/assets/order-trigger.png") 180px 18px no-repeat; float: left; color: #fff; font-size: 13px; padding: 11px 33px 1px 12px; height: 40px; @include border-radius(3px); cursor: pointer; width: 100%; }
+
+		select:focus + div.trigger { background-color: #732827; }
 	}
 }
 

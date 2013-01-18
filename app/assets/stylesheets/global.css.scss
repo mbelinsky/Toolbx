@@ -92,10 +92,16 @@ ul.items {
 	&.filter-docked { padding-top: 60px; }
 
 	li {
-		margin: 10px;
+		margin: 10px; @include border-radius(4px); @include box-shadow(0 1px rgba(0, 0, 0, 0.1));
 
 		&.link {
-			@include width(4); float: left; background: #DCDCDC; height: $cols4;
+			@include width(4); float: left; background: #fff; height: $cols4; text-align: center;
+
+			a {
+				background: #F2F1ED; color: #A6A5A3; font-size: 13px; text-transform: uppercase; text-decoration: none; padding: 6px 12px 6px 27px; @include border-radius(30px); display: inline-block; margin-top: 135px; text-align: right; position: relative;
+
+				&:before { content: ""; display: block; position: absolute; top: 10px; left: 11px; width: 12px; height: 12px; background: url("/assets/add.png");  }
+			}
 		}
 	}
 }
@@ -143,14 +149,27 @@ form {
 		&.check { width: 200px; }
 		&.inline { float: left; }
 
-		label { display: block; font-size: 16px; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; }
-		input, select, textarea { font-size: 14px; padding: 16px 9px 17px; display: block; width: 100%; }
+		label { display: block; font-size: 16px; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; color: #5C5C54; }
+		input, select, textarea {
+			font-size: 16px; color: #5C5C54; padding: 12px 9px; display: block; width: 100%; border: 2px solid #D9D8D4; @include border-radius(6px);
+
+			&:focus { outline: 0; border-color: #807E77; }
+		}
 		textarea { height: 130px; resize: vertical; padding: 6px 9px; }
 	}
 
 	div.actions {
 		clear: both;
 	}
+}
+
+div.select-container {
+	position: relative; height: 50px; @include width(4);
+
+	select { display: block; width: 100%; height: 100%; @include opacity(0); position: absolute; top: 0; left: 0; }
+	div.trigger { background: #fff url("/assets/select-trigger.png") 268px 18px no-repeat; color: #BFBDB6; font-size: 16px; padding: 11px 33px 1px 12px; height: 100%; @include border-radius(3px); cursor: pointer; width: 100%; }
+
+	select:focus + div.trigger { background-color: #BFBDB6; }
 }
 
 div.inner { position: relative; margin: 0 auto; width: 960px; }

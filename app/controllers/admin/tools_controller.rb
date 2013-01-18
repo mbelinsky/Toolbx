@@ -41,4 +41,14 @@ class Admin::ToolsController < AdminController
       end
     end
   end
+
+  def destroy
+    @tool = Tool.find(params[:id])
+
+    @tool.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_tools_path, notice: "#{@tool.name} has been deleted." }
+    end
+  end
 end
