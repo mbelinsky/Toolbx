@@ -10,9 +10,7 @@ if $('html').is('.admin.tools.edit, .admin.tools.update, .admin.tools.new, .admi
 		$('#tool_icon').on 'change', (e) ->
 			val = $(this).val()
 
-			iconTrigger.css(
-				padding: '6px 3px'
-			).html(val.substr(val.lastIndexOf('\\') + 1))
+			iconTrigger.find('span').text(val.substr(val.lastIndexOf('\\') + 1))
 
 		# Chosen Selects
 		$('#tool_license_id').chosen()

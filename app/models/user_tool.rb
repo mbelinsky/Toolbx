@@ -1,6 +1,6 @@
 class UserTool < ActiveRecord::Base
-  belongs_to :user, counter_cache: true
-  belongs_to :tool, counter_cache: true
+  belongs_to :user, counter_cache: :tools_count
+  belongs_to :tool, counter_cache: :users_count
 
   attr_accessible :user, :tool
 

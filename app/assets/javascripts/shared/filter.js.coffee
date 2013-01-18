@@ -3,9 +3,35 @@ $(document).ready ->
 		filter = $('#filter')
 		filterForm = filter.find('form')
 
+		# Actual Filtering
 		filterForm.on 'change', ->
 			filterForm.submit()
 
+		# Category Switching
+		filter.find('.categories').on 'click', 'li', ->
+			el = $(this)
+
+			el.toggleClass 'active'
+
+			cs = filter.find('.category-select');
+
+			cs.find("option[value=\"#{el.data('category-id')}\"]").prop 'selected', el.hasClass('active')
+			cs.trigger('change')
+
+		# Sorting
+		selectContainer = $('.select-container')
+		selectTrigger = selectContainer.find('.trigger')
+		select = selectContainer.find('select')
+
+		updateSelectTriggerText = ->
+			console.log select.val()
+			selectTrigger.html select.val()
+		updateSelectTriggerText()
+
+		select.on 'change', ->
+			updateSelectTriggerText()
+
+		# Docking
 		if filter.hasClass 'docked'
 			$('#top').addClass 'filter-docked'
 		else
