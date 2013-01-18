@@ -12,16 +12,18 @@ li.tool {
 		div.right {
 			float: left; padding-left: 10px; width: 220px;
 
-			h3 { font-weight: 600; color: #7D7D7D; font-size: 18px; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+			h3 a { font-weight: 600; color: #5C5C54; font-size: 22px; text-decoration: none; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 			ul.categories {
-				list-style: none; color: #B0B0B0; font-size: 13px; font-style: italic;
+				list-style: none; font-size: 13px; font-style: italic;
 
 				li {
-					margin: 0;
+					margin: 0; float: left; padding-right: 4px;
 
-					&:after { content: ", "; }
+					&:after { content: ", "; color: #E65453; }
 					&:last-child:after { content: ""; }
+
+					a { color: #E65453; text-decoration: none; }
 				}
 			}
 		}

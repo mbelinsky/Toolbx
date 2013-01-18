@@ -1,22 +1,24 @@
 <% path ||= tool_path(tool) %>
 
 <li class="tool">
-	<%= link_to path do %>
-		<div class="banner">
+	<div class="banner">
+		<%= link_to path do %>
 			<%= if tool.screens.count > 0 then image_tag tool.screens.first.screenshot.url(:banner) end %>
-		</div>
-		<div class="meta group">
+		<% end %>
+	</div>
+	<div class="meta group">
+		<%= link_to path do %>
 			<%= image_tag tool.icon.url(:thumb), class: 'icon' %>
-			<div class="right">
-				<h3><%= tool.name %></h3>
-				<ul class="categories">
-					<% tool.categories.each do |category| %>
-						<li><%= category.title %></li>
-					<% end %>
-				</ul>
-			</div>
+		<% end %>
+		<div class="right">
+			<h3><%= link_to tool.name, path %></h3>
+			<ul class="categories">
+				<% tool.categories.each do |category| %>
+					<li><%= link_to category.title, tools_path(params: {category_ids: [category.id]}) %></li>
+				<% end %>
+			</ul>
 		</div>
+	</div>
 
-		<%= tool.users_count %>
-	<% end %>
+	<%= tool.users_count %>
 </li>

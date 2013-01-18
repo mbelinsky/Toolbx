@@ -91,7 +91,7 @@ ul.items {
 
 	&.filter-docked { padding-top: 60px; }
 
-	li {
+	> li {
 		margin: 10px; @include border-radius(4px); @include box-shadow(0 1px rgba(0, 0, 0, 0.1));
 
 		&.link {
@@ -132,11 +132,9 @@ h1.strike {
 }
 
 button, .button {
-	background: #4C4C4C; font-size: 12px; color: #fff; padding: 6px 18px; @include border-radius(30px); font-weight: 600; text-transform: uppercase; cursor: pointer;
+	background: #BFBDB6; font-size: 12px; color: #fff; padding: 6px 18px; @include border-radius(30px); font-weight: 600; text-transform: uppercase; cursor: pointer;
 
-	&.submit {
-		background: #7D7D7D; font-size: 16px; padding: 9px 30px;
-	}
+	&.submit { background: #E55453; font-size: 16px; padding: 9px 24px; }
 }
 
 form {
