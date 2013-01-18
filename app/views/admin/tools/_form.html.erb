@@ -11,7 +11,7 @@
 		</div>
 	<% end %>
 
-	<div class="left">
+	<div class="left group">
 		<div class="field full">
 			<%= f.label :name %>
 			<%= f.text_field :name %>
@@ -29,7 +29,14 @@
 
 		<div class="field inline check">
 			<%= f.label :featured %>
-			<%= f.check_box :featured %>
+			<div class="slider-checkbox">
+				<%= f.check_box :featured %>
+				<div class="slider group">
+					<span class="on">Yes</span>
+					<div class="selected-item"></div>
+					<span class="off">No</span>
+				</div>
+			</div>
 		</div>
 
 		<div class="field inline tiny">
@@ -68,7 +75,7 @@
 		</div>
 	</div>
 
-	<div class="right">
+	<div class="right group">
 		<div class="field icon">
 			<%= f.label :icon %>
 
@@ -88,15 +95,17 @@
 				<%= link_to_add_fields "Add", f, :screens %>
 			</label>
 
-			<ul>
-				<%= f.fields_for :screens do |builder| %>
-					<%= render 'screen_fields', f: builder %>
-				<% end %>
-			</ul>
+			<div class="screens-inner">
+				<ul>
+					<%= f.fields_for :screens do |builder| %>
+						<%= render 'screen_fields', f: builder %>
+					<% end %>
+				</ul>
+			</div>
 		</div>
 	</div>
 
-	<div class="actions">
+	<div class="actions group">
 		<%= f.submit @tool.new_record? ? "Add Tool" : "Update Tool", class: "submit button" %>
 		<%= link_to "View Tool", admin_tool_path(@tool), class: 'view button', method: :delete, confirm: "Are you sure you want to permanently delete #{@tool.name}?" unless @tool.new_record? %>
 		<%= link_to "Delete Tool", admin_tool_path(@tool), class: 'delete', method: :delete, confirm: "Are you sure you want to permanently delete #{@tool.name}?" unless @tool.new_record? %>

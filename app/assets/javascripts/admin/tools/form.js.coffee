@@ -12,6 +12,10 @@ if $('html').is('.admin.tools.edit, .admin.tools.update, .admin.tools.new, .admi
 
 			iconTrigger.find('span').text(val.substr(val.lastIndexOf('\\') + 1))
 
+		# Slider Checkboxes!
+		$('.slider-checkbox').sliderCheckbox
+			offLeft: -65
+
 		# Chosen Selects
 		$('#tool_license_id').chosen()
 		$('#tool_platform_ids').chosen()
@@ -31,6 +35,7 @@ if $('html').is('.admin.tools.edit, .admin.tools.update, .admin.tools.new, .admi
 
 		# Reordering Screenshots
 		screensContainer.sortable
+			containment: $('.screens-inner')
 			distance: 5
 			update: ->
 				# Update screens order after dragging.

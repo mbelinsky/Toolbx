@@ -21,7 +21,8 @@ html.admin.tools.new, html.admin.tools.create, html.admin.tools.edit, html.admin
 						img { position: absolute; top: 0; left: 0; @include border-radius(3px); }
 						input { display: none; }
 						button {
-							position: absolute; display: block; top: 50%; left: 50%; margin-top: -13px; margin-left: -45px; width: 90px; background: #BFBDB6; padding: 6px 9px;
+							position: absolute; display: block; top: 50%; left: 50%; margin-top: -13px; margin-left: -45px; width: 90px; background: #BFBDB6; padding: 6px 9px; font-size: 12px;
+
 							span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; width: 100%; }
 						}
 					}
@@ -29,28 +30,43 @@ html.admin.tools.new, html.admin.tools.create, html.admin.tools.edit, html.admin
 			}
 
 			div.screens {
-				ul {
-					list-style: none; background: #fff; padding: 5px;
+				label {
+					a { color: #E65453; font-weight: normal; font-size: 14px; float: right; text-decoration: none; text-transform: none; }
+				}
 
-					li {
-						margin: 5px; background: #F0F0F0; position: relative; height: 50px; cursor: pointer;
+				div.screens-inner {
+					border: 2px solid #D9D8D4; @include border-radius(6px); background: #fff;
 
-						div.handle { position: absolute; top: 0; left: 0; text-align: center; padding-top: 12px; font-size: 24px; width: 30px; height: 100%; cursor: move; }
-						div.picker {
-							float: left;  width: 220px; margin: 10px 0 0 30px;
+					ul {
+						list-style: none; padding: 5px;
 
-							img { @include border-radius(3px); float: left; display: block; }
-							span.name { font-size: 12px; color: #646464; float: left; overflow: hidden; width: 100%; white-space: nowrap; text-overflow: ellipsis; margin-top: 8px; }
-							img + span.name { width: 180px; margin-left: 9px; }
+						li {
+							margin: 5px; background: #F2F1ED; position: relative; height: 50px; cursor: pointer; @include border-radius(3px);
+
+							div.handle { position: absolute; top: 0; left: 0; text-align: center; background: url("/assets/drag.png") no-repeat center center; width: 30px; height: 100%; cursor: move; }
+							div.picker {
+								float: left;  width: 220px; margin: 10px 0 0 30px;
+
+								img { @include border-radius(3px); float: left; display: block; }
+								span.name { font-size: 12px; color: #646464; float: left; overflow: hidden; width: 100%; white-space: nowrap; text-overflow: ellipsis; margin-top: 7px; }
+								img + span.name { width: 180px; margin-left: 9px; }
+							}
+							a.delete { display: block; position: absolute; color: #BFBDB6; text-decoration: none; font-weight: bold; font-size: 24px; top: 50%; margin-top: -17px; right: 10px; }
+
+
+
+							input[type="file"] { display: none; }
 						}
-						a.delete { display: block; position: absolute; color: #C2C2C2; text-decoration: none; font-weight: bold; font-size: 21px; top: 50%; margin-top: -12px; right: 10px; }
-
-
-
-						input[type="file"] { display: none; }
 					}
 				}
 			}
+		}
+
+		div.actions {
+			padding-top: 22px;
+
+			a, input { display: block; float: left; margin-right: 10px; }
+			a.delete { color: #E65453; margin: 10px 0 0 10px; text-decoration: none; }
 		}
 	}
 }
