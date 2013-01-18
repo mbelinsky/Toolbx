@@ -3,7 +3,13 @@
 li.tool {
 	list-style: none; background: #fff; @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.1)); @include width(4); float: left; height: $cols4;
 
-	div.banner { height: 180px; background: #DCDCDC; }
+	div.banner {
+		height: 180px; background: #DCDCDC; position: relative;
+
+		a:after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; @include box-shadow(inset 0 0 0 1px rgba(0, 0, 0, 0.12)); @include border-radius(4px 4px 0 0); }
+
+		img { @include border-radius(4px 4px 0 0); }
+	}
 
 	div.meta {
 		padding: 10px;

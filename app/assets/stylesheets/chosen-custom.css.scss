@@ -34,7 +34,7 @@ div.chzn-container, div.chzn-container-multi {
 	&.chzn-container-active a.chzn-single { border-color: #807E77; }
 
 	a.chzn-single {
-		height: 50px; padding-top: 12px; border: 2px solid #D9D8D4; @include border-radius(6px); background: #fff; @include box-shadow(none);
+		height: 50px; padding-top: 11px; border: 2px solid #D9D8D4; @include border-radius(6px); background: #fff; @include box-shadow(none);
 
 		span { font-size: 16px; color: #5C5C54; }
 
