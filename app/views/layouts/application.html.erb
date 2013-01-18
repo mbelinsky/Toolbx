@@ -22,7 +22,7 @@
 									<% if current_user.admin %>
 										<li><%= link_to 'Admin', admin_tools_path, class: cp(admin_tools_path) %></li>
 									<% end %>
-									<li><a href="#">P</a></li>
+									<li><%= link_to edit_user_path current_user do %><%= image_tag current_user.profile_picture.url(:thumb) %><% end %></li>
 								<% else %>
 									<li><%= link_to 'Login', login_path, class: cp(login_path) %></li>
 								<% end %>

@@ -18,12 +18,12 @@
 		</div>
 
 		<div class="field full">
-			<%= f.label :category_ids, "Categories" %><br />
+			<%= f.label :category_ids, "Categories" %>
 			<%= f.collection_select :category_ids, Category.order(:title), :id, :title, {}, {multiple: true} %>
 		</div>
 
 		<div class="field full">
-			<%= f.label :platform_ids, "Platforms" %><br />
+			<%= f.label :platform_ids, "Platforms" %>
 			<%= f.collection_select :platform_ids, Platform.order(:name), :id, :name, {}, {multiple: true} %>
 		</div>
 
@@ -98,6 +98,7 @@
 
 	<div class="actions">
 		<%= f.submit @tool.new_record? ? "Add Tool" : "Update Tool", class: "submit button" %>
+		<%= link_to "View Tool", admin_tool_path(@tool), class: 'view button', method: :delete, confirm: "Are you sure you want to permanently delete #{@tool.name}?" unless @tool.new_record? %>
 		<%= link_to "Delete Tool", admin_tool_path(@tool), class: 'delete', method: :delete, confirm: "Are you sure you want to permanently delete #{@tool.name}?" unless @tool.new_record? %>
 	</div>
 <% end %>

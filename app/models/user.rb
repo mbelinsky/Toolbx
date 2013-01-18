@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
   before_create { generate_token(:toolbox_auth_token) }
 
-  has_attached_file :profile_picture, styles: { medium: "140x140>", small: "60x60>", thumb: "30x30>" }
+  has_attached_file :profile_picture, styles: { medium: "140x140>", small: "60x60>", thumb: "30x30>" }, default_url: 'profile-default/missing_:style.png'
   validates_attachment_content_type :profile_picture, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
   validates_attachment_size :profile_picture, less_than: 1.megabyte
 
