@@ -15,21 +15,6 @@ img::selection { background: transparent; }
 img::-moz-selection { background: transparent; }
 body { -webkit-tap-highlight-color: rgba(255,0,0, 0.62); }
 
-/*
-Sticky Footer Solution
-by Steve Hatcher
-http://stever.ca
-http://www.cssstickyfooter.com
-*/
-html, body { height: 100%; }
-div.wrap-outer {
-	min-height: 100%;
-
-	div.wrap-inner { padding-top: 50px; overflow: auto; padding-bottom: 120px; }
-}
-
-footer#bottom { position: relative; margin-top: -50px; clear: both; overflow: hidden; }
-
 
 /* Clearfix: */
 .group:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
@@ -41,18 +26,14 @@ footer#bottom { position: relative; margin-top: -50px; clear: both; overflow: hi
 // End resets and stuff.
 body { background: #F2F1ED; font-size: 14px; color: #7D7D7D; }
 
-header#top, footer#bottom {
-	color: #fff; height: 50px;
+.din { @include din; }
+
+header#top {
+	position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; background: #282823; color: #fff; height: 50px;
 
 	a { color: #fff; text-decoration: none; }
 
 	menu { list-style: none; }
-}
-
-.din { @include din; }
-
-header#top {
-	position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; background: #282823;
 
 	div.inner { padding: 0 10px; }
 	h6 {
@@ -82,14 +63,23 @@ header#top {
 	&.filter-docked nav ul li a.current:after { background-position: bottom; }
 }
 
-footer#bottom {
-	background: #3E3E39; font-size: 11px;
-}
+div.wrap-inner { padding: 50px 0; }
 
 ul.items {
 	list-style: none;
 
-	&.filter-docked { padding-top: 60px; }
+	&.filter-docked { padding-top: 70px; }
+
+	.action-icon {
+		background: url("/assets/item-icons.png"); width: 16px; height: 16px; text-indent: -9999px;
+
+		&.android { background-position: 0 0; }
+		&.desktop { background-position: -16px 0; }
+		&.favorite { background-position: -32px 0; }
+		&.ios { background-position: -48px 0; }
+		&.toolbox { background-position: -64px 0; }
+		&.web { background-position: -80px 0; }
+	}
 
 	> li {
 		margin: 10px; @include border-radius(4px); @include box-shadow(0 1px rgba(0, 0, 0, 0.1));
@@ -98,9 +88,13 @@ ul.items {
 			@include width(4); float: left; background: #fff; height: $cols4; text-align: center;
 
 			a {
-				background: #F2F1ED; color: #A6A5A3; font-size: 13px; text-transform: uppercase; text-decoration: none; padding: 6px 12px 6px 27px; @include border-radius(30px); display: inline-block; margin-top: 135px; text-align: right; position: relative;
+				display: block; width: 100%; height: 100%;
 
-				&:before { content: ""; display: block; position: absolute; top: 10px; left: 11px; width: 12px; height: 12px; background: url("/assets/add.png");  }
+				span {
+					background: #F2F1ED; color: #A6A5A3; font-size: 13px; text-transform: uppercase; text-decoration: none; padding: 6px 12px 6px 27px; @include border-radius(30px); display: inline-block; margin-top: 135px; text-align: right; position: relative;
+
+					&:before { content: ""; display: block; position: absolute; top: 10px; left: 11px; width: 12px; height: 12px; background: url("/assets/add.png"); }
+				}
 			}
 		}
 	}

@@ -4,6 +4,7 @@
 	<div class="banner">
 		<%= link_to path do %>
 			<%= if tool.screens.count > 0 then image_tag tool.screens.first.screenshot.url(:banner) end %>
+			<%= if tool.screens.count > 0 then image_tag tool.screens.first.screenshot.url(:desat_banner), class: 'desat' end %>
 		<% end %>
 	</div>
 	<div class="meta group">
@@ -18,7 +19,23 @@
 				<% end %>
 			</ul>
 		</div>
-	</div>
+		<div class="bottom">
+			<div class="bubble add-tool">
+				<%= link_to root_path, class: 'group' do %>
+					<div class="action-icon toolbox"></div>
+					<span><%= tool.users_count %></span>
+				<% end %>
+			</div>
 
-	<%= tool.users_count %>
+			<ul class="bubble platforms">
+				<% tool.platforms.each do |platform| %>
+					<li>
+						<%= link_to root_path, class: 'group' do %>
+							<div class="action-icon <%= platform.name.parameterize %>"><%= platform.name %></div>
+						<% end %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
 </li>

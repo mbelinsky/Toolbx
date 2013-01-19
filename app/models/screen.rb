@@ -4,7 +4,7 @@ class Screen < ActiveRecord::Base
 
   attr_accessible :screenshot, :order
 
-  has_attached_file :screenshot, styles: { banner: "300x180#", small_square: "130x130#", thumb: "30x30#" }
+  has_attached_file :screenshot, styles: { desat_banner: "300x180#", banner: "300x180#", small_square: "130x130#", thumb: "30x30#" }, convert_options: { desat_banner: "-set option:modulate:colorspace hsb -modulate 75,50" }
   validates_attachment_presence :screenshot
   validates_attachment_content_type :screenshot, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
   validates_attachment_size :screenshot, less_than: 2.megabytes

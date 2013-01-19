@@ -1,7 +1,7 @@
 @import 'mixins';
 
 menu#filter {
-	background: #E55453; @include border-radius(5px); @include width(12); margin: 0 0 10px 10px; height: 60px;
+	background: #E55453; @include border-radius(5px); @include width(12); margin: 0 0 10px 10px; height: 60px; z-index: 50;
 
 	select.category-select { display: none; }
 

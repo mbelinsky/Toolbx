@@ -1,0 +1,70 @@
+html.has-footer {
+	/*
+	Sticky Footer Solution
+	by Steve Hatcher
+	http://stever.ca
+	http://www.cssstickyfooter.com
+	*/
+	height: 100%;
+
+	body { height: 100%; }
+	div.wrap-outer {
+		min-height: 100%;
+
+		div.wrap-inner { overflow: auto; padding-bottom: 260px; }
+	}
+
+	footer#bottom {
+		color: #BFBDB6; height: 210px; background: #282823; font-size: 11px; position: relative; margin-top: -210px; clear: both; overflow: hidden;
+
+		a {
+			color: #BFBDB6; text-decoration: none;
+
+			&:hover { color: #fff; }
+		}
+
+		div.top {
+			padding: 24px 0 18px;
+
+			nav {
+				float: left; margin-right: 60px;
+
+				h6 { font-size: 13px; color: #fff; text-transform: uppercase; margin-bottom: 12px; }
+
+				&.social {
+					ul {
+						li {
+							float: left; margin-right: 10px;
+
+							a {
+								background: url("/assets/social-icons.png"); width: 48px; height: 48px; text-indent: -9999px; display: block;
+
+								&.facebook { background-position: 0 0; }
+								&.google-plus { background-position: 0 -48px; }
+								&.linkedin { background-position: 0 -96px; }
+								&.pinterest { background-position: 0 -144px; }
+								&.stumbleupon { background-position: 0 -192px; }
+								&.twitter { background-position: 0 -240px; }
+							}
+						}
+					}
+				}
+
+				ul {
+					list-style: none;
+
+					li { margin: 5px 0; }
+				}
+			}
+		}
+
+		div.bottom {
+			border-top: 1px solid #3E3E39; padding-top: 18px;
+
+			p {
+				&.copyright { float: left; }
+				&.octopus { float: right; }
+			}
+		}
+	}
+}

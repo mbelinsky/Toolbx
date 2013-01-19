@@ -2,7 +2,7 @@
 
 div.chzn-container, div.chzn-container-multi {
 	ul.chzn-choices {
-		height: 50px !important; padding: 5px 0 0; border: 2px solid #D9D8D4; @include border-radius(6px); background: #fff;
+		padding: 5px 0; border: 2px solid #D9D8D4; @include border-radius(6px); background: #fff;
 
 		li.search-field {
 			input {

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="<%= "#{@os} #{@browser} #{controller_path.split('/').first} #{controller.controller_name} #{controller.action_name}"%>">
+<html class="<%= "#{@os} #{@browser} #{controller_path.split('/').first} #{controller.controller_name} #{controller.action_name}"%> <%= 'has-footer' if @has_footer %>">
 	<head>
 		<title>The Toolbox</title>
 		<%= stylesheet_link_tag "application", :media => "all" %>
@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<div class="wrap-outer">
-			<div class="wrap-inner">
+			<div class="wrap-inner group">
 				<header id="top">
 					<div class="inner">
 						<h6><%= link_to 'The Toolbox', root_path %></h6>
@@ -37,22 +37,6 @@
 			</div>
 		</div>
 
-		<footer id="bottom">
-			<div class="inner">
-				<p class="copyright">© Skylight Pictures 2013</p>
-
-				<menu class="social">
-					<li><a class="facebook" href="#">Facebook</a></li>
-					<li><a class="twitter" href="#">Twitter</a></li>
-				</menu>
-				<menu class="nav">
-					<li><%= link_to "Tools", tools_path, class: cp(tools_path) %></li>
-					<li><%= link_to "Community", users_path, class: cp(users_path) %></li>
-					<li><%= link_to "Blog", articles_path, class: cp(articles_path) %></li>
-					<li><%= link_to "Contact", contact_path, class: cp(contact_path) %></li>
-					<li><%= link_to "Privacy", privacy_path, class: cp(privacy_path) %></li>
-				</menu>
-			</div>
-		</footer>
+		<%= render 'shared/footer' if @has_footer %>
 	</body>
 </html>
