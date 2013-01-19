@@ -3,6 +3,15 @@
 menu#filter {
 	background: #E55453; @include border-radius(5px); @include width(12); margin: 0 0 10px 10px; height: 60px; z-index: 50;
 
+	&.tools {
+		input.keyword { width: 250px; background-position: 218px 9px; }
+		div.select-container {
+			width: 150px;
+
+			div.trigger { background-position: 130px 18px; }
+		}
+	}
+
 	select.category-select { display: none; }
 
 	input::-webkit-input-placeholder { color: #fff; }
@@ -69,7 +78,7 @@ menu#filter {
 	}
 
 	input.keyword {
-		background: #A43B3B url("/assets/keyword-icon.png") 335px 12px no-repeat; color: #fff; font-size: 13px; height: 40px; @include border-radius(3px); padding: 6px 33px 6px 12px; display: block; width: 360px; float: left; margin: 10px 0 0 10px;
+		background: #A43B3B url("/assets/keyword-icon.png") 328px 9px no-repeat; color: #fff; font-size: 13px; height: 40px; @include border-radius(3px); padding: 6px 33px 6px 12px; display: block; width: 360px; float: left; margin: 10px 0 0 10px;
 
 		&:focus { background-color: #732827; outline: 0; }
 	}

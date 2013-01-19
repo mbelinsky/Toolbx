@@ -10,5 +10,12 @@ html.users.new, html.users.create {
 			div.username-mask { font-style: italic; position: absolute; top: 42px; left: 18px; pointer-events: none; }
 			input { padding-left: 151px; }
 		}
+		div.actions {
+			div.log-in {
+				float: left; margin: 9px 0 0 10px;
+
+				a { color: #E65453; text-decoration: none; }
+			}
+		}
 	}
 }

@@ -39,7 +39,7 @@ header#top {
 	h6 {
 		float: left;
 
-		a { display: block; width: 100%; height: 100%; text-indent: -9999px; width: 114px; height: 31px; background: url("/assets/logo.png"); margin: 9px 0 0 14px; }
+		a { display: block; width: 100%; height: 100%; text-indent: -9999px; width: 114px; height: 31px; background: url("/assets/logo.png"); margin: 9px 0 0 0; }
 	}
 	nav {
 		float: right; height: 50px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: -1px;
@@ -50,8 +50,16 @@ header#top {
 			li {
 				float: left; height: 100%;
 
+				&:last-child a { padding-right: 0; }
+
+				&.profile {
+					a {
+						padding-top: 10px;
+					}
+				}
+
 				a {
-					display: block; height: 100%; padding: 15px 21px 0; position: relative;
+					display: block; height: 100%; padding: 16px 21px 0; position: relative;
 
 					&.current {
 						&:after { content: ""; width: 9px; height: 5px; display: block; position: absolute; background: url("/assets/current-page-marker.png"); left: 50%; margin-left: -4.5px; bottom: 0; }
@@ -106,7 +114,7 @@ h1.strike:after { content: "."; display: block; height: 0; clear: both; visibili
 h1.strike {
 	@include din(600); font-size: 48px; @include width(8); position: relative; margin: 80px 10px 30px; color: #5C5C54;
 
-	&:before { border-top: 1px solid #BFBEBB; border-bottom: 1px solid #BFBEBB; height: 0; content: ""; display: block; position: absolute; top: 50%; left: 0; width: 100%; }
+	&:before { border-top: 1px solid #D9D8D4; border-bottom: 1px solid #D9D8D4; height: 0; content: ""; display: block; position: absolute; top: 50%; left: 0; width: 100%; }
 
 	span { background: #F2F1ED; position: relative; padding-right: 18px; float: left; text-transform: uppercase; }
 
@@ -180,6 +188,13 @@ div.slider-checkbox {
 
 		div.selected-item { float: left; background: #fff url("/assets/slider-grips.png") no-repeat center center; border: 2px solid #ADABA1; width: 65px; height: 40px; @include border-radius(3px); }
 	}
+}
+
+// Form Actions!
+div.actions {
+	padding-top: 22px;
+
+	button, .button { float: left; margin-right: 10px; }
 }
 
 div.select-container {

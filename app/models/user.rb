@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username
   validates_uniqueness_of :username
-  validates_format_of :username, with: /^[\d\w]+$/
+  validates_format_of :username, with: /^[\d\w-]+$/
 
   validates :password, length: { minimum: 8 }, if: :validate_password?
   validates :password_confirmation, on: :update, presence: true, if: :validate_password?

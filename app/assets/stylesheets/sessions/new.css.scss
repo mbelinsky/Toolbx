@@ -1,0 +1,19 @@
+@import '../mixins.css.scss';
+
+html.sessions.new {
+	form {
+		margin-left: 10px;
+
+		div.field { @include width(8); }
+
+		a.forgot-password { font-style: italic; font-size: 14px; color: #E65453; text-transform: none; text-decoration: none; }
+
+		div.actions {
+			div.sign-up {
+				float: left; margin: 9px 0 0 10px;
+
+				a { color: #E65453; text-decoration: none; }
+			}
+		}
+	}
+}
