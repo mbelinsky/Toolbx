@@ -1,6 +1,7 @@
 <% categories = Category.all %>
+<% platforms = Platform.all %>
 <% docked ||= false %>
-<menu id="filter" class="<%= 'docked' if docked %>">
+<menu id="filter" class="tools <%= 'docked' if docked %>">
 	<form action="">
 		<select name="category_ids[]" class="category-select" multiple>
 			<% categories.each do |category| %>
@@ -18,7 +19,18 @@
 
 		<input name="keyword" class="keyword" value="<%= params[:keyword] %>" placeholder="Filter by keyword">
 
-		<div class="select-container">
+		<div class="select-container platform">
+			<select name="platform">
+				<option value="">All Devices</option>
+				<% platforms.each do |platform| %>
+					<option <%= 'selected' if params[:platform] == platform.id.to_s %> value="<%= platform.id %>"><%= platform.name %></option>
+				<% end %>
+			</select>
+
+			<div class="trigger"></div>
+		</div>
+
+		<div class="select-container order">
 			<select name="order">
 				<% @orders.each do |order, val| %>
 					<option <%= 'selected' if params[:order] == order %>><%= order %></option>

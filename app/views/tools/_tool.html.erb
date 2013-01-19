@@ -31,7 +31,7 @@
 				<% tool.platforms.each do |platform| %>
 					<li>
 						<%= link_to root_path, class: 'group' do %>
-							<div class="action-icon <%= platform.name.parameterize %>"><%= platform.name %></div>
+							<div class="action-icon <%= platform.name.parameterize %>"><%= link_to platform.name, tools_path(params: {platform: platform.id}) %></div>
 						<% end %>
 					</li>
 				<% end %>

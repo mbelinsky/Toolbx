@@ -19,17 +19,29 @@ $(document).ready ->
 			cs.trigger('change')
 
 		# Sorting
-		selectContainer = $('.select-container')
-		selectTrigger = selectContainer.find('.trigger')
-		select = selectContainer.find('select')
+		do ->
+			orderContainer = $('.select-container.order')
+			selectTrigger = orderContainer.find('.trigger')
+			select = orderContainer.find('select')
 
-		updateSelectTriggerText = ->
-			console.log select.val()
-			selectTrigger.html select.val()
-		updateSelectTriggerText()
+			updateOrderTriggerText = ->
+				selectTrigger.html select.val()
+			updateOrderTriggerText()
 
-		select.on 'change', ->
-			updateSelectTriggerText()
+			select.on 'change', updateOrderTriggerText
+
+		# Platform
+		do ->
+			platformContainer = $('.select-container.platform')
+			selectTrigger = platformContainer.find('.trigger')
+			select = platformContainer.find('select')
+
+			updatePlatformTriggerText = ->
+				selectTrigger.html select.find("option[value=\"#{select.val()}\"]").text()
+			updatePlatformTriggerText()
+
+			select.on 'change', updatePlatformTriggerText
+
 
 		# Docking
 		if filter.hasClass 'docked'

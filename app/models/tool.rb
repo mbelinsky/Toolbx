@@ -35,8 +35,16 @@ class Tool < ActiveRecord::Base
     end
   end
 
+  def self.supports_platform(platform_id = nil)
+    if platform_id && !platform_id.blank?
+      joins(:tool_platforms).where('tool_platforms.platform_id = ?', platform_id)
+    else
+      scoped
+    end
+  end
+
   def self.in_categories(category_ids = nil)
-    if category_ids
+    if category_ids && !category_ids.blank?
       joins(:tool_categories).where('tool_categories.category_id in (?)', category_ids).group(:id)
     else
       scoped
