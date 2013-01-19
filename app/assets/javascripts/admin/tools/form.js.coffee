@@ -11,6 +11,7 @@ if $('html').is('.admin.tools.edit, .admin.tools.update, .admin.tools.new, .admi
 			val = $(this).val()
 
 			iconTrigger.find('span').text(val.substr(val.lastIndexOf('\\') + 1))
+			iconTrigger.siblings('img').remove()
 
 		# Slider Checkboxes!
 		$('.slider-checkbox').sliderCheckbox

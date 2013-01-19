@@ -21,9 +21,14 @@ Thetoolbox::Application.routes.draw do
   resources :users do
     get 'page/:page', action: :index, on: :collection
   end
+
   resources :tools, only: [:index, :show] do
     get 'page/:page', action: :index, on: :collection
+
+    get 'suggestions', action: :new_suggestion, on: :collection
+    post 'suggestions', action: :create_suggestion, on: :collection
   end
+
   resources :articles, only: [:index, :show] do
     get 'page/:page', action: :index, on: :collection
   end

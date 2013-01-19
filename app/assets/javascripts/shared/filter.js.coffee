@@ -33,6 +33,7 @@ $(document).ready ->
 
 		# Docking
 		if filter.hasClass 'docked'
+			$('.items:first').addClass 'filter-docked'
 			$('#top').addClass 'filter-docked'
 		else
 			filterOffTop = filter.offset().top
