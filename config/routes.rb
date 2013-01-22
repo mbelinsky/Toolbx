@@ -8,6 +8,15 @@ Thetoolbox::Application.routes.draw do
 
   get "password_resets/update"
 
+  get 'settings' => 'users#edit', as: 'edit_user'
+  put 'settings' => 'users#update', as: 'edit_user'
+
+  post 'tools/:id' => 'users#add_tool', as: 'add_tool'
+  delete 'tools/:id' => 'users#remove_tool', as: 'remove_tool'
+
+  post 'articles/:id' => 'users#add_article', as: 'add_article'
+  delete 'articles/:id' => 'users#remove_article', as: 'remove_article'
+
   get 'login' => 'sessions#new', as: 'login'
   get 'logout' => 'sessions#destroy', as: 'logout'
   get 'signup' => 'users#new', as: 'signup'
@@ -18,7 +27,7 @@ Thetoolbox::Application.routes.draw do
 
   root to: 'home#index'
 
-  resources :users do
+  resources :users, except: [:edit, :update, :destroy] do
     get 'page/:page', action: :index, on: :collection
   end
 
@@ -38,12 +47,14 @@ Thetoolbox::Application.routes.draw do
     resources :tools do
       get 'page/:page', action: :index, on: :collection
     end
-    resources :community do
-      get 'page/:page', action: :index, on: :collection
-    end
+    # resources :community do
+    #   get 'page/:page', action: :index, on: :collection
+    # end
     resources :articles do
       get 'page/:page', action: :index, on: :collection
     end
+
+    resources :article_images, only: [:index, :create]
   end
 
   resources :sessions

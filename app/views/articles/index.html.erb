@@ -1,0 +1,7 @@
+<%= render 'shared/filter', docked: true, type: 'articles' %>
+
+<ul class="items articles">
+	<% @articles.each do |article| %>
+		<%= render 'articles/article', article: article %>
+	<% end %>
+</ul>

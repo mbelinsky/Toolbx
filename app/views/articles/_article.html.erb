@@ -1,0 +1,37 @@
+<% path ||= article_path(article) %>
+
+<li class="article <%= 'unpublished' unless article.published %> <%= 'featured' if article.featured %>">
+	<div class="banner">
+		<%= link_to path do %>
+			<% if article.featured %>
+				<%= image_tag article.featured_image.url(:square_banner) %>
+				<%= image_tag article.featured_image.url(:desat_square_banner), class: 'desat' %>
+			<% else %>
+				<%= image_tag article.featured_image.url(:banner) %>
+				<%= image_tag article.featured_image.url(:desat_banner), class: 'desat' %>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="meta group">
+		<div class="top">
+			<h3><%= link_to article.title, path %></h3>
+			<ul class="categories group">
+				<% article.categories.each do |category| %>
+					<li><%= link_to category.title, articles_path(params: {category_ids: [category.id]}) %></li>
+				<% end %>
+			</ul>
+
+			<% if article.featured %>
+				<div class="description"><%= truncate_html(article.body, length: 260) %></div>
+			<% end %>
+		</div>
+		<div class="bottom">
+			<div class="bubble add-article">
+				<%= link_to add_article_path(article), method: :post, class: 'group' do %>
+					<div class="action-icon star"></div>
+					<span><%= article.users_count %></span>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</li>

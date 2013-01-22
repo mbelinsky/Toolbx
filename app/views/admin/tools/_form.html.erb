@@ -19,12 +19,12 @@
 
 		<div class="field full">
 			<%= f.label :category_ids, "Categories" %>
-			<%= f.collection_select :category_ids, Category.order(:title), :id, :title, {}, {multiple: true} %>
+			<%= f.collection_select :category_ids, Category.order(:title), :id, :title, {}, {multiple: true, class: 'chosen'} %>
 		</div>
 
 		<div class="field full">
 			<%= f.label :platform_ids, "Platforms" %>
-			<%= f.collection_select :platform_ids, Platform.order(:name), :id, :name, {}, {multiple: true} %>
+			<%= f.collection_select :platform_ids, Platform.order(:name), :id, :name, {}, {multiple: true, class: 'chosen'} %>
 		</div>
 
 		<div class="field inline check">
@@ -46,7 +46,7 @@
 
 		<div class="field inline last">
 			<%= f.label :license_id %>
-			<%= f.collection_select :license_id, License.all, :id, :name %>
+			<%= f.collection_select :license_id, License.all, :id, :name, {}, {class: 'chosen'} %>
 		</div>
 
 		<div class="field full">

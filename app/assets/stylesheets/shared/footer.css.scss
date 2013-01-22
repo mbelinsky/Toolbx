@@ -37,14 +37,38 @@ html.has-footer {
 							float: left; margin-right: 10px;
 
 							a {
-								background: url("/assets/social-icons.png"); width: 48px; height: 48px; text-indent: -9999px; display: block;
+								background: url("/assets/social-icons-footer.png"); width: 40px; height: 40px; text-indent: -9999px; display: block;
 
-								&.facebook { background-position: 0 0; }
-								&.google-plus { background-position: 0 -48px; }
-								&.linkedin { background-position: 0 -96px; }
-								&.pinterest { background-position: 0 -144px; }
-								&.stumbleupon { background-position: 0 -192px; }
-								&.twitter { background-position: 0 -240px; }
+								&.facebook {
+									background-position: 0 -40px;
+
+									&:hover { background-position: 0 0; }
+								}
+								&.google-plus {
+									background-position: 0 -120px;
+
+									&:hover { background-position: 0 -80px; }
+								}
+								&.linkedin {
+									background-position: 0 -200px;
+
+									&:hover { background-position: 0 -160px; }
+								}
+								&.pinterest {
+									background-position: 0 -280px;
+
+									&:hover { background-position: 0 -240px; }
+								}
+								&.stumbleupon {
+									background-position: 0 -360px;
+
+									&:hover { background-position: 0 -320px; }
+								}
+								&.twitter {
+									background-position: 0 -440px;
+
+									&:hover { background-position: 0 -400px; }
+								}
 							}
 						}
 					}

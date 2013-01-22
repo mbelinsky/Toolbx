@@ -238,6 +238,7 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    truncate_html (0.9.1)
     twitter-stream (0.1.16)
       eventmachine (>= 0.12.8)
       http_parser.rb (~> 0.5.1)
@@ -283,5 +284,6 @@ DEPENDENCIES
   simplecov
   sqlite3
   thin
+  truncate_html
   uglifier (>= 1.0.3)
   validates_email_format_of

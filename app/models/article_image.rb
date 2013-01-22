@@ -1,10 +1,9 @@
 class ArticleImage < ActiveRecord::Base
-  belongs_to :article
-  attr_accessible :featured
-  validates_presence_of :article
+  attr_accessible :image
 
   validates_attachment_presence :image
-  has_attached_file :image, styles: { small: "300x180#", small_square: "300x300#" }
+  has_attached_file :image, styles: { banner: "300x180#", square_banner: "300x300#", thumb: "60x60#"}
+
   validates_attachment_content_type :image, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
-  validates_attachment_size :image, less_than: 2.megabytes
+  validates_attachment_size :image, less_than: 1.megabyte
 end
