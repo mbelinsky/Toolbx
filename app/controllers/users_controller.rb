@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
-  def index
-
-  end
+  before_filter :authorize, except: [:new, :create]
 
   def new
     @user = User.new
+    @has_footer = true
   end
 
   def create
     @user = User.new(params[:user])
+    @has_footer = true
 
     respond_to do |format|
       if @user.save
@@ -30,5 +30,13 @@ class UsersController < ApplicationController
 
   def destroy
 
+  end
+
+  def add_tool
+    @tool = Tool.find(params[:id])
+  end
+
+  def remove_tool
+    @tool = Tool.find(params[:id])
   end
 end

@@ -1,0 +1,12 @@
+<%= render 'admin/header' %>
+<%= render 'shared/filter', type: 'articles' %>
+
+<ul class="items articles">
+	<li class="link">
+		<%= link_to new_admin_article_path do %><span>Add Article</span><% end %>
+	</li>
+
+	<% @articles.each do |article| %>
+		<%= render 'articles/article', article: article, path: edit_admin_article_path(article) %>
+	<% end %>
+</ul>

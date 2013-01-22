@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117183404) do
+ActiveRecord::Schema.define(:version => 20130121230047) do
 
   create_table "article_categories", :force => true do |t|
     t.integer  "article_id"
@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(:version => 20130117183404) do
   add_index "article_categories", ["category_id"], :name => "index_article_categories_on_category_id"
 
   create_table "article_images", :force => true do |t|
-    t.integer  "article_id"
-    t.boolean  "featured"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "image_file_name"
@@ -34,14 +32,29 @@ ActiveRecord::Schema.define(:version => 20130117183404) do
     t.datetime "image_updated_at"
   end
 
-  add_index "article_images", ["article_id"], :name => "index_article_images_on_article_id"
+  create_table "article_tools", :force => true do |t|
+    t.integer  "article_id"
+    t.integer  "tool_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "article_tools", ["article_id"], :name => "index_article_tools_on_article_id"
+  add_index "article_tools", ["tool_id"], :name => "index_article_tools_on_tool_id"
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.integer  "author_id"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+    t.boolean  "featured",                    :default => false
+    t.integer  "users_count",                 :default => 0
+    t.boolean  "published",                   :default => false
+    t.string   "featured_image_file_name"
+    t.string   "featured_image_content_type"
+    t.integer  "featured_image_file_size"
+    t.datetime "featured_image_updated_at"
   end
 
   add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
@@ -147,6 +160,16 @@ ActiveRecord::Schema.define(:version => 20130117183404) do
 
   add_index "tools", ["license_id"], :name => "index_tools_on_license_id"
 
+  create_table "user_articles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_articles", ["article_id"], :name => "index_user_articles_on_article_id"
+  add_index "user_articles", ["user_id"], :name => "index_user_articles_on_user_id"
+
   create_table "user_languages", :force => true do |t|
     t.integer  "user_id"
     t.integer  "language_id"
@@ -191,6 +214,7 @@ ActiveRecord::Schema.define(:version => 20130117183404) do
     t.boolean  "admin",                        :default => false
     t.string   "username"
     t.integer  "tools_count",                  :default => 0
+    t.integer  "articles_count",               :default => 0
   end
 
   add_index "users", ["city_id"], :name => "index_users_on_city_id"

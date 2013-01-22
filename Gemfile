@@ -82,3 +82,6 @@ gem 'kaminari'
 
 # rails_config for global Settings object
 gem 'rails_config'
+
+# truncate_html for article summaries
+gem 'truncate_html'

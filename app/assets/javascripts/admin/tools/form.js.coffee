@@ -13,15 +13,6 @@ if $('html').is('.admin.tools.edit, .admin.tools.update, .admin.tools.new, .admi
 			iconTrigger.find('span').text(val.substr(val.lastIndexOf('\\') + 1))
 			iconTrigger.siblings('img').remove()
 
-		# Slider Checkboxes!
-		$('.slider-checkbox').sliderCheckbox
-			offLeft: -65
-
-		# Chosen Selects
-		$('#tool_license_id').chosen()
-		$('#tool_platform_ids').chosen()
-		$('#tool_category_ids').chosen()
-
 		# Screenshot stuff
 		screensContainer = $('.screens').find('ul')
 

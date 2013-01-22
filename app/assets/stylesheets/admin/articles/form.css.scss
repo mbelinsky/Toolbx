@@ -1,0 +1,40 @@
+@import '../../mixins.css.scss';
+
+html.admin.articles.new, html.admin.articles.create, html.admin.articles.edit, html.admin.articles.update {
+	form.new_article, form.edit_article {
+		margin: 0 10px;
+
+		div.left {
+			float: left; @include width(8);
+		}
+
+		div.right {
+			float: right; @include width(4);
+
+			div.featured-image {
+				div.featured-image-inner {
+					width: 300px; height: 140px; padding: 8px; background: #fff; border: 2px solid #D9D8D4; @include border-radius(6px);
+
+					div.inside {
+						width: 280px; height: 120px; background: #F2F1ED; position: relative; @include border-radius(3px);
+
+						img { position: absolute; top: 0; left: 0; @include border-radius(3px); }
+						input { display: none; }
+						button {
+							position: absolute; display: block; top: 50%; left: 50%; margin-top: -13px; margin-left: -45px; width: 90px; background: #BFBDB6; padding: 6px 9px; font-size: 12px;
+
+							span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; width: 100%; }
+						}
+					}
+				}
+			}
+		}
+
+		div.actions {
+			padding-top: 22px;
+
+			a, input { display: block; float: left; margin-right: 10px; }
+			a.delete { color: #E65453; margin: 10px 0 0 10px; text-decoration: none; }
+		}
+	}
+}

@@ -21,7 +21,7 @@
 		</div>
 		<div class="bottom">
 			<div class="bubble add-tool">
-				<%= link_to root_path, class: 'group' do %>
+				<%= link_to add_tool_path(tool), method: :post, class: 'group' do %>
 					<div class="action-icon toolbox"></div>
 					<span><%= tool.users_count %></span>
 				<% end %>
@@ -30,9 +30,7 @@
 			<ul class="bubble platforms">
 				<% tool.platforms.each do |platform| %>
 					<li>
-						<%= link_to root_path, class: 'group' do %>
 							<div class="action-icon <%= platform.name.parameterize %>"><%= link_to platform.name, tools_path(params: {platform: platform.id}) %></div>
-						<% end %>
 					</li>
 				<% end %>
 			</ul>

@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   force_ssl
 
   def new
-
+    @has_footer = true
   end
 
 

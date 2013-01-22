@@ -1,0 +1,79 @@
+<%= form_for [:admin, @article] do |f| %>
+	<% if @article.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+			<ul>
+			<% @article.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="left group">
+		<div class="field full">
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+		</div>
+
+		<div class="field full">
+			<%= f.label :category_ids, "Categories" %>
+			<%= f.collection_select :category_ids, Category.order(:title), :id, :title, {}, {multiple: true, class: 'chosen'} %>
+		</div>
+
+		<div class="field full">
+			<%= f.label :tool_ids, "Related Tools" %>
+			<%= f.collection_select :tool_ids, Tool.order(:name), :id, :name, {}, {multiple: true, class: 'chosen'} %>
+		</div>
+
+		<div class="field full">
+			<%= f.label :body %>
+			<%= f.text_area :body %>
+		</div>
+	</div>
+
+	<div class="right group">
+		<div class="field inline check">
+			<%= f.label :featured %>
+			<div class="slider-checkbox">
+				<%= f.check_box :featured %>
+				<div class="slider group">
+					<span class="on">Yes</span>
+					<div class="selected-item"></div>
+					<span class="off">No</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="field inline check last">
+			<%= f.label :published %>
+			<div class="slider-checkbox">
+				<%= f.check_box :published %>
+				<div class="slider group">
+					<span class="on">Yes</span>
+					<div class="selected-item"></div>
+					<span class="off">No</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="field featured-image">
+			<%= f.label :featured_image %>
+
+			<div class="featured-image-inner">
+				<div class="inside">
+					<%= f.file_field :featured_image %>
+					<%= if @article.featured_image.exists? then image_tag @article.featured_image.url(:small_banner) end %>
+					<button><span>Browse</span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="actions group">
+		<%= f.submit @article.new_record? ? "Add Article" : "Update Article", class: "submit button" %>
+		<%= link_to "View Article", admin_article_path(@article), class: 'view button' unless @article.new_record? %>
+		<%= link_to "Delete Article", admin_article_path(@article), class: 'delete', method: :delete, confirm: "Are you sure you want to permanently delete #{@article.title}?" unless @article.new_record? %>
+	</div>
+<% end %>
