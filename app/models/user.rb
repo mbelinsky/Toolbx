@@ -28,6 +28,27 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :profile_picture, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
   validates_attachment_size :profile_picture, less_than: 1.megabyte
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def facebook_url
+    facebook_username.blank? ? nil : "https://facebook.com/#{facebook_username}"
+  end
+
+  def twitter_url
+    twitter_username.blank? ? nil : "https://twitter.com/#{twitter_username}"
+  end
+
+  def linkedin_url
+    linkedin_username.blank? ? nil : "http://linkedin.com/in/#{linkedin_username}"
+  end
+
+  def formatted_website_url
+    nil if self.website_url.blank?
+
+    self.website_url.match(/https?:\/\//) ? self.website_url : "http://#{self.website_url}"
+  end
 
   def send_password_reset
     generate_token(:password_reset_token)
