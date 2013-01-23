@@ -1,4 +1,5 @@
 <% path ||= tool_path(tool) %>
+<% has_tool = current_user ? tool.users.exists?(current_user) : nil %>
 
 <li class="tool">
 	<div class="banner">
@@ -20,10 +21,30 @@
 			</ul>
 		</div>
 		<div class="bottom">
-			<div class="bubble add-tool">
-				<%= link_to add_tool_path(tool), method: :post, class: 'group' do %>
+			<div class="bubble add-tool <%= current_user ? (has_tool ? 'remove' : 'add') : 'join' %>">
+				<a href="#" class="default">
 					<div class="action-icon toolbox"></div>
-					<span><%= tool.users_count %></span>
+					<span class="users-count"><%= tool.users_count %></span>
+				</a>
+
+				<% if current_user %>
+					<%= link_to toolbox_tools_path(tool: tool.id), remote: true, method: :post, class: 'add group' do %>
+						<div class="action-icon white-toolbox"></div>
+						<span>Add</span>
+					<% end %>
+					<%= link_to toolbox_tools_path(tool: tool.id), remote: true, method: :delete, class: 'remove group' do %>
+						<div class="action-icon white-toolbox"></div>
+						<span>Remove</span>
+					<% end %>
+					<div class="loading">
+						<div class="action-icon white-toolbox"></div>
+						<div class="loader"></div>
+					</div>
+				<% else %>
+					<%= link_to signup_path, class: 'join group' do %>
+						<div class="action-icon white-toolbox"></div>
+						<span>Add</span>
+					<% end %>
 				<% end %>
 			</div>
 

@@ -50,7 +50,52 @@ li.tool {
 			.bubble {
 				background: #F2F1ED; @include border-radius(30px);
 
-				&.add-tool { float: left; padding: 7px 9px 6px 8px; }
+				&.add-tool {
+					float: left; padding: 7px 9px 6px 8px;
+
+					&.join {
+						&:hover {
+							a.join { display: block; }
+						}
+					}
+
+					&:hover {
+						background: #E55453;
+
+						a {
+							color: #fff; text-transform: uppercase;
+
+							&.default { display: none; }
+						}
+
+						&.join a.join { display: block; }
+						&.add a.add { display: block; }
+						&.remove a.remove { display: block; }
+					}
+
+					&.loading {
+						background: #E55453;
+						a { display: none !important; }
+						div.loading { display: block; }
+					}
+
+					a {
+						display: none;
+
+						&.default { display: block; }
+					}
+
+					div.loading {
+						display: none;
+
+						div {
+							float: left;
+
+							&.loader { background: url("/assets/loading.gif") no-repeat center center; width: 16px; height: 17px; margin-left: 6px; float: left; }
+						}
+					}
+				}
+
 				&.platforms {
 					float: right; padding: 7px 9px 7px 6px; list-style: none;
 

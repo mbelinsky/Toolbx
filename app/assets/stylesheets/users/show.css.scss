@@ -1,6 +1,6 @@
 @import 'mixins.css.scss';
 
-html.users.show {
+html.users.show_tools, html.users.show_articles {
 	header.user {
 		background: #fff; @include width(12); @include border-radius(5px); padding: 20px; margin: 40px 0 0 10px;
 
