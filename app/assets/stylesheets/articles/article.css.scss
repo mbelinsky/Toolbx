@@ -51,7 +51,12 @@ li.article {
 		div.top {
 			width: 100%;
 
-			h3 a { font-weight: normal; color: #5C5C54; font-size: 18px; text-decoration: none; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+			h3 {
+				width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+
+				a { font-weight: normal; color: #5C5C54; font-size: 18px; text-decoration: none; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+			}
+
 
 			ul.categories {
 				list-style: none; font-size: 13px; font-style: italic;
@@ -68,7 +73,7 @@ li.article {
 		}
 
 		div.bottom {
-			clear: both; position: absolute; bottom: 20px; left: 10px; width: 280px;
+			clear: both; position: absolute; bottom: 10px; left: 10px; width: 280px;
 
 			.bubble {
 				background: #F2F1ED; @include border-radius(30px);

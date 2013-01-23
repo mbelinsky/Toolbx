@@ -17,66 +17,6 @@ menu#filter {
 	input::-webkit-input-placeholder { color: #fff; }
 	input::-moz-placeholder { color: #fff; }
 
-	ul {
-		list-style: none; float: left;
-
-		li {
-			float: left; background: url("/assets/category-icons.png"); width: 40px; height: 40px; margin: 10px 0 0 10px;
-
-			&:hover { cursor: pointer; }
-
-			&.activism {
-				background-position: 0 -80px;
-
-				&.active { background-position: 0 0; }
-				&:hover { background-position: 0 -40px; }
-				&.active:hover { background-position: 0 -840px; }
-			}
-			&.education {
-				background-position: 0 -200px;
-
-				&.active { background-position: 0 -120px; }
-				&:hover { background-position: 0 -160px; }
-				&.active:hover { background-position: 0 -880px; }
-			}
-			&.environment {
-				background-position: 0 -320px;
-
-				&.active { background-position: 0 -240px; }
-				&:hover { background-position: 0 -280px; }
-				&.active:hover { background-position: 0 -920px; }
-			}
-			&.governance {
-				background-position: 0 -440px;
-
-				&.active { background-position: 0 -360px; }
-				&:hover { background-position: 0 -400px; }
-				&.active:hover { background-position: 0 -960px; }
-			}
-			&.health {
-				background-position: 0 -560px;
-
-				&.active { background-position: 0 -480px; }
-				&:hover { background-position: 0 -520px; }
-				&.active:hover { background-position: 0 -1000px; }
-			}
-			&.relief {
-				background-position: 0 -680px;
-
-				&.active { background-position: 0 -600px; }
-				&:hover { background-position: 0 -640px; }
-				&.active:hover { background-position: 0 -1040px; }
-			}
-			&.social-enterprise {
-				background-position: 0 -800px;
-
-				&.active { background-position: 0 -720px; }
-				&:hover { background-position: 0 -760px; }
-				&.active:hover { background-position: 0 -1080px; }
-			}
-		}
-	}
-
 	input.keyword {
 		background: #A43B3B url("/assets/keyword-icon.png") 328px 9px no-repeat; color: #fff; font-size: 13px; height: 40px; @include border-radius(3px); padding: 6px 33px 6px 12px; display: block; width: 360px; float: left; margin: 10px 0 0 10px;
 
