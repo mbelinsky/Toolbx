@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   end
 
-  def show
+  def show_tools
     @user = User.find_by_username!(params[:id])
   end
 

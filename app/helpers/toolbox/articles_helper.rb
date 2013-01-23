@@ -1,0 +1,2 @@
+module Toolbox::ArticlesHelper
+end
