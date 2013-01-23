@@ -152,13 +152,13 @@ h2.strike {
 	span { background: #F2F1ED; position: relative; padding-right: 18px; float: left; text-transform: uppercase; }
 
 	menu {
-		float: right; list-style: none; background: #F2F1ED; position: relative; margin-top: 15px; padding-left: 12px; font-family: "OpenSans", sans-serif;
+		float: right; list-style: none; background: #F2F1ED; position: relative; margin-top: 7px; padding-left: 12px; font-family: "OpenSans", sans-serif;
 
 		li {
 			float: left; padding-left: 24px;
 
 			a {
-				display: block; font-size: 16px; line-height: 30px; color: #7D7D7D; font-weight: 600; text-decoration: none; text-transform: uppercase; padding: 0 12px; @include border-radius(30px);
+				display: block; font-size: 15px; line-height: 30px; color: #7D7D7D; font-weight: 600; text-decoration: none; text-transform: uppercase; padding: 0 12px; @include border-radius(30px);
 
 				&.current { background: #E55453; color: #F2F1ED; }
 			}
