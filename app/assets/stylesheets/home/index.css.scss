@@ -1,0 +1,73 @@
+@import '../mixins.css.scss';
+
+html.home.index {
+	header#top + div.inner { width: 100% !important; }
+
+	div#billboard {
+		height: 330px; background: #E55453; padding-top: 50px;
+
+		&.cta-docked { margin-bottom: 60px; }
+
+		div.inner { padding: 0 10px; }
+
+		.sprite {
+			background: url("/assets/billboard.png"); width: 90px; height: 90px; text-indent: -9999px;
+
+			&.curate { background-position: 0 0; }
+			&.discover { background-position: 0 -90px; }
+			&.logo { background-position: 0 -180px; width: 367px; height: 115px; }
+			&.share { background-position: 0 -295px; }
+		}
+
+		div.left {
+			@include width(5); float: left; padding-top: 40px;
+
+			h3 { font-size: 16px; font-style: italic; color: #A43B3B; text-align: center; margin-top: 15px; }
+		}
+
+		ul.features {
+			list-style: none; float: right; padding-top: 21px;
+
+			li {
+				float: left; @include width(2); margin-left: 20px;
+
+				div.sprite { margin: 0 auto 15px; }
+				h4 { font-size: 32px; text-transform: uppercase; color: #fff; text-align: center; margin-bottom: 6px; }
+				p.description { font-size: 13px; text-align: center; line-height: 18px; color: #fff; font-weight: normal; font-style: italic;}
+			}
+		}
+	}
+
+	div#signup-cta {
+		background: #B84342; height: 60px; padding: 10px 0; z-index: 5;
+
+		&.docked { position: fixed; top: 50px; width: 100%; left: 0; }
+
+		div.inner { padding: 0 10px; }
+
+		h2 { color: #fff; font-size: 22px; font-weight: 300; font-style: italic; float: left; margin-top: 4px; }
+		a { width: 140px; display: block; float: right; text-align: center; }
+	}
+
+	div.main { padding-top: 90px; }
+
+	ul.items {
+		height: 454px !important; overflow: hidden;position: relative;
+	}
+
+	div.fade { content: ""; margin: -12px 0 24px; width: 100%; width: 100%; background: url("/assets/home/fade.png") center center no-repeat; height: 12px; position: relative; z-index: 2; }
+
+	a.see-all.button { display: block; margin: 0 auto 120px; width: 180px; padding: 9px 15px; text-align: center; }
+
+	h2.strike {
+		menu {
+			margin-top: -7px;
+
+			li {
+				padding-left: 0;
+
+				a { padding: 0; }
+			}
+		}
+	}
+}

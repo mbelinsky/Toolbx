@@ -7,4 +7,5 @@ $(document).ready ->
 	$('.chosen').chosen()
 
 	# Masonry
-	$('.items.articles').masonry()
+	$('.items.articles').masonry
+		isAnimated: false

@@ -1,0 +1,93 @@
+.category-icons {
+	list-style: none; float: left;
+
+	&.gray {
+		a {
+			&.activism {
+				background-position: 0 -1120px;
+				&:hover { background-position: 0 -80px; }
+			}
+			&.education {
+				background-position: 0 -1160px;
+				&:hover { background-position: 0 -200px; }
+			}
+			&.environment {
+				background-position: 0 -1200px;
+				&:hover { background-position: 0 -320px; }
+			}
+			&.governance {
+				background-position: 0 -1240px;
+				&:hover { background-position: 0 -440px; }
+			}
+			&.health {
+				background-position: 0 -1280px;
+				&:hover { background-position: 0 -560px; }
+			}
+			&.relief {
+				background-position: 0 -1320px;
+				&:hover { background-position: 0 -680px; }
+			}
+			&.social-enterprise {
+				background-position: 0 -1360px;
+				&:hover { background-position: 0 -800px; }
+			}
+		}
+	}
+
+	li { float: left; }
+	a {
+		float: left; background: url("/assets/category-icons.png"); width: 40px; height: 40px; margin: 10px 0 0 10px; display: block; text-indent: -9999px;
+
+		&:hover { cursor: pointer; }
+
+		&.activism {
+			background-position: 0 -80px;
+
+			&.active { background-position: 0 0; }
+			&:hover { background-position: 0 -40px; }
+			&.active:hover { background-position: 0 -840px; }
+		}
+		&.education {
+			background-position: 0 -200px;
+
+			&.active { background-position: 0 -120px; }
+			&:hover { background-position: 0 -160px; }
+			&.active:hover { background-position: 0 -880px; }
+		}
+		&.environment {
+			background-position: 0 -320px;
+
+			&.active { background-position: 0 -240px; }
+			&:hover { background-position: 0 -280px; }
+			&.active:hover { background-position: 0 -920px; }
+		}
+		&.governance {
+			background-position: 0 -440px;
+
+			&.active { background-position: 0 -360px; }
+			&:hover { background-position: 0 -400px; }
+			&.active:hover { background-position: 0 -960px; }
+		}
+		&.health {
+			background-position: 0 -560px;
+
+			&.active { background-position: 0 -480px; }
+			&:hover { background-position: 0 -520px; }
+			&.active:hover { background-position: 0 -1000px; }
+		}
+		&.relief {
+			background-position: 0 -680px;
+
+			&.active { background-position: 0 -600px; }
+			&:hover { background-position: 0 -640px; }
+			&.active:hover { background-position: 0 -1040px; }
+		}
+		&.social-enterprise {
+			background-position: 0 -800px;
+
+			&.active { background-position: 0 -720px; }
+			&:hover { background-position: 0 -760px; }
+			&.active:hover { background-position: 0 -1080px; }
+		}
+	}
+}

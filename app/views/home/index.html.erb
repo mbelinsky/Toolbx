@@ -1,2 +1,76 @@
-hello home
-<%= link_to 'Sign Up', signup_path %>
+<% unless current_user %>
+	<div id="billboard">
+		<div class="inner">
+			<div class="group left">
+				<h1 class="logo sprite">The Toolbox</h1>
+				<h3>A new platform for tools aiding social change</h3>
+			</div>
+			<ul class="features">
+				<li>
+					<div class="sprite discover">Discover</div>
+					<h4 class="din med">Discover</h4>
+					<p class="description">The best new apps and tools for social change</p>
+				</li>
+				<li>
+					<div class="sprite curate">Curate</div>
+					<h4 class="din med">Curate</h4>
+					<p class="description">Save your favorite tools so they’re always close</p>
+				</li>
+				<li>
+					<div class="sprite share">Share</div>
+					<h4 class="din med">Share</h4>
+					<p class="description">Tell the people that need to know in your network</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="signup-cta">
+		<div class="inner group">
+			<div class="left">
+				<h2>Discover the tools humanitarians are using to change the world</h2>
+				<%= link_to 'Sign Up', signup_path, class: 'blue button' %>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+
+<% categories = Category.all %>
+
+<div class="main">
+	<div class="inner group">
+		<h2 class="strike">
+			<span>Recent Articles</span>
+			<menu class="gray category-icons">
+				<% categories.each do |category| %>
+					<li><%= link_to category.title, articles_path(params: {category_ids: [category.id]}), class: category.title.parameterize %></li>
+				<% end %>
+			</menu>
+		</h2>
+		<ul class="items articles">
+			<% @articles.each do |article| %>
+				<%= render 'articles/article', article: article %>
+			<% end %>
+		</ul>
+	</div>
+	<div class="fade"></div>
+	<%= link_to "See All Articles", articles_path, class: 'see-all button' %>
+
+	<div class="inner group">
+		<h2 class="strike">
+			<span>Recent Tools</span>
+			<menu class="gray category-icons">
+				<% categories.each do |category| %>
+					<li><%= link_to category.title, tools_path(params: {category_ids: [category.id]}), class: category.title.parameterize %></li>
+				<% end %>
+			</menu>
+		</h2>
+		<ul class="items">
+			<% @tools.each do |tool| %>
+				<%= render 'tools/tool', tool: tool %>
+			<% end %>
+		</ul>
+	</div>
+	<div class="fade"></div>
+	<%= link_to "See All Tools", tools_path, class: 'see-all button' %>
+</div>

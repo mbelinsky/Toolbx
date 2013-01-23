@@ -24,7 +24,11 @@ li.tool {
 		div.right {
 			float: left; padding-left: 10px; width: 220px;
 
-			h3 a { font-weight: 600; color: #5C5C54; font-size: 22px; text-decoration: none; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+			h3 {
+				width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+
+				a { font-weight: 600; color: #5C5C54; font-size: 22px; text-decoration: none; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+			}
 
 			ul.categories {
 				list-style: none; font-size: 13px; font-style: italic;

@@ -8,7 +8,7 @@ $(document).ready ->
 			filterForm.submit()
 
 		# Category Switching
-		filter.find('.categories').on 'click', 'li', ->
+		filter.find('.category-icons').on 'click', 'a', ->
 			el = $(this)
 
 			el.toggleClass 'active'
