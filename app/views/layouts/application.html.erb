@@ -23,7 +23,15 @@
 										<li><%= link_to 'Admin', admin_tools_path, class: cp(admin_path) %></li>
 									<% end %>
 									<li class="profile">
-										<%= link_to user_path current_user do %><%= image_tag current_user.profile_picture.url(:thumb) %><% end %>
+										<a href="#" id="user-nav-trigger"><%= image_tag current_user.profile_picture.url(:thumb) %></a>
+
+										<nav id="user-nav">
+											<ul>
+												<li><%= link_to 'Profile', user_path(current_user) %></li>
+												<li><%= link_to 'Settings', edit_user_path %></li>
+												<li><%= link_to 'Logout', logout_path %></li>
+											</ul>
+										</nav>
 									</li>
 								<% else %>
 									<li><%= link_to 'Login', login_path, class: cp(login_path) %></li>

@@ -47,16 +47,21 @@ header#top {
 
 		a { display: block; width: 100%; height: 100%; text-indent: -9999px; width: 114px; height: 31px; background: url("/assets/logo.png"); margin: 9px 0 0 0; }
 	}
-	nav {
+
+	div.inner > nav {
 		float: right; height: 50px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: -1px;
 
-		ul {
+		> ul {
 			list-style: none; height: 50px;
 
-			li {
+			> li {
 				float: left; height: 100%;
 
-				&:last-child a { padding-right: 0; }
+				&:last-child a {
+					padding-right: 0;
+
+					&.current:after { margin-left: 4.5px; }
+				}
 
 				&.profile {
 					a {
@@ -64,7 +69,7 @@ header#top {
 					}
 				}
 
-				a {
+				> a {
 					display: block; height: 100%; padding: 16px 21px 0; position: relative;
 
 					&.current {
@@ -73,8 +78,26 @@ header#top {
 				}
 			}
 		}
+
+		nav#user-nav {
+			display: none; position: absolute; right: 10px; background: #3E3E39; @include border-radius(0 0 6px 6px);
+
+			&:before { content: ""; display: block; position: absolute; width: 9px; height: 5px; right: 10px; top: -5px; background: url("/assets/user-nav-arrow.png"); }
+
+			ul {
+				list-style: none; padding: 10px;
+
+				li {
+					a {
+						padding: 5px 8px; @include border-radius(3px); display: block; width: 120px;
+
+						&:hover { background: #4B4B45; }
+					}
+				}
+			}
+		}
 	}
-	&.filter-docked nav ul li a.current:after { background-position: bottom; }
+	&.filter-docked div.inner nav ul li a.current:after { background-position: bottom; }
 }
 
 div.wrap-inner { padding: 50px 0; }
