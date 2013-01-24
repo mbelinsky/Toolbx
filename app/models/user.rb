@@ -2,8 +2,13 @@ class User < ActiveRecord::Base
   has_secure_password
   belongs_to :city
   has_many :languages, through: :user_languages
+
   has_many :user_tools, dependent: :destroy
   has_many :tools, through: :user_tools
+
+  has_many :user_articles, dependent: :destroy
+  has_many :articles, through: :user_articles
+
   attr_accessible :description, :email, :facebook_username, :linkedin_username, :first_name, :password_digest, :last_name, :twitter_username, :website_url, :password, :password_confirmation, :username
 
   before_validation :downcase_username

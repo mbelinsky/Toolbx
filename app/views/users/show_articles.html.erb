@@ -1,0 +1,15 @@
+<%= render 'header' %>
+
+<h2 class="strike">
+	<span><%= @user.first_name %>'s Toolbox</span>
+	<menu>
+		<li><%= link_to 'Tools', tools_user_path %></li>
+		<li><%= link_to 'Articles', articles_user_path, class: 'current' %></li>
+	</menu>
+</h2>
+
+<ul class="items">
+	<% @articles.each do |article| %>
+		<%= render 'articles/article', article: article %>
+	<% end %>
+</ul>

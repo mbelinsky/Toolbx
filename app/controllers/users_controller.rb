@@ -34,6 +34,12 @@ class UsersController < ApplicationController
 
   def show_tools
     @user = User.find_by_username!(params[:id])
+    @tools = @user.tools.page(params[:page]).per(36)
+  end
+
+  def show_articles
+    @user = User.find_by_username!(params[:id])
+    @articles = @user.articles.page(params[:page]).per(36)
   end
 
   def add_tool

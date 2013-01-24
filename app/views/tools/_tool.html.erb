@@ -32,7 +32,7 @@
 						<div class="action-icon white-toolbox"></div>
 						<span>Add</span>
 					<% end %>
-					<%= link_to toolbox_tools_path(tool: tool.id), remote: true, method: :delete, class: 'remove group' do %>
+					<%= link_to toolbox_tool_path(tool), remote: true, method: :delete, class: 'remove group' do %>
 						<div class="action-icon white-toolbox"></div>
 						<span>Remove</span>
 					<% end %>
