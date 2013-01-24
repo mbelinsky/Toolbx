@@ -9,3 +9,4 @@ $(document).ready ->
 	# Masonry
 	$('.items.articles').masonry
 		isAnimated: false
+		columnWidth: 320

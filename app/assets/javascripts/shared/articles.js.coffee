@@ -1,6 +1,6 @@
 $(document).ready ->
 	initializeArticles = ->
-		articles = $('.items > .article:not(.ready)')
+		articles = $('li.article:not(.ready)')
 
 		articles.addClass('ready')
 		articles.on 'click', '.add-article .add, .add-article .remove', (e) ->

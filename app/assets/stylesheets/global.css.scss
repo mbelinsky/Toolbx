@@ -24,7 +24,7 @@ body { -webkit-tap-highlight-color: rgba(255,0,0, 0.62); }
 
 
 // End resets and stuff.
-body { background: #F2F1ED; font-size: 14px; color: #7D7D7D; }
+body { background: #F2F1ED; font-size: 14px; color: #5C5C55; }
 
 .din {
 	@include din;
@@ -66,6 +66,8 @@ header#top {
 				&.profile {
 					a {
 						padding-top: 10px;
+
+						img { @include border-radius(42px); }
 					}
 				}
 
@@ -102,23 +104,23 @@ header#top {
 
 div.wrap-inner { padding: 50px 0; }
 
+.action-icon {
+	background: url("/assets/item-icons.png"); width: 16px; height: 16px; text-indent: -9999px;
+
+	&.android { background-position: 0 0; }
+	&.desktop { background-position: -16px 0; }
+	&.star { background-position: -32px 0; }
+	&.ios { background-position: -48px 0; }
+	&.toolbox { background-position: -64px 0; }
+	&.web { background-position: -80px 0; }
+	&.white-toolbox { background-position: -96px 0; }
+	&.white-star { background-position: -112px 0; }
+}
+
 ul.items {
 	list-style: none; box-sizing: content-box; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; -ms-box-sizing: content-box;
 
 	&.filter-docked { padding-top: 70px; }
-
-	.action-icon {
-		background: url("/assets/item-icons.png"); width: 16px; height: 16px; text-indent: -9999px;
-
-		&.android { background-position: 0 0; }
-		&.desktop { background-position: -16px 0; }
-		&.star { background-position: -32px 0; }
-		&.ios { background-position: -48px 0; }
-		&.toolbox { background-position: -64px 0; }
-		&.web { background-position: -80px 0; }
-		&.white-toolbox { background-position: -96px 0; }
-		&.white-star { background-position: -112px 0; }
-	}
 
 	> li {
 		margin: 10px; @include border-radius(4px); @include box-shadow(0 1px rgba(0, 0, 0, 0.1)); @include transition(all ease-out 120ms);
@@ -191,6 +193,17 @@ h2.strike {
 	}
 }
 
+h3.strike:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+* html h3.strike { height: 1%; }
+*:first-child+html h3.strike { min-height: 1px; }
+h3.strike {
+	@include din(600); font-size: 24px; position: relative; margin: 0 0 20px; color: #BFBDB6; clear: both;
+
+	&:before { border-top: 1px solid #D9D8D4; border-bottom: 1px solid #D9D8D4; height: 0; content: ""; display: block; position: absolute; top: 50%; left: 0; width: 100%; }
+
+	span { background: #F2F1ED; position: relative; padding-right: 18px; float: left; text-transform: uppercase; }
+}
+
 button, .button {
 	background: #BFBDB6; font-size: 16px; color: #fff; padding: 6px 18px; @include border-radius(30px); font-weight: 600; text-transform: uppercase; cursor: pointer; padding: 9px 24px; text-decoration: none;
 
@@ -209,7 +222,7 @@ form {
 		&.check { width: 140px; }
 		&.inline { float: left; clear: none; }
 
-		label { display: block; font-size: 16px; font-weight: normal; margin-bottom: 4px; text-transform: uppercase; color: #5C5C54; }
+		label { display: block; font-size: 16px; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; color: #5C5C54; }
 		input, select, textarea {
 			font-size: 16px; color: #5C5C54; padding: 12px 9px; display: block; width: 100%; border: 2px solid #D9D8D4; @include border-radius(6px);
 

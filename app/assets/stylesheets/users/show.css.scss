@@ -6,6 +6,8 @@ html.users.show_tools, html.users.show_articles {
 
 		div.left {
 			float: left;
+
+			img { @include border-radius(90px); }
 		}
 
 		div.right {

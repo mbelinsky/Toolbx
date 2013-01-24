@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121230047) do
+ActiveRecord::Schema.define(:version => 20130124194629) do
 
   create_table "article_categories", :force => true do |t|
     t.integer  "article_id"
@@ -170,6 +170,16 @@ ActiveRecord::Schema.define(:version => 20130121230047) do
   add_index "user_articles", ["article_id"], :name => "index_user_articles_on_article_id"
   add_index "user_articles", ["user_id"], :name => "index_user_articles_on_user_id"
 
+  create_table "user_categories", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "user_categories", ["category_id"], :name => "index_user_categories_on_category_id"
+  add_index "user_categories", ["user_id"], :name => "index_user_categories_on_user_id"
+
   create_table "user_languages", :force => true do |t|
     t.integer  "user_id"
     t.integer  "language_id"
@@ -215,6 +225,7 @@ ActiveRecord::Schema.define(:version => 20130121230047) do
     t.string   "username"
     t.integer  "tools_count",                  :default => 0
     t.integer  "articles_count",               :default => 0
+    t.string   "google_plus_id"
   end
 
   add_index "users", ["city_id"], :name => "index_users_on_city_id"

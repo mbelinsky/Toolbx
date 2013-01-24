@@ -5,4 +5,10 @@ class ArticlesController < ApplicationController
 
     @articles = Article.in_categories(params[:category_ids]).search(params[:keyword]).where(published: true).order(@orders[params[:order]]).page(params[:page]).per(36)
   end
+
+  def show
+    @article = Article.find(params[:id])
+    @has_footer = true
+    # @toolbar_docked = true
+  end
 end

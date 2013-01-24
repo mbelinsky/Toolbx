@@ -3,6 +3,8 @@
 li.tool {
 	list-style: none; background: #fff; @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.1)); @include width(4); float: left; height: $cols4; position: relative;
 
+	&.mini { height: 120px; @include border-radius(4px); margin-bottom: 10px; }
+
 	&:hover {
 		div.banner a img.desat { @include opacity(0); }
 	}

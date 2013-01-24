@@ -9,7 +9,10 @@ class User < ActiveRecord::Base
   has_many :user_articles, dependent: :destroy
   has_many :articles, through: :user_articles
 
-  attr_accessible :description, :email, :facebook_username, :linkedin_username, :first_name, :password_digest, :last_name, :twitter_username, :website_url, :password, :password_confirmation, :username
+  has_many :user_categories, dependent: :destroy
+  has_many :categories, through: :user_categories
+
+  attr_accessible :description, :email, :facebook_username, :linkedin_username, :google_plus_id, :first_name, :password_digest, :last_name, :twitter_username, :website_url, :password, :password_confirmation, :username, :category_ids, :profile_picture
 
   before_validation :downcase_username
 
@@ -31,7 +34,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :profile_picture, styles: { medium: "140x140>", small: "60x60>", thumb: "30x30>" }, default_url: 'profile-default/missing_:style.png'
   validates_attachment_content_type :profile_picture, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
-  validates_attachment_size :profile_picture, less_than: 1.megabyte
+  validates_attachment_size :profile_picture, less_than: 500.kilobytes
 
   def full_name
     "#{first_name} #{last_name}"
@@ -43,6 +46,10 @@ class User < ActiveRecord::Base
 
   def twitter_url
     twitter_username.blank? ? nil : "https://twitter.com/#{twitter_username}"
+  end
+
+  def google_plus_url
+    google_plus_id.blank? ? nil : "https://plus.google.com/#{google_plus_id}"
   end
 
   def linkedin_url

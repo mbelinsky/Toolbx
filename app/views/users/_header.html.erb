@@ -6,10 +6,11 @@
 	<div class="right">
 		<nav class="social">
 			<ul>
-				<% if @user.twitter_username %><li><%= link_to 'Twitter', @user.twitter_url, class: 'twitter', target: '_blank' %></li><% end %>
-				<% if @user.facebook_username %><li><%= link_to 'Facebook', @user.facebook_url, class: 'facebook', target: '_blank' %></li><% end %>
-				<% if @user.linkedin_username %><li><%= link_to 'Linkedin', @user.linkedin_url, class: 'linkedin', target: '_blank' %></li><% end %>
-				<% if @user.website_url %><li><%= link_to 'Website', @user.formatted_website_url, class: 'website', target: '_blank' %></li><% end %>
+				<% unless @user.twitter_username.blank? %><li><%= link_to 'Twitter', @user.twitter_url, class: 'twitter', target: '_blank' %></li><% end %>
+				<% unless @user.facebook_username.blank? %><li><%= link_to 'Facebook', @user.facebook_url, class: 'facebook', target: '_blank' %></li><% end %>
+				<% unless @user.google_plus_id.blank? %><li><%= link_to 'Google Plus', @user.google_plus_url, class: 'google-plus', target: '_blank' %></li><% end %>
+				<% unless @user.linkedin_username.blank? %><li><%= link_to 'Linkedin', @user.linkedin_url, class: 'linkedin', target: '_blank' %></li><% end %>
+				<% unless @user.website_url.blank? %><li><%= link_to 'Website', @user.formatted_website_url, class: 'website', target: '_blank' %></li><% end %>
 			</ul>
 		</nav>
 	</div>
