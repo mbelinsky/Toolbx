@@ -5,6 +5,9 @@ class Article < ActiveRecord::Base
   has_many :article_tools, dependent: :destroy, inverse_of: :article
   has_many :tools, through: :article_tools
 
+  has_many :user_articles, dependent: :destroy
+  has_many :users, through: :user_articles
+
   validates_presence_of :author, :title, :body, :categories
   attr_accessible :body, :title, :category_ids, :tool_ids, :featured, :published, :featured_image
 

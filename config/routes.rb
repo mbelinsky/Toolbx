@@ -3,9 +3,7 @@ Thetoolbox::Application.routes.draw do
   get "privacy/index"
 
   get "password_resets/create"
-
   get "password_resets/edit"
-
   get "password_resets/update"
 
   # User settings
@@ -29,23 +27,26 @@ Thetoolbox::Application.routes.draw do
   get 'contact' => 'contact#index', as: 'contact'
   get 'privacy' => 'privacy#index', as: 'privacy'
 
-  # get '/users/:id/tools' => 'users#show_tools', as: 'user_tools'
-  # get '/users/:id/articles' => 'users#show_articles', as: 'user_articles'
-  # get '/users/:id/tools/page/:page' => 'users#show_tools', as: 'user_tools'
-  # get '/users/:id/articles/page/:page' => 'users#show_articles', as: 'user_articles'
-
+  # Root URL
   root to: 'home#index'
 
-  # User pages
+  # User
   get '/users/:id' => redirect('/users/%{id}/tools'), as: 'user'
 
-  resources :users, except: [:show, :edit, :update, :destroy]
+  resources :users, except: [:show, :edit, :update, :destroy] do
+    get 'tools', action: :show_tools, on: :member
+    get 'tools/page/:page', action: :show_tools, on: :member
+    get 'articles', action: :show_articles, on: :member
+    get 'articles/page/:page', action: :show_articles, on: :member
+  end
 
+  # User's Toolbox
   namespace :toolbox do
     resources :tools, only: [:create, :destroy]
     resources :articles, only: [:create, :destroy]
   end
 
+  # Tools
   resources :tools, only: [:index, :show] do
     get 'page/:page', action: :index, on: :collection
 
@@ -53,10 +54,12 @@ Thetoolbox::Application.routes.draw do
     post 'suggestions', action: :create_suggestion, on: :collection
   end
 
+  # Articles
   resources :articles, only: [:index, :show] do
     get 'page/:page', action: :index, on: :collection
   end
 
+  # Admin
   get '/admin' => redirect('/admin/tools')
   namespace :admin do
     resources :tools do
@@ -72,6 +75,9 @@ Thetoolbox::Application.routes.draw do
     resources :article_images, only: [:index, :create]
   end
 
+  # Login/out
   resources :sessions
+
+  # Password resets
   resources :password_resets
 end

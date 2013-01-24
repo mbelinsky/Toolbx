@@ -1,15 +1,15 @@
 $(document).ready ->
-	initializeTools = ->
-		tools = $('.items > .tool:not(.ready)')
+	initializeArticles = ->
+		articles = $('.items > .article:not(.ready)')
 
-		tools.addClass('ready')
-		tools.on 'click', '.add-tool .add, .add-tool .remove', (e) ->
+		articles.addClass('ready')
+		articles.on 'click', '.add-article .add, .add-article .remove', (e) ->
 			e.preventDefault();
 			el = $(e.currentTarget).parent()
 
 			el.addClass('loading')
 
-		tools.on 'ajax:success', (e) ->
+		articles.on 'ajax:success', (e) ->
 			el = $(e.target).parent()
 			countEl = el.find('.users-count')
 			count = parseInt countEl.text(), 10
@@ -17,19 +17,19 @@ $(document).ready ->
 			el.removeClass('loading')
 
 			if el.hasClass 'add'
-				# Just created a UserTool
+				# Just created a UserArticle
 				el.removeClass('add').addClass('remove')
 				countEl.text count + 1
 			else
-				# Just destroyed a UserTool
+				# Just destroyed a UserArticle
 				el.removeClass('remove').addClass('add')
 				countEl.text count - 1
 
-		tools.on 'ajax:error', (e) ->
+		articles.on 'ajax:error', (e) ->
 			el = $(e.target).parent()
 
 			el.removeClass('loading')
 
 			alert 'There was a problem, please try again later.'
 
-	initializeTools()
+	initializeArticles()
