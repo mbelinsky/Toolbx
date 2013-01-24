@@ -1,0 +1,49 @@
+<!-- <menu id="article-controls" class="controls">
+	alsdkjfalksdjf
+</menu> -->
+
+<section id="content">
+	<header class="group">
+		<h1><%= @article.title %></h1>
+		<ul class="categories">
+			<% @article.categories.each do |category| %>
+				<li><%= link_to category.title, articles_path(params: {category_ids: [category.id]}) %></li>
+			<% end %>
+		</ul>
+	</header>
+
+	<div class="body">
+		<%= image_tag @article.featured_image.url(:full) %>
+		<%= @article.body.html_safe %>
+	</div>
+
+	<div class="disqus">
+
+	</div>
+</section>
+
+<aside>
+	<% if @article.users_count > 0 %>
+		<section class="users group">
+			<h3 class="strike"><span>People Reading This Article</span></h3>
+
+			<ul>
+				<% @article.users.order('articles_count DESC').limit(3).each do |user| %>
+					<%= render 'users/user', user: user %>
+				<% end %>
+			</ul>
+		</section>
+	<% end %>
+
+	<% if @article.tools.count > 0 %>
+		<section class="tools group">
+			<h3 class="strike"><span>Related Tools</span></h3>
+
+			<ul>
+				<% @article.tools.each do |tool| %>
+					<%= render 'tools/tool', tool: tool, mini: true %>
+				<% end %>
+			</ul>
+		</section>
+	<% end %>
+</aside>

@@ -40,7 +40,7 @@
 <div class="main">
 	<div class="inner group">
 		<h2 class="strike">
-			<span>Recent Articles</span>
+			<span>Newest Articles</span>
 			<menu class="gray category-icons">
 				<% categories.each do |category| %>
 					<li><%= link_to category.title, articles_path(params: {category_ids: [category.id]}), class: category.title.parameterize %></li>
@@ -58,7 +58,7 @@
 
 	<div class="inner group">
 		<h2 class="strike">
-			<span>Recent Tools</span>
+			<span>Newest Tools</span>
 			<menu class="gray category-icons">
 				<% categories.each do |category| %>
 					<li><%= link_to category.title, tools_path(params: {category_ids: [category.id]}), class: category.title.parameterize %></li>

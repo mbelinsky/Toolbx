@@ -1,13 +1,16 @@
 <% path ||= tool_path(tool) %>
+<% mini ||= false %>
 <% has_tool = current_user ? tool.users.exists?(current_user) : nil %>
 
-<li class="tool">
-	<div class="banner">
-		<%= link_to path do %>
-			<%= if tool.screens.count > 0 then image_tag tool.screens.first.screenshot.url(:banner) end %>
-			<%= if tool.screens.count > 0 then image_tag tool.screens.first.screenshot.url(:desat_banner), class: 'desat' end %>
-		<% end %>
-	</div>
+<li class="tool <%= 'mini' if mini %>">
+	<% unless mini %>
+		<div class="banner">
+			<%= link_to path do %>
+				<%= if tool.screens.count > 0 then image_tag tool.screens.first.screenshot.url(:banner) end %>
+				<%= if tool.screens.count > 0 then image_tag tool.screens.first.screenshot.url(:desat_banner), class: 'desat' end %>
+			<% end %>
+		</div>
+	<% end %>
 	<div class="meta group">
 		<%= link_to path do %>
 			<%= image_tag tool.icon.url(:thumb), class: 'icon' %>

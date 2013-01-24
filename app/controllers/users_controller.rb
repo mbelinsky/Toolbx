@@ -21,11 +21,19 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    @has_footer = true
   end
 
   def update
+    @has_footer = true
 
+    respond_to do |format|
+      if current_user.update_attributes params[:user]
+        format.html { redirect_to :back, notice: "Changes saved." }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
   end
 
   def destroy

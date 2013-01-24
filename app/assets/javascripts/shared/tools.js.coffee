@@ -1,6 +1,6 @@
 $(document).ready ->
 	initializeTools = ->
-		tools = $('.items > .tool:not(.ready)')
+		tools = $('li.tool:not(.ready)')
 
 		tools.addClass('ready')
 		tools.on 'click', '.add-tool .add, .add-tool .remove', (e) ->

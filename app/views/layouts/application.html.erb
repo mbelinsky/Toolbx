@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="<%= "#{@os} #{@browser} #{controller_path.split('/').first} #{controller.controller_name} #{controller.action_name}"%> <%= 'has-footer' if @has_footer %>">
+<html class="<%= "#{@os} #{@browser} #{controller_path.split('/').first if controller_path.split('/').first != controller.controller_name} #{controller.controller_name} #{controller.action_name}"%> <%= 'has-footer' if @has_footer %>">
 	<head>
 		<title>The Toolbox</title>
 		<%= stylesheet_link_tag "application", :media => "all" %>
@@ -9,7 +9,7 @@
 	<body>
 		<div class="wrap-outer">
 			<div class="wrap-inner group">
-				<header id="top">
+				<header id="top" class="<%= 'filter-docked' if @toolbar_docked %>">
 					<div class="inner">
 						<h6><%= link_to 'The Toolbox', root_path %></h6>
 

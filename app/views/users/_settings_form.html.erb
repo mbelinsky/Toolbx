@@ -1,0 +1,82 @@
+<h1 class="strike"><span>Account Settings</span></h1>
+
+<div class="settings-container">
+	<%= form_for current_user, url: { action: 'update' }, method: 'put' do |f| %>
+		<div class="top">
+			<% if current_user.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+					<ul>
+					<% current_user.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+					</ul>
+				</div>
+			<% end %>
+
+			<div class="field inline">
+				<%= f.label :first_name, "First Name" %>
+				<%= f.text_field :first_name %>
+			</div>
+			<div class="field inline last">
+				<%= f.label :last_name, "Last Name" %>
+				<%= f.text_field :last_name %>
+			</div>
+			<div class="field full">
+				<%= f.label :email, "Email" %>
+				<%= f.text_field :email %>
+			</div>
+		</div>
+
+		<div class="bottom">
+			<div class="left">
+				<div class="field full">
+					<%= f.label :category_ids, "Interests" %>
+					<%= f.collection_select :category_ids, Category.order(:title), :id, :title, {}, {multiple: true, class: 'chosen'} %>
+				</div>
+
+				<div class="field inline">
+					<%= f.label :facebook_username %>
+					<%= f.text_field :facebook_username %>
+				</div>
+				<div class="field inline last">
+					<%= f.label :twitter_username %>
+					<%= f.text_field :twitter_username %>
+				</div>
+
+				<div class="field inline">
+					<%= f.label :google_plus_id, "Google Plus ID" %>
+					<%= f.text_field :google_plus_id %>
+				</div>
+				<div class="field inline last">
+					<%= f.label :linkedin_username %>
+					<%= f.text_field :linkedin_username %>
+				</div>
+
+				<div class="field inline ">
+					<%= f.label :website_url %>
+					<%= f.text_field :website_url %>
+				</div>
+			</div>
+
+			<div class="right">
+				<div class="field profile-picture">
+					<%= f.label :profile_picture %>
+
+					<div class="profile-picture-inner">
+						<div class="inside">
+							<%= f.file_field :profile_picture %>
+							<%= if current_user.profile_picture.exists? then image_tag current_user.profile_picture.url(:medium) end %>
+							<button><span>Browse</span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="actions group">
+			<%= f.submit "Save", class: "submit button" %>
+		</div>
+	<% end %>
+</div>
