@@ -13,12 +13,14 @@ class Tool < ActiveRecord::Base
   has_many :screens, dependent: :destroy, limit: 4, order: 'screens.order ASC', inverse_of: :tool
   attr_accessible :app_store_url, :cost, :description, :featured, :github_url, :google_play_url, :name, :site_url, :license_id, :icon, :screens_attributes, :platform_ids, :category_ids
 
-  validates_presence_of :name, :description, :icon, :categories, :platforms
+  validates_presence_of :name, :description, :icon, :categories, :category_ids, :platforms, :platform_ids
 
   validates_format_of :site_url, with: URI::regexp(%w(http https)), allow_blank: true
   validates_format_of :app_store_url, with: URI::regexp(%w(http https)), allow_blank: true
   validates_format_of :google_play_url, with: URI::regexp(%w(http https)), allow_blank: true
   validates_format_of :github_url, with: URI::regexp(%w(http https)), allow_blank: true
+
+  validates_associated :screens
 
   accepts_nested_attributes_for :screens, allow_destroy: true
 

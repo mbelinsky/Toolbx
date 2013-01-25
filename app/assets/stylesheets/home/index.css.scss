@@ -57,7 +57,11 @@ html.home.index {
 
 	div.fade { content: ""; margin: -12px 0 24px; width: 100%; width: 100%; background: url("/assets/home/fade.png") center center no-repeat; height: 12px; position: relative; z-index: 2; }
 
-	a.see-all.button { display: block; margin: 0 auto 120px; width: 180px; padding: 9px 15px; text-align: center; }
+	a.see-all.button {
+		display: block; margin: 0 auto 120px; width: 180px; padding: 9px 15px; text-align: center;
+
+		&:hover { background: #E55453; }
+	}
 
 	h2.strike {
 		menu {

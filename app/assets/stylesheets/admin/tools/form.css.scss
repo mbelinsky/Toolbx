@@ -18,6 +18,9 @@ html.admin.tools.new, html.admin.tools.create, html.admin.tools.edit, html.admin
 					div.inside {
 						width: 120px; height: 120px; background: #F2F1ED; position: relative; @include border-radius(3px);
 
+						div.validation-error { display: none; }
+						div.field_with_errors { width: 100%; height: 100%; background: #E55453; position: absolute; top: 0; left: 0; @include border-radius(3px); }
+
 						img { position: absolute; top: 0; left: 0; @include border-radius(3px); }
 						input { display: none; }
 						button {
@@ -41,17 +44,20 @@ html.admin.tools.new, html.admin.tools.create, html.admin.tools.edit, html.admin
 						list-style: none; padding: 5px;
 
 						li {
-							margin: 5px; background: #F2F1ED; position: relative; height: 50px; cursor: pointer; @include border-radius(3px);
+							margin: 5px; background: #F2F1ED; position: relative; height: 50px; cursor: pointer; @include border-radius(3px); position: relative;
 
-							div.handle { position: absolute; top: 0; left: 0; text-align: center; background: url("/assets/drag.png") no-repeat center center; width: 30px; height: 100%; cursor: move; }
+							div.validation-error { display: none; }
+							div.field_with_errors { width: 100%; height: 100%; background: #E55453; position: absolute; top: 0; left: 0; @include border-radius(3px); }
+
+							div.handle { position: absolute; top: 0; left: 0; text-align: center; background: url("/assets/drag.png") no-repeat center center; width: 30px; height: 100%; cursor: move; z-index: 1; }
 							div.picker {
-								float: left;  width: 220px; margin: 10px 0 0 30px;
+								float: left; width: 220px; margin: 10px 0 0 30px; z-index: 1; position: relative;
 
 								img { @include border-radius(3px); float: left; display: block; }
 								span.name { font-size: 12px; color: #646464; float: left; overflow: hidden; width: 100%; white-space: nowrap; text-overflow: ellipsis; margin-top: 7px; }
 								img + span.name { width: 180px; margin-left: 9px; }
 							}
-							a.delete { display: block; position: absolute; color: #BFBDB6; text-decoration: none; font-weight: bold; font-size: 24px; top: 50%; margin-top: -17px; right: 10px; }
+							a.delete { display: block; position: absolute; color: #BFBDB6; text-decoration: none; font-weight: bold; font-size: 24px; top: 50%; margin-top: -17px; right: 10px; z-index: 1; }
 
 
 
