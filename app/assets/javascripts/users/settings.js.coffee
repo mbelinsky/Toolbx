@@ -17,4 +17,4 @@ if $('html').is('.users.edit, .users.update')
 		$('#change-password-trigger').on 'click', (e) ->
 			e.preventDefault()
 			$(this).hide()
-			$('.change-password-container').show().find('input').prop 'disabled', false
+			$('.change-password-container').addClass('editing-password').find('input').prop 'disabled', false

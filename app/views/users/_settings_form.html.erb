@@ -1,3 +1,4 @@
+<% @editing_password ||= false %>
 <h1 class="strike"><span>Account Settings</span></h1>
 
 <div class="settings-container">
@@ -26,22 +27,24 @@
 				<%= f.text_field :email %>
 			</div>
 
-			<button id="change-password-trigger">Change Password</button>
+			<% unless @editing_password %>
+				<button id="change-password-trigger">Change Password</button>
+			<% end %>
 
-			<div class="change-password-container">
+			<div class="change-password-container <%= 'editing-password' if @editing_password %>">
 				<div class="field inline">
 					<%= label_tag :current_password, "Current Password" %>
-					<%= password_field_tag :current_password, nil, disabled: true %>
+					<%= password_field_tag :current_password, nil, disabled: !@editing_password %>
 				</div>
 				<div class="field inline last"></div>
 
 				<div class="field inline">
 					<%= f.label :password, "New Password" %>
-					<%= f.password_field :password, disabled: true %>
+					<%= f.password_field :password, disabled: !@editing_password %>
 				</div>
 				<div class="field inline last">
 					<%= f.label :password_confirmation, "New Password Again" %>
-					<%= f.password_field :password_confirmation, disabled: true %>
+					<%= f.password_field :password_confirmation, disabled: !@editing_password %>
 				</div>
 			</div>
 		</div>

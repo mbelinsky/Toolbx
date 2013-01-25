@@ -11,7 +11,11 @@ html.users.edit, html.users.update {
 		div.top {
 			border-bottom: 2px solid #D9D8D4; padding-bottom: 21px;
 
-			div.change-password-container { display: none; }
+			div.change-password-container {
+				display: none;
+
+				&.editing-password { display: block; }
+			}
 		}
 
 		div.bottom {
