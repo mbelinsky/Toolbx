@@ -6,7 +6,7 @@ html.articles.show {
 	article {
 		@include width(8); margin-left: 10px; background: #fff; float: left; padding: 20px; @include border-radius(6px); position: relative;
 
-		h1 { color: #5C5C54; font-size: 32px; font-weight: 600; }
+		h1 { color: #5C5C54; font-size: 32px; font-weight: 600; width: 450px; }
 
 		ul.categories {
 			list-style: none; font-size: 15px; font-style: italic;
