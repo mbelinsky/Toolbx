@@ -12,3 +12,9 @@ if $('html').is('.users.edit, .users.update')
 
 			profilePictureTrigger.find('span').text(val.substr(val.lastIndexOf('\\') + 1))
 			profilePictureTrigger.siblings('img').remove()
+
+		# Change password
+		$('#change-password-trigger').on 'click', (e) ->
+			e.preventDefault()
+			$(this).hide()
+			$('.change-password-container').show().find('input').prop 'disabled', false

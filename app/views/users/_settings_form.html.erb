@@ -2,19 +2,17 @@
 
 <div class="settings-container">
 	<%= form_for current_user, url: { action: 'update' }, method: 'put' do |f| %>
-		<div class="top">
-			<% if current_user.errors.any? %>
-				<div id="error_explanation">
-					<h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-					<ul>
+		<% if current_user.errors.any? %>
+			<div id="error_explanation">
+				<ul>
 					<% current_user.errors.full_messages.each do |msg| %>
 						<li><%= msg %></li>
 					<% end %>
-					</ul>
-				</div>
-			<% end %>
+				</ul>
+			</div>
+		<% end %>
 
+		<div class="top group">
 			<div class="field inline">
 				<%= f.label :first_name, "First Name" %>
 				<%= f.text_field :first_name %>
@@ -27,9 +25,28 @@
 				<%= f.label :email, "Email" %>
 				<%= f.text_field :email %>
 			</div>
+
+			<button id="change-password-trigger">Change Password</button>
+
+			<div class="change-password-container">
+				<div class="field inline">
+					<%= label_tag :current_password, "Current Password" %>
+					<%= password_field_tag :current_password, nil, disabled: true %>
+				</div>
+				<div class="field inline last"></div>
+
+				<div class="field inline">
+					<%= f.label :password, "New Password" %>
+					<%= f.password_field :password, disabled: true %>
+				</div>
+				<div class="field inline last">
+					<%= f.label :password_confirmation, "New Password Again" %>
+					<%= f.password_field :password_confirmation, disabled: true %>
+				</div>
+			</div>
 		</div>
 
-		<div class="bottom">
+		<div class="bottom group">
 			<div class="left">
 				<div class="field full">
 					<%= f.label :category_ids, "Interests" %>

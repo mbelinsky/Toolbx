@@ -1,3 +1,7 @@
+div.field_with_errors .redactor_box {
+	border-color: #E55453;
+}
+
 .redactor_box {
 	position: relative;
 	border: 2px solid #D9D8D4;

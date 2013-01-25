@@ -76,3 +76,23 @@ div.chzn-container, div.chzn-container-multi {
 		background: #fff; @include box-shadow(none); border: 0;
 	}
 }
+
+div.field_with_errors {
+	div.chzn-container, div.chzn-container-multi {
+		ul.chzn-choices {
+			border-color: #E55453;
+		}
+
+		&.chzn-container-active a.chzn-single { border-color: #A43B3B; }
+		a.chzn-single {
+			border-color: #E55453;
+
+			&.chzn-single-with-drop { border-color: #A43B3B; }
+		}
+
+		&.chzn-container-active {
+			ul.chzn-choices { border-color: #A43B3B; }
+			div.chzn-drop { border-color: #A43B3B; }
+		}
+	}
+}
