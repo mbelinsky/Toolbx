@@ -40,6 +40,9 @@ Thetoolbox::Application.routes.draw do
     get 'articles/page/:page', action: :show_articles, on: :member
   end
 
+  # City searching
+  get 'cities' => 'cities#index', as: 'cities'
+
   # User's Toolbox
   namespace :toolbox do
     resources :tools, only: [:create, :destroy]

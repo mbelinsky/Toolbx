@@ -60,7 +60,7 @@ gem 'mysql2'
 # notify on exceptions
 gem 'exception_notification'
 
-# email validation
+# email validationgg
 gem 'validates_email_format_of'
 
 # test stuff

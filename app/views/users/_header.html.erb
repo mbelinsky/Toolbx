@@ -1,7 +1,14 @@
 <header class="user group">
 	<div class="left">
 		<%= image_tag @user.profile_picture.url(:medium) %>
-		<%= @user.full_name %>
+		<div class="about">
+			<h1><%= @user.full_name %></h1>
+			<ul class="categories">
+				<% @user.categories.each do |category| %>
+					<li><%= category.title %></li>
+				<% end %>
+			</ul>
+		</div>
 	</div>
 	<div class="right">
 		<nav class="social">
