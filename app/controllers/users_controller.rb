@@ -28,7 +28,27 @@ class UsersController < ApplicationController
     @has_footer = true
 
     respond_to do |format|
-      if current_user.update_attributes params[:user]
+      if params[:user][:password] || params[:user][:password_confirmation] || params[:current_password]
+        @editing_password = true
+        authenticated = current_user.authenticate(params[:current_password])
+
+        if authenticated && current_user.update_attributes(params[:user])
+          puts 'UPDATE'
+          puts 'UPDATE'
+          puts 'UPDATE'
+          puts 'UPDATE'
+          puts 'UPDATE'
+          puts 'UPDATE'
+          puts 'UPDATE'
+          format.html { redirect_to :back, notice: "Changes saved." }
+        else
+          unless authenticated
+            current_user.errors[:base] << 'Current password is incorrect.'
+          end
+
+          format.html { render action: 'edit' }
+        end
+      elsif current_user.update_attributes params[:user]
         format.html { redirect_to :back, notice: "Changes saved." }
       else
         format.html { render action: 'edit' }
