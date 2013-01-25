@@ -52,11 +52,11 @@
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">
 			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-			var disqus_shortname = 'toolbx',
-				disqus_identifier = "toolbx<%= Settings.disqus_identifier_prefix %>-article-<%= @article.id %>",
+			var disqus_shortname = 'thetoolbx',
+				disqus_identifier = "thetoolbx<%= Settings.disqus_identifier_prefix %>-article-<%= @article.id %>",
 				disqus_title = "<%= @article.title %>",
 				disqus_url = "<%= request.url %>",
-				disqus_developer = <%= Rails.env == 'development' ? 1 : 0 %>;
+				disqus_developer = <%= Rails.env == 'production' ? 0 : 1 %>;
 
 			/* * * DON'T EDIT BELOW THIS LINE * * */
 			(function() {
@@ -67,7 +67,6 @@
 		</script>
 		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
 	</div>
 </article>
 
