@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery-migrate
 //= require jquery_ujs
+//= require jquery.ui.autocomplete
 //= require_tree ../../../vendor/assets/javascripts
 //= require_tree .

@@ -52,6 +52,12 @@
 		<div class="bottom group">
 			<div class="left">
 				<div class="field full">
+					<label for="city-picker">Location</label>
+					<%= f.hidden_field :city_name %>
+					<input type="text" id="city-picker" value="<%= current_user.city_name %>">
+				</div>
+
+				<div class="field full">
 					<%= f.label :category_ids, "Interests" %>
 					<%= f.collection_select :category_ids, Category.order(:title), :id, :title, {}, {multiple: true, class: 'chosen'} %>
 				</div>

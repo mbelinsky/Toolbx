@@ -281,14 +281,14 @@ div.slider-checkbox {
 
 	&.focused { border-color: #807E77; }
 	&.checked {
-		background: #E55453; border-color: #A43B3B;
+		background: #4BCFEB; border-color: #2E8DA3;
 
 		div.slider {
-			div.selected-item { border-color: #A43B3B; }
+			div.selected-item { border-color: #2E8DA3; }
 			span { color: #fff; }
 		}
 
-		&.focused { border-color: #732827; }
+		&.focused { border-color: #1B5360; }
 	}
 
 	input { display: block; position: absolute; left: -9999px; }
