@@ -9,6 +9,6 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @has_footer = true
-    # @toolbar_docked = true
+    @has_control_bar = true
   end
 end

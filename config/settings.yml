@@ -1,3 +1,4 @@
 s3:
   access_key_id: AKIAIL5LTKXQ5S3VBUKQ
   secret_access_key: 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
+disqus_identifier_prefix: ''
