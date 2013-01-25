@@ -1,2 +1,3 @@
 s3:
   bucket: the_toolbox_development_images
+disqus_identifier_prefix: 'dev'

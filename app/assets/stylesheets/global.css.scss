@@ -22,6 +22,11 @@ body { -webkit-tap-highlight-color: rgba(255,0,0, 0.62); }
 *:first-child+html .group { min-height: 1px; }
 /* End clearfix */
 
+/* AddThis Fixes */
+div.addthis_toolbox { clear: both; padding-top: 12px; }
+div#at3win, div#at3win *, div.addthis_toolbox, div.addthis_toolbox * { box-sizing: content-box; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; -ms-box-sizing: content-box; }
+/* End AddThis Fixes */
+
 
 // End resets and stuff.
 body { background: #F2F1ED; font-size: 14px; color: #5C5C55; }
@@ -105,7 +110,7 @@ header#top {
 div.wrap-inner { padding: 50px 0; }
 
 .action-icon {
-	background: url("/assets/item-icons.png"); width: 16px; height: 16px; text-indent: -9999px;
+	background: url("/assets/action-icons.png"); width: 16px; height: 16px; text-indent: -9999px; background-repeat: none;
 
 	&.android { background-position: 0 0; }
 	&.desktop { background-position: -16px 0; }
@@ -115,6 +120,19 @@ div.wrap-inner { padding: 50px 0; }
 	&.web { background-position: -80px 0; }
 	&.white-toolbox { background-position: -96px 0; }
 	&.white-star { background-position: -112px 0; }
+
+	&.large {
+		width: 24px; height: 24px;
+
+		&.android { background-position: 0 -16px; }
+		&.desktop { background-position: -24px -16px; }
+		&.star { background-position: -48px -16px; }
+		&.ios { background-position: -72px -16px; }
+		&.toolbox { background-position: -96px -16px; }
+		&.web { background-position: -120px -16px; }
+		&.white-toolbox { background-position: -144px -16px; }
+		&.white-star { background-position: -168px -16px; }
+	}
 }
 
 ul.items {

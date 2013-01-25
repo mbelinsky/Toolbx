@@ -1,10 +1,10 @@
 @import '../mixins.css.scss';
 
 html.articles.show {
-	div.wrap-inner { padding: 90px 0 50px; }
+	div.wrap-inner { padding-top: 90px; }
 
-	section#content {
-		@include width(8); margin-left: 10px; background: #fff; float: left; padding: 20px; @include border-radius(6px);
+	article {
+		@include width(8); margin-left: 10px; background: #fff; float: left; padding: 20px; @include border-radius(6px); position: relative;
 
 		h1 { color: #5C5C54; font-size: 32px; font-weight: 600; }
 
@@ -21,11 +21,52 @@ html.articles.show {
 			}
 		}
 
+		div.add-remove-container {
+			position: absolute; top: 21px; right: 20px;
+
+			&.add a.add { display: block; }
+			&.remove a.remove { display: block; }
+			&.loading {
+				a.add, a.remove { display: none; }
+				a.loading { display: block; }
+			}
+
+			a {
+				display: none; background: #F2F1ED; font-weight: 600; font-size: 16px; text-decoration: none; text-transform: uppercase; @include border-radius(30px); padding: 8px 14px 8px 12px; color: #A6A5A3;
+
+				&:hover {
+					background: #E55453; color: #fff;
+
+					div.action-icon { background-position: -168px -16px; }
+				}
+
+				&.join { display: block; }
+
+				&.loading {
+					background: #E55453;
+
+					div.loader { background: url("/assets/loading.gif") no-repeat center center; width: 16px; height: 24px; margin-left: 9px; float: left; }
+				}
+
+				div.action-icon { float: left; }
+				span { display: block; float: left; padding: 1px 0 0 6px; }
+			}
+		}
+
 		div.body {
-			color: #807E77; font-size: 14px; line-height: 22px; border-bottom: 2px solid #EFEEED; margin: 30px 0 0;
+			color: #807E77; font-size: 14px; line-height: 22px; border-bottom: 2px solid #EFEEED; margin: 30px 0 0; padding-bottom: 12px;
 
 			img { max-width: 100%; @include border-radius(4px); }
 			p { margin: 12px 0; }
+			ul, ol {
+				margin: 12px 0 12px 30px;
+
+				li { margin: 3px 0; }
+			}
+		}
+
+		div.disqus {
+			padding-top: 24px;
 		}
 	}
 

@@ -9,7 +9,7 @@ class Admin::ArticleImagesController < AdminController
     @article_image = ArticleImage.new(image: params[:file])
 
     if @article_image.save
-      render json: {thumb: @article_image.image.url(:thumb), filelink: @article_image.image.url(:original)}, status: 201
+      render json: {thumb: @article_image.image.url(:thumb), filelink: @article_image.image.url(:full)}, status: 201
     else
       render json: {error: @article_image.errors.full_messages.first}, status: 400
     end
@@ -23,7 +23,7 @@ class Admin::ArticleImagesController < AdminController
     images.each do |image|
       json_images << {
         thumb: image.image.url(:thumb),
-        image: image.image.url(:original)
+        image: image.image.url(:full)
       }
     end
 
