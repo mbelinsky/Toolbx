@@ -64,7 +64,12 @@
 
 				<div class="field full">
 					<%= f.label :bio %>
-					<span id="bio-counter" class="<%= 'invalid' if current_user.bio.length > 200 %>"><%= 200 - current_user.bio.length %></span>
+
+					<% if current_user.bio.nil? %>
+						<span id="bio-counter">200</span>
+					<% else %>
+						<span id="bio-counter" class="<%= 'invalid' if current_user.bio.length > 200 %>"><%= 200 - current_user.bio.length %></span>
+					<% end %>
 					<%= f.text_area :bio %>
 				</div>
 
