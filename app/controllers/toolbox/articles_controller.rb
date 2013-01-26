@@ -4,6 +4,8 @@ class Toolbox::ArticlesController < ToolboxController
 
     if !article
       render nothing: true, status: 400
+    elsif !article.published
+      render nothing: true, status: 403
     elsif UserArticle.create(user: current_user, article: article)
       render nothing: true, status: 201
     else

@@ -33,7 +33,11 @@ class Article < ActiveRecord::Base
     end
   end
 
-  def to_param
+  def slug
     "#{self.id}-#{self.title.parameterize}"
+  end
+
+  def to_param
+    slug
   end
 end

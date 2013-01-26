@@ -25,11 +25,14 @@ $(document).ready ->
 				el.removeClass('remove').addClass('add')
 				countEl.text count - 1
 
-		articles.on 'ajax:error', (e) ->
+		articles.on 'ajax:error', (e, xhr) ->
 			el = $(e.target).parent()
 
 			el.removeClass('loading')
 
-			alert 'There was a problem, please try again later.'
+			if xhr.status == 403
+				alert 'You\'re not allowed to do that yet.'
+			else
+				alert 'There was a problem, please try again later.'
 
 	initializeArticles()
