@@ -24,7 +24,7 @@ if $('html').is('.users.edit, .users.update')
 		# City Picker
 		$('#city-picker').on 'keyup', ->
 			unless $(this).val()
-				$("#user_city_name").val('0')
+				$("#user_city_id").val('0')
 
 		$('#city-picker').autocomplete
 			source: '/cities'
@@ -34,10 +34,15 @@ if $('html').is('.users.edit, .users.update')
 				my: 'left top'
 				at: 'left bottom-5'
 			select: (e, ui) ->
-				$("#user_city_name").val(ui.item.value)
+				$("#user_city_id").val(ui.item.value)
 				$("#city-picker").val(ui.item.label)
 				return false
 			focus: (e, ui) ->
 				e.preventDefault()
-				$("#user_city_name").val(ui.item.value)
+				$("#user_city_id").val(ui.item.value)
 				$("#city-picker").val(ui.item.label)
+
+		# Bio Counter
+		$('#user_bio').on 'keyup', ->
+			remainingCharacters = 200 - $('#user_bio').val().length
+			$('#bio-counter').text(remainingCharacters).toggleClass('invalid', remainingCharacters < 0)

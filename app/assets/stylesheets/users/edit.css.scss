@@ -21,6 +21,12 @@ html.users.edit, html.users.update {
 		div.bottom {
 			padding-top: 33px;
 
+			span#bio-counter {
+				font-size: 12px; position: absolute; display: block; top: 2px; right: 0; font-weight: 600;
+
+				&.invalid { color: #A43B3B; }
+			}
+
 			div.left { float: left; }
 
 			div.right {

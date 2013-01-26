@@ -242,7 +242,7 @@ div#error_explanation {
 
 form {
 	div.field {
-		@include width(4); margin: 0 20px 18px 0; clear: left;
+		@include width(4); margin: 0 20px 18px 0; clear: left; position: relative;
 
 		&.last, &.full { margin-right: 0; }
 		&.full { @include width(8); }

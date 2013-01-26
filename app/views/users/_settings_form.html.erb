@@ -53,13 +53,19 @@
 			<div class="left">
 				<div class="field full">
 					<label for="city-picker">Location</label>
-					<%= f.hidden_field :city_name %>
+					<%= f.hidden_field :city_id %>
 					<input type="text" id="city-picker" value="<%= current_user.city_name %>">
 				</div>
 
 				<div class="field full">
 					<%= f.label :category_ids, "Interests" %>
 					<%= f.collection_select :category_ids, Category.order(:title), :id, :title, {}, {multiple: true, class: 'chosen'} %>
+				</div>
+
+				<div class="field full">
+					<%= f.label :bio %>
+					<span id="bio-counter" class="<%= 'invalid' if current_user.bio.length > 200 %>"><%= 200 - current_user.bio.length %></span>
+					<%= f.text_area :bio %>
 				</div>
 
 				<div class="field inline">

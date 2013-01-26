@@ -3,13 +3,17 @@
 		<%= image_tag @user.profile_picture.url(:medium) %>
 		<div class="about">
 			<h1><%= @user.full_name %></h1>
+			<% if @user.city_id %><div class="location"><%= @user.city_name %></div><% end %>
 			<ul class="categories">
 				<% @user.categories.each do |category| %>
 					<li><%= category.title %></li>
 				<% end %>
 			</ul>
+
+			<div class="bio"><%= @user.bio %></div>
 		</div>
 	</div>
+
 	<div class="right">
 		<nav class="social">
 			<ul>
@@ -19,6 +23,18 @@
 				<% unless @user.linkedin_username.blank? %><li><%= link_to 'Linkedin', @user.linkedin_url, class: 'linkedin', target: '_blank' %></li><% end %>
 				<% unless @user.website_url.blank? %><li><%= link_to 'Website', @user.formatted_website_url, class: 'website', target: '_blank' %></li><% end %>
 			</ul>
+		</nav>
+
+		<nav class="toolbox">
+			<%= link_to tools_user_path do %>
+				<div class="action-icon large toolbox"></div>
+				<span><%= @user.tools_count %></span>
+			<% end %>
+
+			<%= link_to articles_user_path do %>
+				<div class="action-icon large star"></div>
+				<span><%= @user.articles_count %></span>
+			<% end %>
 		</nav>
 	</div>
 </header>
