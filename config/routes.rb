@@ -29,6 +29,8 @@ Thetoolbox::Application.routes.draw do
 
   # Root URL
   root to: 'home#index'
+  # Robots
+  get 'robots.txt' => 'home#robots'
 
   # User
   get '/users/:id' => redirect('/users/%{id}/tools'), as: 'user'

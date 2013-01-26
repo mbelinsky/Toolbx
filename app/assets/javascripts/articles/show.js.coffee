@@ -20,9 +20,11 @@ if $('html').is '.articles.show'
 				# Just destroyed a UserArticle
 				el.removeClass('remove').addClass('add')
 
-		article.on 'ajax:error', (e) ->
+		article.on 'ajax:error', (e, xhr) ->
 			el = $(e.target).parent()
-
 			el.removeClass('loading')
 
-			alert 'There was a problem, please try again later.'
+			if xhr.status == 403
+				alert 'You\'re not allowed to do that yet.'
+			else
+				alert 'There was a problem, please try again later.'
