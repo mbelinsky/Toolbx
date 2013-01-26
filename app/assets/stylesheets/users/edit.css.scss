@@ -1,4 +1,4 @@
-@import 'mixins.css.scss';
+@import '../mixins.css.scss';
 
 html.users.edit, html.users.update {
 	h1 { @include width(12); }
