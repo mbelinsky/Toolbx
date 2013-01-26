@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   force_ssl
 
-  before_filter :identify_known_bots, :identify_browser_and_os, :authenticate_if_staging
+  before_filter :identify_known_bots, :identify_browser_and_os
 
   private
 
@@ -13,14 +13,6 @@ class ApplicationController < ActionController::Base
 
   def authorize
     redirect_to login_url, alert: "Uh oh, you'll have to log in before doing that." if current_user.nil?
-  end
-
-  def authenticate_if_staging
-    if Rails.env == 'staging'
-      authenticate_or_request_with_http_basic 'Staging' do |name, password|
-        name == Settings.basic_auth.username && password == Settings.basic_auth.password
-      end
-    end
   end
 
   def identify_known_bots
