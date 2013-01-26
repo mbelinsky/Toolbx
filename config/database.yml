@@ -33,3 +33,11 @@ production:
   username: toolboxbot
   password: "KwdhE7MNjC/CDLx78.,T"
   socket: /tmp/mysql.sock
+
+staging:
+  adapter: mysql2
+  encoding: utf8
+  database: thetoolbox_development
+  username: root
+  password:
+  socket: /tmp/mysql.sock
