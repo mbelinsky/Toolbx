@@ -12,9 +12,11 @@ class User < ActiveRecord::Base
   has_many :user_categories, dependent: :destroy
   has_many :categories, through: :user_categories
 
-  attr_accessible :description, :email, :facebook_username, :linkedin_username, :google_plus_id, :first_name, :password_digest, :last_name, :twitter_username, :website_url, :password, :password_confirmation, :username, :category_ids, :profile_picture, :city_id, :city_name
+  attr_accessible :description, :email, :facebook_username, :linkedin_username, :google_plus_id, :first_name, :password_digest, :last_name, :twitter_username, :website_url, :password, :password_confirmation, :username, :category_ids, :profile_picture, :city_id, :city_name, :bio
 
   before_validation :downcase_username
+
+  validates_length_of :bio, maximum: 200, allow_blank: true
 
   validates_presence_of :first_name
   validates_presence_of :last_name

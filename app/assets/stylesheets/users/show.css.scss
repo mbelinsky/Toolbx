@@ -2,32 +2,37 @@
 
 html.users.show_tools, html.users.show_articles {
 	header.user {
-		background: #fff; @include width(12); @include border-radius(5px); padding: 20px; margin: 40px 0 0 10px;
+		background: #fff; @include width(12); @include border-radius(5px); padding: 20px; margin: 40px 0 0 10px; position: relative;
 
 		div.left {
-			float: left;
+			float: left; border-right: 2px solid #EFEEED;
 
 			img { @include border-radius(90px); display: block; float: left; }
 
 			div.about {
-				float: left; margin-left: 20px; width: 450px; border-right: 2px solid #EFEEED; padding-right: 27px; height: 140px;
+				float: left; margin-left: 20px; width: 450px; padding-right: 27px;
 
-				h1 {  }
+				h1 { font-size: 32px; }
+
+				div.location { color: #999791; font-style: italic; padding: 0 0 6px 10px; background: url("/assets/location-marker.png") no-repeat 0 5px; margin-top: -4px; }
+
 				ul.categories {
 					list-style: none; font-size: 15px; font-style: italic;
 
 					li {
-						margin: 0; float: left; padding-right: 4px; color: #909090;
+						margin: 0; float: left; padding-right: 4px; color: #E55352;
 
-						&:after { content: ", "; color: #909090; }
+						&:after { content: ", "; color: #E55352; }
 						&:last-child:after { content: ""; }
 					}
 				}
+
+				div.bio { clear: both; color: #999792; font-size: 13px; line-height: 20px; padding-top: 12px; overflow: hidden; }
 			}
 		}
 
 		div.right {
-			float: right; height: 140px;
+			float: right;
 
 			nav.social {
 				float: right;
@@ -61,6 +66,17 @@ html.users.show_tools, html.users.show_articles {
 							}
 						}
 					}
+				}
+			}
+
+			nav.toolbox {
+				position: absolute; bottom: 20px; right: 20px;
+
+				a {
+					display: block; float: left; margin-left: 10px; background: #F2F1ED; color: #C1BFB9; font-size: 16px; @include border-radius(30px); padding: 8px 12px; font-weight: 600;
+
+					div.action-icon { float: left; }
+					span { display: block; float: left; padding: 1px 0 0 8px; }
 				}
 			}
 		}
