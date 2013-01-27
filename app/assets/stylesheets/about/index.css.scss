@@ -1,0 +1,108 @@
+@import '../mixins.css.scss';
+
+html.about.index {
+	header#top + div.inner { width: 100% !important; }
+
+	.about-sprite {
+		background: url("/assets/about/sprite.png"); text-indent: -9999px;
+
+		&.alejandro { background-position: 0 0; width: 140px; height: 140px; }
+		&.contact { background-position: 0 -140px; width: 140px; height: 140px; }
+		&.curate { background-position: 0 -280px; width: 90px; height: 90px; }
+		&.discover { background-position: 0 -370px; width: 90px; height: 90px; }
+		&.email { background-position: 0 -460px; width: 40px; height: 40px; }
+		&.location { background-position: 0 -500px; width: 140px; height: 140px; }
+		&.mark { background-position: 0 -640px; width: 140px; height: 140px; }
+		&.peter { background-position: 0 -780px; width: 140px; height: 140px; }
+		&.share { background-position: 0 -920px; width: 90px; height: 90px; }
+		&.skylight { background-position: 0 -1010px; width: 140px; height: 140px; }
+		&.twitter { background-position: 0 -1150px; width: 40px; height: 40px; }
+	}
+
+	div#billboard {
+		background: #E7534F url("/assets/about/billboard.jpg") no-repeat center center; height: 330px; color: #fff; text-align: center; padding-top: 118px;
+
+		&.cta-docked { margin-bottom: 150px; }
+
+		h4 { font-size: 32px; font-weight: normal; font-style: italic; }
+		p { font-size: 22px; font-style: italic; margin-top: 18px; }
+	}
+
+	div.top-section {
+		margin-top: 90px;
+
+		div.how {
+			@include width(6); float: left; margin-left: 10px;
+
+			h2 { margin: 0 0 24px; }
+			p { margin: 18px 0; line-height: 24px; }
+		}
+
+		div.useful-toolbox {
+			@include width(6); float: left; margin-left: 20px; margin-right: 10px;
+
+			h2 { margin: 0; }
+
+			ul {
+				list-style: none; margin-top: 60px;
+
+				li {
+					width: 101px; float: left; margin: 0 26px;
+
+					div.about-sprite { margin: 0 auto 6px; }
+					h5 { font-size: 32px; text-align: center; color: #BFBDB6; text-transform: uppercase; letter-spacing: -1px; }
+				}
+			}
+		}
+	}
+
+	div.the-team {
+		margin-top: 72px;
+
+		a {
+			color: #E55352; text-decoration: none;
+
+			&:hover { border-bottom: 1px solid #E55352; }
+		}
+
+		> ul {
+			list-style: none; margin-top: 48px;
+
+			> li {
+				float: left; @include width(4); margin: 0 10px;
+
+				div.pic { margin: 0 auto; }
+				h3 { font-size: 32px; text-align: center; text-transform: uppercase; margin: 36px 0 24px; }
+				p.about { font-size: 13px; line-height: 24px; text-align: center; width: 260px; margin: 0 auto; }
+				ul.contact {
+					width: 100px; margin: 24px auto 0;
+
+					li {
+						float: left; margin: 0 5px;
+
+						a { display: block; border: 0; }
+					}
+				}
+			}
+		}
+	}
+
+	div.the-organization {
+		margin: 72px auto;
+
+		ul {
+			list-style: none; margin-top: 48px;
+
+			li {
+				float: left; @include width(4); margin: 0 10px;
+
+				a {
+					text-decoration: none;
+
+					div.about-sprite { margin: 0 auto; }
+					h5 { font-size: 32px; text-align: center; text-transform: uppercase; margin: 24px 0 0; color: #5C5C54; }
+				}
+			}
+		}
+	}
+}

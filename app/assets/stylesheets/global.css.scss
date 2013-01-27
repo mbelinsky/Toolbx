@@ -104,7 +104,20 @@ header#top {
 			}
 		}
 	}
-	&.filter-docked div.inner nav ul li a.current:after { background-position: bottom; }
+	&.filter-docked div.inner nav ul li a.current:after { background-position: 0 -5px; }
+	&.toolbar-docked div.inner nav ul li a.current:after { background-position: 0 -10px; }
+}
+
+// Signup CTA
+div#signup-cta {
+	background: #B84342; height: 60px; padding: 10px 0; z-index: 5;
+
+	&.docked { position: fixed; top: 50px; width: 100%; left: 0; }
+
+	div.inner { padding: 0 10px; }
+
+	h2 { color: #fff; font-size: 22px; font-weight: 300; font-style: italic; float: left; margin-top: 4px; }
+	a { width: 140px; display: block; float: right; text-align: center; }
 }
 
 div.wrap-inner { padding: 50px 0; }
@@ -193,6 +206,12 @@ h2.strike {
 	@include din(600); font-size: 36px; position: relative; margin: 0 10px 20px; color: #5C5C54; clear: both;
 
 	&:before { border-top: 1px solid #D9D8D4; border-bottom: 1px solid #D9D8D4; height: 0; content: ""; display: block; position: absolute; top: 50%; left: 0; width: 100%; }
+
+	&.center {
+		text-align: center;
+
+		span { float: none; display: inline-block; padding: 0 18px; }
+	}
 
 	span { background: #F2F1ED; position: relative; padding-right: 18px; float: left; text-transform: uppercase; }
 

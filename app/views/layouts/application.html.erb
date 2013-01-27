@@ -9,7 +9,7 @@
 	<body>
 		<div class="wrap-outer">
 			<div class="wrap-inner group">
-				<header id="top">
+				<header id="top" class="<%= 'filter-docked' if @filter_docked %> <%= 'toolbar-docked' if @toolbar_docked %>">
 					<div class="inner">
 						<h6><%= link_to 'The Toolbox', root_path %></h6>
 

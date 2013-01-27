@@ -38,17 +38,6 @@ html.home.index {
 		}
 	}
 
-	div#signup-cta {
-		background: #B84342; height: 60px; padding: 10px 0; z-index: 5;
-
-		&.docked { position: fixed; top: 50px; width: 100%; left: 0; }
-
-		div.inner { padding: 0 10px; }
-
-		h2 { color: #fff; font-size: 22px; font-weight: 300; font-style: italic; float: left; margin-top: 4px; }
-		a { width: 140px; display: block; float: right; text-align: center; }
-	}
-
 	div.main { padding-top: 90px; }
 
 	ul.items {
