@@ -5,4 +5,8 @@ class ToolsController < ApplicationController
 
     @tools = Tool.in_categories(params[:category_ids]).supports_platform(params[:platform]).search(params[:keyword]).order(@orders[params[:order]]).page(params[:page]).per(36)
   end
+
+  def show
+    @tool = Tool.find(params[:id])
+  end
 end
