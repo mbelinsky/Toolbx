@@ -1,6 +1,8 @@
 <% @editing_password ||= false %>
 <h1 class="strike"><span>Account Settings</span></h1>
 
+<%= render 'shared/flashes' %>
+
 <div class="settings-container">
 	<%= form_for current_user, url: { action: 'update' }, method: 'put' do |f| %>
 		<% if current_user.errors.any? %>
