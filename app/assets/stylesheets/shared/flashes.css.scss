@@ -1,0 +1,8 @@
+@import '../mixins.css.scss';
+
+div.flash {
+	@include width(8); @include border-radius(4px); border: 2px solid; color: #fff; font-style: italic; margin: 0 10px 40px; font-size: 18px; padding: 11px 14px;
+
+	&.notice { border-color: #509864; background: #6ACA85; }
+	&.alert { border-color: #A43B3B; background: #E55453; }
+}

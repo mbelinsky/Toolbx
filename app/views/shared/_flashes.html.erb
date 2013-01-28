@@ -1,0 +1,9 @@
+<% flash.each do |type, content| %>
+<% unless type == 'mixpanel_event' %>
+	<div class="flash <%= type %>">
+		<%= content %>
+
+		<div class="remove"></div>
+	</div>
+<% end %>
+<% end %>
