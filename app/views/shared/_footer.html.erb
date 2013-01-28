@@ -7,7 +7,7 @@
 				<ul>
 					<li><%= link_to "About The Toolbox", about_path %></li>
 					<li><%= link_to "Privacy Policy", privacy_path %></li>
-					<li><%= link_to "Suggest A Tool", suggestions_tools_path %></li>
+					<% if current_user %><li><%= link_to "Suggest A Tool", suggestions_tools_path %></li><% end %>
 					<li><%= link_to "Contact", contact_path %></li>
 				</ul>
 			</nav>

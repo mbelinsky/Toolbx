@@ -1,0 +1,5 @@
+@import '../mixins.css.scss';
+
+html.tools.new_suggestion, html.tools.create_suggestion {
+	form { margin-left: 10px; }
+}

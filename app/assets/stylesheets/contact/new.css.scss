@@ -1,0 +1,5 @@
+@import '../mixins.css.scss';
+
+html.contact.new, html.contact.create {
+	form { margin-left: 10px; }
+}

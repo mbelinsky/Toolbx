@@ -1,0 +1,32 @@
+<h1 class="strike four col"><span>Suggest A Tool</span></h1>
+
+<%= render 'shared/flashes' %>
+
+<%= form_for @suggestion, url: suggestions_tools_path do |f| %>
+	<% if @suggestion.errors.any? %>
+		<div id="error_explanation">
+			<ul>
+				<% @suggestion.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="field full">
+		<%= f.label :name, "Tool Name" %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field full">
+		<%= f.label :website, "Tool Website" %>
+		<%= f.text_field :website %>
+	</div>
+	<div class="field full">
+		<%= f.label :comment %>
+		<%= f.text_area :comment %>
+	</div>
+
+	<div class="actions group">
+		<%= f.submit "Send", class: "submit button" %>
+	</div>
+<% end %>
