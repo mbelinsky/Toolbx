@@ -1,0 +1,119 @@
+@import '../mixins.css.scss';
+
+html.tools.show {
+	div.show-tool-sprite {
+		background: url("/assets/tools/show-sprite.png");
+
+		.sprite.app-store { background-position: 0 0; width: 140px; height: 43px; }
+		.sprite.google-play { background-position: 0 -43px; width: 140px; height: 43px; }
+	}
+
+	div.wrap-inner { padding-top: 90px; }
+
+	section#tool-container {
+		@include width(8); margin-left: 10px; background: #fff; float: left; padding: 20px; @include border-radius(6px); position: relative;
+
+		header {
+			border-bottom: 2px solid #EFEEED; padding-bottom: 20px;
+
+			img.icon { display: block; @include border-radius(24px); margin-right: 20px; float: left; }
+
+			div.right {
+				float: left; width: 422px;
+
+				h1 { color: #5C5C54; font-size: 32px; font-weight: 600; width: 450px; }
+
+				ul.categories {
+					list-style: none; font-size: 15px; font-style: italic;
+
+					li {
+						margin: 0; float: left; padding-right: 4px;
+
+						&:after { content: ", "; color: #E65453; }
+						&:last-child:after { content: ""; }
+
+						a { color: #E65453; text-decoration: none; }
+					}
+				}
+
+				p.description { clear: left; font-size: 13px; line-height: 20px; padding-top: 15px; }
+			}
+		}
+
+		div.details {
+			font-size: 13px; border-bottom: 2px solid #EFEEED; padding: 20px 0 30px;
+
+			ul.stores {
+				width: 140px; float: left; margin-right: 18px;
+
+				li {
+					a {
+						background: url("/assets/tools/stores.png"); display: block; width: 140px; height: 43px; text-indent: -9999px;
+
+						&.app-store { background-position: 0 0; margin-bottom: 5px; }
+						&.google-play { background-position: 0 -43px; }
+					}
+				}
+			}
+
+			ul.meta {
+				list-style: none; float: left; width: 260px;
+
+				li {
+					margin-top: 9px;
+
+					&:first-child { margin-top: 0; }
+
+					&.devices {
+						span {
+							&:after { content: ", "; color: #5C5C55; }
+							&:last-child:after { content: ""; }
+						}
+					}
+
+					a { color: #E55352; text-decoration: none; }
+				}
+			}
+
+			div.links {
+				float: left; width: 120px; margin-left: 33px;
+
+				h6 { font-size: 13px; }
+
+				ul {
+					list-style: none;
+
+					li {
+						margin-top: 9px;
+
+						a { color: #E55352; text-decoration: none; }
+					}
+				}
+			}
+		}
+
+		ul.screens {
+			list-style: none; border-bottom: 2px solid #EFEEED; padding: 20px 0;
+
+			li {
+				float: left; margin-left: 20px;
+
+				&:first-child { margin-left: 0; }
+
+				img { @include border-radius(3px); vertical-align: bottom; }
+			}
+		}
+
+		div.disqus {
+			padding-top: 24px;
+		}
+	}
+
+	aside {
+		@include width(4); float: right; margin-right: 10px;
+
+		section {
+			margin: 20px 0 30px;
+		}
+	}
+}

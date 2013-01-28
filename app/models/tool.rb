@@ -11,14 +11,9 @@ class Tool < ActiveRecord::Base
   has_many :platforms, through: :tool_platforms
 
   has_many :screens, dependent: :destroy, limit: 4, order: 'screens.order ASC', inverse_of: :tool
-  attr_accessible :app_store_url, :cost, :description, :featured, :github_url, :google_play_url, :name, :site_url, :license_id, :icon, :screens_attributes, :platform_ids, :category_ids
+  attr_accessible :app_store_url, :cost, :description, :featured, :github_url, :google_play_url, :name, :site_url, :license_id, :icon, :screens_attributes, :platform_ids, :category_ids, :facebook_url, :twitter_url
 
   validates_presence_of :name, :description, :icon, :categories, :category_ids, :platforms, :platform_ids
-
-  validates_format_of :site_url, with: URI::regexp(%w(http https)), allow_blank: true
-  validates_format_of :app_store_url, with: URI::regexp(%w(http https)), allow_blank: true
-  validates_format_of :google_play_url, with: URI::regexp(%w(http https)), allow_blank: true
-  validates_format_of :github_url, with: URI::regexp(%w(http https)), allow_blank: true
 
   validates_associated :screens
 
@@ -28,6 +23,42 @@ class Tool < ActiveRecord::Base
   validates_attachment_presence :icon
   validates_attachment_content_type :icon, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
   validates_attachment_size :icon, less_than: 1.megabyte
+
+  def formatted_app_store_url
+    nil if self.app_store_url.blank?
+
+    self.app_store_url.match(/https?:\/\//) ? self.app_store_url : "http://#{self.app_store_url}"
+  end
+
+  def formatted_google_play_url
+    nil if self.google_play_url.blank?
+
+    self.google_play_url.match(/https?:\/\//) ? self.google_play_url : "http://#{self.google_play_url}"
+  end
+
+  def formatted_site_url
+    nil if self.site_url.blank?
+
+    self.site_url.match(/https?:\/\//) ? self.site_url : "http://#{self.site_url}"
+  end
+
+  def formatted_facebook_url
+    nil if self.facebook_url.blank?
+
+    self.facebook_url.match(/https?:\/\//) ? self.facebook_url : "http://#{self.facebook_url}"
+  end
+
+  def formatted_twitter_url
+    nil if self.twitter_url.blank?
+
+    self.twitter_url.match(/https?:\/\//) ? self.twitter_url : "http://#{self.twitter_url}"
+  end
+
+  def formatted_github_url
+    nil if self.github_url.blank?
+
+    self.github_url.match(/https?:\/\//) ? self.github_url : "http://#{self.github_url}"
+  end
 
   def self.search(query)
     if query
@@ -47,7 +78,7 @@ class Tool < ActiveRecord::Base
 
   def self.in_categories(category_ids = nil)
     if category_ids && !category_ids.blank?
-      joins(:tool_categories).where('tool_categories.category_id in (?)', category_ids).group(:id)
+      joins(:tool_categories).where('tool_categories.category_id in (?)', category_ids).group('tools.id')
     else
       scoped
     end
