@@ -1,0 +1,36 @@
+<h1 class="strike four col"><span>Contact</span></h1>
+
+<%= render 'shared/flashes' %>
+
+<%= form_for @contact_message, url: contact_path do |f| %>
+	<% if @contact_message.errors.any? %>
+		<div id="error_explanation">
+			<ul>
+				<% @contact_message.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="field inline">
+		<%= f.label :first_name %>
+		<%= f.text_field :first_name %>
+	</div>
+	<div class="field inline last">
+		<%= f.label :last_name %>
+		<%= f.text_field :last_name %>
+	</div>
+	<div class="field full">
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</div>
+	<div class="field full">
+		<%= f.label :comment %>
+		<%= f.text_area :comment %>
+	</div>
+
+	<div class="actions group">
+		<%= f.submit "Send", class: "submit button" %>
+	</div>
+<% end %>

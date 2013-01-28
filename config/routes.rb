@@ -24,8 +24,10 @@ Thetoolbox::Application.routes.draw do
   get 'signup' => 'users#new', as: 'signup'
 
   get 'about' => 'about#index', as: 'about'
-  get 'contact' => 'contact#index', as: 'contact'
   get 'privacy' => 'privacy#index', as: 'privacy'
+
+  get 'contact' => 'contact#new', as: 'contact'
+  post 'contact' => 'contact#create', as: 'contact'
 
   # Root URL
   root to: 'home#index'
