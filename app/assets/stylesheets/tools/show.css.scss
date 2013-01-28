@@ -18,6 +18,8 @@ html.tools.show {
 
 			img.icon { display: block; @include border-radius(24px); margin-right: 20px; float: left; }
 
+			div.top { padding-bottom: 24px; }
+
 			div.right {
 				float: left; width: 422px;
 
@@ -37,6 +39,69 @@ html.tools.show {
 				}
 
 				p.description { clear: left; font-size: 13px; line-height: 20px; padding-top: 15px; }
+			}
+
+			.bubble {
+				background: #F2F1ED; @include border-radius(30px);
+
+				&.add-tool {
+					float: left; padding: 7px 9px 6px 8px;
+
+					&.join {
+						&:hover {
+							a.join { display: block; }
+						}
+					}
+
+					&:hover {
+						background: #E55453;
+
+						a {
+							color: #fff; text-transform: uppercase;
+
+							&.default { display: none; }
+						}
+
+						&.join a.join { display: block; }
+						&.add a.add { display: block; }
+						&.remove a.remove { display: block; }
+					}
+
+					&.loading {
+						background: #E55453;
+						a { display: none !important; }
+						div.loading { display: block; }
+					}
+
+					a {
+						display: none;
+
+						&.default { display: block; }
+					}
+
+					div.loading {
+						display: none;
+
+						div {
+							float: left;
+
+							&.loader { background: url("/assets/loading.gif") no-repeat center center; width: 16px; height: 24px; margin-left: 9px; float: left; }
+						}
+					}
+				}
+
+				&.platforms {
+					float: right; padding: 7px 9px 7px 6px; list-style: none;
+
+					li { float: left; margin-left: 3px; }
+				}
+
+				a {
+					color: #A6A5A3; font-size: 16px; text-decoration: none; display: block; font-weight: 600;
+
+					.action-icon { float: left; }
+					span { display: block; float: left; margin: 1px 0 0 6px; }
+				}
 			}
 		}
 

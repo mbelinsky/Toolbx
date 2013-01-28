@@ -2,7 +2,7 @@ if $('html').is '.tools.show'
 	$(document).ready ->
 		tool = $('#tool-container')
 
-		tool.on 'click', '.add-remove-container .add, .add-remove-container .remove', (e) ->
+		tool.on 'click', '.add-tool .add, .add-tool .remove', (e) ->
 			e.preventDefault();
 			el = $(e.currentTarget).parent()
 
@@ -10,20 +10,30 @@ if $('html').is '.tools.show'
 
 		tool.on 'ajax:success', (e) ->
 			el = $(e.target).parent()
+			countEl = el.find('.users-count')
+			count = parseInt countEl.text(), 10
 
 			el.removeClass('loading')
 
 			if el.hasClass 'add'
-				# Just created a UserArticle
+				# Just created a UserTool
 				el.removeClass('add').addClass('remove')
+				countEl.text count + 1
 			else
-				# Just destroyed a UserArticle
+				# Just destroyed a UserTool
 				el.removeClass('remove').addClass('add')
+				countEl.text count - 1
 
 		tool.on 'ajax:error', (e) ->
 			el = $(e.target).parent()
+
 			el.removeClass('loading')
 
 			alert 'There was a problem, please try again later.'
 
-		$('.screens a').fancybox()
+		$('.screens a').fancybox
+			padding: 10
+			helpers:
+				overlay:
+					css:
+						background: 'rgba(0, 0, 0, 0.8)'

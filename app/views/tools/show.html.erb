@@ -13,42 +13,55 @@
 					<% end %>
 				</ul>
 
+				<!-- AddThis Button BEGIN -->
+				<div class="addthis_toolbox addthis_default_style ">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+				<a class="addthis_button_pinterest_pinit"></a>
+				<a class="addthis_counter addthis_pill_style"></a>
+				</div>
+				<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5101b7596bc56b8a"></script>
+				<!-- AddThis Button END -->
+
 				<p class="description"><%= @tool.description %></p>
 			</div>
 		</div>
 
-		<div class="add-remove-container <%= current_user ? (has_tool ? 'remove' : 'add') : 'join' %>">
+		<div class="bubble add-tool <%= current_user ? (has_tool ? 'remove' : 'add') : 'join' %>">
+			<a href="#" class="default">
+				<div class="large action-icon toolbox"></div>
+				<span class="users-count"><%= @tool.users_count %></span>
+			</a>
+
 			<% if current_user %>
-				<%= link_to toolbox_articles_path(article: @tool.id), remote: true, method: :post, class: 'add group' do %>
-					<div class="action-icon large star"></div>
+				<%= link_to toolbox_tools_path(tool: @tool.id), remote: true, method: :post, class: 'add group' do %>
+					<div class="large action-icon white-toolbox"></div>
 					<span>Add</span>
 				<% end %>
-				<%= link_to toolbox_article_path(@tool), remote: true, method: :delete, class: 'remove group' do %>
-					<div class="action-icon large star"></div>
+				<%= link_to toolbox_tool_path(@tool), remote: true, method: :delete, class: 'remove group' do %>
+					<div class="large action-icon white-toolbox"></div>
 					<span>Remove</span>
 				<% end %>
-				<a href="#" class="loading group">
-					<div class="action-icon large star"></div>
+				<div class="loading">
+					<div class="large action-icon white-toolbox"></div>
 					<div class="loader"></div>
-				</a>
+				</div>
 			<% else %>
 				<%= link_to signup_path, class: 'join group' do %>
-					<div class="action-icon large star"></div>
+					<div class="large action-icon white-toolbox"></div>
 					<span>Add</span>
 				<% end %>
 			<% end %>
 		</div>
 
-		<!-- AddThis Button BEGIN -->
-		<div class="addthis_toolbox addthis_default_style ">
-		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-		<a class="addthis_button_tweet"></a>
-		<a class="addthis_button_pinterest_pinit"></a>
-		<a class="addthis_counter addthis_pill_style"></a>
-		</div>
-		<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5101b7596bc56b8a"></script>
-		<!-- AddThis Button END -->
+		<ul class="bubble platforms">
+			<% @tool.platforms.each do |platform| %>
+				<li>
+						<div class="action-icon large <%= platform.name.parameterize %>"><%= link_to platform.name, tools_path(params: {platform: platform.id}) %></div>
+				</li>
+			<% end %>
+		</ul>
 	</header>
 
 	<div class="details group">
