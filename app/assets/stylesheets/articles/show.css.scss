@@ -77,4 +77,32 @@ html.articles.show {
 			margin: 20px 0 30px;
 		}
 	}
+
+	//one column
+	@media only screen and (max-width : 639px) {
+		article {
+			@include width(4);
+
+			header {
+				h1 { font-size: 24px; width: 100%; }
+
+				div.add-remove-container { position: relative; top: auto; right: 0; clear: left; margin-top: 12px; float: left; }
+			}
+
+			div.body { font-size: 13px; color: #999792; }
+		}
+	}
+
+	//two columns
+	@media only screen and (min-width: 640px) and (max-width: 959px) {
+		aside {
+			@include width(8);
+
+			section {
+				float: left; @include width(4);
+
+				&.users { margin-right: 20px; }
+			}
+		}
+	}
 }

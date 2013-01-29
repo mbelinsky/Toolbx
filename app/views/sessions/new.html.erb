@@ -3,11 +3,11 @@
 <%= render 'shared/flashes' %>
 
 <%= form_tag sessions_path do %>
-	<div class="field">
+	<div class="field full">
 		<label for="email">Username or Email</label>
 		<%= text_field_tag :email_or_username, params[:email_or_username] %>
 	</div>
-	<div class="field">
+	<div class="field full">
 		<label for="password">Password <%= link_to "Forgot?", new_password_reset_path, tabindex: -1, class: 'forgot-password' %></label>
 		<%= password_field_tag :password %>
 	</div>

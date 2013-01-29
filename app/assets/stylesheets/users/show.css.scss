@@ -14,7 +14,11 @@ html.users.show_tools, html.users.show_articles {
 
 				h1 { font-size: 32px; }
 
-				div.location { color: #999791; font-style: italic; padding: 0 0 6px 10px; background: url("/assets/location-marker.png") no-repeat 0 5px; margin-top: -4px; }
+				div.location {
+					color: #999791; font-style: italic; padding: 0 0 6px 0; margin-top: -4px;
+
+					&:before { content: ""; display: inline-block; width: 8px; height: 10px; background: url("/assets/location-marker.png") no-repeat left top; padding-right: 4px; }
+				}
 
 				ul.categories {
 					list-style: none; font-size: 15px; font-style: italic;
@@ -27,7 +31,7 @@ html.users.show_tools, html.users.show_articles {
 					}
 				}
 
-				div.bio { clear: both; color: #999792; font-size: 13px; line-height: 20px; padding-top: 12px; overflow: hidden; }
+				p.bio { clear: both; color: #999792; font-size: 13px; line-height: 20px; padding-top: 12px; overflow: hidden; }
 			}
 		}
 
@@ -90,7 +94,47 @@ html.users.show_tools, html.users.show_articles {
 			@include width(4);
 
 			div.left {
-				border: 0;
+				border: 0; float: none;
+
+				img { float: none; margin: 0 auto; }
+
+				div.about {
+					width: 100%;
+
+					h1 { text-align: center; margin-top: 9px; }
+					div.location { text-align: center; }
+					ul.categories {
+						text-align: center;
+
+						li { display: inline-block; float: none; padding-right: 0; }
+					}
+					p.bio { text-align: center; }
+				}
+			}
+
+			div.right {
+				width: 100%;
+
+				nav.social {
+					text-align: center; float: none; display: block; width: 100%; position: relative; bottom: auto; right: auto; margin-top: 20px;
+
+					ul li { display: inline-block; float: none; margin: 0 5px; }
+				}
+
+				nav.toolbox { display: none; }
+			}
+		}
+
+		h2.strike {
+			text-align: center;
+
+			&:after { display: none; }
+
+			span { display: none; }
+			menu {
+				display: inline-block; float: none; padding: 0 6px;
+
+				li { padding: 0 6px; }
 			}
 		}
 	}

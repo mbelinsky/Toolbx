@@ -10,6 +10,7 @@ class ToolsController < ApplicationController
 
   def show
     @tool = Tool.find(params[:id])
+    @has_footer = true
   end
 
   def new_suggestion

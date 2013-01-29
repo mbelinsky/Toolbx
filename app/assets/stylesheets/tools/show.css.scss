@@ -185,7 +185,43 @@ html.tools.show {
 	//one column
 	@media only screen and (max-width : 639px) {
 		section#tool-container {
-			@include width(4);
+			@include width(4); padding: 10px;
+
+			header {
+				div.top {
+					img { margin: 10px auto 18px; float: none; }
+
+					div.right {
+						float: none; width: 280px; clear: left;
+
+						h1 { width: 100%; text-align: center; }
+
+						ul.categories {
+							text-align: center;
+
+							li { display: inline-block; float: none; padding-right: 0; }
+						}
+
+						p.description { text-align: center; color: #999792; width: 260px; margin-left: 10px; margin-right: 10px; }
+					}
+				}
+			}
+
+			div.details {
+				ul.stores { float: none; margin-bottom: 24px; }
+				ul.meta { float: none; margin-bottom: 24px; }
+				div.links { float: none; margin-left: 0; }
+			}
+
+			ul.screens {
+				width: 300px; margin-left: -10px;
+
+				li {
+					margin: 10px;
+
+					&:first-child { margin-left: 10px; }
+				}
+			}
 		}
 	}
 

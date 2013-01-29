@@ -6,6 +6,10 @@ if $('html').is '.home.index'
 		if cta.length
 			ctaOffTop = cta.offset().top
 
+			# Update offset if window size changes (for media query stuff)
+			$(window).on 'resize', ->
+				ctaOffTop = cta.offset().top
+
 			$(window).on 'scroll', ->
 				if $(document).scrollTop() >= (ctaOffTop - 50)
 					cta.addClass 'docked'

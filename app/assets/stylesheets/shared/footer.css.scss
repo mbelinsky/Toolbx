@@ -91,4 +91,28 @@ html.has-footer {
 			}
 		}
 	}
+
+	//one column
+	@media only screen and (max-width : 639px) {
+		footer#bottom {
+			div.inner { width: 300px; }
+
+			div.top {
+				nav {
+					margin-right: 30px;
+
+					&.social { margin-right: 0; }
+				}
+			}
+
+			div.bottom { font-size: 10px; }
+		}
+	}
+
+	//two columns
+	@media only screen and (min-width: 640px) and (max-width: 959px) {
+		footer#bottom {
+			div.inner { width: 620px; }
+		}
+	}
 }

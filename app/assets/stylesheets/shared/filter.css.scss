@@ -3,6 +3,8 @@
 menu#filter {
 	background: #E55453; @include border-radius(5px); @include width(12); margin: 0 0 10px 10px; height: 60px; z-index: 50;
 
+	button#filter-trigger { display: none; }
+
 	&.tools {
 		input.keyword { width: 250px; background-position: 218px 9px; }
 		div.select-container {
@@ -26,7 +28,7 @@ menu#filter {
 	div.select-container {
 		position: relative; width: 200px; margin: 10px 0 0 10px; float: left;
 
-		div.trigger { background: #A43B3B url("/assets/order-trigger.png") 180px 18px no-repeat; float: left; color: #fff; font-size: 13px; padding: 11px 33px 1px 12px; height: 40px; @include border-radius(3px); cursor: pointer; width: 100%; }
+		div.trigger { background: #A43B3B url("/assets/order-trigger.png") 180px 18px no-repeat; float: left; color: #fff; font-size: 13px; padding: 11px 27px 1px 12px; height: 40px; @include border-radius(3px); cursor: pointer; width: 100%; }
 
 		select:focus + div.trigger { background-color: #732827; }
 	}
@@ -44,7 +46,42 @@ header#top + menu#filter, menu#filter.docked {
 
 	html:not(.admin) {
 		menu#filter {
-			@include width(4);
+			@include width(4); overflow: hidden;
+
+			&.open {
+				height: 160px;
+
+				button#filter-trigger { background-position: bottom; }
+			}
+
+			input.keyword { position: absolute; width: 230px; top: 10px; left: 10px; margin: 0; background-position: 196px 9px; }
+
+			button#filter-trigger { display: block; width: 40px; height: 40px; padding: 0; background: url("/assets/filter-trigger.png"); @include border-radius(0); top: 10px; right: 10px; position: absolute; }
+
+			div.select-container {
+				width: 135px; position: absolute; top: 60px; margin: 0;
+
+				&.platform { position: absolute; left: 10px; }
+				&.order { position: absolute; right: 10px; }
+
+				div.trigger { background-position: 115px 18px; }
+			}
+
+			&.articles {
+				div.select-container {
+					width: 280px;
+
+					div.trigger { background-position: 260px 18px; }
+				}
+			}
+
+			ul.category-icons {
+				float: left; margin: 0 0 0 2px; position: absolute; top: 100px;
+
+				li {
+					a { margin-left: 2px; }
+				}
+			}
 		}
 	}
 }
@@ -60,7 +97,6 @@ header#top + menu#filter, menu#filter.docked {
 			@include width(8); height: 110px;
 
 			&.tools {
-				input.keyword { width: 250px; background-position: 218px 9px; }
 				div.select-container {
 					width: 295px;
 
@@ -68,7 +104,15 @@ header#top + menu#filter, menu#filter.docked {
 				}
 			}
 
-			input.keyword { background-position: 328px 9px; width: 360px; }
+			&.articles {
+				div.select-container {
+					width: 600px;
+
+					div.trigger { background-position: 580px 18px; }
+				}
+			}
+
+			input.keyword { width: 250px; background-position: 218px 9px; }
 
 			div.select-container {
 				width: 200px;

@@ -10,12 +10,12 @@
 				<% end %>
 			</ul>
 
-			<div class="bio"><%= @user.bio %></div>
+			<p class="bio"><%= @user.bio %></p>
 		</div>
 	</div>
 
 	<div class="right group">
-		<nav class="social">
+		<nav class="social group">
 			<ul>
 				<% unless @user.twitter_username.blank? %><li><%= link_to 'Twitter', @user.twitter_url, class: 'twitter', target: '_blank' %></li><% end %>
 				<% unless @user.facebook_username.blank? %><li><%= link_to 'Facebook', @user.facebook_url, class: 'facebook', target: '_blank' %></li><% end %>
@@ -25,7 +25,7 @@
 			</ul>
 		</nav>
 
-		<nav class="toolbox">
+		<nav class="toolbox group">
 			<%= link_to tools_user_path do %>
 				<div class="action-icon large toolbox"></div>
 				<span><%= @user.tools_count %></span>
