@@ -5,3 +5,6 @@
 		<%= render 'articles/article', article: article %>
 	<% end %>
 </ul>
+
+<div id="infinite-indicator" class="group"></div>
+<%= paginate @articles %>

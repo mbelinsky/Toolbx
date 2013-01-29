@@ -10,3 +10,6 @@
 		<%= render 'articles/article', article: article, path: edit_admin_article_path(article) %>
 	<% end %>
 </ul>
+
+<div id="infinite-indicator" class="group"></div>
+<%= paginate @articles %>

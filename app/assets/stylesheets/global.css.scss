@@ -148,6 +148,9 @@ div.wrap-inner { padding: 50px 0; }
 	}
 }
 
+ul.items:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+* html ul.items { height: 1%; }
+*:first-child+html ul.items { min-height: 1px; }
 ul.items {
 	list-style: none; box-sizing: content-box; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; -ms-box-sizing: content-box;
 
