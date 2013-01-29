@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="<%= "#{@os} #{@browser} #{controller_path.split('/').first if controller_path.split('/').first != controller.controller_name} #{controller.controller_name} #{controller.action_name}"%> <%= 'has-footer' if @has_footer %>">
 	<head>
-		<title>The Toolbox</title>
+		<title>The Toolbox<%= " #{@title}" if @title %></title>
 		<%= stylesheet_link_tag "application", :media => "all" %>
 
 		<%= javascript_include_tag "application" %>

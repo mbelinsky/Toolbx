@@ -1,7 +1,10 @@
+#!/bin/env ruby
+# encoding: utf-8
 class ToolsController < ApplicationController
   before_filter :authorize, only: [:new_suggestion, :create_suggestion]
 
   def index
+    @title = "» Tools"
     @orders = {'Recently Added' => 'created_at DESC', 'Most Popular' => 'users_count DESC'}
     params[:order] ||= 'Recently Added'
 
@@ -10,15 +13,18 @@ class ToolsController < ApplicationController
 
   def show
     @tool = Tool.find(params[:id])
+    @title = "» #{@tool.name}"
     @has_footer = true
   end
 
   def new_suggestion
+    @title = "» Suggest A Tool"
     @suggestion = ToolSuggestion.new
     @has_footer = true
   end
 
   def create_suggestion
+    @title = "» Suggest A Tool"
     @suggestion = ToolSuggestion.new(params[:tool_suggestion])
     @has_footer = true
 

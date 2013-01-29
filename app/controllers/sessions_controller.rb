@@ -1,12 +1,16 @@
+#!/bin/env ruby
+# encoding: utf-8
 class SessionsController < ApplicationController
   force_ssl
 
   def new
+    @title = "» Log In"
     @has_footer = true
   end
 
 
   def create
+    @title = "» Log In"
     user = User.find_by_email(params[:email_or_username]) || User.find_by_username(params[:email_or_username])
 
     if user && user.authenticate(params[:password])
