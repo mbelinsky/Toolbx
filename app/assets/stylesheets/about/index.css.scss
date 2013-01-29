@@ -22,6 +22,8 @@ html.about.index {
 	div#billboard {
 		background: #E7534F url("/assets/about/billboard.jpg") no-repeat center center; height: 330px; color: #fff; text-align: center; padding-top: 118px;
 
+		div.inner { padding: 0 10px; }
+
 		&.cta-docked { margin-bottom: 150px; }
 
 		h4 { font-size: 32px; font-weight: normal; font-style: italic; }
@@ -44,10 +46,10 @@ html.about.index {
 			h2 { margin: 0; }
 
 			ul {
-				list-style: none; margin-top: 60px;
+				list-style: none; margin: 60px auto 0; text-align: center;
 
 				li {
-					width: 101px; float: left; margin: 0 26px;
+					width: 100px; margin: 0 24px; display: inline-block;
 
 					div.about-sprite { margin: 0 auto 6px; }
 					h5 { font-size: 32px; text-align: center; color: #BFBDB6; text-transform: uppercase; letter-spacing: -1px; }
@@ -101,6 +103,90 @@ html.about.index {
 
 					div.about-sprite { margin: 0 auto; }
 					h5 { font-size: 32px; text-align: center; text-transform: uppercase; margin: 24px 0 0; color: #5C5C54; }
+				}
+			}
+		}
+	}
+
+	//one column
+	@media only screen and (max-width : 639px) {
+		div#billboard {
+			padding-top: 96px;
+
+			h4 { font-size: 24px; }
+			p { font-size: 16px; margin-top: 15px; }
+		}
+
+		div.top-section {
+			div.how { @include width(4); }
+
+			div.useful-toolbox {
+				@include width(4); margin: 72px 0 0 10px;
+
+				ul {
+					margin-top: 24px;
+
+					li:last-child { margin-top: 30px; }
+				}
+			}
+		}
+
+		div.the-team {
+			> ul {
+				> li {
+					margin-top: 72px;
+
+					&:first-child { margin-top: 0; }
+				}
+			}
+		}
+
+		div.the-organization {
+			ul {
+				li {
+					margin-top: 72px;
+
+					&:first-child { margin-top: 0; }
+				}
+			}
+		}
+	}
+
+	//two columns
+	@media only screen and (min-width: 640px) and (max-width: 959px) {
+		div#billboard { padding-top: 100px; }
+
+		div.top-section {
+			div.how { @include width(8); }
+
+			div.useful-toolbox { @include width(8); margin-left: 10px; margin-top: 72px; }
+		}
+
+		div.the-team {
+			> ul {
+				> li {
+					width: 192px;
+
+					&:first-child { margin-left: 0; }
+					&:last-child { margin-right: 0; }
+
+					h3 { font-size: 26px; }
+					p.about { width: 150px; }
+				}
+			}
+		}
+
+		div.the-organization {
+			ul {
+				li {
+					width: 192px;
+
+					&:first-child { margin-left: 0; }
+					&:last-child { margin-right: 0; }
+
+					a {
+						h5 { font-size: 26px; margin-top: 18px; }
+					}
 				}
 			}
 		}

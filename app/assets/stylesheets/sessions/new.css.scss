@@ -4,7 +4,7 @@ html.sessions.new {
 	form {
 		margin-left: 10px;
 
-		div.field { @include width(8); }
+		// div.field { @include width(8); }
 
 		a.forgot-password { font-style: italic; font-size: 14px; color: #E65453; text-transform: none; text-decoration: none; }
 

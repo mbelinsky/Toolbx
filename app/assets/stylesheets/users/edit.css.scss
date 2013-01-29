@@ -11,6 +11,8 @@ html.users.edit, html.users.update {
 		div.top {
 			border-bottom: 2px solid #D9D8D4; padding-bottom: 21px;
 
+			button#change-password-trigger { margin-bottom: 18px; }
+
 			div.change-password-container {
 				display: none;
 
@@ -58,7 +60,15 @@ html.users.edit, html.users.update {
 
 	//one column
 	@media only screen and (max-width : 639px) {
-		div.inner { width: 640px; }
+		h1 { @include width(4); }
+
+		div.settings-container {
+			div.top, div.bottom div.left { @include width(4); }
+
+			div.bottom {
+				div.right { margin-left: 0; }
+			}
+		}
 	}
 
 	//two columns

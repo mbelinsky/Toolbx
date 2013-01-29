@@ -59,3 +59,15 @@ $(document).ready ->
 					filter.removeClass 'docked'
 					$('.items:first').removeClass 'filter-docked'
 					$('#top').removeClass 'filter-docked'
+
+		# Filter trigger
+		filterTrigger = $('#filter-trigger')
+
+		filterTrigger.on 'click', (e) ->
+			e.stopPropagation();
+			e.preventDefault();
+
+			filter.toggleClass 'open'
+
+		filter.bind 'clickoutside', ->
+			filter.removeClass 'open'

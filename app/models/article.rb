@@ -27,7 +27,7 @@ class Article < ActiveRecord::Base
 
   def self.in_categories(category_ids = nil)
     if category_ids && !category_ids.blank?
-      joins(:article_categories).where('article_categories.category_id in (?)', category_ids).group(:id)
+      joins(:article_categories).where('article_categories.category_id in (?)', category_ids).group('articles.id')
     else
       scoped
     end
