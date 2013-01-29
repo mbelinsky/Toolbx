@@ -1,5 +1,5 @@
 <header class="user group">
-	<div class="left">
+	<div class="left group">
 		<%= image_tag @user.profile_picture.url(:medium) %>
 		<div class="about">
 			<h1><%= @user.full_name %></h1>
@@ -14,7 +14,7 @@
 		</div>
 	</div>
 
-	<div class="right">
+	<div class="right group">
 		<nav class="social">
 			<ul>
 				<% unless @user.twitter_username.blank? %><li><%= link_to 'Twitter', @user.twitter_url, class: 'twitter', target: '_blank' %></li><% end %>

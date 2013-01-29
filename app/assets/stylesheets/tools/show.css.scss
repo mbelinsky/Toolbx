@@ -181,4 +181,24 @@ html.tools.show {
 			margin: 20px 0 30px;
 		}
 	}
+
+	//one column
+	@media only screen and (max-width : 639px) {
+		section#tool-container {
+			@include width(4);
+		}
+	}
+
+	//two columns
+	@media only screen and (min-width: 640px) and (max-width: 959px) {
+		aside {
+			@include width(8);
+
+			section {
+				float: left; @include width(4);
+
+				&.users { margin-right: 20px; }
+			}
+		}
+	}
 }

@@ -134,4 +134,26 @@ li.article {
 			}
 		}
 	}
+
+	//one & two columns
+	@media only screen and (max-width: 959px) {
+		&.featured {
+			@include width(4); height: $cols8;
+
+			div.banner {
+				@include border-radius(4px 4px 0 0);
+
+				a {
+					&:after { @include border-radius(4px 4px 0 0); }
+					img { @include border-radius(4px 4px 0 0); }
+				}
+			}
+
+			div.meta {
+				width: 300px; height: 320px; padding: 10px;
+
+				div.bottom { margin-left: 0; }
+			}
+		}
+	}
 }

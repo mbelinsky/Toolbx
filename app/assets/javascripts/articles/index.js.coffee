@@ -16,7 +16,6 @@ if $('html').is('.articles.index:not(.admin)')
 				speed: 0
 			state:
 				currPage: currentPageNumber
-			debug: true
 			pathParse: (path, nextPage) ->
 				re = new RegExp("^(/articles/(page/)?)#{nextPage}(.*?$)")
 				tmpPath = path.match(re)
