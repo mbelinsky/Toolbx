@@ -11,4 +11,3 @@ if $('html').is '.users.new, .users.create'
     switchType()
 
     $('input[type="radio"][name="user_type"]').on 'change', switchType
-

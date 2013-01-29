@@ -15,9 +15,11 @@ if $('html').is '.articles.show'
 
 			if el.hasClass 'add'
 				# Just created a UserArticle
+				mixpanel.track('Added Article', {'Article Title': article.find('h1').text()})
 				el.removeClass('add').addClass('remove')
 			else
 				# Just destroyed a UserArticle
+				mixpanel.track('Removed Article', {'Article Title': article.find('h1').text()})
 				el.removeClass('remove').addClass('add')
 
 		article.on 'ajax:error', (e, xhr) ->
