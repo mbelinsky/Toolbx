@@ -1,12 +1,16 @@
+#!/bin/env ruby
+# encoding: utf-8
 class UsersController < ApplicationController
   before_filter :authorize, except: [:show_tools, :show_articles, :new, :create]
 
   def new
+    @title = "» Sign Up"
     @user = User.new
     @has_footer = true
   end
 
   def create
+    @title = "» Sign Up"
     @user = User.new(params[:user])
     @has_footer = true
 
@@ -23,10 +27,12 @@ class UsersController < ApplicationController
 
   def edit
     @has_footer = true
+    @title = '» Settings'
   end
 
   def update
     @has_footer = true
+    @title = '» Settings'
 
     respond_to do |format|
       if params[:user][:password] || params[:user][:password_confirmation] || params[:current_password]
@@ -56,11 +62,13 @@ class UsersController < ApplicationController
 
   def show_tools
     @user = User.find_by_username!(params[:id])
+    @title = "» #{@user.full_name} » Tools"
     @tools = @user.tools.page(params[:page]).per(36)
   end
 
   def show_articles
     @user = User.find_by_username!(params[:id])
+    @title = "» #{@user.full_name} » Articles"
     @articles = @user.articles.page(params[:page]).per(36)
   end
 

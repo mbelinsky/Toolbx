@@ -1,10 +1,14 @@
+#!/bin/env ruby
+# encoding: utf-8
 class ContactController < ApplicationController
   def new
+    @title = "» Contact"
     @contact_message = ContactMessage.new
     @has_footer = true
   end
 
   def create
+    @title = "» Contact"
     @contact_message = ContactMessage.new(params[:contact_message])
     @has_footer = true
 
