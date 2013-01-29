@@ -1,15 +1,15 @@
 <% has_tool = current_user ? @tool.users.exists?(current_user) : nil %>
 
-<section id="tool-container">
+<section id="tool-container" itemscope itemtype="http://schema.org/SoftwareApplication">
 	<header class="group">
 		<div class="top group">
-			<%= image_tag @tool.icon.url(:small), class: 'icon' %>
+			<%= image_tag @tool.icon.url(:small), class: 'icon', itemprop: 'image' %>
 
 			<div class="right">
-				<h1><%= @tool.name %></h1>
+				<h1 itemprop="name"><%= @tool.name %></h1>
 				<ul class="categories">
 					<% @tool.categories.each do |category| %>
-						<li><%= link_to category.title, articles_path(params: {category_ids: [category.id]}) %></li>
+						<li itemprop="applicationCategory"><%= link_to category.title, articles_path(params: {category_ids: [category.id]}) %></li>
 					<% end %>
 				</ul>
 
@@ -24,7 +24,7 @@
 				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5101b7596bc56b8a"></script>
 				<!-- AddThis Button END -->
 
-				<p class="description"><%= @tool.description %></p>
+				<% unless @tool.description.blank? %><p class="description" itemprop="description"><%= @tool.description %></p><% end %>
 			</div>
 		</div>
 
@@ -58,7 +58,7 @@
 		<ul class="bubble platforms">
 			<% @tool.platforms.each do |platform| %>
 				<li>
-						<div class="action-icon large <%= platform.name.parameterize %>"><%= link_to platform.name, tools_path(params: {platform: platform.id}) %></div>
+						<div class="action-icon large <%= platform.name.parameterize %>" itemprop="operatingSystem"><%= link_to platform.name, tools_path(params: {platform: platform.id}) %></div>
 				</li>
 			<% end %>
 		</ul>
@@ -68,10 +68,10 @@
 		<% unless @tool.app_store_url.blank? && @tool.google_play_url.blank? %>
 			<ul class="stores">
 				<% unless @tool.app_store_url.blank? %>
-					<li><%= link_to 'App Store', @tool.formatted_app_store_url, target: '_blank', class: 'app-store' %></li>
+					<li><%= link_to 'App Store', @tool.formatted_app_store_url, target: '_blank', class: 'app-store', itemprop: 'downloadUrl' %></li>
 				<% end %>
 				<% unless @tool.google_play_url.blank? %>
-					<li><%= link_to 'Google Play', @tool.formatted_google_play_url, target: '_blank', class: 'google-play' %></li>
+					<li><%= link_to 'Google Play', @tool.formatted_google_play_url, target: '_blank', class: 'google-play', itemprop: 'downloadUrl' %></li>
 				<% end %>
 			</ul>
 		<% end %>
@@ -120,7 +120,7 @@
 		<ul class="screens group">
 			<% @tool.screens.each do |screen| %>
 				<li>
-					<%= link_to screen.screenshot.url(:full), rel: 'screens-gallery' do %>
+					<%= link_to screen.screenshot.url(:full), rel: 'screens-gallery', itemprop: 'screenshot' do %>
 						<%= image_tag screen.screenshot.url(:small_square) %>
 					<% end %>
 				</li>
