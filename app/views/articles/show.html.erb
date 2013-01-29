@@ -1,9 +1,9 @@
 <% has_article = current_user ? @article.users.exists?(current_user) : nil %>
 
-<article>
+<article itemscope itemtype="http://schema.org/BlogPosting">
 	<header class="group">
-		<h1><%= @article.title %></h1>
-		<ul class="categories">
+		<h1 itemprop="headline"><%= @article.title %></h1>
+		<ul class="categories" itemprop="keywords">
 			<% @article.categories.each do |category| %>
 				<li><%= link_to category.title, articles_path(params: {category_ids: [category.id]}) %></li>
 			<% end %>
@@ -43,8 +43,8 @@
 		</div>
 	</header>
 
-	<div class="body">
-		<%= image_tag @article.featured_image.url(:full) %>
+	<div class="body" itemprop="articleBody">
+		<%= image_tag @article.featured_image.url(:full), itemprop: 'image' %>
 		<%= @article.body.html_safe %>
 	</div>
 

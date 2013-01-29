@@ -1,8 +1,8 @@
-<header class="user group">
+<header class="user group" itemtype="http://schema.org/Person">
 	<div class="left group">
-		<%= image_tag @user.profile_picture.url(:medium) %>
+		<%= image_tag @user.profile_picture.url(:medium), itemprop: 'image' %>
 		<div class="about">
-			<h1><%= @user.full_name %></h1>
+			<h1 itemprop="name"><%= @user.full_name %></h1>
 			<% if @user.city_id %><div class="location"><%= @user.city_name %></div><% end %>
 			<ul class="categories">
 				<% @user.categories.each do |category| %>
@@ -10,7 +10,7 @@
 				<% end %>
 			</ul>
 
-			<p class="bio"><%= @user.bio %></p>
+			<% unless @user.bio.blank? %><p class="bio" itemprop="description"><%= @user.bio %></p><% end %>
 		</div>
 	</div>
 
