@@ -17,10 +17,12 @@ if $('html').is '.tools.show'
 
 			if el.hasClass 'add'
 				# Just created a UserTool
+				mixpanel.track('Added Tool', {'Tool Name': tool.find('h1').text()})
 				el.removeClass('add').addClass('remove')
 				countEl.text count + 1
 			else
 				# Just destroyed a UserTool
+				mixpanel.track('Removed Tool', {'Tool Name': tool.find('h1').text()})
 				el.removeClass('remove').addClass('add')
 				countEl.text count - 1
 

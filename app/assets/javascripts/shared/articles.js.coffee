@@ -17,10 +17,12 @@ window.initializeArticles = ->
 
 		if el.hasClass 'add'
 			# Just created a UserArticle
+			mixpanel.track('Added Article', {'Article Title': el.closest('.article').find('h3 a').text()})
 			el.removeClass('add').addClass('remove')
 			countEl.text count + 1
 		else
 			# Just destroyed a UserArticle
+			mixpanel.track('Removed Article', {'Article Title': el.closest('.article').find('h3 a').text()})
 			el.removeClass('remove').addClass('add')
 			countEl.text count - 1
 

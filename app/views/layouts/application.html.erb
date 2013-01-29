@@ -3,7 +3,36 @@
 	<head>
 		<title>The Toolbox</title>
 		<%= stylesheet_link_tag "application", :media => "all" %>
+
 		<%= javascript_include_tag "application" %>
+		<script>
+			<% if current_user %>
+				window.current_user = <%= current_user.to_json(only: [:first_name, :last_name, :email, :created_at, :last_login]).html_safe %>
+
+				mixpanel.identify(window.current_user.email);
+
+				mixpanel.register({
+					"email": window.current_user.email,
+					"joined": window.current_user.created_at,
+					"last_login": window.current_user.last_login,
+					"first_name": window.current_user.first_name,
+					"last_name": window.current_user.last_name
+				});
+				mixpanel.people.set({
+					"$email": window.current_user.email,
+					"$created": window.current_user.created_at,
+					"$last_login": window.current_user.last_login,
+					"$first_name": window.current_user.first_name,
+					"$last_name": window.current_user.last_name
+				});
+				mixpanel.name_tag(window.current_user.first_name + ' ' + window.current_user.last_name);
+
+				<% if flash[:new_user] %>
+					mixpanel.alias(window.current_user.email);
+					mixpanel.track('Joined');
+				<% end %>
+			<% end %>
+		</script>
 
 		<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1">
 		<%= csrf_meta_tags %>

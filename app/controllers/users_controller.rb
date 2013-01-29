@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         cookies.permanent[:toolbox_auth_token] = @user.toolbox_auth_token
+        flash[:new_user] = true # This is for mixpanel, so we know to alias
         format.html { redirect_to root_url, notice: 'Thanks for signing up! Now go add some tools.' }
       else
         format.html { render action: 'new' }
