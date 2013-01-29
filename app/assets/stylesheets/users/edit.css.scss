@@ -55,4 +55,20 @@ html.users.edit, html.users.update {
 			}
 		}
 	}
+
+	//one column
+	@media only screen and (max-width : 639px) {
+		div.inner { width: 640px; }
+	}
+
+	//two columns
+	@media only screen and (min-width: 640px) and (max-width: 959px) {
+		h1 { @include width(8); }
+
+		div.settings-container {
+			div.bottom {
+				div.right { margin-left: 0; }
+			}
+		}
+	}
 }

@@ -35,3 +35,46 @@ menu#filter {
 header#top + menu#filter, menu#filter.docked {
 	@include border-radius(0 0 5px 5px); position: fixed; top: 50px; left: 50%; margin-left: -470px;
 }
+
+//one column
+@media only screen and (max-width : 639px) {
+	header#top + menu#filter, menu#filter.docked {
+		margin-left: -150px;
+	}
+
+	html:not(.admin) {
+		menu#filter {
+			@include width(4);
+		}
+	}
+}
+
+//two columns
+@media only screen and (min-width: 640px) and (max-width: 959px) {
+	header#top + menu#filter, menu#filter.docked {
+		margin-left: -310px;
+	}
+
+	html:not(.admin) {
+		menu#filter {
+			@include width(8); height: 110px;
+
+			&.tools {
+				input.keyword { width: 250px; background-position: 218px 9px; }
+				div.select-container {
+					width: 295px;
+
+					div.trigger { background-position: 275px 18px; }
+				}
+			}
+
+			input.keyword { background-position: 328px 9px; width: 360px; }
+
+			div.select-container {
+				width: 200px;
+
+				div.trigger { background-position: 180px 18px; }
+			}
+		}
+	}
+}

@@ -17,7 +17,6 @@ if $('html').is '.users.show_articles'
 				speed: 0
 			state:
 				currPage: currentPageNumber
-			debug: true
 			pathParse: (path, nextPage) ->
 				re = new RegExp("^(/users/#{username}/articles/(page/)?)#{nextPage}(.*?$)")
 				tmpPath = path.match(re)

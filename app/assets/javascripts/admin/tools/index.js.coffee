@@ -16,7 +16,6 @@ if $('html').is('.admin.tools.index')
 				speed: 0
 			state:
 				currPage: currentPageNumber
-			debug: true
 			pathParse: (path, nextPage) ->
 				re = new RegExp("^(/admin/tools/(page/)?)#{nextPage}(.*?$)")
 				tmpPath = path.match(re)
