@@ -33,13 +33,6 @@ class UsersController < ApplicationController
         authenticated = current_user.authenticate(params[:current_password])
 
         if authenticated && current_user.update_attributes(params[:user])
-          puts 'UPDATE'
-          puts 'UPDATE'
-          puts 'UPDATE'
-          puts 'UPDATE'
-          puts 'UPDATE'
-          puts 'UPDATE'
-          puts 'UPDATE'
           format.html { redirect_to :back, notice: "Changes saved." }
         else
           unless authenticated

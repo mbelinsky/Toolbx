@@ -1,0 +1,24 @@
+@import '../mixins.css.scss';
+
+div#infinite-indicator {
+	margin: 24px auto; background: #E55453; font-size: 18px; font-weight: 600; text-transform: uppercase; color: #fff; @include border-radius(30px); width: 160px;
+
+	div#infscr-loading {
+		img { display: block; float: left; margin: 12px 0 0 18px; }
+		div { float: right; margin: 5px 21px 5px 6px; }
+	}
+}
+
+nav.pagination {
+	text-align: center; margin: 24px 0;
+
+	> span {
+		font-size: 12px; font-weight: 600; display: inline-block; margin: 0 1px;
+
+		&.current { background: #BFBDB6; width: 20px; height: 20px; @include border-radius(3px); text-align: center; padding-top: 1px; }
+
+		a {
+			display: block; width: 20px; height: 20px; @include border-radius(3px); background: #D9D8D4; text-align: center; color: #8C8B85; text-decoration: none; padding-top: 1px;
+		}
+	}
+}
