@@ -1,4 +1,20 @@
-<% unless current_user %>
+<% if current_user && current_user.tools_count == 0 %>
+	<div id="explore-billboard">
+		<div class="inner group">
+			<h3>Start exploring tools that interest you…</h3>
+
+			<menu class="large category-icons">
+				<% @categories.each do |category| %>
+					<li>
+						<%= link_to tools_path(params: {category_ids: [category.id]}), class: category.title.parameterize do %>
+							<h4 class="din med"><%= category.title %></h4>
+						<% end %>
+					</li>
+				<% end %>
+			</menu>
+		</div>
+	</div>
+<% elsif !current_user %>
 	<div id="billboard">
 		<div class="inner">
 			<div class="group left">
@@ -30,14 +46,13 @@
 <% end %>
 
 
-<% categories = Category.all %>
 
 <div class="main">
 	<div class="inner group">
 		<h2 class="strike">
 			<span>Newest Articles</span>
 			<menu class="gray category-icons">
-				<% categories.each do |category| %>
+				<% @categories.each do |category| %>
 					<li><%= link_to category.title, articles_path(params: {category_ids: [category.id]}), class: category.title.parameterize %></li>
 				<% end %>
 			</menu>
@@ -55,7 +70,7 @@
 		<h2 class="strike">
 			<span>Newest Tools</span>
 			<menu class="gray category-icons">
-				<% categories.each do |category| %>
+				<% @categories.each do |category| %>
 					<li><%= link_to category.title, tools_path(params: {category_ids: [category.id]}), class: category.title.parameterize %></li>
 				<% end %>
 			</menu>
