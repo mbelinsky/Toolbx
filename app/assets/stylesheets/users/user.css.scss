@@ -3,7 +3,7 @@
 li.user {
 	list-style: none; background: #fff; @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.1)); @include width(4); float: left; height: 120px; position: relative; @include border-radius(4px); margin-bottom: 10px; padding: 10px;
 
-	img.profile-picture { display: block; float: left; @include border-radius(60px); }
+	img.profile-picture { display: block; float: left; @include border-radius(60px); position: relative; }
 
 	div.right {
 		float: left; margin-left: 10px; width: 210px;
@@ -32,7 +32,7 @@ li.user {
 		clear: both; position: absolute; bottom: 10px; left: 10px; width: 280px;
 
 		div.bubble {
-			background: #F2F1ED; @include border-radius(30px); float: right; margin-left: 10px; padding: 7px 9px 6px 8px;
+			background: #F2F1ED; @include border-radius(30px); float: right; margin-left: 10px; padding: 7px 9px 6px 8px; position: relative;
 
 			a {
 				color: #A6A5A3; font-size: 13px; text-decoration: none; display: block;

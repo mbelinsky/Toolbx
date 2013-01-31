@@ -57,7 +57,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = current_user
 
+    @user.destroy
+    cookies.delete(:toolbox_auth_token)
+
+    redirect_to root_url, notice: "Your account has been deleted. Sorry to see you go!"
   end
 
   def show_tools

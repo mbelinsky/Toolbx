@@ -77,7 +77,7 @@ li.article {
 			clear: both; position: absolute; bottom: 10px; left: 10px; width: 280px;
 
 			.bubble {
-				background: #F2F1ED; @include border-radius(30px);
+				background: #F2F1ED; @include border-radius(30px); position: relative;
 
 				&.add-article {
 					float: left; padding: 7px 9px 6px 8px;

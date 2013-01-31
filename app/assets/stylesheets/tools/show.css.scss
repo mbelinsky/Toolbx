@@ -16,7 +16,7 @@ html.tools.show {
 		header {
 			border-bottom: 2px solid #EFEEED; padding-bottom: 20px;
 
-			img.icon { display: block; @include border-radius(24px); margin-right: 20px; float: left; }
+			img.icon { display: block; @include border-radius(24px); margin-right: 20px; float: left; position: relative; }
 
 			div.top { padding-bottom: 24px; }
 
@@ -42,7 +42,7 @@ html.tools.show {
 			}
 
 			.bubble {
-				background: #F2F1ED; @include border-radius(30px);
+				background: #F2F1ED; @include border-radius(30px); position: relative;
 
 				&.add-tool {
 					float: left; padding: 7px 9px 6px 8px;
@@ -109,7 +109,7 @@ html.tools.show {
 			font-size: 13px; border-bottom: 2px solid #EFEEED; padding: 20px 0 30px;
 
 			ul.stores {
-				width: 140px; float: left; margin-right: 18px;
+				width: 140px; float: left; margin-right: 18px; list-style: none;
 
 				li {
 					a {
@@ -165,7 +165,7 @@ html.tools.show {
 
 				&:first-child { margin-left: 0; }
 
-				img { @include border-radius(3px); vertical-align: bottom; }
+				img { @include border-radius(3px); vertical-align: bottom; position: relative; }
 			}
 		}
 

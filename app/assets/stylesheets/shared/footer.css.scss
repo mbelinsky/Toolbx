@@ -17,6 +17,8 @@ html.has-footer {
 	footer#bottom {
 		color: #BFBDB6; height: 210px; background: #282823; font-size: 11px; position: relative; margin-top: -210px; clear: both; overflow: hidden;
 
+		div.inner { width: 940px; }
+
 		a {
 			color: #BFBDB6; text-decoration: none;
 
