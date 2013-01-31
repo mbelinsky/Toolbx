@@ -2,7 +2,12 @@
 <html class="<%= "#{@os} #{@browser} #{controller_path.split('/').first if controller_path.split('/').first != controller.controller_name} #{controller.controller_name} #{controller.action_name}"%> <%= 'has-footer' if @has_footer %>">
 	<head>
 		<title>The Toolbox<%= " #{@title}" if @title %></title>
-		<%= stylesheet_link_tag "application", :media => "all" %>
+
+		<!--[if lt IE 9]>
+			<%= javascript_include_tag 'html5shiv-printshiv' %>
+		<![endif]-->
+
+		<%= stylesheet_link_tag "application", media: "all" %>
 
 		<%= javascript_include_tag "application" %>
 		<script>
@@ -34,6 +39,7 @@
 			<% end %>
 		</script>
 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1">
 		<%= csrf_meta_tags %>
 	</head>

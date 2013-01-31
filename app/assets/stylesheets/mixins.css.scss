@@ -3,7 +3,7 @@
 	font-family: "DINCond"; font-weight: $weight !important;
 
 	&.light { font-weight: 300 !important; }
-	&.medium { font-weight: 600 !important; }
+	&.medium, &.med { font-weight: 600 !important; }
 	&.bold { font-weight: bold !important; }
 }
 
@@ -33,6 +33,9 @@
 }
 
 @mixin border-radius ($radius) {
+	behavior: url("https://thetoolbox.org/PIE.htc");
+	-ms-behavior: url("https://thetoolbox.org/PIE.htc");
+
 	border-radius: $radius;
 	-webkit-border-radius: $radius;
 	-moz-border-radius: $radius;

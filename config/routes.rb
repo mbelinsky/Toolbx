@@ -1,7 +1,4 @@
 Thetoolbox::Application.routes.draw do
-
-  get "privacy/index"
-
   get "password_resets/create"
   get "password_resets/edit"
   get "password_resets/update"
@@ -9,6 +6,7 @@ Thetoolbox::Application.routes.draw do
   # User settings
   get 'settings' => 'users#edit', as: 'edit_user'
   put 'settings' => 'users#update', as: 'edit_user'
+  delete 'settings' => 'users#destroy', as: 'delete_user'
 
   # Adding tools
   # post 'users/:id/tools' => 'users#add_tool', as: 'add_tool'
@@ -24,7 +22,6 @@ Thetoolbox::Application.routes.draw do
   get 'signup' => 'users#new', as: 'signup'
 
   get 'about' => 'about#index', as: 'about'
-  get 'privacy' => 'privacy#index', as: 'privacy'
 
   get 'contact' => 'contact#new', as: 'contact'
   post 'contact' => 'contact#create', as: 'contact'

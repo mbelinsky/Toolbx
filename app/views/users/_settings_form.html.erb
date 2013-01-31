@@ -116,6 +116,7 @@
 
 		<div class="actions group">
 			<%= f.submit "Save", class: "submit button" %>
+			<%= link_to "Delete Account", delete_user_path, class: 'delete', method: :delete, confirm: "Are you sure you want to permanently delete your Toolbox account?" %>
 		</div>
 	<% end %>
 </div>

@@ -56,6 +56,11 @@ html.users.edit, html.users.update {
 				}
 			}
 		}
+
+		div.actions {
+			a, input { display: block; float: left; margin-right: 10px; }
+			a.delete { color: #E65453; margin: 10px 0 0 10px; text-decoration: none; }
+		}
 	}
 
 	//one column

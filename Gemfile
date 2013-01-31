@@ -84,3 +84,6 @@ gem 'rails_config'
 
 # truncate_html for article summaries
 gem 'truncate_html'
+
+# HTML5 shiv for IE < 9
+gem 'html5shiv-rails'

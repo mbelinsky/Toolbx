@@ -10,17 +10,25 @@ html.about.index {
 		&.contact { background-position: 0 -140px; width: 140px; height: 140px; }
 		&.curate { background-position: 0 -280px; width: 90px; height: 90px; }
 		&.discover { background-position: 0 -370px; width: 90px; height: 90px; }
-		&.email { background-position: 0 -460px; width: 40px; height: 40px; }
+		&.email {
+			background-position: 0 -460px; width: 40px; height: 40px;
+
+			&:hover { background-position: 0 -1330px; }
+		}
 		&.location { background-position: 0 -500px; width: 140px; height: 140px; }
 		&.mark { background-position: 0 -640px; width: 140px; height: 140px; }
 		&.peter { background-position: 0 -780px; width: 140px; height: 140px; }
 		&.share { background-position: 0 -920px; width: 90px; height: 90px; }
 		&.skylight { background-position: 0 -1010px; width: 140px; height: 140px; }
-		&.twitter { background-position: 0 -1150px; width: 40px; height: 40px; }
+		&.twitter {
+			background-position: 0 -1150px; width: 40px; height: 40px;
+
+			&:hover { background-position: 0 -1650px; }
+		}
 	}
 
 	div#billboard {
-		background: #E7534F url("/assets/about/billboard.jpg") no-repeat center center; height: 330px; color: #fff; text-align: center; padding-top: 118px;
+		background: #E7534F url("/assets/about/billboard.jpg") center center; height: 330px; color: #fff; text-align: center; padding-top: 118px;
 
 		div.inner { padding: 0 10px; }
 
@@ -103,6 +111,12 @@ html.about.index {
 
 					div.about-sprite { margin: 0 auto; }
 					h5 { font-size: 32px; text-align: center; text-transform: uppercase; margin: 24px 0 0; color: #5C5C54; }
+
+					&:hover {
+						div.about-sprite.contact { background-position: 0 -1190px; width: 140px; height: 140px; }
+						div.about-sprite.location { background-position: 0 -1370px; width: 140px; height: 140px; }
+						div.about-sprite.skylight { background-position: 0 -1510px; width: 140px; height: 140px; }
+					}
 				}
 			}
 		}

@@ -46,7 +46,7 @@ header#top + menu#filter, menu#filter.docked {
 
 	html:not(.admin) {
 		menu#filter {
-			@include width(4); overflow: hidden;
+			@include width(4); overflow: hidden; @include transition(height 180ms ease-out);
 
 			&.open {
 				height: 160px;

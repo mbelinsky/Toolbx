@@ -108,7 +108,7 @@ h1.strike {
 			float: left; padding-left: 24px;
 
 			a {
-				display: block; font-size: 16px; line-height: 30px; color: #7D7D7D; font-weight: 600; text-decoration: none; text-transform: uppercase; padding: 0 12px; @include border-radius(30px);
+				display: block; font-size: 16px; line-height: 30px; color: #7D7D7D; font-weight: 600; text-decoration: none; text-transform: uppercase; padding: 0 12px; @include border-radius(30px); position: relative;
 
 				&.current { background: #E55453; color: #F2F1ED; }
 			}
@@ -143,7 +143,7 @@ h2.strike {
 			float: left; padding-left: 24px;
 
 			a {
-				display: block; font-size: 15px; line-height: 30px; color: #7D7D7D; font-weight: 600; text-decoration: none; text-transform: uppercase; padding: 0 12px; @include border-radius(30px);
+				display: block; font-size: 15px; line-height: 30px; color: #7D7D7D; font-weight: 600; text-decoration: none; text-transform: uppercase; padding: 0 12px; @include border-radius(30px); position: relative;
 
 				&.current { background: #E55453; color: #F2F1ED; }
 			}
@@ -163,7 +163,7 @@ h3.strike {
 }
 
 button, .button {
-	background: #BFBDB6; font-size: 16px; color: #fff; padding: 6px 18px; @include border-radius(30px); font-weight: 600; text-transform: uppercase; cursor: pointer; padding: 9px 24px; text-decoration: none;
+	background: #BFBDB6; font-size: 16px; color: #fff; padding: 6px 18px; @include border-radius(30px); font-weight: 600; text-transform: uppercase; cursor: pointer; padding: 9px 24px; text-decoration: none; position: relative;
 
 	&.submit { background: #E55453; }
 

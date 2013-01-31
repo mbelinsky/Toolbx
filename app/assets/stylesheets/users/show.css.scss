@@ -7,7 +7,7 @@ html.users.show_tools, html.users.show_articles {
 		div.left {
 			float: left; border-right: 2px solid #EFEEED;
 
-			img { @include border-radius(90px); display: block; float: left; }
+			img { @include border-radius(90px); display: block; float: left; position: relative; }
 
 			div.about {
 				float: left; margin-left: 20px; width: 450px; padding-right: 27px;
@@ -42,11 +42,13 @@ html.users.show_tools, html.users.show_articles {
 				float: right;
 
 				ul {
+					list-style: none;
+
 					li {
 						float: left; margin-left: 10px;
 
 						a {
-							background: url("/assets/users/social-icons.png"); width: 40px; height: 40px; text-indent: -9999px; display: block;
+							background: url("/assets/users/social-icons.png"); width: 40px; height: 40px; text-indent: -9999px; display: block; position: relative;
 
 							&.facebook {
 								background-position: 0 -40px;
@@ -77,7 +79,7 @@ html.users.show_tools, html.users.show_articles {
 				position: absolute; bottom: 20px; right: 20px;
 
 				a {
-					display: block; float: left; margin-left: 10px; background: #F2F1ED; color: #C1BFB9; font-size: 16px; @include border-radius(30px); padding: 8px 12px; font-weight: 600;
+					display: block; float: left; margin-left: 10px; background: #F2F1ED; color: #C1BFB9; font-size: 16px; @include border-radius(30px); padding: 8px 12px; font-weight: 600; position: relative;
 
 					div.action-icon { float: left; }
 					span { display: block; float: left; padding: 1px 0 0 8px; }
