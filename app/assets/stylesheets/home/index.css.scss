@@ -40,6 +40,16 @@ html.home.index {
 		h3.discover { display: none; font-size: 20px; font-weight: normal; color: #fff; font-style: italic; text-align: center; }
 	}
 
+	div#explore-billboard {
+		background: #E55453;
+
+		div.inner {
+			padding: 33px 10px 40px;
+
+			h3 { font-size: 26px; font-weight: normal; font-style: italic; text-align: center; color: #fff; margin-bottom: 33px; }
+		}
+	}
+
 	div.main { padding-top: 90px; }
 
 	ul.items {
@@ -100,6 +110,24 @@ html.home.index {
 
 			h3.discover { display: block; }
 		}
+
+		div#explore-billboard {
+			div.inner {
+				padding: 24px 10px 30px;
+
+				h3 { font-size: 16px; margin-bottom: 18px; }
+			}
+
+			.category-icons {
+				text-align: center; width: 100%; padding-left: 4px;
+
+				li {
+					float: left;
+
+					a { margin: 0 2px 0 0; }
+				}
+			}
+		}
 	}
 
 	//two columns
@@ -113,6 +141,22 @@ html.home.index {
 				padding-top: 0; float: none; text-align: center; width: auto;
 
 				li { display: inline-block; float: none; }
+			}
+		}
+
+		div#explore-billboard {
+			div.inner {
+				h3 { font-size: 22px; margin-bottom: 24px; }
+			}
+
+			.category-icons {
+				text-align: center; width: 100%;
+
+				li {
+					display: inline-block; float: none;
+
+					a { margin: 0 0 0 5px; }
+				}
 			}
 		}
 	}
