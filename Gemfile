@@ -86,4 +86,4 @@ gem 'rails_config'
 gem 'truncate_html'
 
 # HTML5 shiv for IE < 9
-gem 'html5shiv-rails'
+# gem 'html5shiv-rails'
