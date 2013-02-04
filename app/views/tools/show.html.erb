@@ -9,7 +9,7 @@
 				<h1 itemprop="name"><%= @tool.name %></h1>
 				<ul class="categories">
 					<% @tool.categories.each do |category| %>
-						<li itemprop="applicationCategory"><%= link_to category.title, articles_path(params: {category_ids: [category.id]}) %></li>
+						<li itemprop="applicationCategory"><%= link_to category.title, tools_path(params: {category_ids: [category.id]}) %></li>
 					<% end %>
 				</ul>
 
