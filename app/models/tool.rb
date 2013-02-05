@@ -3,6 +3,9 @@ class Tool < ActiveRecord::Base
   has_many :user_tools, dependent: :destroy
   has_many :users, through: :user_tools
 
+  has_many :article_tools, dependent: :destroy, inverse_of: :tool
+  has_many :articles, through: :article_tools
+
   has_many :tool_categories, dependent: :destroy, inverse_of: :tool
   has_many :categories, through: :tool_categories
 

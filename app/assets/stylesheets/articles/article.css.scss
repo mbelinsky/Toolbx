@@ -1,5 +1,26 @@
 @import '../mixins.css.scss';
 
+@mixin skinny-featured {
+	&.featured {
+		@include width(4); height: $cols8;
+
+		div.banner {
+			@include border-radius(4px 4px 0 0);
+
+			a {
+				&:after { @include border-radius(4px 4px 0 0); }
+				img { @include border-radius(4px 4px 0 0); }
+			}
+		}
+
+		div.meta {
+			width: 300px; height: 320px; padding: 10px;
+
+			div.bottom { margin-left: 0; }
+		}
+	}
+}
+
 li.article {
 	list-style: none; background: #fff; @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.1)); @include width(4); float: left; height: $cols4; position: relative; @include border-radius(4px 4px 0 0);
 
@@ -137,23 +158,8 @@ li.article {
 
 	//one & two columns
 	@media only screen and (max-width: 959px) {
-		&.featured {
-			@include width(4); height: $cols8;
-
-			div.banner {
-				@include border-radius(4px 4px 0 0);
-
-				a {
-					&:after { @include border-radius(4px 4px 0 0); }
-					img { @include border-radius(4px 4px 0 0); }
-				}
-			}
-
-			div.meta {
-				width: 300px; height: 320px; padding: 10px;
-
-				div.bottom { margin-left: 0; }
-			}
-		}
+		@include skinny-featured;
 	}
+
+	aside section.articles ul & { @include border-radius(4px); @include skinny-featured; margin-bottom: 20px; }
 }

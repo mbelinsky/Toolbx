@@ -35,6 +35,7 @@ if $('html').is '.tools.show'
 
 		$('.screens a').fancybox
 			padding: 10
+			margin: [20, 100, 20, 100]
 			helpers:
 				overlay:
 					css:
