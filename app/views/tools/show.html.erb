@@ -86,7 +86,7 @@
 			<li class="devices">
 				<strong>Devices:</strong>
 				<% @tool.platforms.each do |platform| %>
-					<span><%= platform.name %></span>
+					<span><%= link_to platform.name, tools_path(params: {platform: platform.id}) %></span>
 				<% end %>
 			</li>
 			<li>
