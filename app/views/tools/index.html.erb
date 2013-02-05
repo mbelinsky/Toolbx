@@ -1,6 +1,12 @@
 <%= render 'shared/filter', docked: true %>
 
-<ul class="items">
+<ul class="items has-banner">
+	<li class="suggest-tool banner group">
+		<p>We are busy building out our database of great tools. Help us out by suggesting a tool.</p>
+
+		<%= link_to 'Suggest a Tool', suggestions_tools_path, class: 'button' %>
+	</li>
+
 	<% @tools.each do |tool| %>
 		<%= render 'tools/tool', tool: tool %>
 	<% end %>
