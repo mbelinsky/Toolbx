@@ -231,9 +231,9 @@ html.tools.show {
 			@include width(8);
 
 			section {
-				float: left; @include width(4);
+				float: left; @include width(4); margin-left: 20px;
 
-				&.users { margin-right: 20px; }
+				&:nth-child(odd) { margin-left: 0; }
 			}
 		}
 	}

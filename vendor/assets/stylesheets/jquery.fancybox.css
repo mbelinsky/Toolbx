@@ -70,7 +70,7 @@
 }
 
 #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-	background-image: url('fancybox_sprite.png');
+	background-image: url('/assets/fancybox/fancybox_sprite.png');
 }
 
 #fancybox-loading {
@@ -88,10 +88,11 @@
 #fancybox-loading div {
 	width: 44px;
 	height: 44px;
-	background: url('fancybox_loading.gif') center center no-repeat;
+	background: url('/assets/fancybox/fancybox_loading.gif') center center no-repeat;
 }
 
 .fancybox-close {
+	display: none;
 	position: absolute;
 	top: -18px;
 	right: -18px;
@@ -104,42 +105,43 @@
 .fancybox-nav {
 	position: absolute;
 	top: 0;
-	width: 40%;
+	width: 45%;
 	height: 100%;
 	cursor: pointer;
 	text-decoration: none;
-	background: transparent url('blank.gif'); /* helps IE */
+	background: transparent url('/assets/fancybox/blank.gif'); /* helps IE */
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	z-index: 8040;
 }
 
 .fancybox-prev {
-	left: 0;
+	left: -100px;
 }
 
 .fancybox-next {
-	right: 0;
+	right: -100px;
 }
 
 .fancybox-nav span {
 	position: absolute;
 	top: 50%;
-	width: 36px;
-	height: 34px;
-	margin-top: -18px;
+	width: 60px;
+	height: 60px;
+	margin-top: -30px;
 	cursor: pointer;
 	z-index: 8040;
 	visibility: hidden;
+	background: url("/assets/fancybox/arrows.png");
 }
 
 .fancybox-prev span {
 	left: 10px;
-	background-position: 0 -36px;
+	background-position: 0 0;
 }
 
 .fancybox-next span {
 	right: 10px;
-	background-position: 0 -72px;
+	background-position: -60px 0;
 }
 
 .fancybox-nav:hover span {
@@ -169,7 +171,7 @@
 	overflow: hidden;
 	display: none;
 	z-index: 8010;
-	background: url('fancybox_overlay.png');
+	background: url('/assets/fancybox/fancybox_overlay.png');
 }
 
 .fancybox-overlay-fixed {

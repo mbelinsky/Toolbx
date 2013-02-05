@@ -175,4 +175,16 @@
 			</ul>
 		</section>
 	<% end %>
+
+	<% if @tool.articles.count > 0 %>
+		<section class="articles group">
+			<h3 class="strike"><span>Related Articles</span></h3>
+
+			<ul>
+				<% @tool.articles.each do |article| %>
+					<%= render 'articles/article', article: article %>
+				<% end %>
+			</ul>
+		</section>
+	<% end %>
 </aside>
