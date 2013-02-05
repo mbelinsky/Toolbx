@@ -6,12 +6,20 @@ ul.items:after { content: "."; display: block; height: 0; clear: both; visibilit
 ul.items {
 	list-style: none; box-sizing: content-box; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; -ms-box-sizing: content-box;
 
+	&.has-banner { padding-top: 10px; }
 	&.filter-docked { margin-top: 70px; }
 
 	> li {
 		margin: 10px; @include border-radius(4px); @include box-shadow(0 1px rgba(0, 0, 0, 0.1)); @include transition(box-shadow ease-out 120ms);
 
 		&:hover { @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.2)); }
+
+		&.banner {
+			background: #E55453; height: 60px; padding: 10px; margin: 0 10px 10px;
+
+			p { color: #fff; font-size: 18px; font-weight: 300; font-style: italic; margin-top: 8px; float: left; }
+			a { float: right; font-size: 16px; background: #A43B3B; }
+		}
 
 		&.link {
 			@include width(4); float: left; background: #fff; height: $cols4; text-align: center;
@@ -30,11 +38,22 @@ ul.items {
 
 	//one column
 	@media only screen and (max-width : 639px) {
-
+		> li {
+			&.banner {
+				p { display: none; }
+				a { margin: 0 auto; float: none; display: block; width: 190px; text-align: center; }
+			}
+		}
 	}
 
 	//two columns
 	@media only screen and (min-width: 640px) and (max-width: 959px) {
 		&.filter-docked { margin-top: 120px; }
+
+		> li {
+			&.banner {
+				p { font-size: 16px; width: 380px; margin-top: -2px; }
+			}
+		}
 	}
 }
