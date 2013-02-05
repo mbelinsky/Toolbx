@@ -22,7 +22,7 @@ class Tool < ActiveRecord::Base
 
   accepts_nested_attributes_for :screens, allow_destroy: true
 
-  has_attached_file :icon, styles: { small: ["120x120#", :jpg], thumb: ["60x60#", :jpg] }, convert_options: { quality: 85 }
+  has_attached_file :icon, styles: { small: ["120x120#", :jpg], thumb: ["60x60#", :jpg] }, convert_options: { quality: 85, all: '-background white -mosaic +matte' }
   validates_attachment_presence :icon
   validates_attachment_content_type :icon, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
   validates_attachment_size :icon, less_than: 1.megabyte
