@@ -7,11 +7,7 @@ menu#filter {
 
 	&.tools {
 		input.keyword { width: 250px; background-position: 218px 9px; }
-		div.select-container {
-			width: 150px;
-
-			div.trigger { background-position: 130px 18px; }
-		}
+		div.fancy-select { width: 150px !important; }
 	}
 
 	select.category-select { display: none; }
@@ -25,12 +21,39 @@ menu#filter {
 		&:focus { background-color: #732827; outline: 0; }
 	}
 
-	div.select-container {
-		position: relative; width: 200px; margin: 10px 0 0 10px; float: left;
+	/* --------------------------------------------------
+	Fancy Selects
+	-------------------------------------------------- */
+	div.fancy-select {
+		position: relative; color: #fff; width: 200px !important; margin: 10px 0 0 10px; float: left;
 
-		div.trigger { background: #A43B3B url("/assets/order-trigger.png") 180px 18px no-repeat; float: left; color: #fff; font-size: 13px; padding: 11px 27px 1px 12px; height: 40px; @include border-radius(3px); cursor: pointer; width: 100%; }
+		&.disabled { @include opacity(0.5); }
 
-		select:focus + div.trigger { background-color: #732827; }
+		select {
+			width: 100%; height: 100%; display: block; position: absolute; top: 6px; left: 0; @include opacity(0);
+
+			&:focus + div.trigger { background-color: #732827; }
+		}
+
+		div.trigger, ul.options { background-color: #A43B3B; }
+
+		div.trigger {
+			cursor: pointer; font-size: 13px; padding: 11px 24px 11px 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: relative; @include border-radius(3px);
+
+			&:after { content: ""; display: block; position: absolute; width: 0; height: 0; border: 5px solid transparent; border-top-color: #E55453; top: 17px; right: 9px; }
+
+			&.open { background: #732827; @include border-radius(3px 3px 0 0); }
+		}
+
+		ul.options {
+			position: absolute; top: 40px; left: 0; display: none; z-index: 50; max-height: 200px; overflow: auto; background: #722929; padding: 0 10px 10px; font-size: 13px; font-weight: 600; @include border-radius(0 0 3px 3px); max-width: 100%;
+
+			li {
+				padding: 4px 9px 4px 12px; cursor: pointer; @include border-radius(3px);
+
+				&:hover, &.hover { background: #A43B3B; }
+			}
+		}
 	}
 }
 
@@ -46,10 +69,10 @@ header#top + menu#filter, menu#filter.docked {
 
 	html:not(.admin) {
 		menu#filter {
-			@include width(4); overflow: hidden; @include transition(height 180ms ease-out);
+			@include width(4); overflow: hidden;
 
 			&.open {
-				height: 160px;
+				height: 160px; overflow: visible;
 
 				button#filter-trigger { background-position: bottom; }
 			}
@@ -58,21 +81,17 @@ header#top + menu#filter, menu#filter.docked {
 
 			button#filter-trigger { display: block; width: 40px; height: 40px; padding: 0; background: url("/assets/filter-trigger.png"); @include border-radius(0); top: 10px; right: 10px; position: absolute; }
 
-			div.select-container {
-				width: 135px; position: absolute; top: 60px; margin: 0;
+			div.fancy-select {
+				width: 135px !important; position: absolute; top: 60px; margin: 0;
+
+				ul.options { font-size: 12px; }
 
 				&.platform { position: absolute; left: 10px; }
 				&.order { position: absolute; right: 10px; }
-
-				div.trigger { background-position: 115px 18px; }
 			}
 
 			&.articles {
-				div.select-container {
-					width: 280px;
-
-					div.trigger { background-position: 260px 18px; }
-				}
+				div.fancy-select { width: 280px !important; }
 			}
 
 			ul.category-icons {
@@ -97,28 +116,14 @@ header#top + menu#filter, menu#filter.docked {
 			@include width(8); height: 110px;
 
 			&.tools {
-				div.select-container {
-					width: 295px;
-
-					div.trigger { background-position: 275px 18px; }
-				}
+				div.fancy-select { width: 295px !important; }
 			}
 
 			&.articles {
-				div.select-container {
-					width: 600px;
-
-					div.trigger { background-position: 580px 18px; }
-				}
+				div.fancy-select { width: 600px !important; }
 			}
 
 			input.keyword { width: 250px; background-position: 218px 9px; }
-
-			div.select-container {
-				width: 200px;
-
-				div.trigger { background-position: 180px 18px; }
-			}
 		}
 	}
 }
