@@ -18,29 +18,33 @@ $(document).ready ->
 			cs.find("option[value=\"#{el.data('category-id')}\"]").prop 'selected', el.hasClass('active')
 			cs.trigger('change')
 
-		# Sorting
-		do ->
-			orderContainer = $('.select-container.order')
-			selectTrigger = orderContainer.find('.trigger')
-			select = orderContainer.find('select')
+		# # Sorting
+		# do ->
+		# 	orderContainer = $('.select-container.order')
+		# 	selectTrigger = orderContainer.find('.trigger')
+		# 	select = orderContainer.find('select')
 
-			updateOrderTriggerText = ->
-				selectTrigger.html select.val()
-			updateOrderTriggerText()
+		# 	updateOrderTriggerText = ->
+		# 		selectTrigger.html select.val()
+		# 	updateOrderTriggerText()
 
-			select.on 'change', updateOrderTriggerText
+		# 	select.on 'change', updateOrderTriggerText
 
-		# Platform
-		do ->
-			platformContainer = $('.select-container.platform')
-			selectTrigger = platformContainer.find('.trigger')
-			select = platformContainer.find('select')
+		# # Platform
+		# do ->
+		# 	platformContainer = $('.select-container.platform')
+		# 	selectTrigger = platformContainer.find('.trigger')
+		# 	select = platformContainer.find('select')
 
-			updatePlatformTriggerText = ->
-				selectTrigger.html select.find("option[value=\"#{select.val()}\"]").text()
-			updatePlatformTriggerText()
+		# 	updatePlatformTriggerText = ->
+		# 		selectTrigger.html select.find("option[value=\"#{select.val()}\"]").text()
+		# 	updatePlatformTriggerText()
 
-			select.on 'change', updatePlatformTriggerText
+		# 	select.on 'change', updatePlatformTriggerText
+		filter.find('.fancy-platform').fancySelect
+			className: 'platform'
+		filter.find('.fancy-order').fancySelect
+			className: 'order'
 
 
 		# Docking
