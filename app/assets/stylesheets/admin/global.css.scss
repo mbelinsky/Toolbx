@@ -1,9 +1,9 @@
 @import '../mixins.css.scss';
 
 html.admin {
-	h1.strike {
-		@include width(12)
-	}
+	h1.strike { @include width(12); }
+
+	div.flash { @include width(12); }
 
 	ul.items.filter-docked { margin-top: 100px; }
 

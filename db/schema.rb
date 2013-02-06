@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128001422) do
+ActiveRecord::Schema.define(:version => 20130205235913) do
 
   create_table "article_categories", :force => true do |t|
     t.integer  "article_id"
@@ -156,8 +156,8 @@ ActiveRecord::Schema.define(:version => 20130128001422) do
     t.integer  "icon_file_size"
     t.datetime "icon_updated_at"
     t.integer  "users_count",                                     :default => 0
-    t.string   "facebook_url"
-    t.string   "twitter_url"
+    t.string   "facebook_username"
+    t.string   "twitter_username"
   end
 
   add_index "tools", ["license_id"], :name => "index_tools_on_license_id"

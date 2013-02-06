@@ -104,11 +104,11 @@
 					<% unless @tool.site_url.blank? %>
 						<li><%= link_to 'Website', @tool.formatted_site_url, target: '_blank' %></li>
 					<% end %>
-					<% unless @tool.facebook_url.blank? %>
-						<li><%= link_to 'Facebook', @tool.formatted_facebook_url, target: '_blank' %></li>
+					<% unless @tool.facebook_username.blank? %>
+						<li><%= link_to 'Facebook', @tool.facebook_url, target: '_blank' %></li>
 					<% end %>
-					<% unless @tool.twitter_url.blank? %>
-						<li><%= link_to 'Twitter', @tool.formatted_twitter_url, target: '_blank' %></li>
+					<% unless @tool.twitter_username.blank? %>
+						<li><%= link_to 'Twitter', @tool.twitter_url, target: '_blank' %></li>
 					<% end %>
 					<% unless @tool.github_url.blank? %>
 						<li><%= link_to 'Github', @tool.formatted_github_url, target: '_blank' %></li>
