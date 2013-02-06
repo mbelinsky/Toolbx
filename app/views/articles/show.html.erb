@@ -48,6 +48,10 @@
 	<div class="body" itemprop="articleBody">
 		<%= image_tag @article.featured_image.url(:full), itemprop: 'image' %>
 		<%= @article.body.html_safe %>
+
+		<% unless @article.source_url.blank? %>
+			<div class="source">Source: <%= link_to @article.formatted_source_url, @article.formatted_source_url, target: '_blank', class: 'source' %></div>
+		<% end %>
 	</div>
 
 	<div class="disqus">

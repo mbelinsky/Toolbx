@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
   has_many :users, through: :user_articles
 
   validates_presence_of :author, :title, :body, :categories, :category_ids
-  attr_accessible :body, :title, :category_ids, :tool_ids, :featured, :published, :featured_image
+  attr_accessible :body, :title, :category_ids, :tool_ids, :featured, :published, :featured_image, :source_url
 
   validates_attachment_presence :featured_image
   has_attached_file :featured_image, styles: { full: ["580", :jpg], desat_banner: ["300x180#", :jpg], banner: ["300x180#", :jpg], desat_square_banner: ["300x300#", :jpg], square_banner: ["300x300#", :jpg], small_banner: ["280x120#", :jpg] }, convert_options: { desat_banner: "-set option:modulate:colorspace hsb -modulate 75,50", desat_square_banner: "-set option:modulate:colorspace hsb -modulate 88,50", quality: 85, all: '-background white -mosaic +matte' }
@@ -39,5 +39,11 @@ class Article < ActiveRecord::Base
 
   def to_param
     slug
+  end
+
+  def formatted_source_url
+    nil if self.source_url.blank?
+
+    self.source_url.match(/https?:\/\//) ? self.source_url : "http://#{self.source_url}"
   end
 end
