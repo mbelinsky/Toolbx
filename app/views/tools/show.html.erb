@@ -82,7 +82,7 @@
 			<% if @tool.cost %>
 				<li>
 					<strong>Price:</strong>
-					$<%= @tool.cost %>
+					<%= @tool.cost == 0 ? 'Free' : number_to_currency(@tool.cost) %>
 				</li>
 			<% end %>
 			<li class="devices">
