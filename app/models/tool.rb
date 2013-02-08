@@ -14,7 +14,7 @@ class Tool < ActiveRecord::Base
   has_many :platforms, through: :tool_platforms
 
   has_many :screens, dependent: :destroy, limit: 4, order: 'screens.order ASC', inverse_of: :tool
-  attr_accessible :app_store_url, :cost, :description, :featured, :github_url, :google_play_url, :name, :site_url, :license_id, :icon, :screens_attributes, :platform_ids, :category_ids, :facebook_username, :twitter_username
+  attr_accessible :app_store_url, :cost, :description, :featured, :github_url, :google_play_url, :name, :site_url, :license_id, :icon, :screens_attributes, :platform_ids, :category_ids, :facebook_username, :twitter_username, :screens
 
   validates_presence_of :name, :description, :icon, :categories, :category_ids, :platforms, :platform_ids
 
@@ -22,10 +22,16 @@ class Tool < ActiveRecord::Base
 
   accepts_nested_attributes_for :screens, allow_destroy: true
 
+  attr_reader :icon_remote_url
   has_attached_file :icon, styles: { small: ["120x120#", :jpg], thumb: ["60x60#", :jpg] }, convert_options: { quality: 85, all: '-background white -mosaic +matte' }
   validates_attachment_presence :icon
   validates_attachment_content_type :icon, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
   validates_attachment_size :icon, less_than: 1.megabyte
+
+  def icon_remote_url=(url)
+    self.icon = URI.parse(url)
+    @icon_remote_url = url
+  end
 
   def formatted_app_store_url
     nil if self.app_store_url.blank?
@@ -82,4 +88,5 @@ class Tool < ActiveRecord::Base
       scoped
     end
   end
+
 end
