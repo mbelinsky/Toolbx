@@ -47,4 +47,9 @@ Thetoolbox::Application.configure do
   config.middleware.insert_after(::Rack::Lock, "::Rack::Auth::Basic", "Staging") do |u, p|
     [u, p] == [Settings.basic_auth.username, Settings.basic_auth.password]
   end
+
+  # Send email notification when the application throws an error
+  config.middleware.use ExceptionNotifier,
+    sender_address: 'staging-errors@thetoolbox.org',
+    exception_recipients: 'paul@octopuscreative.com'
 end

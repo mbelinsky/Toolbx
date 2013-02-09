@@ -73,4 +73,9 @@ Thetoolbox::Application.configure do
       secret_access_key: Settings.s3.secret_access_key
     }
   }
+
+  # Send email notification when the application throws an error
+  config.middleware.use ExceptionNotifier,
+    sender_address: 'errors@thetoolbox.org',
+    exception_recipients: 'paul@octopuscreative.com'
 end

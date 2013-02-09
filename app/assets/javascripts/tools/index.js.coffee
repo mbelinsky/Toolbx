@@ -7,7 +7,7 @@ if $('html').is('.tools.index:not(.admin)')
 		$('.items').infinitescroll
 			navSelector: '.pagination'
 			nextSelector: '.pagination .next a'
-			itemSelector: '.items > li'
+			itemSelector: '.items > li:not(.banner)'
 			loading:
 				selector: '#infinite-indicator'
 				img: '/assets/loading.gif'
