@@ -4,6 +4,11 @@ task import: :environment do
 
   #name,site_url_2,icon_url_3,platform_names,google_play_url,app_store_url,screen_urls,Description,category_names,price,language_names,icon_url_2,facebook_username_2,twitter_username_2,site_url_1,icon_url_1,facebook_username_1,twitter_username_1
   CSV.foreach("#{Rails.root}/import.csv", headers: true, header_converters: :symbol) do |row|
+    if Tool.find_by_name(row[:name])
+      puts "!!! #{row[:name]} already exists"
+      next
+    end
+
     screen_urls = row[:screen_urls].split(', ').reject(&:empty?).reject {|url| url == ' '}.uniq
 
     platform_names = row[:platform_names].split(', ').reject(&:empty?).uniq
