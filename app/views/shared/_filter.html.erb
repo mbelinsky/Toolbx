@@ -4,7 +4,7 @@
 <% type ||= 'tools' %>
 
 <menu id="filter" class="<%= type %> <%= 'docked' if docked %>">
-	<form action="">
+	<form action="/<%= type %>">
 		<select name="category_ids[]" class="category-select" multiple>
 			<% categories.each do |category| %>
 				<% selected = params[:category_ids] && params[:category_ids].include?(category.id.to_s) %>

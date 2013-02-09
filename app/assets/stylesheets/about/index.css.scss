@@ -25,6 +25,8 @@ html.about.index {
 
 			&:hover { background-position: 0 -1650px; }
 		}
+		&.wendy { background-position: 0 -1690px; width: 100px; height: 100px; }
+		&.yvette { background-position: 0 -1790px; width: 100px; height: 100px; }
 	}
 
 	div#billboard {
@@ -122,6 +124,25 @@ html.about.index {
 		}
 	}
 
+	div.advisors {
+		margin: 210px auto 120px;
+
+		ul {
+			list-style: none;
+
+			li {
+				width: 140px; height: 180px; float: left; margin: 0 10px 20px;
+
+				&.empty {
+					&:after { content: ""; display: block; width: 100px; height: 100px; background: #E6E5E1; @include border-radius(100px); margin: 0 auto; }
+				}
+
+				div.pic { margin: 0 auto 15px; }
+				h4 { font-size: 22px; line-height: 22px; text-align: center; text-transform: uppercase; }
+			}
+		}
+	}
+
 	//one column
 	@media only screen and (max-width : 639px) {
 		div#billboard {
@@ -202,6 +223,12 @@ html.about.index {
 						h5 { font-size: 26px; margin-top: 18px; }
 					}
 				}
+			}
+		}
+
+		div.advisors {
+			ul {
+				li { width: 193px; }
 			}
 		}
 	}
