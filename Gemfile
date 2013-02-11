@@ -87,3 +87,6 @@ gem 'truncate_html'
 
 # New Relic
 gem 'newrelic_rpm'
+
+# Explicit JSON for security stuff (CVE-2013-0269):
+gem 'json', '~> 1.7.7'
