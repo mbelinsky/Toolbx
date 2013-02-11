@@ -33,9 +33,9 @@ task import: :environment do
       description: row[:description] || '',
       google_play_url: row[:google_play_url],
       app_store_url: row[:app_store_url],
-      site_url: row[:site_url_1] || row[:site_url_2],
-      facebook_username: row[:facebook_username_1] || row[:facebook_username_2],
-      twitter_username: row[:twitter_username_1] || row[:twitter_username_2],
+      site_url: (row[:site_url_1] && !row[:site_url_1].strip.empty? && row[:site_url_1]) || (row[:site_url_2] && !row[:site_url_2].strip.empty? && row[:site_url_2]),
+      facebook_username: (row[:facebook_username_1] && !row[:facebook_username_1].strip.empty? && row[:facebook_username_1]) || (row[:facebook_username_2] && !row[:facebook_username_2].strip.empty? && row[:facebook_username_2]),
+      twitter_username: (row[:twitter_username_1] && !row[:twitter_username_1].strip.empty? && row[:twitter_username_1]) || (row[:twitter_username_2] && !row[:twitter_username_2].strip.empty? && row[:twitter_username_2]),
 
       screens: tool_screens
     )
