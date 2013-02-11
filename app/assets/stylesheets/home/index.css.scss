@@ -140,7 +140,11 @@ html.home.index {
 			ul.features {
 				padding-top: 0; float: none; text-align: center; width: auto;
 
-				li { display: inline-block; float: none; }
+				li {
+					display: inline-block; float: none;
+
+					p.description { font-size: 12px; }
+				}
 			}
 		}
 
