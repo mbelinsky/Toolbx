@@ -1,9 +1,10 @@
 <h1 class="strike"><span>Reset Password</span></h1>
+<%= render 'shared/flashes' %>
 
 <%= form_tag password_resets_path, :method => :post do %>
 	<div class="field">
 		<%= label_tag :email %>
 		<%= text_field_tag :email, params[:email] %>
 	</div>
-	<div class="actions"><%= submit_tag "Reset Password" %></div>
+	<div class="actions"><%= submit_tag "Reset Password", class: 'button' %></div>
 <% end %>
