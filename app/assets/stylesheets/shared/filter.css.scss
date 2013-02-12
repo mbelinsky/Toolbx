@@ -46,7 +46,7 @@ menu#filter {
 		}
 
 		ul.options {
-			position: absolute; top: 40px; left: 0; display: none; z-index: 50; max-height: 200px; overflow: auto; background: #722929; padding: 0 10px 10px; font-size: 13px; font-weight: 600; @include border-radius(0 0 3px 3px); max-width: 100%;
+			position: absolute; top: 40px; left: 0; display: none; z-index: 50; max-height: 200px; overflow: auto; background: #722929; padding: 0 10px 10px; font-size: 13px; font-weight: 600; @include border-radius(0 0 3px 3px); max-width: 100%; list-style: none;
 
 			li {
 				padding: 4px 9px 4px 12px; cursor: pointer; @include border-radius(3px);
