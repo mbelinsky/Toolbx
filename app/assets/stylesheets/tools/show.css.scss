@@ -158,12 +158,10 @@ html.tools.show {
 		}
 
 		ul.screens {
-			list-style: none; border-bottom: 2px solid #EFEEED; padding: 20px 0;
+			list-style: none; border-bottom: 2px solid #EFEEED; padding: 10px 0; width: 600px; margin-left: -10px;
 
 			li {
-				float: left; margin-left: 20px;
-
-				&:first-child { margin-left: 0; }
+				float: left; margin: 10px;
 
 				img { @include border-radius(3px); vertical-align: bottom; position: relative; }
 			}

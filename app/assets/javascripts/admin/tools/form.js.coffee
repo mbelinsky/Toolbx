@@ -40,9 +40,6 @@ if $('html').is('.admin.tools.edit, .admin.tools.update, .admin.tools.new, .admi
 		$('.screens').on 'click', '.add_fields', (e) ->
 			e.preventDefault()
 
-			if screensContainer.find('li:visible').length > 3
-				return
-
 			el = $(this)
 			time = Date.now()
 			regexp = new RegExp(el.data('id'), 'g')
