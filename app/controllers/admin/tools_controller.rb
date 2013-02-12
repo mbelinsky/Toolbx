@@ -17,7 +17,7 @@ class Admin::ToolsController < AdminController
 
     respond_to do |format|
       if @tool.save
-        format.html { redirect_to admin_tools_path, notice: "#{@tool.name} has been created." }
+        format.html { redirect_to edit_admin_tool_path(@tool), notice: "#{@tool.name} has been created." }
       else
         format.html { render action: 'new' }
       end
@@ -35,7 +35,7 @@ class Admin::ToolsController < AdminController
 
     respond_to do |format|
       if @tool.update_attributes params[:tool]
-        format.html { redirect_to admin_tools_path, notice: "#{@tool.name} has been updated." }
+        format.html { redirect_to edit_admin_tool_path(@tool), notice: "#{@tool.name} has been updated." }
       else
         format.html { render action: 'edit' }
       end
