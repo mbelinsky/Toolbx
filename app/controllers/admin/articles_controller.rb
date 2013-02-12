@@ -18,7 +18,7 @@ class Admin::ArticlesController < AdminController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to admin_articles_path, notice: "#{@article.title} has been created." }
+        format.html { redirect_to edit_admin_article_path(@article), notice: "#{@article.title} has been created." }
       else
         format.html { render action: 'new' }
       end
@@ -36,7 +36,7 @@ class Admin::ArticlesController < AdminController
 
     respond_to do |format|
       if @article.update_attributes params[:article]
-        format.html { redirect_to admin_articles_path, notice: "#{@article.title} has been updated." }
+        format.html { redirect_to edit_admin_article_path(@article), notice: "#{@article.title} has been updated." }
       else
         format.html { render action: 'edit' }
       end
