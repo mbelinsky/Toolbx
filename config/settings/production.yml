@@ -1,4 +1,3 @@
 s3:
   bucket: the_toolbox_production_images
 mixpanel_token: ac02f2677562e9300424f9a87aa45080
-gaq: UA-38041239-1
