@@ -1,7 +1,11 @@
 //GA
 <% if ['production', 'staging'].include? Rails.env %>
 	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', '<%= Settings.gaq %>']);
+	<% if Rails.env == 'staging' %>
+		_gaq.push(['_setAccount', 'UA-38041239-2']);
+	<% elsif Rails.env == 'production' %>
+		_gaq.push(['_setAccount', 'UA-38041239-1']);
+	<% end %>
 	_gaq.push(['_trackPageview']);
 
 	(function() {
