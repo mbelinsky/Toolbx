@@ -75,6 +75,9 @@
 				<% unless @tool.google_play_url.blank? %>
 					<li><%= link_to 'Google Play', @tool.formatted_google_play_url, target: '_blank', class: 'google-play', itemprop: 'downloadUrl' %></li>
 				<% end %>
+				<% unless @tool.site_url.blank? %>
+					<li><%= link_to 'Website', @tool.formatted_site_url, target: '_blank', class: 'website', itemprop: 'downloadUrl' %></li>
+				<% end %>
 			</ul>
 		<% end %>
 
@@ -101,9 +104,6 @@
 			<div class="links">
 				<h6>Links</h6>
 				<ul>
-					<% unless @tool.site_url.blank? %>
-						<li><%= link_to 'Website', @tool.formatted_site_url, target: '_blank' %></li>
-					<% end %>
 					<% unless @tool.facebook_username.blank? %>
 						<li><%= link_to 'Facebook', @tool.facebook_url, target: '_blank' %></li>
 					<% end %>

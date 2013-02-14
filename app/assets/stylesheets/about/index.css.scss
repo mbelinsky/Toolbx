@@ -87,10 +87,10 @@ html.about.index {
 				h3 { font-size: 32px; text-align: center; text-transform: uppercase; margin: 36px 0 24px; }
 				p.about { font-size: 13px; line-height: 24px; text-align: center; width: 260px; margin: 0 auto; }
 				ul.contact {
-					width: 100px; margin: 24px auto 0; list-style: none;
+					margin: 24px auto 0; list-style: none; text-align: center;
 
 					li {
-						float: left; margin: 0 5px;
+						display: inline-block; margin: 0 5px; clear: none;
 
 						a { display: block; border: 0; }
 					}

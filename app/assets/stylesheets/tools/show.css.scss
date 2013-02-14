@@ -6,6 +6,7 @@ html.tools.show {
 
 		.sprite.app-store { background-position: 0 0; width: 140px; height: 43px; }
 		.sprite.google-play { background-position: 0 -43px; width: 140px; height: 43px; }
+		.sprite.website { background-position: 0 -86px; width: 140px; height: 43px; }
 	}
 
 	div.wrap-inner { padding-top: 90px; }
@@ -113,10 +114,11 @@ html.tools.show {
 
 				li {
 					a {
-						background: url("/assets/tools/stores.png"); display: block; width: 140px; height: 43px; text-indent: -9999px;
+						background: url("/assets/tools/stores.png"); display: block; width: 140px; height: 43px; text-indent: -9999px; margin-bottom: 5px;
 
-						&.app-store { background-position: 0 0; margin-bottom: 5px; }
+						&.app-store { background-position: 0 0; }
 						&.google-play { background-position: 0 -43px; }
+						&.website { background-position: 0 -86px; }
 					}
 				}
 			}
