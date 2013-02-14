@@ -5,9 +5,44 @@
 
 		<%= stylesheet_link_tag "application", media: "all" %>
 
-		<%= javascript_include_tag "application" %>
 		<script>
-			<% if current_user %>
+			<% if ['production', 'staging'].include? Rails.env %>
+				//GA
+				var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', "<%= ENV['GAQ_ID'] %>"]);
+				_gaq.push(['_trackPageview']);
+
+				(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				})();
+			<% end %>
+
+
+			//Mixpanel
+			(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+			typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+			mixpanel.init("<%= ENV['MIXPANEL_TOKEN'] || '2b3137998fb05d54fc68991655e4d45e' %>");
+
+			//Disqus + Mixpanel
+			function disqus_config() {
+				this.callbacks.onNewComment = [function(comment) {
+					var eventParams = {'Comment ID': comment.id, 'Comment Text': comment.text};
+
+					if ($('#tool-container').length) {
+						eventParams['Tool Name'] = $('#tool-container').find('h1').text();
+					} else if ($('article').length) {
+						eventParams['Article Name'] = $('article').find('h1').text();
+					}
+
+					mixpanel.track('Commented', eventParams)
+				}];
+			}
+		</script>
+		<%= javascript_include_tag "application" %>
+		<% if current_user %>
+			<script>
 				window.current_user = <%= current_user.to_json(only: [:first_name, :last_name, :email, :created_at, :last_login]).html_safe %>
 
 				mixpanel.identify(window.current_user.email);
@@ -32,8 +67,8 @@
 					mixpanel.alias(window.current_user.email);
 					mixpanel.track('Joined');
 				<% end %>
-			<% end %>
-		</script>
+			</script>
+		<% end %>
 
 		<link rel="shortcut icon" href="/assets/favicon.png">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
