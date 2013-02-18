@@ -100,4 +100,17 @@
 			</ul>
 		</section>
 	<% end %>
+
+	<% similar_articles = Article.where(published: true).in_categories(@article.categories.map {|cat| cat.id}).where('articles.id != ?', @article.id).limit(3) %>
+	<% if similar_articles.length > 0 %>
+		<section class="similar-articles group">
+			<h3 class="strike"><span>Similar Articles</span></h3>
+
+			<ul>
+				<% similar_articles.each do |article| %>
+					<%= render 'articles/article', article: article %>
+				<% end %>
+			</ul>
+		</section>
+	<% end %>
 </aside>
