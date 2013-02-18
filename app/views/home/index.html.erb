@@ -68,7 +68,7 @@
 
 	<div class="inner group">
 		<h2 class="strike">
-			<span>Newest Tools</span>
+			<span>Featured Tools</span>
 			<menu class="gray category-icons">
 				<% @categories.each do |category| %>
 					<li><%= link_to category.title, tools_path(params: {category_ids: [category.id]}), class: category.title.parameterize %></li>
