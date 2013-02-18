@@ -1,5 +1,5 @@
 License.create([
-  {name: 'Closed', url: 'http://en.wikipedia.org/wiki/Copyright'},
+  {name: 'Closed', url: 'https://en.wikipedia.org/wiki/Proprietary_software'},
   {name: 'GPL', url: 'http://www.gnu.org/licenses/gpl.html'},
   {name: 'MIT', url: 'http://opensource.org/licenses/MIT'},
   {name: 'LGPL', url: 'http://www.gnu.org/copyleft/lesser.html'},

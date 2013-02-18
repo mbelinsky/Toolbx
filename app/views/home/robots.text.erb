@@ -1,4 +1,4 @@
 User-agent: *
 <% @unpublished_articles.each do |article| %>
-Disallow: <%= toolbox_article_path(article) %>
+Disallow: <%= article_path(article) %>
 <% end %>

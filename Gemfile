@@ -86,7 +86,7 @@ gem 'rails_config'
 gem 'truncate_html'
 
 # New Relic
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', "~> 3.5.5.38"
 
 # Explicit JSON for security stuff (CVE-2013-0269):
 gem 'json', '~> 1.7.7'
