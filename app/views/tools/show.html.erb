@@ -67,7 +67,7 @@
 	</header>
 
 	<div class="details group">
-		<% unless @tool.app_store_url.blank? && @tool.google_play_url.blank? %>
+		<% unless @tool.app_store_url.blank? && @tool.google_play_url.blank? && @tool.site_url.blank? %>
 			<ul class="stores">
 				<% unless @tool.app_store_url.blank? %>
 					<li><%= link_to 'App Store', @tool.formatted_app_store_url, target: '_blank', class: 'app-store', itemprop: 'downloadUrl' %></li>
