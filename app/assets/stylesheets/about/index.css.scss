@@ -85,7 +85,11 @@ html.about.index {
 
 				div.pic { margin: 0 auto; }
 				h3 { font-size: 32px; text-align: center; text-transform: uppercase; margin: 36px 0 24px; }
-				p.about { font-size: 13px; line-height: 24px; text-align: center; width: 260px; margin: 0 auto; }
+				p.about {
+					font-size: 13px; line-height: 24px; text-align: center; width: 260px; margin: 0 auto 24px;
+
+					&.last { margin-bottom: 0; }
+				}
 				ul.contact {
 					margin: 24px auto 0; list-style: none; text-align: center;
 
