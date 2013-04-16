@@ -78,7 +78,7 @@ module Thetoolbox
     ActionMailer::Base.default :from => 'The Toolbox <support@thetoolbox.org>'
     ActionMailer::Base.smtp_settings = {
       user_name: 'toolbox',
-      password: '1sdado345',
+      password: '1txado345',
       domain: 'thetoolbox.org',
       address: 'smtp.sendgrid.net',
       port: 587,
