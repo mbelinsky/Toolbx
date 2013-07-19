@@ -47,7 +47,9 @@ header#top {
 					}
 
 					&.fb-login {
-						background: #41413C url("/assets/shared/header/facebook-logo.png") 10px 5px no-repeat; @include border-radius(24px); padding: 6px 18px 6px 30px; height: auto; margin-top: 10px;
+						background: #41413C url("/assets/shared/header/facebook-logo.png") 10px 5px no-repeat; @include border-radius(24px); padding: 6px 18px 6px 30px; height: auto; margin: 10px 0 0 6px;
+
+						&:hover { background-color: lighten(#41413C, 1%); }
 
 						@include retina-media {
 							background-image: url("/assets/shared/header/facebook-logo@2x.png"); background-size: 12px 20px;
@@ -80,6 +82,69 @@ header#top {
 
 	//one column
 	@media only screen and (max-width : 639px) {
+		div.inner {
+			position: static;
+
+			button#header-nav-trigger { position: relative; float: right; }
+
+			> nav {
+				float: none; clear: left; font-size: 16px; position: absolute; top: 50px; left: 0; width: 100%; background: #41413C; max-height: 0; overflow: hidden; height: auto; @include transition(all 360ms linear);
+
+				> ul {
+					height: auto; margin: 0 auto;
+
+					> li {
+						float: none; padding-left: 0; border-bottom: 2px solid #292924;
+
+						&.profile {
+							a#user-nav-trigger {
+								padding: 10px 0 5px;
+
+								&:after { display: inline-block; content: attr(data-name); vertical-align: 9px; padding-left: 12px; }
+							}
+
+							a#user-nav-trigger.user-nav-open + nav#user-nav { max-height: 150px; }
+
+							nav#user-nav {
+								position: relative; background: transparent; display: block !important; max-height: 0; @include transition(all 210ms linear);
+
+								ul {
+									padding: 0;
+
+									li {
+										border-top: 2px solid #292924;
+
+										a {
+											width: 300px; display: block; margin: 0 auto; padding: 13px 0 13px 18px;
+
+											&:hover { background: transparent; }
+										}
+									}
+								}
+							}
+						}
+
+						> a {
+							letter-spacing: 0; padding: 0; width: 300px; display: block; margin: 0 auto; padding: 13px 0;
+
+							&.current:after { display: none; }
+
+							&.fb-login { background: transparent; padding: 13px 0; margin: 0 auto; }
+						}
+					}
+				}
+			}
+		}
+
+		button#header-nav-trigger { display: block; background: #3E3E39 url("/assets/header-nav-trigger.png") no-repeat center center; text-indent: -9999px; width: 30px; height: 30px; @include border-radius(3px); padding: 0; position: absolute; top: 10px; right: 10px; }
+
+		&.nav-open {
+			div.inner > nav { max-height: 450px; }
+		}
+	}
+
+	//two columns
+	@media only screen and (min-width: 640px) and (max-width: 959px) {
 		div.inner > nav {
 			float: left; font-size: 12px; @include opacity(0); margin-left: -1000px;
 
@@ -89,8 +154,6 @@ header#top {
 					&:first-child a { padding-left: 0; }
 
 					> a {
-						padding: 16px 9px 0;
-
 						&.current:after { display: none; }
 					}
 				}
@@ -105,10 +168,5 @@ header#top {
 			h6 { margin-left: -1000px; }
 			div.inner > nav { @include opacity(1); margin-left: 0; }
 		}
-	}
-
-	//two columns
-	@media only screen and (min-width: 640px) and (max-width: 959px) {
-		// no change
 	}
 }

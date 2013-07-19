@@ -1,14 +1,15 @@
 $(document).ready ->
-	userNav = $('#user-nav')
-	userNavTrigger = $('#user-nav-trigger')
+  userNav = $('#user-nav')
+  userNavTrigger = $('#user-nav-trigger')
 
-	unless userNav.length then return
+  unless userNav.length then return
 
-	userNavTrigger.on 'click', (e) ->
-		e.stopPropagation();
-		e.preventDefault();
+  userNavTrigger.on 'click', (e) ->
+    e.stopPropagation();
+    e.preventDefault();
 
-		userNav.toggle()
+    userNavTrigger.toggleClass('user-nav-open')
+    userNav.toggle()
 
-	userNav.bind 'clickoutside', ->
-		userNav.hide()
+  userNav.bind 'clickoutside', ->
+    userNav.hide()
