@@ -45,6 +45,7 @@ class SessionsController < ApplicationController
   def failure
     # raise OmniAuth::Error.new(env['omniauth.error.type']) #env['omniauth.error'] || OmniAuth::Error.new(env['omniauth.error.type'])
     # render text: 'hithere'
+    @has_footer = true
   end
 
   def destroy
