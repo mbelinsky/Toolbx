@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-# gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -68,7 +67,7 @@ gem 'json', '~> 1.7.7' # Explicit JSON for security stuff (CVE-2013-0269)
 gem 'paperclip' # Paperclip for imagey stuff
 gem 'aws-sdk' # S3, etc
 gem 'simple_enum' # simple_enum
-gem 'mysql2' # mysql adapter
+gem 'pg' # postgres
 gem 'exception_notification' # notify on exceptions
 gem 'validates_email_format_of' # email validation
 gem 'omniauth-facebook' # facebook login
