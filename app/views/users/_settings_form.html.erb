@@ -34,26 +34,33 @@
 				<%= f.text_field :username %>
 			</div>
 
-			<% unless @editing_password %>
-				<button id="change-password-trigger">Change Password</button>
+			<% if current_user.needs_password_set %>
+				<div class="set-password-container">
+					<%= link_to "Set a Password", password_resets_create_path(params: {email: current_user.email}), class: 'button group' %>
+					<p>Setting a password will allow you to log in to The Toolbox directly without using your Facebook account.</p>
+				</div>
+			<% else %>
+				<% unless @editing_password %>
+					<button id="change-password-trigger">Change Password</button>
+				<% end %>
+
+				<div class="change-password-container <%= 'editing-password' if @editing_password %>">
+					<div class="field inline">
+						<%= label_tag :current_password, "Current Password" %>
+						<%= password_field_tag :current_password, nil, disabled: !@editing_password %>
+					</div>
+					<div class="field inline last"></div>
+
+					<div class="field inline">
+						<%= f.label :password, "New Password" %>
+						<%= f.password_field :password, disabled: !@editing_password %>
+					</div>
+					<div class="field inline last">
+						<%= f.label :password_confirmation, "New Password Again" %>
+						<%= f.password_field :password_confirmation, disabled: !@editing_password %>
+					</div>
+				</div>
 			<% end %>
-
-			<div class="change-password-container <%= 'editing-password' if @editing_password %>">
-				<div class="field inline">
-					<%= label_tag :current_password, "Current Password" %>
-					<%= password_field_tag :current_password, nil, disabled: !@editing_password %>
-				</div>
-				<div class="field inline last"></div>
-
-				<div class="field inline">
-					<%= f.label :password, "New Password" %>
-					<%= f.password_field :password, disabled: !@editing_password %>
-				</div>
-				<div class="field inline last">
-					<%= f.label :password_confirmation, "New Password Again" %>
-					<%= f.password_field :password_confirmation, disabled: !@editing_password %>
-				</div>
-			</div>
 		</div>
 
 		<div class="bottom group">

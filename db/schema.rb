@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718025026) do
+ActiveRecord::Schema.define(:version => 20130719065255) do
 
   create_table "article_categories", :force => true do |t|
     t.integer  "article_id"
@@ -232,6 +232,7 @@ ActiveRecord::Schema.define(:version => 20130718025026) do
     t.string   "bio"
     t.string   "uid"
     t.string   "provider"
+    t.boolean  "needs_password_set",           :default => false
   end
 
   add_index "users", ["city_id"], :name => "index_users_on_city_id"
