@@ -14,7 +14,7 @@
 						<li><%= link_to 'Admin', admin_tools_path, class: cp(admin_path) %></li>
 					<% end %>
 					<li class="profile">
-						<a href="#" id="user-nav-trigger"><%= image_tag current_user.profile_picture.url(:thumb) %></a>
+						<a href="#" id="user-nav-trigger" data-name="<%= current_user.full_name %>"><%= image_tag current_user.profile_picture.url(:thumb) %></a>
 
 						<nav id="user-nav">
 							<ul>

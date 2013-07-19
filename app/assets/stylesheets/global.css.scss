@@ -165,9 +165,26 @@ h3.strike {
 button, .button {
 	background: #BFBDB6; font-size: 16px; color: #fff; padding: 6px 18px; @include border-radius(30px); font-weight: 600; text-transform: uppercase; cursor: pointer; padding: 9px 24px; text-decoration: none; position: relative;
 
-	&.submit { background: #E55453; }
+	&:hover { background: darken(#BFBDB6, 5%); }
 
-	&.blue { background: #4BCFEB; color: #225F6D; font-weight: normal; }
+	&.submit {
+		background: #E55453;
+
+		&:hover { background: lighten(#E55453, 2%); }
+	}
+
+	&.blue {
+		background: #4BCFEB; color: #225F6D; font-weight: normal;
+
+		&:hover { background: lighten(#4BCFEB, 3%); }
+	}
+	&.gray {
+		background: #41413C;
+
+		&:hover { background: darken(#41413C, 5%); }
+	}
+
+	&.semibold { font-weight: 600; }
 }
 
 div#error_explanation {
