@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
 
   attr_accessible :description, :email, :facebook_username, :linkedin_username, :google_plus_id, :first_name, :password_digest, :last_name, :twitter_username, :website_url, :password, :password_confirmation, :username, :category_ids, :profile_picture, :city_id, :city_name, :bio
 
-  before_validation :downcase_username
-
   validates_length_of :bio, maximum: 200, allow_blank: true
 
   validates_presence_of :first_name
@@ -25,18 +23,68 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates :email, email_format: [message: 'is not a valid email address']
 
-  validates_presence_of :username
-  validates_uniqueness_of :username
-  validates_format_of :username, with: /^[\d\w-]+$/
+  validates_uniqueness_of :username, allow_blank: true
+  before_validation :downcase_username
+  validates_format_of :username, with: /^[\d\w\-]+$/, allow_blank: true
 
   validates :password, length: { minimum: 8 }, if: :validate_password?
   validates :password_confirmation, on: :update, presence: true, if: :validate_password?
 
   before_create { generate_token(:toolbox_auth_token) }
 
+  attr_reader :profile_picture_remote_url
   has_attached_file :profile_picture, styles: { medium: "140x140>", small: "60x60>", thumb: "30x30>" }, default_url: 'profile-default/missing_:style.png'
   validates_attachment_content_type :profile_picture, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
   validates_attachment_size :profile_picture, less_than: 500.kilobytes
+
+  def profile_picture_remote_url=(url)
+    self.profile_picture = URI.parse(url)
+    @profile_picture_remote_url = url
+  end
+
+  def self.from_omniauth(auth)
+    user = where(auth.slice('provider', 'uid')).first
+    # this person has already signed up with facebook, we're all set
+
+    unless user
+      already_user = where(email: auth['info']['email']).first
+
+      if already_user
+        if auth['info']['verified']
+          user = already_user
+        else
+          return "You already have a Toolbox account. Please verify your Facebook account to connect them, or sign in with your Toolbox account."
+        end
+      else
+        # brand new account, create user
+        user = create_from_omniauth(auth)
+      end
+    end
+
+    return user
+  end
+
+  def self.create_from_omniauth(auth)
+    create! do |user|
+      user.provider = auth['provider']
+      user.uid = auth['uid']
+      user.password = user.password_confirmation = SecureRandom.urlsafe_base64
+      user.email = auth['info']['email']
+      user.facebook_username = auth['extra']['raw_info']['username']
+      user.first_name = auth['info']['first_name']
+      user.last_name = auth['info']['last_name']
+
+      pic = URI(auth['info']['image'])
+      pic.query = 'type=large'
+      user.profile_picture_remote_url = pic.to_s
+
+      bio = auth['info']['description']
+      user.bio = bio if bio && bio.length <= 200
+
+      nick = auth['info']['nickname']
+      user.username = nick if nick.match(/^[\d\w-]+$/) && !User.exists?(username: nick)
+    end
+  end
 
   def city_name
     city.pretty_name if city
@@ -86,13 +134,13 @@ class User < ActiveRecord::Base
   end
 
   def to_param
-    self.username
+    self.username.blank? ? self.id : self.username
   end
 
   private
 
   def downcase_username
-    username.downcase!
+    username.downcase! if username
   end
 
   def validate_password?

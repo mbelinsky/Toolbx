@@ -66,13 +66,13 @@ class UsersController < ApplicationController
   end
 
   def show_tools
-    @user = User.find_by_username!(params[:id])
+    @user = User.find_by_username(params[:id]) || User.find(params[:id])
     @title = "» #{@user.full_name} » Tools"
     @tools = @user.tools.page(params[:page]).per(36)
   end
 
   def show_articles
-    @user = User.find_by_username!(params[:id])
+    @user = User.find_by_username(params[:id]) || User.find(params[:id])
     @title = "» #{@user.full_name} » Articles"
     @articles = @user.articles.page(params[:page]).per(36)
   end

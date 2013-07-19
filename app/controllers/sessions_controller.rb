@@ -24,6 +24,27 @@ class SessionsController < ApplicationController
     end
   end
 
+  def create_omniauth
+    # raise env['omniauth.auth'].to_yaml
+    # return
+
+    user = User.from_omniauth(env['omniauth.auth'])
+
+    if user.class == String
+      # this is a little janky, but it'll work.
+      redirect_to root_url, alert: user
+    else
+      cookies.permanent[:toolbox_auth_token] = user.toolbox_auth_token
+      user.touch :last_login
+
+      # 'Thanks for signing up! Now go add some tools.'
+      redirect_to root_url, notice: "Hey there! Nice to see you."
+    end
+  end
+
+  def failure
+    # raise OmniAuth::Error.new(env['omniauth.error.type']) #env['omniauth.error'] || OmniAuth::Error.new(env['omniauth.error.type'])
+  end
 
   def destroy
     cookies.delete(:toolbox_auth_token)

@@ -69,4 +69,12 @@ class ApplicationController < ActionController::Base
       os_mapping.each       { |k, v| @os = v      and break if request.user_agent[k] }
     end
   end
+
+private
+  def render_error(status, exception)
+    respond_to do |format|
+      format.html { render template: "errors/error_#{status}", layout: 'layouts/application', status: status}
+      format.all { render nothing: true, status: status }
+    end
+  end
 end

@@ -24,9 +24,14 @@
 				<%= f.label :last_name, "Last Name" %>
 				<%= f.text_field :last_name %>
 			</div>
-			<div class="field full">
+			<div class="field inline">
 				<%= f.label :email, "Email" %>
 				<%= f.text_field :email %>
+			</div>
+			<div class="field inline last username">
+				<%= f.label :username %>
+				<div class="username-mask">thetoolbox.org/users/</div>
+				<%= f.text_field :username %>
 			</div>
 
 			<% unless @editing_password %>

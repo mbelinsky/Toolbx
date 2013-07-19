@@ -1,0 +1,42 @@
+@import 'mixins.css.scss';
+
+html.errors {
+	header#top + div.inner { width: 100% !important; }
+
+	div#billboard {
+		background: #E65554; margin-bottom: 81px;
+
+		div.inner { padding: 130px 0 130px 380px; background: url("/assets/errors/toolbox.png") no-repeat left center; }
+
+		h1 { font-size: 56px; margin-bottom: 12px; text-transform: uppercase; color: #fff; width: 560px; }
+		h2 { font-size: 32px; line-height: 46px; color: #fff; font-style: italic; font-weight: normal; width: 560px; }
+	}
+
+	ul#next-up {
+		list-style: none; padding: 30px 0 90px;
+
+		li {
+			width: 300px; float: left; margin: 0 10px;
+
+			a {
+				display: block; text-align: center; text-decoration: none; color: #5C5C54; font-size: 32px; text-transform: uppercase;
+
+				&:before { display: block; content: ""; width: 140px; height: 140px; background: url("/assets/errors/icons.png"); margin: 0 auto 30px; }
+
+				&.about:before { background-position: 0 0; }
+				&.articles:before { background-position: -140px 0; }
+				&.tools:before { background-position: -280px 0; }
+			}
+		}
+	}
+
+	@include retina-media {
+		div#billboard {
+			div.inner { background-image: url("/assets/errors/toolbox@2x.png"); background-size: 244px 183px; }
+		}
+
+		ul#next-up {
+			li:before { background-image: url("/assets/errors/icons@2x.png"); background-size: 420px 140px; }
+		}
+	}
+}
