@@ -4,3 +4,6 @@ disqus_identifier_prefix: 'dev'
 email:
   to: paul@octopuscreative.com
 mixpanel_token: 2b3137998fb05d54fc68991655e4d45e
+facebook_auth:
+  key: 1391893851030658
+  secret: 88ef9c04f4e86fda83e61be33463d1b4

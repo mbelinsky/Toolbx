@@ -46,22 +46,6 @@ gem 'ejs'
 # http://stackoverflow.com/questions/7082364/what-does-warn-could-not-determine-content-length-of-response-body-mean-and-h
 gem 'thin'
 
-# Paperclip for imagey stuff
-gem 'paperclip'
-gem 'aws-sdk'
-
-# simple_enum
-gem 'simple_enum'
-
-# mysql adapter
-gem 'mysql2'
-
-# notify on exceptions
-gem 'exception_notification'
-
-# email validationgg
-gem 'validates_email_format_of'
-
 # test stuff
 group :development, :test do
   gem 'rspec-rails'
@@ -76,17 +60,15 @@ group :test do
   gem 'simplecov', require: false
 end
 
-# Kaminari for pagination
-gem 'kaminari'
-
-# rails_config for global Settings object
-gem 'rails_config'
-
-# truncate_html for article summaries
-gem 'truncate_html'
-
-# New Relic
-gem 'newrelic_rpm', "~> 3.5.5.38"
-
-# Explicit JSON for security stuff (CVE-2013-0269):
-gem 'json', '~> 1.7.7'
+gem 'kaminari' # Kaminari for pagination
+gem 'rails_config' # rails_config for global Settings object
+gem 'truncate_html' # truncate_html for article summaries
+gem 'newrelic_rpm', "~> 3.5.5.38" # New Relic
+gem 'json', '~> 1.7.7' # Explicit JSON for security stuff (CVE-2013-0269)
+gem 'paperclip' # Paperclip for imagey stuff
+gem 'aws-sdk' # S3, etc
+gem 'simple_enum' # simple_enum
+gem 'mysql2' # mysql adapter
+gem 'exception_notification' # notify on exceptions
+gem 'validates_email_format_of' # email validation
+gem 'omniauth-facebook' # facebook login

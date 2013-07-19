@@ -81,7 +81,14 @@ Thetoolbox::Application.routes.draw do
 
   # Login/out
   resources :sessions
+  get 'auth/:provider/callback', to: 'sessions#create_omniauth'
+  get 'auth/failure', to: 'sessions#failure'
 
   # Password resets
   resources :password_resets
+
+  # Errors
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404'
+  end
 end

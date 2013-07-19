@@ -4,6 +4,13 @@ form {
 	div.field {
 		@include width(4); margin: 0 20px 18px 0; clear: left; position: relative;
 
+		&.username {
+			position: relative;
+
+			div.username-mask { font-style: italic; position: absolute; top: 42px; left: 18px; pointer-events: none; }
+			input { padding-left: 151px; }
+		}
+
 		&.last, &.full { margin-right: 0; }
 		&.full { @include width(8); }
 		&.tiny { width: 140px; }
