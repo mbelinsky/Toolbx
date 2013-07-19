@@ -4,6 +4,10 @@ class ErrorsController < ApplicationController
     @has_footer = true
   end
 
+  def error_422
+    @has_footer = true
+  end
+
   def error_500
     @has_footer = true
   end

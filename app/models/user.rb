@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
         if auth['info']['verified']
           user = already_user
         else
-          return "You already have a Toolbox account. Please verify your Facebook account to connect them, or sign in with your Toolbox account."
+          return "You already have a Toolbox account. Please verify your Facebook account before connecting them, or sign in with your Toolbox account instead."
         end
       else
         # brand new account, create user
@@ -66,6 +66,8 @@ class User < ActiveRecord::Base
 
   def self.create_from_omniauth(auth)
     create! do |user|
+      user.needs_password_set = true
+
       user.provider = auth['provider']
       user.uid = auth['uid']
       user.password = user.password_confirmation = SecureRandom.urlsafe_base64

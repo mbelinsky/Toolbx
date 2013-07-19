@@ -13,6 +13,13 @@ html.users.edit, html.users.update {
 
 			button#change-password-trigger { margin-bottom: 18px; }
 
+			div.set-password-container {
+				padding-top: 9px; clear: both;
+
+				a { display: block; float: left; }
+				p { padding-top: 9px; font-size: 13px; clear: both; }
+			}
+
 			div.change-password-container {
 				display: none;
 
@@ -70,6 +77,12 @@ html.users.edit, html.users.update {
 		div.settings-container {
 			div.top, div.bottom div.left { @include width(4); }
 
+			div.top {
+				div.set-password-container {
+					p { font-size: 12px; width: 240px; }
+				}
+			}
+
 			div.bottom {
 				div.right { margin-left: 0; }
 			}
@@ -79,6 +92,12 @@ html.users.edit, html.users.update {
 	//two columns
 	@media only screen and (min-width: 640px) and (max-width: 959px) {
 		h1 { @include width(8); }
+
+		div.top {
+			div.set-password-container {
+				p { width: 360px; }
+			}
+		}
 
 		div.settings-container {
 			div.bottom {
