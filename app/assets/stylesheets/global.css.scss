@@ -176,12 +176,12 @@ button, .button {
 	&.blue {
 		background: #4BCFEB; color: #225F6D; font-weight: normal;
 
-		&:hover { background: lighten(#4BCFEB, 3%); }
+		&:hover { background: darken(#4BCFEB, 10%); }
 	}
 	&.gray {
 		background: #41413C;
 
-		&:hover { background: darken(#41413C, 5%); }
+		&:hover { background: darken(#41413C, 2%); }
 	}
 
 	&.semibold { font-weight: 600; }

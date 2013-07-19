@@ -1,0 +1,49 @@
+@import '../mixins.css.scss';
+
+html.sessions.failure {
+	header#top + div.inner { width: 100% !important; }
+
+	div#billboard {
+		background: #E65554; margin-bottom: 200px;
+
+		> div.inner { padding: 90px 0; }
+
+		h1 { font-size: 56px; text-transform: uppercase; text-align: center; color: #fff; }
+		p { font-size: 21px; line-height: 31px; font-style: italic; color: #fff; text-align: center; margin: 18px auto 0; }
+
+		div#signup-cta-failure {
+			background: #B84645; text-align: center; padding: 10px 0;
+
+			a {
+				display: inline-block; margin: 0 8px;
+
+				&.fb-login {
+					background-image: url("/assets/shared/header/facebook-logo.png"); background-position: 16px 10px; background-repeat: no-repeat; padding-left: 36px;
+
+					@include retina-media {
+						background-image: url("/assets/shared/header/facebook-logo@2x.png"); background-size: 12px 20px;
+					}
+				}
+			}
+		}
+	}
+
+	//one column
+	@media only screen and (max-width : 639px) {
+		div#billboard {
+			> div.inner { padding: 50px 0; }
+
+			h1 { font-size: 42px; }
+			p { font-size: 18px; line-height: 27px; }
+
+			div#signup-cta-failure {
+				a.fb-login { margin-bottom: 10px; }
+			}
+		}
+	}
+
+	//two columns
+	@media only screen and (min-width: 640px) and (max-width: 959px) {
+		div#billboard > div.inner { padding: 60px 0; }
+	}
+}
