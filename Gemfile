@@ -67,7 +67,8 @@ gem 'json', '~> 1.7.7' # Explicit JSON for security stuff (CVE-2013-0269)
 gem 'paperclip' # Paperclip for imagey stuff
 gem 'aws-sdk' # S3, etc
 gem 'simple_enum' # simple_enum
-gem 'pg' # postgres
+gem 'mysql2' # mysql adapter
 gem 'exception_notification' # notify on exceptions
 gem 'validates_email_format_of' # email validation
 gem 'omniauth-facebook' # facebook login
+gem 'tire' # elasticsearch
