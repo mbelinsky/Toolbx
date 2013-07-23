@@ -25,24 +25,51 @@ class Tool < ActiveRecord::Base
 
   accepts_nested_attributes_for :screens, allow_destroy: true
 
-  mapping do
-    indexes :id, index: :not_analyzed
-    indexes :name, analyzer: 'snowball'
-    indexes :description, analyzer: 'snowball'
-    indexes :created_at, type: :date
-    indexes :users_count, type: :integer
-    indexes :featured, type: :boolean
+  tire do
+    settings analysis: {
+      analyzer: {
+        default: {
+          type: :snowball
+        }
+      }
+    }
+
+    mapping do
+      indexes :id, index: :not_analyzed
+      indexes :name, analyzer: :snowball
+      indexes :description, analyzer: :snowball
+      indexes :created_at, type: :date
+      indexes :users_count, type: :integer
+      indexes :featured, type: :boolean
+
+      indexes :platforms do
+        indexes :id, index: :not_analyzed
+        indexes :name, type: :string, index: :not_analyzed
+      end
+
+      indexes :categories do
+        indexes :id, index: :not_analyzed
+        indexes :title, type: :string, index: :not_analyzed
+      end
+    end
   end
 
   def self.search(params)
-    # return scoped
-    # orders = {'Recently Added' => 'created_at DESC', 'Most Popular' => 'users_count DESC, created_at DESC', 'Featured' => 'featured DESC, users_count DESC, created_at DESC'}
-
-    #.in_categories(params[:category_ids]).supports_platform(params[:platform]).order(@orders[params[:order]]).page(params[:page]).per(36).search(params[:keyword])
-
     tire.search(load: true, page: params[:page], per_page: 36) do
-      query { string params[:keyword], default_operator: 'AND' } if params[:keyword].present?
+      # generate the actual
+      query do
+        if params[:keyword].blank? && params[:platform].blank? && params[:category_ids].blank?
+          all
+        else
+          boolean do
+            must {string params[:keyword], default_operator: 'AND'} if params[:keyword].present?
+            must {term 'platforms.id', params[:platform]} if params[:platform].present?
+            must {terms 'categories.id', params[:category_ids]} if params[:category_ids].present?
+          end
+        end
+      end
 
+      # order the results
       if params[:order] == 'Recently Added'
         sort { by :created_at, 'desc' }
       elsif params[:order] == 'Most Popular'
@@ -57,11 +84,20 @@ class Tool < ActiveRecord::Base
           by :created_at, :desc
         end
       end
+
+      # facets for has_many associations
+      facet 'platforms' do
+        terms :platform_id
+      end
+
+      facet 'categories' do
+        terms :category_id
+      end
     end
   end
 
   def to_indexed_json
-    self.to_json
+    to_json(include: [:platforms, :categories])
   end
 
   attr_reader :icon_remote_url
