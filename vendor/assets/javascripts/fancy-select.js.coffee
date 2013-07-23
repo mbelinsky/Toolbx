@@ -125,8 +125,6 @@ $.fn.fancySelect = (opts) ->
       options.css 'width', optWidth
       widthFinder.remove()
 
-      console.log 'fudge', optWidth
-
       # Match the select box width
       if sel.attr('data-width')
         if sel.attr('data-width') > option_width

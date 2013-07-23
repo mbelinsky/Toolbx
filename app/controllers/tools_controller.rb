@@ -8,7 +8,7 @@ class ToolsController < ApplicationController
     @orders = {'Recently Added' => 'created_at DESC', 'Most Popular' => 'users_count DESC, created_at DESC', 'Featured' => 'featured DESC, users_count DESC, created_at DESC'}
     params[:order] ||= 'Featured'
 
-    @tools = Tool.in_categories(params[:category_ids]).supports_platform(params[:platform]).search(params[:keyword]).order(@orders[params[:order]]).page(params[:page]).per(36)
+    @tools = Tool.search(params)
   end
 
   def show
