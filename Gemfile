@@ -63,7 +63,7 @@ end
 gem 'kaminari' # Kaminari for pagination
 gem 'rails_config' # rails_config for global Settings object
 gem 'truncate_html' # truncate_html for article summaries
-gem 'newrelic_rpm', "~> 3.5.5.38" # New Relic
+gem 'newrelic_rpm' # New Relic
 gem 'json', '~> 1.7.7' # Explicit JSON for security stuff (CVE-2013-0269)
 gem 'paperclip' # Paperclip for imagey stuff
 gem 'aws-sdk' # S3, etc
