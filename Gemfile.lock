@@ -272,7 +272,7 @@ DEPENDENCIES
   kaminari
   launchy
   mysql2
-  newrelic_rpm (~> 3.5.5.38)
+  newrelic_rpm
   omniauth-facebook
   paperclip
   rails (= 3.2.12)

@@ -75,7 +75,9 @@ Thetoolbox::Application.configure do
   }
 
   # Send email notification when the application throws an error
-  config.middleware.use ExceptionNotifier,
-    sender_address: 'errors@thetoolbox.org',
-    exception_recipients: 'paul@octopuscreative.com'
+  config.middleware.use ExceptionNotifier::Rack,
+    email: {
+      sender_address: 'errors@thetoolbox.org',
+      exception_recipients: 'paul@octopuscreative.com'
+    }
 end
