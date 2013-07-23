@@ -1,4 +1,7 @@
 class Tool < ActiveRecord::Base
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+
   belongs_to :license
   has_many :user_tools, dependent: :destroy
   has_many :users, through: :user_tools
@@ -21,6 +24,45 @@ class Tool < ActiveRecord::Base
   validates_associated :screens
 
   accepts_nested_attributes_for :screens, allow_destroy: true
+
+  mapping do
+    indexes :id, index: :not_analyzed
+    indexes :name, analyzer: 'snowball'
+    indexes :description, analyzer: 'snowball'
+    indexes :created_at, type: :date
+    indexes :users_count, type: :integer
+    indexes :featured, type: :boolean
+  end
+
+  def self.search(params)
+    # return scoped
+    # orders = {'Recently Added' => 'created_at DESC', 'Most Popular' => 'users_count DESC, created_at DESC', 'Featured' => 'featured DESC, users_count DESC, created_at DESC'}
+
+    #.in_categories(params[:category_ids]).supports_platform(params[:platform]).order(@orders[params[:order]]).page(params[:page]).per(36).search(params[:keyword])
+
+    tire.search(load: true, page: params[:page], per_page: 36) do
+      query { string params[:keyword], default_operator: 'AND' } if params[:keyword].present?
+
+      if params[:order] == 'Recently Added'
+        sort { by :created_at, 'desc' }
+      elsif params[:order] == 'Most Popular'
+        sort do
+          by :users_count, :desc
+          by :created_at, :desc
+        end
+      elsif params[:order] == 'Featured'
+        sort do
+          by :featured, :desc
+          by :users_count, :desc
+          by :created_at, :desc
+        end
+      end
+    end
+  end
+
+  def to_indexed_json
+    self.to_json
+  end
 
   attr_reader :icon_remote_url
   has_attached_file :icon, styles: { small: ["120x120", :jpg], thumb: ["60x60", :jpg] }, convert_options: { quality: 85, all: '-background white -mosaic +matte -gravity center', small: '-extent 120x120', thumb: '-extent 60x60' }
@@ -63,14 +105,6 @@ class Tool < ActiveRecord::Base
 
   def twitter_url
     twitter_username.blank? ? nil : "https://twitter.com/#{twitter_username}"
-  end
-
-  def self.search(query)
-    if query
-      where('name like ?', "%#{query}%")
-    else
-      scoped
-    end
   end
 
   def self.supports_platform(platform_id = nil)

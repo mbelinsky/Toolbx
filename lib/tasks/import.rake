@@ -18,9 +18,13 @@ task import: :environment do
 
 
     tool_screens = screen_urls.each_with_index.map do |url, i|
-      scr = Screen.new(order: i)
-      scr.screenshot_remote_url = url
-      scr
+      begin
+        scr = Screen.new(order: i)
+        scr.screenshot_remote_url = url
+        scr
+      rescue
+        puts "!!! Import failed for screenshot: #{url}"
+      end
     end
 
     tool = Tool.new(
@@ -35,10 +39,15 @@ task import: :environment do
       app_store_url: row[:app_store_url],
       site_url: (row[:site_url_1] && !row[:site_url_1].strip.empty? && row[:site_url_1]) || (row[:site_url_2] && !row[:site_url_2].strip.empty? && row[:site_url_2]),
       facebook_username: (row[:facebook_username_1] && !row[:facebook_username_1].strip.empty? && row[:facebook_username_1]) || (row[:facebook_username_2] && !row[:facebook_username_2].strip.empty? && row[:facebook_username_2]),
-      twitter_username: (row[:twitter_username_1] && !row[:twitter_username_1].strip.empty? && row[:twitter_username_1]) || (row[:twitter_username_2] && !row[:twitter_username_2].strip.empty? && row[:twitter_username_2]),
-
-      screens: tool_screens
+      twitter_username: (row[:twitter_username_1] && !row[:twitter_username_1].strip.empty? && row[:twitter_username_1]) || (row[:twitter_username_2] && !row[:twitter_username_2].strip.empty? && row[:twitter_username_2])
     )
+
+    if tool_screens.compact.count == 0
+      puts "!!! No screens for #{row[:name]}"
+      next
+    else
+      tool.screens = tool_screens
+    end
 
     icon_remote_url = nil
     if row[:icon_url_1] && !row[:icon_url_1].strip.empty?
@@ -54,7 +63,12 @@ task import: :environment do
       next
     end
 
-    tool.icon_remote_url = icon_remote_url
+
+    begin
+      tool.icon_remote_url = icon_remote_url
+    rescue
+      puts "!!! Import failed for logo: #{icon_remote_url}"
+    end
 
     if tool.save
       puts "#{tool.name} successfully imported! ^_^"
