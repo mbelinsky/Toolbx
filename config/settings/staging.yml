@@ -6,3 +6,6 @@ basic_auth:
   password: toolbx77
 mixpanel_token: bae229cfda27b7d6f9f3833442990ddb
 gaq: UA-38041239-2
+facebook_auth:
+  key: 280247785448504
+  secret: 9b2c28a206e1b33ddc930db2005c20d4
