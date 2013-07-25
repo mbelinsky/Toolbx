@@ -47,9 +47,9 @@ header#top {
 					}
 
 					&.fb-login {
-						background: #41413C url("/assets/shared/header/facebook-logo.png") 10px 5px no-repeat; @include border-radius(24px); padding: 6px 18px 6px 30px; height: auto; margin: 10px 0 0 6px;
+						background: #4C66A4 url("/assets/shared/header/facebook-logo.png") 10px 5px no-repeat; @include border-radius(24px); padding: 6px 18px 6px 30px; height: auto; margin: 10px 0 0 6px;
 
-						&:hover { background-color: lighten(#41413C, 1%); }
+						&:hover { background-color: lighten(#4C66A4, 1%); }
 
 						@include retina-media {
 							background-image: url("/assets/shared/header/facebook-logo@2x.png"); background-size: 12px 20px;
@@ -129,7 +129,11 @@ header#top {
 
 							&.current:after { display: none; }
 
-							&.fb-login { background: transparent; padding: 13px 0; margin: 0 auto; }
+							&.fb-login {
+								background: transparent; padding: 13px 0; margin: 0 auto;
+
+								&:hover { background: transparent; }
+							}
 						}
 					}
 				}

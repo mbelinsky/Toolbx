@@ -41,6 +41,9 @@ class Tool < ActiveRecord::Base
       indexes :created_at, type: :date
       indexes :users_count, type: :integer
       indexes :featured, type: :boolean
+      indexes :first_screen_banner
+      indexes :first_screen_desat_banner
+      indexes :icon_thumb
 
       indexes :platforms do
         indexes :id, index: :not_analyzed
@@ -55,7 +58,7 @@ class Tool < ActiveRecord::Base
   end
 
   def self.search(params)
-    tire.search(load: true, page: params[:page], per_page: 36) do
+    tire.search(page: params[:page], per_page: 36) do
       # generate the actual
       query do
         if params[:keyword].blank? && params[:platform].blank? && params[:category_ids].blank?
@@ -97,7 +100,17 @@ class Tool < ActiveRecord::Base
   end
 
   def to_indexed_json
-    to_json(include: [:platforms, :categories])
+    to_json(
+      methods: [
+        :first_screen_banner,
+        :first_screen_desat_banner,
+        :icon_thumb
+      ],
+      include: [
+        :platforms,
+        :categories
+      ]
+    )
   end
 
   attr_reader :icon_remote_url
@@ -159,4 +172,15 @@ class Tool < ActiveRecord::Base
     end
   end
 
+  def first_screen_banner
+    screens.first ? screens.first.screenshot.url(:banner) : nil
+  end
+
+  def first_screen_desat_banner
+    screens.first ? screens.first.screenshot.url(:desat_banner) : nil
+  end
+
+  def icon_thumb
+    icon.url(:thumb)
+  end
 end
