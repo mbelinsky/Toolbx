@@ -35,23 +35,23 @@ class Tool < ActiveRecord::Base
     }
 
     mapping do
-      indexes :id, index: :not_analyzed
+      indexes :id, type: :integer, index: :not_analyzed
       indexes :name, analyzer: :snowball
       indexes :description, analyzer: :snowball
       indexes :created_at, type: :date
       indexes :users_count, type: :integer
       indexes :featured, type: :boolean
-      indexes :first_screen_banner
-      indexes :first_screen_desat_banner
-      indexes :icon_thumb
+      indexes :first_screen_banner, index: :not_analyzed
+      indexes :first_screen_desat_banner, index: :not_analyzed
+      indexes :icon_thumb, index: :not_analyzed
 
       indexes :platforms do
-        indexes :id, index: :not_analyzed
+        indexes :id, type: :integer, index: :not_analyzed
         indexes :name, type: :string, index: :not_analyzed
       end
 
       indexes :categories do
-        indexes :id, index: :not_analyzed
+        indexes :id, type: :integer, index: :not_analyzed
         indexes :title, type: :string, index: :not_analyzed
       end
     end

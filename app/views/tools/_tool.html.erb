@@ -1,6 +1,6 @@
 <% path ||= tool_path(tool) %>
 <% mini ||= false %>
-<% has_tool = current_user ? tool.users.exists?(current_user) : nil %>
+<% has_tool = current_user ? current_user.tools.exists?(tool.id) : nil %>
 
 <li class="tool <%= 'mini' if mini %>" itemscope itemtype="http://schema.org/SoftwareApplication">
 	<% unless mini %>
