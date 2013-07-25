@@ -6,14 +6,14 @@
 	<% unless mini %>
 		<div class="banner">
 			<%= link_to path do %>
-				<%= if tool.screens.count > 0 then image_tag tool.screens.first.screenshot.url(:banner), itemprop: 'screenshot' end %>
-				<%= if tool.screens.count > 0 then image_tag tool.screens.first.screenshot.url(:desat_banner), class: 'desat' end %>
+				<%= if tool.first_screen_banner then image_tag tool.first_screen_banner, itemprop: 'screenshot' end %>
+				<%= if tool.first_screen_desat_banner then image_tag tool.first_screen_desat_banner, class: 'desat' end %>
 			<% end %>
 		</div>
 	<% end %>
 	<div class="meta group">
 		<%= link_to path do %>
-			<%= image_tag tool.icon.url(:thumb), class: 'icon', itemprop: 'image' %>
+			<%= image_tag tool.icon_thumb, class: 'icon', itemprop: 'image' %>
 		<% end %>
 		<div class="right">
 			<h3 itemprop="name"><%= link_to tool.name, path, itemprop: 'url' %></h3>
