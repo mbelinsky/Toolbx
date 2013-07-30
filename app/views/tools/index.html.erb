@@ -1,16 +1,25 @@
 <%= render 'shared/filter', docked: true %>
 
-<ul class="items has-banner">
-	<li class="suggest-tool banner group">
-		<p>We are busy building out our database of great tools. Help us out by suggesting a tool.</p>
+<% if @tools.count > 0 %>
+	<ul class="items has-banner">
+		<li class="suggest-tool banner group">
+			<p>We are busy building out our database of great tools. Help us out by suggesting a tool.</p>
 
-		<%= link_to 'Suggest a Tool', suggestions_tools_path, class: 'button' %>
-	</li>
+			<%= link_to 'Suggest a Tool', suggestions_tools_path, class: 'button' %>
+		</li>
 
-	<% @tools.each do |tool| %>
-		<%= render 'tools/tool', tool: tool %>
-	<% end %>
-</ul>
+		<% @tools.each do |tool| %>
+			<%= render 'tools/tool', tool: tool %>
+		<% end %>
+	</ul>
+<% else %>
+	<div id="no-results">
+		<div class="inner">
+			<h3>Can’t find what you're looking for?<wbr> Tell us about it!</h3>
+			<%= link_to 'Suggest a Tool', suggestions_tools_path, class: 'red button' %>
+		</div>
+	</div>
+<% end %>
 
 <div id="infinite-indicator" class="group"></div>
 <%= paginate @tools %>

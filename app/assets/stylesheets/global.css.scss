@@ -178,6 +178,11 @@ button, .button {
 
 		&:hover { background: darken(#4BCFEB, 10%); }
 	}
+	&.red {
+		background: #E65554;
+
+		&:hover { background: darken(#E65554, 3%); }
+	}
 	&.gray {
 		background: #41413C;
 
