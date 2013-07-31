@@ -25,8 +25,8 @@
 						</nav>
 					</li>
 				<% else %>
-					<li><%= link_to 'Log In', login_path, class: cp(login_path) %></li>
-					<li><%= link_to 'Log In With Facebook', '/auth/facebook', class: 'fb-login' %></li>
+					<li><%= link_to 'Log In', login_path, class: "log-in-trigger #{cp(login_path)}" %></li>
+					<li><%= link_to 'Sign Up', signup_path, class: "sign-up-trigger #{cp(signup_path)}" %></li>
 				<% end %>
 			</ul>
 		</nav>

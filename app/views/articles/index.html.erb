@@ -1,10 +1,18 @@
 <%= render 'shared/filter', docked: true, type: 'articles' %>
 
-<ul class="items articles">
-	<% @articles.each do |article| %>
-		<%= render 'articles/article', article: article %>
-	<% end %>
-</ul>
+<% if @articles.count > 0 %>
+	<ul class="items articles">
+		<% @articles.each do |article| %>
+			<%= render 'articles/article', article: article %>
+		<% end %>
+	</ul>
+<% else %>
+	<div id="no-results">
+		<div class="inner">
+			<h3>We can't find any articles that match your search.</h3>
+		</div>
+	</div>
+<% end %>
 
 <div id="infinite-indicator" class="group"></div>
 <%= paginate @articles %>

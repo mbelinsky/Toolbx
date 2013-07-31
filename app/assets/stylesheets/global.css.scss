@@ -188,6 +188,15 @@ button, .button {
 
 		&:hover { background: darken(#41413C, 2%); }
 	}
+	&.facebook {
+		background: #3F5B96 url("/assets/shared/header/facebook-logo.png") 12px 10px no-repeat;
+
+		&:hover { background-color: darken(#3F5B96, 3%); }
+
+		@include retina-media {
+			background-image: url("/assets/shared/header/facebook-logo@2x.png"); background-size: 12px 20px;
+		}
+	}
 
 	&.semibold { font-weight: 600; }
 }
