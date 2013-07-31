@@ -1,0 +1,57 @@
+body > div.modal-wrapper { display: none; }
+
+div.modal-wrapper {
+	background: #F2F1ED; padding: 30px 30px 51px;
+
+	h3.strike {
+		font-size: 48px; margin: 0 0 24px; color: #5C5C54; clear: both;
+
+		&:before { border-top: 1px solid #D9D8D4; border-bottom: 1px solid #D9D8D4; height: 0; content: ""; display: block; position: absolute; top: 50%; left: 0; width: 100%; }
+
+		span { background: #F2F1ED; position: relative; padding-right: 18px; float: left; text-transform: uppercase; }
+	}
+
+	a.button { display: block; width: 100%; text-align: center; }
+
+	div.or:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+	* html div.or { height: 1%; }
+	*:first-child+html div.or { min-height: 1px; }
+	div.or {
+		font-size: 14px; position: relative; margin: 18px 0; color: #807E77; clear: both; text-align: center; font-style: italic;
+
+		&:before { border-top: 1px solid #D9D8D4; border-bottom: 1px solid #D9D8D4; height: 0; content: ""; display: block; position: absolute; top: 50%; left: 0; width: 100%; }
+
+		span { background: #F2F1ED; position: relative; padding: 0 9px; }
+	}
+}
+
+div#log-in-modal {
+	width: 460px;
+
+	form {
+		a.forgot-password { font-style: italic; font-size: 14px; color: #E65453; text-transform: none; text-decoration: none; }
+
+		div.field {
+			&.full { width: 100%; }
+		}
+
+		div.actions {
+			div.sign-up {
+				float: left; margin: 9px 0 0 10px;
+
+				a { color: #E65453; text-decoration: none; }
+			}
+		}
+	}
+}
+
+div#sign-up-modal { width: 460px; }
+
+//one column
+@media only screen and (max-width : 639px) {
+	div#log-in-modal, div#sign-up-modal {
+		width: 300px;
+
+		a.button { font-size: 14px; }
+	}
+}

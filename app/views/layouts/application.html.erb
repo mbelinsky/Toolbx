@@ -85,6 +85,9 @@
 			</div>
 		</div>
 
+		<%= render 'shared/log_in_modal' unless current_user %>
+		<%= render 'shared/sign_up_modal' unless current_user %>
+
 		<%= render 'shared/footer' if @has_footer %>
 	</body>
 </html>
