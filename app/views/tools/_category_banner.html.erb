@@ -1,4 +1,6 @@
-<li class="banner category_banner education">
-  <h3>Education</h3>
-  <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, fermentum massa justo sit amet risus. Donec sed odio dui tellus education.</p>
-</li>
+<% if @category_banner_display == true %>
+  <li class="banner category_banner <%= @current_category %>">
+    <h3><%= @current_category %></h3>
+    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, fermentum massa justo sit amet risus. Donec sed odio dui tellus education.</p>
+  </li>
+<% end %>
