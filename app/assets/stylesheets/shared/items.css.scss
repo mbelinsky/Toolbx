@@ -82,7 +82,7 @@ ul.items {
 				}
 
 				&.activism:after { background-position: -0px -0px; width: 140px; height: 80px; margin-right: -70px; }
-				&.education:after { background-position: -0px -80px; width: 156px; height: 74px; margin-right: -78px; }
+				&.education:after { background-position: -0px -80px; width: 156px; height: 74px; margin-right: -81px; }
 				&.environment:after { background-position: -0px -154px; width: 160px; height: 78px; margin-right: -80px; }
 				&.governance:after { background-position: -0px -232px; width: 152px; height: 88px; margin-right: -76px; }
 				&.health:after { background-position: -0px -320px; width: 136px; height: 80px; margin-right: -68px; }
@@ -94,7 +94,7 @@ ul.items {
 				}
 
 				p {
-					display: block;
+					display: block; text-align: center;
 				}
 			}
 		}
