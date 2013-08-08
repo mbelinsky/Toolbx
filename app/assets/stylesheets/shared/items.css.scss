@@ -36,7 +36,7 @@ ul.items {
 			
 			&.activism:after { background-position: -0px -0px; width: 140px; height: 80px; margin-top: -40px; }
 			&.education:after { background-position: -0px -80px; width: 156px; height: 74px; margin-top: -36px; }
-			&.environmental:after { background-position: -0px -154px; width: 160px; height: 78px; margin-top: -39px; }
+			&.environment:after { background-position: -0px -154px; width: 160px; height: 78px; margin-top: -39px; }
 			&.governance:after { background-position: -0px -232px; width: 152px; height: 88px; margin-top: -44px; }
 			&.health:after { background-position: -0px -320px; width: 136px; height: 80px; margin-top: -40px; }
 			&.relief:after { background-position: -0px -400px; width: 159px; height: 57px; margin-top: -29px; }
@@ -73,6 +73,30 @@ ul.items {
 				p { display: none; }
 				a { margin: 0 auto; float: none; display: block; width: 190px; text-align: center; }
 			}
+
+			&.category_banner {
+				padding-right: 30px; padding-top: 150px; height: 345px;
+
+				&:after {
+					top: 80px; right: 50%;
+				}
+
+				&.activism:after { background-position: -0px -0px; width: 140px; height: 80px; margin-right: -70px; }
+				&.education:after { background-position: -0px -80px; width: 156px; height: 74px; margin-right: -78px; }
+				&.environment:after { background-position: -0px -154px; width: 160px; height: 78px; margin-right: -80px; }
+				&.governance:after { background-position: -0px -232px; width: 152px; height: 88px; margin-right: -76px; }
+				&.health:after { background-position: -0px -320px; width: 136px; height: 80px; margin-right: -68px; }
+				&.relief:after { background-position: -0px -400px; width: 159px; height: 57px; margin-right: -80px; }
+				&.social-enterprise:after { background-position: -0px -457px; width: 160px; height: 80px; margin-right: -80px; }
+
+				h3 {
+					margin-bottom: 10px; text-align: center;
+				}
+
+				p {
+					display: block;
+				}
+			}
 		}
 	}
 
@@ -83,6 +107,18 @@ ul.items {
 		> li {
 			&.banner {
 				p { font-size: 16px; width: 380px; margin-top: -2px; }
+			}
+			
+			&.category_banner {
+				padding-right: 220px; height: 145px;
+
+				&:after {
+					right: 45px;
+				}
+
+				h3 {
+					margin-bottom: 10px;
+				}
 			}
 		}
 	}

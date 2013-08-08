@@ -1,6 +1,7 @@
-<% if @category_banner_display == true %>
-  <li class="banner category_banner <%= @current_category %>">
-    <h3><%= @current_category %></h3>
+<% if @current_category %>
+  <li class="banner category_banner <%= @current_category.title.parameterize %>">
+    <h3><%= @current_category.title %></h3>
+    <p><%#= @current_category.description %></p>
     <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, fermentum massa justo sit amet risus. Donec sed odio dui tellus education.</p>
   </li>
 <% end %>
