@@ -12,29 +12,7 @@ class ToolsController < ApplicationController
     
     # Are there 1 or more categories selected?
     if params[:category_ids] != nil && params[:category_ids].length < 2
-      # Should we display the banner?
-      @category_banner_display = true
-      # If 1, set @category_selected to the ID
-      category_selected = params[:category_ids][0]
-      # Set the ID to the proper class for the CSS
-      case category_selected
-      when "1"
-        @current_category = "activism"
-      when "2"
-        @current_category = "education"
-      when "3"
-        @current_category = "environmental"
-      when "4"
-        @current_category = "governance"
-      when "5"
-        @current_category = "health"
-      when "6"
-        @current_category = "relief"
-      when "7"
-        @current_category = "social-enterprise"
-      else
-        @current_category = ""
-      end
+      @current_category = Category.find(params[:category_ids][0])
     end
     
   end
