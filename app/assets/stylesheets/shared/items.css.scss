@@ -27,7 +27,7 @@ ul.items {
 			height: 129px; padding: 15px 350px 15px 30px; position: relative; margin-bottom: 19px;
 
 			&:after {
-				content: ""; background: url("/assets/category-banner-sprite.png") repeat; position: absolute; right: 75px; top: 50%; z-index: 9999;
+				content: ""; background: url("/assets/category-banner-sprite.png") repeat; position: absolute; right: 75px; top: 50%;
 			}
 			
 			&.activism:after { background-position: -0px -0px; width: 140px; height: 80px; margin-top: -40px; }
