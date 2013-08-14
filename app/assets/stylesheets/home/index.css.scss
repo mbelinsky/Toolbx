@@ -13,18 +13,23 @@ html.home.index {
 		div.inner { padding: 0 10px; }
 
 		.sprite {
-			background: url("/assets/billboard.png"); width: 90px; height: 90px; text-indent: -9999px;
+			background: url("/assets/billboard-sprite.png"); width: 90px; height: 90px; text-indent: -9999px;
 
-			&.curate { background-position: 0 0; }
-			&.discover { background-position: 0 -90px; }
-			&.logo { background-position: 0 -180px; width: 367px; height: 115px; }
-			&.share { background-position: 0 -295px; }
+			@include retina-media {
+				background: url("/assets/billboard-sprite@2x.png"); background-size: 381px 344px;
+			}
+
+			&.curate { background-position: -0px -0px; width: 90px; height: 90px; }
+			&.discover { background-position: -0px -90px; width: 90px; height: 90px; }
+			&.share { background-position: -0px -180px; width: 90px; height: 90px; }
+			&.logo { background-position: -0px -270px; width: 381px; height: 74px; }
+
 		}
 
 		div.left {
-			@include width(5); float: left; padding-top: 40px;
+			@include width(5); float: left; padding-top: 65px;
 
-			h3 { font-size: 16px; font-style: italic; color: #A43B3B; text-align: center; margin-top: 15px; }
+			h3 { font-size: 18px; font-style: italic; color: #A43B3B; text-align: center; margin-top: 10px; font-weight: 400; }
 		}
 
 		ul.features {
