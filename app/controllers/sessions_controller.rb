@@ -37,8 +37,13 @@ class SessionsController < ApplicationController
       cookies.permanent[:toolbox_auth_token] = user.toolbox_auth_token
       user.touch :last_login
 
-      # 'Thanks for signing up! Now go add some tools.'
-      redirect_to root_url, notice: "Hey there! Nice to see you."
+      if user.new_user
+        flash[:new_user] = true # This is for mixpanel, so we know to alias
+
+        redirect_to root_url, notice: 'Thanks for signing up! Now go add some tools.'
+      else
+        redirect_to root_url, notice: 'Hey there! Nice to see you.'
+      end
     end
   end
 

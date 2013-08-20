@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :user_categories, dependent: :destroy
   has_many :categories, through: :user_categories
 
+  attr_accessor :new_user
+
   attr_accessible :description, :email, :facebook_username, :linkedin_username, :google_plus_id, :first_name, :password_digest, :last_name, :twitter_username, :website_url, :password, :password_confirmation, :username, :category_ids, :profile_picture, :city_id, :city_name, :bio
 
   validates_length_of :bio, maximum: 200, allow_blank: true
@@ -85,6 +87,8 @@ class User < ActiveRecord::Base
 
       nick = auth['info']['nickname']
       user.username = nick if nick.match(/^[\d\w-]+$/) && !User.exists?(username: nick)
+
+      user.new_user = true # This is for mixpanel, so we know to alias
     end
   end
 

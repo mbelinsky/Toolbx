@@ -65,6 +65,7 @@
 				<% if flash[:new_user] %>
 					mixpanel.alias(window.current_user.email);
 					mixpanel.track('Joined');
+					alert('JOIN');
 				<% end %>
 			</script>
 		<% end %>
