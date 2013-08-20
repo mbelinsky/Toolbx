@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=700">
+
+		<title>The Toolbox<%= " #{@title}" if @title %></title>
+
+		<style>
+			a { color: #e8534f; }
+		</style>
+	</head>
+	<body style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;margin: 0;padding: 0;width: 100%;">
+		<table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0;padding: 0;background: #F2F1ED;width: 100%;line-height: 100%;">
+			<tr>
+				<td style="border-collapse: collapse;">
+					<table id="templateHeader" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;background-color: #282823;">
+						<tr>
+							<td class="headerContent" align="center" style="border-collapse: collapse;">
+								<%= image_tag "email-header.png", alt: "The Toolbox - A new platform for tools aiding in social change", size: "600x156", style: "outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" %>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding: 25px 0 0;border-collapse: collapse;"></td>
+			</tr>
+			<tr>
+				<td align="center" style="border-collapse: collapse;">
+					<table id="body-content" border="0" cellpadding="0" cellspacing="0" width="550" style="width: 550px !important; border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;">
+						<tr>
+							<td style="border-collapse: collapse; padding: 20px 25px 10px; background: #fff; border-radius: 5px;">
+								<table>
+									<tr>
+										<td style="color: #807e77;font-family: Verdana;font-size: 13px;line-height: 150%;text-align: left;">
+											<%= yield %>
+
+											<p>Sincerely,<br>The Toolbox Team</p>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding: 65px 0 0;border-collapse: collapse;"></td>
+			</tr>
+			<tr>
+				<td align="center" style="border-collapse: collapse;">
+					<table style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;">
+						<tr>
+							<td style="padding: 60px 0 0;border-collapse: collapse;"></td>
+						</tr>
+					</table>
+					<!-- <table id="footer" width="550" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #a6a5a2;font-style: italic;font-family: verdana;font-size: 12px;">
+						<tr>
+							<td style="border-collapse: collapse;">*|LIST:DESCRIPTION|* If you do not wish to recieve these emails, please <a class="button-link" href="*|UNSUB|*" style="color: #e8534f;text-decoration: none;">unsubscribe here</a>. To learn more about Toolbox, please visit <a href="http://thetoolbox.org" style="color: #e8534f;text-decoration: none;">thetoolbox.org</a></td>
+						</tr>
+						<tr>
+							<td style="padding: 40px 0 0;border-collapse: collapse;"></td>
+						</tr>
+					</table> -->
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -49,6 +49,7 @@ Thetoolbox::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   config.action_mailer.default_url_options = { host: "thetoolbox.org", protocol: 'https' }
+  config.action_mailer.asset_host = "https://thetoolbox.org"
 
   # Enable threaded mode
   # config.threadsafe!

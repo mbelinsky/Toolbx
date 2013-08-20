@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :identify_known_bots, :identify_browser_and_os
 
-  private
+private
 
   def current_user
     @current_user ||= User.find_by_toolbox_auth_token!(cookies[:toolbox_auth_token]) if cookies[:toolbox_auth_token]
@@ -70,11 +70,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
-private
   def render_error(status, exception)
     respond_to do |format|
       format.html { render template: "errors/error_#{status}", layout: 'layouts/application', status: status}
       format.all { render nothing: true, status: status }
     end
+  end
+
+  def mixpanel
+    @mixpanel ||= Mixpanel::Tracker.new Settings.mixpanel_token
   end
 end

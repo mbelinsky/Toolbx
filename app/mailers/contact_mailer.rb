@@ -1,5 +1,8 @@
 class ContactMailer < ActionMailer::Base
+  include MarkdownTools
+
   default from: Settings.email.from, to: Settings.email.to
+  layout 'mailer'
 
   def new_message(contact_message)
     @contact_message = contact_message

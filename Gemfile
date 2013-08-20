@@ -33,8 +33,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
-gem 'rvm-capistrano'
+# gem 'capistrano'
+# gem 'rvm-capistrano'
 
 # To use debugger
 # gem 'debugger'
@@ -72,3 +72,5 @@ gem 'exception_notification' # notify on exceptions
 gem 'validates_email_format_of' # email validation
 gem 'omniauth-facebook' # facebook login
 gem 'tire' # elasticsearch
+gem 'redcarpet' # markdown!
+gem 'mixpanel-ruby' # mixpanel gem, just for the admin tracking stuff

@@ -19,6 +19,11 @@ class Admin::ArticlesController < AdminController
     respond_to do |format|
       if @article.save
         format.html { redirect_to edit_admin_article_path(@article), notice: "#{@article.title} has been created." }
+
+        mixpanel.track current_user.email, 'Created Article', {
+          title: @article.title,
+          id: @article.id
+        }
       else
         format.html { render action: 'new' }
       end
@@ -37,6 +42,11 @@ class Admin::ArticlesController < AdminController
     respond_to do |format|
       if @article.update_attributes params[:article]
         format.html { redirect_to edit_admin_article_path(@article), notice: "#{@article.title} has been updated." }
+
+        mixpanel.track current_user.email, 'Updated Article', {
+          title: @article.title,
+          id: @article.id
+        }
       else
         format.html { render action: 'edit' }
       end
@@ -50,6 +60,11 @@ class Admin::ArticlesController < AdminController
 
     respond_to do |format|
       format.html { redirect_to admin_articles_path, notice: "#{@article.title} has been deleted." }
+
+      mixpanel.track current_user.email, 'Deleted Article', {
+        title: @article.title,
+        id: @article.id
+      }
     end
   end
 end
