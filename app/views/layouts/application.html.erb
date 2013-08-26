@@ -42,7 +42,7 @@
 		<%= javascript_include_tag "application" %>
 		<% if current_user %>
 			<script>
-				window.current_user = <%= current_user.to_json(only: [:first_name, :last_name, :email, :created_at, :last_login]).html_safe %>
+				window.current_user = <%= current_user.to_json(only: [:first_name, :last_name, :email, :created_at, :last_login, :admin]).html_safe %>
 
 				mixpanel.identify(window.current_user.email);
 
@@ -56,16 +56,16 @@
 				mixpanel.people.set({
 					"$email": window.current_user.email,
 					"$created": window.current_user.created_at,
-					"$last_login": window.current_user.last_login,
 					"$first_name": window.current_user.first_name,
-					"$last_name": window.current_user.last_name
+					"$last_name": window.current_user.last_name,
+					"Last Login": window.current_user.last_login,
+					"Admin": window.current_user.admin
 				});
 				mixpanel.name_tag(window.current_user.first_name + ' ' + window.current_user.last_name);
 
 				<% if flash[:new_user] %>
 					mixpanel.alias(window.current_user.email);
 					mixpanel.track('Joined');
-					alert('JOIN');
 				<% end %>
 			</script>
 		<% end %>
