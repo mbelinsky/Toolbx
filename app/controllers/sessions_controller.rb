@@ -39,6 +39,7 @@ class SessionsController < ApplicationController
 
       if user.new_user
         flash[:new_user] = true # This is for mixpanel, so we know to alias
+        UserMailer.welcome(user).deliver
 
         redirect_to root_url, notice: 'Thanks for signing up! Now go add some tools.'
       else
