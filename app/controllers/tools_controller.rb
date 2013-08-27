@@ -9,12 +9,11 @@ class ToolsController < ApplicationController
     params[:order] ||= 'Featured'
 
     @tools = Tool.search(params)
-    
+
     # Are there 1 or more categories selected?
     if params[:category_ids] != nil && params[:category_ids].length < 2
       @current_category = Category.find(params[:category_ids][0])
     end
-    
   end
 
   def show
