@@ -11,8 +11,11 @@ class Article < ActiveRecord::Base
   has_many :user_articles, dependent: :destroy
   has_many :users, through: :user_articles
 
+  has_many :article_search_tags, dependent: :destroy, inverse_of: :article
+  has_many :search_tags, through: :article_search_tags
+
   validates_presence_of :author, :title, :body, :categories, :category_ids
-  attr_accessible :body, :title, :category_ids, :tool_ids, :featured, :published, :featured_image, :source_url
+  attr_accessible :body, :title, :category_ids, :tool_ids, :featured, :published, :featured_image, :source_url, :search_tag_ids
 
   validates_attachment_presence :featured_image
   has_attached_file :featured_image, styles: { full: ["580", :jpg], desat_banner: ["300x180#", :jpg], banner: ["300x180#", :jpg], desat_square_banner: ["300x300#", :jpg], square_banner: ["300x300#", :jpg], small_banner: ["280x120#", :jpg] }, convert_options: { desat_banner: "-set option:modulate:colorspace hsb -modulate 75,50", desat_square_banner: "-set option:modulate:colorspace hsb -modulate 88,50", quality: 85, all: '-background white -mosaic +matte' }
@@ -42,20 +45,17 @@ class Article < ActiveRecord::Base
       indexes :square_banner, index: :not_analyzed
       indexes :desat_square_banner, index: :not_analyzed
 
+      indexes :search_tags do
+        indexes :id, type: :integer, index: :not_analyzed
+        indexes :name, type: :string
+      end
+
       indexes :categories do
         indexes :id, type: :integer, index: :not_analyzed
         indexes :title, type: :string, index: :not_analyzed
       end
     end
   end
-
-  # def self.search(query)
-  #   if query
-  #     where('title like ?', "%#{query}%")
-  #   else
-  #     scoped
-  #   end
-  # end
 
   def self.search(params)
     tire.search(page: params[:page], per_page: 36) do
@@ -104,7 +104,8 @@ class Article < ActiveRecord::Base
         :slug
       ],
       include: [
-        :categories
+        :categories,
+        :search_tags
       ]
     )
   end

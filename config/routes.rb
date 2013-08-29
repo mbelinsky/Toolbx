@@ -66,7 +66,7 @@ Thetoolbox::Application.routes.draw do
   # Admin
   get '/admin' => redirect('/admin/tools')
   namespace :admin do
-    get 'search-tags' => 'admin#search_tags'
+    get 'search-tags', action: :search_tags
 
     resources :tools do
       get 'page/:page', action: :index, on: :collection
