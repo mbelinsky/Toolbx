@@ -6,7 +6,6 @@ class ArticlesController < ApplicationController
     @orders = {'Recently Added' => 'articles.created_at DESC', 'Most Popular' => 'users_count DESC, articles.created_at DESC', 'Featured' => 'featured DESC, users_count DESC, articles.created_at DESC'}
     params[:order] ||= 'Recently Added'
 
-    # @articles = Article.in_categories(params[:category_ids]).search(params[:keyword]).where(published: true).order(@orders[params[:order]]).page(params[:page]).per(36)
     @articles = Article.search(params)
 
     # Are there 1 or more categories selected?

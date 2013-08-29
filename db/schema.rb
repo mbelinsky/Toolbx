@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130807231358) do
+ActiveRecord::Schema.define(:version => 20130827190923) do
 
   create_table "article_categories", :force => true do |t|
     t.integer  "article_id"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(:version => 20130807231358) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
+
+  create_table "article_search_tags", :force => true do |t|
+    t.integer  "search_tag_id"
+    t.integer  "article_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "article_search_tags", ["article_id"], :name => "index_article_search_tags_on_article_id"
+  add_index "article_search_tags", ["search_tag_id"], :name => "index_article_search_tags_on_search_tag_id"
 
   create_table "article_tools", :force => true do |t|
     t.integer  "article_id"
@@ -121,6 +131,12 @@ ActiveRecord::Schema.define(:version => 20130807231358) do
     t.integer  "order"
   end
 
+  create_table "search_tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tool_categories", :force => true do |t|
     t.integer  "tool_id"
     t.integer  "category_id"
@@ -140,6 +156,16 @@ ActiveRecord::Schema.define(:version => 20130807231358) do
 
   add_index "tool_platforms", ["platform_id"], :name => "index_tool_platforms_on_platform_id"
   add_index "tool_platforms", ["tool_id"], :name => "index_tool_platforms_on_tool_id"
+
+  create_table "tool_search_tags", :force => true do |t|
+    t.integer  "search_tag_id"
+    t.integer  "tool_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "tool_search_tags", ["search_tag_id"], :name => "index_tool_search_tags_on_search_tag_id"
+  add_index "tool_search_tags", ["tool_id"], :name => "index_tool_search_tags_on_tool_id"
 
   create_table "tools", :force => true do |t|
     t.string   "name"
