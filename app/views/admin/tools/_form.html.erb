@@ -82,6 +82,11 @@
 			<%= f.label :twitter_username %>
 			<%= f.text_field :twitter_username %>
 		</div>
+
+		<div class="field full">
+			<%= f.label :search_tag_ids, 'Tags (search keywords)' %>
+			<%= f.hidden_field :search_tag_ids, id: 'tool-search-tag-ids', style: 'width: 620px;', multiple: true, value: @tool.search_tags.to_json(only: [:id], methods: [:text]) %>
+		</div>
 	</div>
 
 	<div class="right group">

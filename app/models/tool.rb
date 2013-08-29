@@ -12,12 +12,14 @@ class Tool < ActiveRecord::Base
   has_many :tool_categories, dependent: :destroy, inverse_of: :tool
   has_many :categories, through: :tool_categories
 
-
   has_many :tool_platforms, dependent: :destroy, inverse_of: :tool
   has_many :platforms, through: :tool_platforms
 
+  has_many :tool_search_tags, dependent: :destroy, inverse_of: :tool
+  has_many :search_tags, through: :tool_search_tags
+
   has_many :screens, dependent: :destroy, order: 'screens.order ASC', inverse_of: :tool
-  attr_accessible :app_store_url, :cost, :description, :featured, :github_url, :google_play_url, :name, :site_url, :license_id, :icon, :screens_attributes, :platform_ids, :category_ids, :facebook_username, :twitter_username, :screens
+  attr_accessible :app_store_url, :cost, :description, :featured, :github_url, :google_play_url, :name, :site_url, :license_id, :icon, :screens_attributes, :platform_ids, :category_ids, :facebook_username, :twitter_username, :screens, :search_tag_ids
 
   validates_presence_of :name, :description, :icon, :categories, :category_ids, :platforms, :platform_ids
 
@@ -44,6 +46,11 @@ class Tool < ActiveRecord::Base
       indexes :first_screen_banner, index: :not_analyzed
       indexes :first_screen_desat_banner, index: :not_analyzed
       indexes :icon_thumb, index: :not_analyzed
+
+      indexes :search_tags do
+        indexes :id, type: :integer, index: :not_analyzed
+        indexes :name, type: :string
+      end
 
       indexes :platforms do
         indexes :id, type: :integer, index: :not_analyzed
@@ -108,7 +115,8 @@ class Tool < ActiveRecord::Base
       ],
       include: [
         :platforms,
-        :categories
+        :categories,
+        :search_tags
       ]
     )
   end
