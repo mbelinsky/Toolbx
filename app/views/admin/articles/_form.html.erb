@@ -35,6 +35,11 @@
 			<%= f.label :source_url %>
 			<%= f.text_field :source_url %>
 		</div>
+
+		<div class="field full">
+			<%= f.label :search_tag_ids, 'Tags (search keywords)' %>
+			<%= f.hidden_field :search_tag_ids, id: 'article-search-tag-ids', style: 'width: 620px;', multiple: true, value: @article.search_tags.to_json(only: [:id], methods: [:text]) %>
+		</div>
 	</div>
 
 	<div class="right group">
