@@ -22,26 +22,34 @@
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5101b7596bc56b8a"></script>
 		<!-- AddThis Button END -->
 
-		<div class="add-remove-container <%= current_user ? (has_article ? 'remove' : 'add') : 'join' %>">
-			<% if current_user %>
-				<%= link_to toolbox_articles_path(article: @article.id), remote: true, method: :post, class: 'add group' do %>
-					<div class="action-icon large star"></div>
-					<span>Add</span>
-				<% end %>
-				<%= link_to toolbox_article_path(@article), remote: true, method: :delete, class: 'remove group' do %>
-					<div class="action-icon large star"></div>
-					<span>Remove</span>
-				<% end %>
-				<a href="#" class="loading group">
-					<div class="action-icon large star"></div>
-					<div class="loader"></div>
-				</a>
-			<% else %>
-				<%= link_to signup_path, class: 'join group' do %>
-					<div class="action-icon large star"></div>
-					<span>Add</span>
+		<div class="meta group">
+			<% if current_user && current_user.admin %>
+				<%= link_to edit_admin_article_path(@article), class: 'edit' do %>
+					<div class="large pencil action-icon">Edit</div>
 				<% end %>
 			<% end %>
+
+			<div class="add-remove-container <%= current_user ? (has_article ? 'remove' : 'add') : 'join' %>">
+				<% if current_user %>
+					<%= link_to toolbox_articles_path(article: @article.id), remote: true, method: :post, class: 'add group' do %>
+						<div class="action-icon large star"></div>
+						<span>Add</span>
+					<% end %>
+					<%= link_to toolbox_article_path(@article), remote: true, method: :delete, class: 'remove group' do %>
+						<div class="action-icon large star"></div>
+						<span>Remove</span>
+					<% end %>
+					<a href="#" class="loading group">
+						<div class="action-icon large star"></div>
+						<div class="loader"></div>
+					</a>
+				<% else %>
+					<%= link_to signup_path, class: 'join group' do %>
+						<div class="action-icon large star"></div>
+						<span>Add</span>
+					<% end %>
+				<% end %>
+			</div>
 		</div>
 	</header>
 

@@ -7,6 +7,7 @@
 
 			<div class="right">
 				<h1 itemprop="name"><%= @tool.name %></h1>
+
 				<ul class="categories">
 					<% @tool.categories.each do |category| %>
 						<li itemprop="applicationCategory"><%= link_to category.title, tools_path(params: {category_ids: [category.id]}) %></li>
@@ -29,6 +30,12 @@
 				<% unless @tool.description.blank? %><p class="description" itemprop="description"><%= @tool.description %></p><% end %>
 			</div>
 		</div>
+
+		<% if current_user && current_user.admin %>
+			<%= link_to edit_admin_tool_path(@tool), class: 'edit' do %>
+				<div class="large pencil action-icon">Edit</div>
+			<% end %>
+		<% end %>
 
 		<div class="bubble add-tool <%= current_user ? (has_tool ? 'remove' : 'add') : 'join' %>">
 			<a href="#" class="default">
