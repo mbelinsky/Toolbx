@@ -19,12 +19,12 @@ html.tools.show {
 
 			img.icon { display: block; @include border-radius(24px); margin-right: 20px; float: left; position: relative; }
 
-			div.top { padding-bottom: 24px; }
+			> div.top { padding-bottom: 24px; }
 
 			div.right {
 				float: left; width: 422px;
 
-				h1 { color: #5C5C54; font-size: 32px; font-weight: 600; width: 450px; }
+				h1 { color: #5C5C54; font-size: 32px; font-weight: 600; width: 380px; float: left; }
 
 				ul.categories {
 					list-style: none; font-size: 15px; font-style: italic;
@@ -41,6 +41,8 @@ html.tools.show {
 
 				p.description { clear: left; font-size: 13px; line-height: 20px; padding-top: 15px; white-space: pre-wrap; }
 			}
+
+			a.edit { background-color: #F2F1ED; padding: 6px 6px 7px 7px; @include border-radius(42px); display: block; float: right; margin: 0 10px 0 0; float: left; }
 
 			.bubble {
 				background: #F2F1ED; @include border-radius(30px); position: relative;
@@ -188,7 +190,7 @@ html.tools.show {
 			@include width(4); padding: 10px;
 
 			header {
-				div.top {
+				> div.top {
 					img { margin: 10px auto 18px; float: none; }
 
 					div.right {

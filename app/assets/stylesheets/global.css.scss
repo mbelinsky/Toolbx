@@ -66,7 +66,7 @@ div#signup-cta {
 div.wrap-inner { padding: 50px 0; }
 
 .action-icon {
-	background: url("/assets/action-icons.png"); width: 16px; height: 16px; text-indent: -9999px; background-repeat: none;
+	background: url("/assets/action-icons.png"); width: 16px; height: 16px; background-repeat: none; display: block; text-indent: 100%; white-space: nowrap; overflow: hidden;
 
 	&.android { background-position: 0 0; }
 	&.desktop { background-position: -16px 0; }
@@ -88,6 +88,12 @@ div.wrap-inner { padding: 50px 0; }
 		&.web { background-position: -120px -16px; }
 		&.white-toolbox { background-position: -144px -16px; }
 		&.white-star { background-position: -168px -16px; }
+
+		&.pencil {
+			background-position: 0 -40px;
+
+			// &:hover { background-position: -24px -40px; }
+		}
 	}
 }
 

@@ -6,7 +6,7 @@ html.articles.show {
 	article {
 		@include width(8); margin-left: 10px; background: #fff; float: left; padding: 20px; @include border-radius(6px); position: relative;
 
-		h1 { color: #5C5C54; font-size: 32px; font-weight: 600; width: 450px; }
+		h1 { color: #5C5C54; font-size: 32px; font-weight: 600; width: 410px; }
 
 		ul.categories {
 			list-style: none; font-size: 15px; font-style: italic;
@@ -21,35 +21,41 @@ html.articles.show {
 			}
 		}
 
-		div.add-remove-container {
+		div.meta {
 			position: absolute; top: 21px; right: 20px;
 
-			&.add a.add { display: block; }
-			&.remove a.remove { display: block; }
-			&.loading {
-				a.add, a.remove { display: none; }
-				a.loading { display: block; }
-			}
+			a.edit { background-color: #F2F1ED; padding: 6px 6px 7px 7px; @include border-radius(42px); display: block; float: right; margin: 0 0 0 10px; float: right; }
 
-			a {
-				display: none; background: #F2F1ED; font-weight: 600; font-size: 16px; text-decoration: none; text-transform: uppercase; @include border-radius(30px); padding: 8px 14px 8px 12px; color: #A6A5A3;
+			div.add-remove-container {
+				float: right;
 
-				&:hover {
-					background: #E55453; color: #fff;
-
-					div.action-icon { background-position: -168px -16px; }
-				}
-
-				&.join { display: block; }
-
+				&.add a.add { display: block; }
+				&.remove a.remove { display: block; }
 				&.loading {
-					background: #E55453;
-
-					div.loader { background: url("/assets/loading.gif") no-repeat center center; width: 16px; height: 24px; margin-left: 9px; float: left; }
+					a.add, a.remove { display: none; }
+					a.loading { display: block; }
 				}
 
-				div.action-icon { float: left; }
-				span { display: block; float: left; padding: 1px 0 0 6px; }
+				a {
+					display: none; background: #F2F1ED; font-weight: 600; font-size: 16px; text-decoration: none; text-transform: uppercase; @include border-radius(30px); padding: 8px 14px 8px 12px; color: #A6A5A3;
+
+					&:hover {
+						background: #E55453; color: #fff;
+
+						div.action-icon { background-position: -168px -16px; }
+					}
+
+					&.join { display: block; }
+
+					&.loading {
+						background: #E55453;
+
+						div.loader { background: url("/assets/loading.gif") no-repeat center center; width: 16px; height: 24px; margin-left: 9px; float: left; }
+					}
+
+					div.action-icon { float: left; }
+					span { display: block; float: left; padding: 1px 0 0 6px; }
+				}
 			}
 		}
 
@@ -95,7 +101,13 @@ html.articles.show {
 			header {
 				h1 { font-size: 24px; width: 100%; }
 
-				div.add-remove-container { position: relative; top: auto; right: 0; clear: left; margin-top: 12px; float: left; }
+				// div.add-remove-container { position: relative; top: auto; right: 0; clear: left; margin-top: 12px; float: left; }
+				div.meta {
+					position: relative; top: auto; right: auto; margin-top: 18px;
+
+					a.edit { float: left; margin: 0 10px 0 0; }
+					div.add-remove-container { float: left; }
+				}
 			}
 
 			div.body { font-size: 13px; }
