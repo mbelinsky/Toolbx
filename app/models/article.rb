@@ -17,8 +17,8 @@ class Article < ActiveRecord::Base
   validates_presence_of :author, :title, :body, :categories, :category_ids
   attr_accessible :body, :title, :category_ids, :tool_ids, :featured, :published, :featured_image, :source_url, :search_tag_ids
 
-  validates :featured_image, attachment_presence: true
   has_attached_file :featured_image, styles: { full: ["580", :jpg], desat_banner: ["300x180#", :jpg], banner: ["300x180#", :jpg], desat_square_banner: ["300x300#", :jpg], square_banner: ["300x300#", :jpg], small_banner: ["280x120#", :jpg] }, convert_options: { desat_banner: "-set option:modulate:colorspace hsb -modulate 75,50", desat_square_banner: "-set option:modulate:colorspace hsb -modulate 88,50", quality: 85, all: '-background white -mosaic +matte' }
+  validates :featured_image, attachment_presence: true
 
   validates_attachment_content_type :featured_image, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
   validates_attachment_size :featured_image, less_than: 2.megabytes
