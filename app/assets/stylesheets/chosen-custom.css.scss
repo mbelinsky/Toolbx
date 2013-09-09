@@ -73,6 +73,7 @@ div.chosen-container, div.chosen-container-multi {
 					font-size: 16px; font-weight: normal; color: #5C5C54; @include border-radius(2px); padding: 9px;
 
 					&.highlighted { background: #F2F1ED; }
+					&.result-selected { display: none; }
 				}
 			}
 		}
