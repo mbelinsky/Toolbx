@@ -173,6 +173,8 @@ button, .button {
 
 	&:hover { background: darken(#BFBDB6, 5%); }
 
+	&.strikey { padding: 5px 24px; color: #fff; }
+
 	&.submit {
 		background: #E55453;
 

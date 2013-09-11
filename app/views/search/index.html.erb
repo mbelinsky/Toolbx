@@ -1,0 +1,58 @@
+<%= render 'shared/global_search' %>
+
+<div class="articles-wrapper group">
+	<h2 class="strike">
+		<span>Matching Articles</span>
+
+		<% if @articles.count > 0 %>
+			<menu>
+				<li>
+					<%= link_to 'View All', articles_path(keyword: params[:keyword]), class: 'large strikey button' %>
+				</li>
+			</menu>
+		<% end %>
+	</h2>
+
+	<% if @articles.count > 0 %>
+		<ul class="items articles">
+			<% @articles.each do |article| %>
+				<%= render 'articles/article', article: article %>
+			<% end %>
+		</ul>
+	<% else %>
+		<div id="no-article-results">
+			<div class="inner">
+				<h3>We can't find any articles that match your search.</h3>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<div class="tools-wrapper group">
+	<h2 class="strike">
+		<span>Matching Tools</span>
+
+		<% if @tools.count > 0 %>
+			<menu>
+				<li>
+					<%= link_to 'View All', tools_path(keyword: params[:keyword]), class: 'large strikey button' %>
+				</li>
+			</menu>
+		<% end %>
+	</h2>
+
+	<% if @tools.count > 0 %>
+		<ul class="items">
+			<% @tools.each do |tool| %>
+				<%= render 'tools/tool', tool: tool %>
+			<% end %>
+		</ul>
+	<% else %>
+		<div id="no-tool-results">
+			<div class="inner">
+				<h3>Can’t find what you're looking for?<wbr> Tell us about it!</h3>
+				<%= link_to 'Suggest a Tool', suggestions_tools_path, class: 'red button' %>
+			</div>
+		</div>
+	<% end %>
+</div>

@@ -1,0 +1,21 @@
+@import '../mixins.css.scss';
+
+form#global-search {
+	@include border-radius(5px); padding: 10px; background: #D9D8D4; width: 640px; margin: 60px auto 0;
+
+	input { font-size: 16px; color: #5C5C54; @include border-radius(3px); background: #fff url("/assets/select-search.png") no-repeat 585px 14px; display: block; width: 100%; padding: 14px 45px 14px 9px; outline: 0; }
+
+	//one column
+	@media only screen and (max-width : 639px) {
+		width: 300px; margin-top: 30px;
+
+		input { background-position: 245px 11px; font-size: 14px; padding: 12px 45px 12px 9px; }
+	}
+
+	//two columns
+	@media only screen and (min-width: 640px) and (max-width: 959px) {
+		width: 620px; margin-top: 42px;
+
+		input { background-position: 565px 14px; }
+	}
+}
