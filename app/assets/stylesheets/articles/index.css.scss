@@ -1,43 +1,5 @@
 @import 'mixins';
 
 html.articles.index {
-	div#no-results {
-		margin-top: 150px; padding-bottom: 90px;
 
-		div.inner {
-			padding: 0; height: 200px; background: url("/assets/errors/toolbox-tan.png") no-repeat 40px top; padding: 0 60px 0 395px;
-
-			h3 { color: #BFBDB6; font-size: 32px; line-height: 46px; font-weight: normal; font-style: italic; padding-top: 42px; }
-
-			@include retina-media {
-				background-image: url("/assets/errors/toolbox-tan@2x.png"); background-size: 244px 183px;
-			}
-		}
-	}
-
-	//one column
-	@media only screen and (max-width : 639px) {
-		div#no-results {
-			margin-top: 60px;
-
-			div.inner {
-				padding: 240px 0 60px; background-position: center 42px; text-align: center;
-
-				h3 { font-size: 24px; line-height: 38px; padding-top: 0; }
-			}
-		}
-	}
-
-	//two columns
-	@media only screen and (min-width: 640px) and (max-width: 959px) {
-		div#no-results {
-			margin-top: 120px;
-
-			div.inner {
-				padding: 240px 0 60px; background-position: center 42px; text-align: center;
-
-				h3 { margin: 0 auto; width: 400px; font-size: 28px; line-height: 42px; padding-top: 0; }
-			}
-		}
-	}
 }

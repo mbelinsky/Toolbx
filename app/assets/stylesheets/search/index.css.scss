@@ -1,0 +1,36 @@
+@import '../mixins.css.scss';
+
+html.search.index {
+	div.articles-wrapper, div.tools-wrapper { margin-top: 81px; }
+	div.tools-wrapper { padding-bottom: 120px; }
+
+	div#no-tool-results, div#no-article-results { margin-top: 90px; padding-bottom: 0; }
+
+	//one column
+	@media only screen and (max-width : 639px) {
+		div.articles-wrapper, div.tools-wrapper { margin-top: 45px; }
+
+		h2.strike {
+			margin-bottom: 60px;
+
+			menu {
+				position: absolute; top: 36px; margin: 9px 0 0 2px; padding: 0;
+
+				li {
+					padding-left: 0;
+
+					a { margin-left: 0; }
+				}
+			}
+		}
+
+		div#no-tool-results, div#no-article-results { margin-top: -45px; padding-bottom: 0; }
+	}
+
+	//two columns
+	@media only screen and (min-width: 640px) and (max-width: 959px) {
+		div.articles-wrapper, div.tools-wrapper { margin-top: 60px; }
+
+		div#no-tool-results, div#no-article-results { margin-top: 30px; padding-bottom: 0; }
+	}
+}

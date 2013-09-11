@@ -65,7 +65,9 @@ class Tool < ActiveRecord::Base
   end
 
   def self.search(params)
-    tire.search(page: params[:page], per_page: 36) do
+    params[:per_page] ||= 36
+
+    tire.search(page: params[:page], per_page: params[:per_page]) do
       # generate the actual
       query do
         if params[:keyword].blank? && params[:platform].blank? && params[:category_ids].blank?
