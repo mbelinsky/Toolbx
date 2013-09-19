@@ -22,6 +22,9 @@
 					<li itemprop="applicationCategory"><%= link_to category.title, tools_path(params: {category_ids: [category.id]}) %></li>
 				<% end %>
 			</ul>
+			<% unless tool.description.blank? %>
+				<p class="description" itemprop="description"><%= tool.description.truncate(55) %></p>
+			<% end %>
 		</div>
 		<div class="bottom">
 			<div class="bubble add-tool <%= current_user ? (has_tool ? 'remove' : 'add') : 'join' %>">

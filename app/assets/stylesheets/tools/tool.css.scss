@@ -1,7 +1,7 @@
 @import '../mixins.css.scss';
 
 li.tool {
-	list-style: none; background: #fff; @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.1)); @include width(4); float: left; height: $cols4; position: relative;
+	list-style: none; background: #fff; @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.1)); @include width(4); float: left; height: $cols4; position: relative; height: 315px;
 
 	&.mini { height: 120px; @include border-radius(4px); margin-bottom: 10px; }
 
@@ -23,7 +23,7 @@ li.tool {
 		text-align: center;
 
 		.button {
-			display: inline-block; background: #E65453; font-size: 13px; font-weight: 600; position: relative; padding: 6px 20px 6px 38px; margin-top: 110px;
+			display: inline-block; background: #E65453; font-size: 13px; font-weight: 600; position: relative; padding: 6px 20px 6px 38px; margin-top: 115px;
 
 			&:before { 
 				content: ""; display: inline-block; background: url("/assets/tools/icon-suggest.png"); height: 16px; width: 16px; position: absolute; left: 13px; top: 7px;
@@ -44,11 +44,11 @@ li.tool {
 			h3 {
 				width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 
-				a { font-weight: 600; color: #5C5C54; font-size: 22px; text-decoration: none; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+				a { font-weight: 600; color: #5C5C54; font-size: 18px; text-decoration: none; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 			}
 
 			ul.categories {
-				list-style: none; font-size: 13px; font-style: italic;
+				list-style: none; font-size: 13px; font-style: italic; overflow: hidden; margin: -3px 0 3px;
 
 				li {
 					margin: 0; float: left; padding-right: 4px;
@@ -59,6 +59,8 @@ li.tool {
 					a { color: #E65453; text-decoration: none; }
 				}
 			}
+
+			p { color: #BFBEBB; font-size: 13px; font-weight: 600; clear: both; overflow: hidden; }
 		}
 
 		div.bottom {
