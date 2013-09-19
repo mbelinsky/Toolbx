@@ -2,7 +2,7 @@
 
 <% if @articles.count > 0 %>
 	<ul class="items articles">
-		<%= render 'shared/category_banner' %>
+		<% # render 'shared/category_banner' %>
 
 		<% @articles.each do |article| %>
 			<%= render 'articles/article', article: article %>
