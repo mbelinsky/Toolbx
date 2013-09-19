@@ -19,6 +19,21 @@ li.tool {
 		}
 	}
 
+	&.suggest-tool {
+		text-align: center;
+
+		.button {
+			display: inline-block; background: #E65453; font-size: 13px; font-weight: 600; position: relative; padding: 6px 20px 6px 38px; margin-top: 110px;
+
+			&:before { 
+				content: ""; display: inline-block; background: url("/assets/tools/icon-suggest.png"); height: 16px; width: 16px; position: absolute; left: 13px; top: 7px;
+
+				@include retina-media { background: url("/assets/tools/icon-suggest@2x.png"); background-size: 16px; }
+			}
+		}
+		p { color: #bfbebb; font-weight: 600; font-size: 13px; margin-top: 40px; padding: 0 10px; }
+	}
+
 	div.meta {
 		padding: 10px;
 

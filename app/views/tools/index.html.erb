@@ -4,10 +4,10 @@
 	<ul class="items has-banner">
 		<% # render 'shared/category_banner' %>
 
-		<li class="suggest-tool banner group">
-			<p>We are busy building out our database of great tools. Help us out by suggesting a tool.</p>
-
+		<li class="suggest-tool tool group" itemscope itemtype="http://schema.org/SoftwareApplication">
 			<%= link_to 'Suggest a Tool', suggestions_tools_path, class: 'button' %>
+
+			<p>Know of a great tool that's not on our list? You can help us out by suggesting it.</p>
 		</li>
 
 		<% @tools.each do |tool| %>
