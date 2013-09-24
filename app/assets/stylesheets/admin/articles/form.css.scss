@@ -22,7 +22,7 @@ html.admin.articles.new, html.admin.articles.create, html.admin.articles.edit, h
 						div.field_with_errors { width: 100%; height: 100%; background: #E55453; position: absolute; top: 0; left: 0; @include border-radius(3px); }
 
 						img { position: absolute; top: 0; left: 0; @include border-radius(3px); }
-						input { display: none; }
+						input { @include opacity(0); display: block; width: 1px; height: 1px; position: absolute; bottom: 0; right: 0; }
 						button {
 							position: absolute; display: block; top: 50%; left: 50%; margin-top: -13px; margin-left: -45px; width: 90px; background: #BFBDB6; padding: 6px 9px; font-size: 12px;
 
