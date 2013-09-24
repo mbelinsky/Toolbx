@@ -8,8 +8,18 @@ html.articles.show {
 
 		h1 { color: #5C5C54; font-size: 32px; font-weight: 600; width: 410px; }
 
+		div.byline {
+			float: left; font-size: 14px; margin: 1px 5px 0 0; text-transform: uppercase;
+
+			p:after { content: "•"; margin-left: 5px; }
+
+			a { text-decoration: none; color: #E75F5E; font-weight: 600; }
+
+			span { font-style: italic; text-transform: none; }
+		}
+
 		ul.categories {
-			list-style: none; font-size: 15px; font-style: italic;
+			list-style: none; font-size: 15px; font-style: italic; float: left;
 
 			li {
 				margin: 0; float: left; padding-right: 4px;

@@ -3,6 +3,9 @@
 <article itemscope itemtype="http://schema.org/BlogPosting">
 	<header class="group">
 		<h1 itemprop="headline"><%= @article.title %></h1>
+		<div class="byline">
+			<p><span>By:</span> <a href="/users/<%= @article.author_id %>/tools"><%= @article.author.full_name %></a></p>
+		</div>
 		<ul class="categories" itemprop="keywords">
 			<% @article.categories.each do |category| %>
 				<li><%= link_to category.title, articles_path(params: {category_ids: [category.id]}) %></li>
