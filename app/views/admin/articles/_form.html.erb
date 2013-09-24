@@ -78,6 +78,14 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="field author">
+			<div class="inside">
+				<label for="author">Author</label>
+				<%= f.collection_select :author_id, User.all, :id, :full_name, {}, {class: 'chosen'} %>
+			</div>
+		</div>
+
 	</div>
 
 	<div class="actions group">

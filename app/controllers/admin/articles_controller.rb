@@ -16,7 +16,6 @@ class Admin::ArticlesController < AdminController
     params[:article][:search_tag_ids] = sanitize_search_tags(params[:article][:search_tag_ids])
 
     @article = Article.new(params[:article])
-    @article.author = current_user
 
     respond_to do |format|
       if @article.save
@@ -41,7 +40,7 @@ class Admin::ArticlesController < AdminController
     @page_header = 'Edit Article'
     params[:article][:search_tag_ids] = sanitize_search_tags(params[:article][:search_tag_ids])
 
-    @article = Article.find(params[:id])
+    @article = Article.find(params[:article])
 
     respond_to do |format|
       if @article.update_attributes params[:article]
