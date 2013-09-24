@@ -76,8 +76,10 @@ html.has-footer {
 					}
 				}
 
-				&.humanity-united {
-					a { display: block; width: 172px; height: 42px; background: url("/assets/humanity-united.png"); text-indent: -9999px; }
+				&.support {
+					a { display: block; background: url("/assets/footer-support-sprite.png"); text-indent: -9999px; }
+					a.humanity { background-position: -0px -0px; width: 172px; height: 42px; }
+					a.omidyar { background-position: -0px -42px; width: 176px; height: 53px; margin-top: 25px; }
 				}
 
 				&.mixpanel {
