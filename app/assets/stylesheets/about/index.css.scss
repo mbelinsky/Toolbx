@@ -151,9 +151,9 @@ html.about.index {
 	//one column
 	@media only screen and (max-width : 639px) {
 		div#billboard {
-			padding-top: 96px;
+			padding-top: 33px;
 
-			h4 { font-size: 24px; }
+			h4 { font-size: 16px; }
 			p { font-size: 16px; margin-top: 15px; }
 		}
 
@@ -194,7 +194,7 @@ html.about.index {
 
 	//two columns
 	@media only screen and (min-width: 640px) and (max-width: 959px) {
-		div#billboard { padding-top: 100px; }
+		div#billboard { padding-top: 90px; }
 
 		div.top-section {
 			div.how { @include width(8); }
