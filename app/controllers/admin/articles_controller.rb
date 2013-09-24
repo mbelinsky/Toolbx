@@ -40,7 +40,7 @@ class Admin::ArticlesController < AdminController
     @page_header = 'Edit Article'
     params[:article][:search_tag_ids] = sanitize_search_tags(params[:article][:search_tag_ids])
 
-    @article = Article.find(params[:article])
+    @article = Article.find(params[:id])
 
     respond_to do |format|
       if @article.update_attributes params[:article]
