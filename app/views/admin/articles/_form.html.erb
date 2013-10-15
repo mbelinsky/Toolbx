@@ -79,9 +79,16 @@
 			</div>
 		</div>
 
+		<div class="field image-credit">
+			<div class="inside">
+				<%= f.label :image_credit %>
+				<%= f.text_field :image_credit %>
+			</div>
+		</div>
+
 		<div class="field author">
 			<div class="inside">
-				<label for="author">Author</label>
+				<%= f.label :author_id %>
 				<%= f.collection_select :author_id, User.all, :id, :full_name, {}, {class: 'chosen'} %>
 			</div>
 		</div>

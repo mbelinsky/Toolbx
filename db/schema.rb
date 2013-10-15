@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130827190923) do
+ActiveRecord::Schema.define(:version => 20131015202118) do
 
   create_table "article_categories", :force => true do |t|
     t.integer  "article_id"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130827190923) do
     t.integer  "featured_image_file_size"
     t.datetime "featured_image_updated_at"
     t.string   "source_url"
+    t.string   "image_credit"
   end
 
   add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
@@ -256,7 +257,7 @@ ActiveRecord::Schema.define(:version => 20130827190923) do
     t.integer  "tools_count",                  :default => 0
     t.integer  "articles_count",               :default => 0
     t.string   "google_plus_id"
-    t.string   "bio"
+    t.text     "bio"
     t.string   "uid"
     t.string   "provider"
     t.boolean  "needs_password_set",           :default => false

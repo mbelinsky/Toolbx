@@ -3,10 +3,11 @@
 html.about.index {
 	header#top + div.inner { width: 100% !important; }
 
+	div.wrap-outer div.wrap-inner { padding-bottom: 245px; }
+
 	.about-sprite {
 		background: url("/assets/about/sprite.png"); text-indent: -9999px;
 
-		&.alejandro { background-position: 0 0; width: 140px; height: 140px; }
 		&.contact { background-position: 0 -140px; width: 140px; height: 140px; }
 		&.curate { background-position: 0 -280px; width: 90px; height: 90px; }
 		&.discover { background-position: 0 -370px; width: 90px; height: 90px; }
@@ -16,8 +17,6 @@ html.about.index {
 			&:hover { background-position: 0 -1330px; }
 		}
 		&.location { background-position: 0 -500px; width: 140px; height: 140px; }
-		&.mark { background-position: 0 -640px; width: 140px; height: 140px; }
-		&.peter { background-position: 0 -780px; width: 140px; height: 140px; }
 		&.share { background-position: 0 -920px; width: 90px; height: 90px; }
 		&.skylight { background-position: 0 -1010px; width: 140px; height: 140px; }
 		&.twitter {
@@ -25,21 +24,45 @@ html.about.index {
 
 			&:hover { background-position: 0 -1650px; }
 		}
-		&.wendy { background-position: 0 -1690px; width: 100px; height: 100px; }
-		&.yvette { background-position: 0 -1790px; width: 100px; height: 100px; }
-		&.markg { background-position: 0 -1890px; width: 100px; height: 100px; }
 	}
 
-	div#billboard {
-		background: #E7534F url("/assets/about/billboard.jpg") center center; height: 330px; color: #fff; text-align: center; padding-top: 110px;
+	div.person {
+		width: 140px; height: 140px; background: url("/assets/about/people.png"); margin: 0 auto;
+
+		&.alejandro-de-onis { background-position: 0 0; }
+		&.elise-shulman-reed { background-position: 0 -141px; }
+		&.mark-belinsky { background-position: 0 -281px; }
+		&.mark-graham { background-position: 0 -421px; }
+		&.melissa-jun-rowley { background-position: 0 -561px; }
+		&.monica-wise { background-position: 0 -701px; }
+		&.peter-gabriel { background-position: 0 -841px; }
+		&.wendy-levy { background-position: 0 -981px; }
+		&.yvette-alberdingk-thijm { background-position: 0 -1121px; }
+	}
+
+	div.billboardish {
+		background: #E7534F url("/assets/about/billboard.jpg") center center; height: 620px; color: #fff; padding-top: 81px;
+
+		h2 {
+			font-size: 36px; background: url("/assets/about/billboard-header-line.png") no-repeat center center; text-transform: uppercase; text-align: center; margin-bottom: 30px;
+
+			&.nudge-left { padding-right: 12px; }
+		}
 
 		div.inner { padding: 0 10px; }
 
-		&.cta-docked { margin-bottom: 150px; }
+		p { font-size: 18px; line-height: 32px; font-style: italic; margin-bottom: 18px; }
 
-		h4 { font-size: 18px; font-weight: normal; font-style: italic; }
-		p { font-size: 22px; font-style: italic; margin-top: 18px; }
+		div.left, div.right { width: 460px; float: left; }
+
+		div.left { margin-right: 20px; }
 	}
+
+	div#billboard {
+		&.cta-docked { margin-bottom: 150px; }
+	}
+
+	div#acknowledgement { height: 480px; }
 
 	div.top-section {
 		margin-top: 90px;
@@ -69,7 +92,7 @@ html.about.index {
 		}
 	}
 
-	div.the-team {
+	div.the-team, div.advisors {
 		margin-top: 72px;
 
 		a {
@@ -84,22 +107,11 @@ html.about.index {
 			> li {
 				float: left; @include width(4); margin: 0 10px;
 
+				a { color: #5C5C55; }
+
 				div.pic { margin: 0 auto; }
-				h3 { font-size: 32px; text-align: center; text-transform: uppercase; margin: 36px 0 24px; }
-				p.about {
-					font-size: 13px; line-height: 24px; text-align: center; width: 260px; margin: 0 auto 24px;
-
-					&.last { margin-bottom: 0; }
-				}
-				ul.contact {
-					margin: 24px auto 0; list-style: none; text-align: center;
-
-					li {
-						display: inline-block; margin: 0 5px; clear: none;
-
-						a { display: block; border: 0; }
-					}
-				}
+				h3 { font-size: 32px; text-align: center; text-transform: uppercase; margin: 21px 0 0; }
+				h4 { font-size: 16px; text-align: center; font-style: italic; color: #E65453; font-weight: normal; margin-bottom: 24px; }
 			}
 		}
 	}
@@ -129,33 +141,19 @@ html.about.index {
 		}
 	}
 
-	div.advisors {
-		margin: 210px auto 120px;
-
-		ul {
-			list-style: none;
-
-			li {
-				width: 140px; height: 180px; float: left; margin: 0 10px 20px;
-
-				&.empty {
-					&:after { content: ""; display: block; width: 100px; height: 100px; background: #E6E5E1; @include border-radius(100px); margin: 0 auto; }
-				}
-
-				div.pic { margin: 0 auto 15px; }
-				h4 { font-size: 22px; line-height: 22px; text-align: center; text-transform: uppercase; }
-			}
-		}
-	}
-
 	//one column
 	@media only screen and (max-width : 639px) {
-		div#billboard {
-			padding-top: 33px;
+		div.billboardish {
+			height: 620px; padding-top: 48px;
 
-			h4 { font-size: 16px; }
-			p { font-size: 16px; margin-top: 15px; }
+			h2 { font-size: 24px; background: none; margin-bottom: 18px; }
+
+			p { font-size: 12px; line-height: 22px; margin-bottom: 12px; }
+
+			div.left, div.right { width: 300px; float: none; margin: 0; }
 		}
+
+		div#acknowledgement { height: 500px; }
 
 		div.top-section {
 			div.how { @include width(4); }
@@ -171,7 +169,7 @@ html.about.index {
 			}
 		}
 
-		div.the-team {
+		div.the-team, div.advisors {
 			> ul {
 				> li {
 					margin-top: 72px;
@@ -194,7 +192,13 @@ html.about.index {
 
 	//two columns
 	@media only screen and (min-width: 640px) and (max-width: 959px) {
-		div#billboard { padding-top: 90px; }
+		div.billboardish {
+			height: 600px; padding-top: 60px;
+
+			p { font-size: 16px; line-height: 29px; margin-bottom: 12px; }
+
+			div.left, div.right { width: 300px; }
+		}
 
 		div.top-section {
 			div.how { @include width(8); }
@@ -202,7 +206,7 @@ html.about.index {
 			div.useful-toolbox { @include width(8); margin-left: 10px; margin-top: 72px; }
 		}
 
-		div.the-team {
+		div.the-team, div.advisors {
 			> ul {
 				> li {
 					width: 192px;
@@ -228,12 +232,6 @@ html.about.index {
 						h5 { font-size: 26px; margin-top: 18px; }
 					}
 				}
-			}
-		}
-
-		div.advisors {
-			ul {
-				li { width: 193px; }
 			}
 		}
 	}

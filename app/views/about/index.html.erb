@@ -1,7 +1,20 @@
-<div id="billboard">
+<div id="billboard" class="billboardish">
 	<div class="inner">
-		<h4>"Technology is transforming the world we live in, more profoundly and with more speed  than anything else we have ever devised. Every sector of business is being turned upside down as new ideas bring power directly to people. We have to make sure that the best designed and most effective tools are readily available and accessible to everyone, especially the most disadvantaged."</h4>
-		<p>– Peter Gabriel</p>
+		<h2 class="din med nudge-left">About The Toolbox</h2>
+
+		<div class="left">
+			<p>"We now own more mobile phones than toothbrushes and they are transforming the world we live in, more profoundly and with more speed than anything else we have ever devised.</p>
+
+			<p>Every sphere of human activity is being turned upside down as choice and control fall directly into our hands. This technology is at the same time both deeply democratising and disruptive. It connects us to each other, to unlimited information, to experience and wisdom, in ways never before possible - and to a whole new set of empowering tools.</p>
+		</div>
+
+		<div class="right">
+			<p>We have to understand how fundamental this change is and make sure that the best designed and most useful tools for each user can easily be found and accessed, especially by the most disadvantaged and those most at&nbsp;risk.</p>
+
+			<p>That is why we need theToolbox.org to assemble, curate and create the tools with which to transform our lives and the world we live in.”</p>
+
+			<p>– Peter Gabriel</p>
+		</div>
 	</div>
 </div>
 <%= render 'shared/signup_cta' unless current_user %>
@@ -10,7 +23,9 @@
 	<div class="how">
 		<h2 class="strike center"><span>How?</span></h2>
 
-		<p>What if every smartphone had one app that makes the world a better place? We'd have over 1 billion ways to make a change. The Toolbox is a space for people from around the world to easily access the most useful information and tools for social change. With this knowledge, we're making it easier for people to take meaningful action in their communities. We're creating a global community of advocates working for social good. Let's get building.</p>
+		<p>The Toolbox aims to transform the crowd noise that dominates the web today into effective communities of action.</p>
+
+		<p>We envision a single platform where citizen activists can be deeply engaged in a range of issues and events around the world. This virtual space will provide easy access to the most useful information and tools for social change as well as clear avenues for taking meaningful action. Toolbox will connect disparate individuals, organizations and networks into a powerful global community of advocates working for social good.</p>
 	</div>
 
 	<div class="useful-toolbox">
@@ -38,38 +53,83 @@
 
 	<ul class="group">
 		<li>
-			<div class="pic about-sprite alejandro"></div>
-			<h3 class="din med">Alejandro de Onís</h3>
-
-			<p class="about last">Alejandro de Onís is a social entrepreneur and Director of Skylight Digital. He works to increase impact and outreach by creating platforms and new media technologies that make it easy for people to engage with social issues. Some new media projects include, <a target="_blank" href="http://ijcentral.org">International Justice Central</a>, <a target="_blank" href="http://granitomem.com">Granito: Every Memory Matters</a>, <a target="_blank" href="http://thetoolbox.org">The Toolbox</a>. In the past, Alejandro has worked on various documentary films and television shows for PBS, The Discovery Channel, National Geographic, and A&amp;E.</p>
-
-			<ul class="contact group">
-				<li><a class="about-sprite twitter" href="https://twitter.com/aonis">Twitter</a></li>
-				<li><a class="about-sprite email" href="mailto:alejandro@thetoolbox.org">Email</a></li>
-			</ul>
+			<%= team_maybe_link 'Paul', 'Straw' do %>
+				<div class="person peter-gabriel"></div>
+				<h3 class="din med">Peter Gabriel</h3>
+				<h4 class="title">Founder</h4>
+			<% end %>
 		</li>
-		<li class="mark">
-			<div class="pic about-sprite mark"></div>
-			<h3 class="din med">Mark Belinsky</h3>
 
-			<p class="about last">Mark is the CTO of The Toolbox. He has worked in over 26 countries as co-founder of human rights organization Digital Democracy and Bem youth action center in Armenia. He led the development of several technologies while at Purpose and at The Guardian Project. He has appeared as a guest on Al-Jazeera English, BBC Radio and NPR, testified at US Congress and consulted with numerous heads of state.</p>
-
-			<ul class="contact group">
-				<li><a class="about-sprite twitter" href="https://twitter.com/mbelinsky">Twitter</a></li>
-				<li><a class="about-sprite email" href="mailto:mark@thetoolbox.org">Email</a></li>
-			</ul>
-		</li>
 		<li>
-			<div class="pic about-sprite peter"></div>
-			<h3 class="din med">Peter Gabriel</h3>
+			<%= team_maybe_link 'Alejandro', 'De Onis' do %>
+				<div class="person alejandro-de-onis"></div>
+				<h3 class="din med">Alejandro de Onís</h3>
+				<h4 class="title">Co-Creator</h4>
+			<% end %>
+		</li>
 
-			<p class="about">PG is best known as a musician. He started his solo work in 1975 after leaving his old school group : Genesis.  He has released eleven solo albums and written soundtracks for three films.</p>
-			<p class="about">In 1980 he founded WOMAD (World of Music Arts and Dance), which has presented 150 festivals in over 40 countries.   In 1989 he conceived of and co-founded Witness.org, pioneering the use of cameras and technology in Human Rights work and was co-founder with Richard Branson of the Elders.org, to bring together a small group of highly respected global elders,  which Nelson Mandela launched in July 2007.</p>
-			
+		<li>
+			<%= team_maybe_link 'Melissa', 'Jun Rowley' do %>
+				<div class="person melissa-jun-rowley"></div>
+				<h3 class="din med">Melissa Jun Rowley</h3>
+				<h4 class="title">Editor</h4>
+			<% end %>
+		</li>
+	</ul>
 
-			<ul class="contact group">
-				<li><a class="about-sprite twitter" href="https://twitter.com/itspetergabriel">Twitter</a></li>
-			</ul>
+	<ul class="group">
+		<li>
+			<%= team_maybe_link 'Mark', 'Belinsky' do %>
+				<div class="person mark-belinsky"></div>
+				<h3 class="din med">Mark Belinsky</h3>
+				<h4 class="title">Technology Lead</h4>
+			<% end %>
+		</li>
+
+		<li>
+			<%= team_maybe_link 'Monica', 'Wise' do %>
+				<div class="person monica-wise"></div>
+				<h3 class="din med">Monica Wise</h3>
+				<h4 class="title">Content Curator</h4>
+			<% end %>
+		</li>
+
+		<li>
+			<%= team_maybe_link 'Elise', 'Shulman-Reed' do %>
+				<div class="person elise-shulman-reed"></div>
+				<h3 class="din med">Elise Shulman-Reed</h3>
+				<h4 class="title">Intern</h4>
+			<% end %>
+		</li>
+	</ul>
+</div>
+
+<div class="inner advisors">
+	<h2 class="strike center"><span>Advisors</span></h2>
+
+	<ul class="group">
+		<li>
+			<%= team_maybe_link 'Wendy', 'Levy' do %>
+				<div class="person wendy-levy"></div>
+				<h3 class="din med">Wendy Levy</h3>
+				<h4 class="title">New Arts Axis</h4>
+			<% end %>
+		</li>
+
+		<li>
+			<%= team_maybe_link 'Yvette', 'Alberdingk-Thijm' do %>
+				<div class="person yvette-alberdingk-thijm"></div>
+				<h3 class="din med">Yvette Alberdingk-Thijm</h3>
+				<h4 class="title">Executive Director of WITNESS</h4>
+			<% end %>
+		</li>
+
+		<li>
+			<%= team_maybe_link 'Mark', 'Graham' do %>
+				<div class="person mark-graham"></div>
+				<h3 class="din med">Mark Graham</h3>
+				<h4 class="title">VP NBC Universal</h4>
+			<% end %>
 		</li>
 	</ul>
 </div>
@@ -99,24 +159,20 @@
 	</ul>
 </div>
 
-<div class="inner advisors">
-	<h2 class="strike center"><span>Advisors</span></h2>
+<div id="acknowledgement" class="billboardish">
+	<div class="inner">
+		<h2 class="din med nudge-left">Acknowledgement</h2>
 
-	<ul class="group">
-		<li>
-			<div class="pic about-sprite wendy"></div>
-			<h4 class="din med">Wendy Levy</h3>
-		</li>
-		<li>
-			<div class="pic about-sprite yvette"></div>
-			<h4 class="din med">Yvette<br>Alberdingk-Thijm</h3>
-		</li>
-		<li>
-			<div class="pic about-sprite markg"></div>
-			<h4 class="din med">Mark<br>Graham</h3>
-		</li>
-		<li class="empty"></li>
-		<li class="empty"></li>
-		<li class="empty"></li>
-	</ul>
+		<div class="left">
+			<p>Growing up in the sixties and seventies I was very attracted to the counterculture that emerged at that&nbsp;time.</p>
+
+			<p>That was the first time when we could see what our planet looked like from space and the first time that young people around the world felt they were part of a global movement that was more important and more theirs, than their own nations.</p>
+		</div>
+
+		<div class="right">
+			<p>The movement spawned many visionaries but it was the Whole Earth team under the guidance of Stewart Brand and later Kevin Kelly (still curating his CoolTools site) that really emphasized the importance of “ Access to Tools ”. This, along with an obvious need, provided the inspiration for this project.</p>
+
+			<p>– Peter Gabriel</p>
+		</div>
+	</div>
 </div>

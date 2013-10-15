@@ -5,7 +5,7 @@ Thetoolbox::Application.routes.draw do
 
   # User settings
   get 'settings' => 'users#edit', as: 'edit_user'
-  put 'settings' => 'users#update', as: 'edit_user'
+  put 'settings' => 'users#update', as: 'update_user'
   delete 'settings' => 'users#destroy', as: 'delete_user'
 
   # Adding tools
