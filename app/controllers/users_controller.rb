@@ -37,25 +37,40 @@ class UsersController < ApplicationController
     @has_footer = true
     @title = '» Settings'
 
-    respond_to do |format|
-      if params[:user][:password] || params[:user][:password_confirmation] || params[:current_password]
-        @editing_password = true
-        authenticated = current_user.authenticate(params[:current_password])
+    if params[:user][:password] || params[:user][:password_confirmation] || params[:current_password]
+      # bail if no password entered
+      if params[:current_password].blank?
+        puts params[:user]
 
-        if authenticated && current_user.update_attributes(params[:user])
-          format.html { redirect_to :back, notice: "Changes saved." }
+        params[:user].delete :password
+        params[:user].delete :password_confirmation
+        params.delete :current_password
+
+        if current_user.update_attributes params[:user]
+          redirect_to :edit_user, notice: "Changes saved."
         else
-          unless authenticated
-            current_user.errors[:base] << 'Current password is incorrect.'
-          end
-
-          format.html { render action: 'edit' }
+          render action: 'edit'
         end
-      elsif current_user.update_attributes params[:user]
-        format.html { redirect_to :back, notice: "Changes saved." }
-      else
-        format.html { render action: 'edit' }
+
+        return
       end
+
+      @editing_password = true
+      authenticated = current_user.authenticate(params[:current_password])
+
+      if authenticated && current_user.update_attributes(params[:user])
+        redirect_to :back, notice: "Changes saved."
+      else
+        unless authenticated
+          current_user.errors[:base] << 'Current password is incorrect.'
+        end
+
+        render action: 'edit'
+      end
+    elsif current_user.update_attributes params[:user]
+      redirect_to :back, notice: "Changes saved."
+    else
+      render action: 'edit'
     end
   end
 

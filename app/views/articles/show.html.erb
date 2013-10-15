@@ -58,6 +58,10 @@
 
 	<div class="body" itemprop="articleBody">
 		<%= image_tag @article.featured_image.url(:full), itemprop: 'image' %>
+		<% if @article.image_credit %>
+			<p class="image-credit">Image: <%= @article.image_credit %></p>
+		<% end %>
+
 		<%= @article.body.html_safe %>
 
 		<% unless @article.source_url.blank? %>

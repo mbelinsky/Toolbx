@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :description, :email, :facebook_username, :linkedin_username, :google_plus_id, :first_name, :password_digest, :last_name, :twitter_username, :website_url, :password, :password_confirmation, :username, :category_ids, :profile_picture, :city_id, :city_name, :bio
 
-  validates_length_of :bio, maximum: 200, allow_blank: true
+  validates_length_of :bio, maximum: 1000, allow_blank: true
 
   validates_presence_of :first_name
   validates_presence_of :last_name
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   before_create { generate_token(:toolbox_auth_token) }
 
   attr_reader :profile_picture_remote_url
-  has_attached_file :profile_picture, styles: { medium: "140x140>", small: "60x60>", thumb: "30x30>" }, default_url: 'profile-default/missing_:style.png'
+  has_attached_file :profile_picture, styles: { medium: "140x140#", small: "60x60#", thumb: "30x30#" }, default_url: 'profile-default/missing_:style.png'
   validates_attachment_content_type :profile_picture, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
   validates_attachment_size :profile_picture, less_than: 500.kilobytes
 
