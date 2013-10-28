@@ -54,7 +54,7 @@ html.users.edit, html.users.update {
 							img { position: absolute; top: 0; left: 0; @include border-radius(3px); width: 100%; height: 100%; display: block; }
 							input { display: none; }
 							button {
-								position: absolute; display: block; top: 50%; left: 50%; margin-top: -13px; margin-left: -45px; width: 90px; background: #BFBDB6; padding: 6px 9px; font-size: 12px;
+								position: absolute; display: block; top: 150px; left: 50%; margin-top: -13px; margin-left: -45px; width: 90px; background: #BFBDB6; padding: 6px 9px; font-size: 12px;
 
 								span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; width: 100%; }
 							}
@@ -84,7 +84,13 @@ html.users.edit, html.users.update {
 			}
 
 			div.bottom {
-				div.right { margin-left: 0; }
+				div.right { 
+					margin-left: 0;
+
+					div.profile-picture div.profile-picture-inner div.inside button {
+						top: 50%; right: -130px; left: auto;
+					}
+				}
 			}
 		}
 	}
@@ -101,7 +107,14 @@ html.users.edit, html.users.update {
 
 		div.settings-container {
 			div.bottom {
-				div.right { margin-left: 0; }
+				div.right {
+					margin-left: 0;
+
+					div.profile-picture div.profile-picture-inner div.inside button {
+						top: 50%; right: -130px; left: auto;
+					}
+
+				}
 			}
 		}
 	}
