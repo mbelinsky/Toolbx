@@ -20,6 +20,23 @@ menu#filter {
 
 	select.category-select { display: none; }
 
+	// Category Title Tooltips
+	ul.category-icons {
+		li {
+			position: relative; text-align: center;
+
+			&:hover span.tooltip { @include opacity(1); visibility: visible; -webkit-backface-visibility: hidden; }
+
+			span.tooltip {
+				background: #3E3E39; padding: 10px 14px; color: #fff; text-transform: uppercase; font-style: normal; font-size: 13px; font-weight: 600; @include border-radius(5px); white-space: nowrap; position: absolute; top: 60px; left: 50%; visibility: hidden; @include opacity(0); z-index: 100;
+				@include transition(#{"opacity 200ms linear, visibility 201ms linear"}); -webkit-backface-visibility: hidden;
+
+				&:before { content: ""; position: absolute; top: -12px; left: 50%; margin-left: -6px; width: 0; height: 0; border: 6px solid transparent; border-bottom: 6px solid #3E3E39; z-index: 100; -webkit-backface-visibility: hidden; }
+			}
+		}
+	}
+
+
 	input::-webkit-input-placeholder { color: #fff; }
 	input::-moz-placeholder { color: #fff; }
 
