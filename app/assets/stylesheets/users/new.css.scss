@@ -4,6 +4,8 @@ html.users.new, html.users.create {
 	div#signup-container {
 		@include width(8); margin-left: 10px;
 
+		input#user_username { padding-left: 151px; }
+
 		div.actions {
 			div.log-in {
 				float: left; margin: 9px 0 0 10px;
