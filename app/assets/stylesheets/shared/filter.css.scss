@@ -86,6 +86,10 @@ header#top + menu#filter, menu#filter.docked {
 	@include border-radius(0 0 5px 5px); position: fixed; top: 50px; left: 50%; margin-left: -470px;
 }
 
+html.touch {
+	span.tooltip { display: none; }
+}
+
 //one column
 @media only screen and (max-width : 639px) {
 	header#top + menu#filter, menu#filter.docked {
