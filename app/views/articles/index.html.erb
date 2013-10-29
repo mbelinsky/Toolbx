@@ -5,7 +5,9 @@
 		<% # render 'shared/category_banner' %>
 
 		<% @articles.each do |article| %>
-			<%= render 'articles/article', article: article %>
+			<% if article.published || current_user && current_user.admin %>
+				<%= render 'articles/article', article: article %>
+			<% end %>
 		<% end %>
 	</ul>
 <% else %>
