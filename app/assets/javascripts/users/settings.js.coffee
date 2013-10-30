@@ -44,5 +44,5 @@ if $('html').is('.users.edit, .users.update')
 
 		# Bio Counter
 		$('#user_bio').on 'keyup', ->
-			remainingCharacters = 200 - $('#user_bio').val().length
+			remainingCharacters = 1000 - $('#user_bio').val().length
 			$('#bio-counter').text(remainingCharacters).toggleClass('invalid', remainingCharacters < 0)
