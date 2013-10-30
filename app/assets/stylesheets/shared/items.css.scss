@@ -33,7 +33,7 @@ ul.items {
 					background: url("/assets/category-banner-sprite@2x.png") no-repeat; background-size: 160px 537px;
 				}
 			}
-			
+
 			&.activism:after          { background-position: -0px -0px; width: 140px; height: 80px; margin-top: -40px; }
 			&.education:after         { background-position: -0px -80px; width: 156px; height: 74px; margin-top: -36px; }
 			&.environment:after       { background-position: -0px -154px; width: 160px; height: 78px; margin-top: -39px; }
@@ -108,7 +108,7 @@ ul.items {
 			&.banner {
 				p { font-size: 16px; width: 380px; margin-top: -2px; }
 			}
-			
+
 			&.category_banner {
 				padding-right: 220px; height: 145px;
 
