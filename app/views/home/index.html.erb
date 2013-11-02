@@ -55,7 +55,10 @@
 			<span>Newest Articles</span>
 			<menu class="gray category-icons">
 				<% @categories.each do |category| %>
-					<li><%= link_to category.title, articles_path(params: {category_ids: [category.id]}), class: category.title.parameterize %></li>
+					<li>
+						<%= link_to category.title, articles_path(params: {category_ids: [category.id]}), class: category.title.parameterize %>
+						<span class="tooltip"><%= category.title %></span>
+					</li>
 				<% end %>
 			</menu>
 		</h2>
@@ -73,7 +76,10 @@
 			<span>Featured Tools</span>
 			<menu class="gray category-icons">
 				<% @categories.each do |category| %>
-					<li><%= link_to category.title, tools_path(params: {category_ids: [category.id]}), class: category.title.parameterize %></li>
+					<li>
+						<%= link_to category.title, tools_path(params: {category_ids: [category.id]}), class: category.title.parameterize %>
+						<span class="tooltip"><%= category.title %></span>
+					</li>
 				<% end %>
 			</menu>
 		</h2>
