@@ -17,3 +17,8 @@ if $('html').is '.home.index'
 				else
 					cta.removeClass 'docked'
 					billboard.removeClass 'cta-docked'
+
+		$('.tooltip').each ->
+			width = $(this).outerWidth()
+			# - 5px to account for icon padding
+			$(this).css {'margin-left': -((width / 2) - 5), 'width': width}
