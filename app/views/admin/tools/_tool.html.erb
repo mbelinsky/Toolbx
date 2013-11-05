@@ -1,0 +1,15 @@
+<% path ||= tool_path(tool) %>
+<% mini ||= false %>
+<% has_tool = current_user ? current_user.tools.exists?(tool.id) : nil %>
+
+<li class="tool">
+	<%= link_to path do %>
+		<div class="img">
+			<%= if tool.first_screen_banner then image_tag tool.first_screen_banner, itemprop: 'screenshot' end %>
+		</div>
+
+		<h3 itemprop="name"><%= tool.name %> <span>(<%= pluralize(tool.users_count, 'User') %>)</span></h3>
+
+		<p class="created-at"><%= Date.parse(tool.created_at).strftime("%b %d %Y") %></p>
+	<% end %>
+</li>
