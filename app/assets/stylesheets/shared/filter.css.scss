@@ -90,6 +90,19 @@ html.touch {
 	span.tooltip { display: none; }
 }
 
+// Admin Page
+html.admin {
+	menu#filter.tools {
+		input#filter-search { left: 583px; top: 103px; }
+		input.keyword { width: 250px; background-position: 218px 9px; }
+		div.fancy-select { width: 150px !important; }
+	}
+
+	menu#filter.articles {
+		input#filter-search { left: 694px; top: 103px; }
+	}
+}
+
 //one column
 @media only screen and (max-width : 639px) {
 	header#top + menu#filter, menu#filter.docked {
