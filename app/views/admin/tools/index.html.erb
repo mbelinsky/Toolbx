@@ -2,13 +2,15 @@
 <%= render 'shared/flashes' %>
 <%= render 'shared/filter' %>
 
-<ul class="items">
-	<li class="link">
+<p class="count">Showing <%= @tools.count %> tools</p>
+
+<ul class="items full-width">
+	<!-- <li class="link">
 		<%= link_to new_admin_tool_path do %><span>Add Tool</span><% end %>
-	</li>
+	</li> -->
 
 	<% @tools.each do |tool| %>
-		<%= render 'tools/tool', tool: tool, path: edit_admin_tool_path(tool) %>
+		<%= render 'admin/tools/tool', tool: tool, path: edit_admin_tool_path(tool) %>
 	<% end %>
 </ul>
 
