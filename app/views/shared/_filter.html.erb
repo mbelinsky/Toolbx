@@ -17,7 +17,12 @@
 				<% active = params[:category_ids] && params[:category_ids].include?(category.id.to_s) %>
 				<li>
 					<a data-category-id="<%= category.id %>" class="<%= category.title.parameterize %> <%= 'active' if active %>"><%= category.title %></a>
-					<span class="tooltip"><%= category.title %> (<%= category.tools.count %>)</span>
+					<span class="tooltip">
+						<%= category.title %>
+						<%  if type === 'tools' %>
+							(<%= category.tools.count %>)
+						<% end %>
+					</span>
 				</li>
 			<% end %>
 		</ul>
