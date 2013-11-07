@@ -6,7 +6,7 @@ html.home.index {
 	div.flash { width: 940px; margin: 40px auto 0; }
 
 	div#billboard {
-		height: 330px; background: #E55453; padding-top: 50px;
+		height: 240px; background: #E55453; padding-top: 9px;
 
 		&.cta-docked { margin-bottom: 60px; }
 
@@ -23,7 +23,6 @@ html.home.index {
 			&.discover { background-position: -0px -90px; width: 90px; height: 90px; }
 			&.share { background-position: -0px -180px; width: 90px; height: 90px; }
 			&.logo { background-position: -0px -270px; width: 381px; height: 74px; }
-
 		}
 
 		div.left {
@@ -38,8 +37,8 @@ html.home.index {
 			li {
 				float: left; @include width(2); margin-left: 20px;
 
-				div.sprite { margin: 0 auto 15px; }
-				h4 { font-size: 32px; text-transform: uppercase; color: #fff; text-align: center; margin-bottom: 6px; }
+				div.sprite { margin: 0 auto; }
+				h4 { font-size: 32px; text-transform: uppercase; color: #fff; text-align: center; margin-bottom: 6px; margin-top: -10px; }
 				p.description { font-size: 13px; text-align: center; line-height: 18px; color: #fff; font-weight: normal; font-style: italic;}
 			}
 		}
@@ -144,7 +143,7 @@ html.home.index {
 		div.flash { width: 620px; }
 
 		div#billboard {
-			height: 260px; padding-top: 30px;
+			height: 220px; padding-top: 20px;
 
 			div.left { display: none; }
 
