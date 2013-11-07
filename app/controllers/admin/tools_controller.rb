@@ -4,6 +4,7 @@ class Admin::ToolsController < AdminController
     params[:order] ||= 'Recently Added'
 
     @tools = Tool.search(params)
+    @tool_results_count = Tool.search_count(params)
   end
 
   def new
