@@ -64,6 +64,22 @@ class Tool < ActiveRecord::Base
     end
   end
 
+  def self.search_count(params)
+    tire.search search_type: 'count' do
+      query do
+        if params[:keyword].blank? && params[:platform].blank? && params[:category_ids].blank?
+          all
+        else
+          boolean do
+            must {string params[:keyword], default_operator: 'AND'} if params[:keyword].present?
+            must {term 'platforms.id', params[:platform]} if params[:platform].present?
+            must {terms 'categories.id', params[:category_ids]} if params[:category_ids].present?
+          end
+        end
+      end
+    end
+  end
+
   def self.search(params)
     params[:per_page] ||= 36
 
