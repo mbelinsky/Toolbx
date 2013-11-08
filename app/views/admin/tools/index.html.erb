@@ -5,6 +5,10 @@
 <p class="count"><%= @tool_results_count.total %> results</p>
 
 <ul class="items full-width">
+	<li class="link">
+		<%= link_to new_admin_tool_path do %><span class="add">Add Tool</span><% end %>
+	</li>
+
 	<% @tools.each do |tool| %>
 		<%= render 'admin/tools/tool', tool: tool, path: edit_admin_tool_path(tool) %>
 	<% end %>

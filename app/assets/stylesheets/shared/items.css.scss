@@ -9,6 +9,38 @@ ul.items {
 	&.has-banner { padding-top: 10px; }
 	&.filter-docked { margin-top: 70px; }
 
+	&.full-width {
+		> li {
+			display: block; width: 940px; padding: 15px; position: relative; height: 80px;
+
+			&.link {
+				@include width(12); height: 80px; text-align: center;
+
+				a {
+					display: block; width: 100%; height: 100%;
+
+					span {
+						margin-top: 15px;
+					}
+				}
+			}
+
+			a { color: #5C5C54; display: block; height: 80px; width: 100%; position: absolute; top: 0; left: 0; padding: 10px; }
+
+			div.img {
+				float: left; margin-right: 20px; height: 60px; background: #DCDCDC;
+				img { width: 100px; display: block; }
+			}
+
+			h3 {
+				float: left; margin-top: 17px; font-weight: 600; color: #5C5C54; font-size: 18px; text-decoration: none;
+			}
+
+			p.created-at { margin-top: 21px; margin-left: 20px; float: right; }
+
+		}
+	}
+
 	> li {
 		margin: 10px; @include border-radius(4px); @include box-shadow(0 1px rgba(0, 0, 0, 0.1)); @include transition(box-shadow ease-out 120ms);
 
