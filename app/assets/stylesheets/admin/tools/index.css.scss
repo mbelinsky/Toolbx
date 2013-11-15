@@ -3,4 +3,24 @@
 html.admin.tools.index {
 
 	p.count { text-align: right; padding-right: 10px; }
+
+	ul.full-width {
+		li {
+			display: block; width: 940px; padding: 15px; position: relative; height: 80px;
+
+			a { color: #5C5C54; display: block; height: 80px; width: 100%; position: absolute; top: 0; left: 0; padding: 10px; }
+
+			div.img {
+				float: left; margin-right: 20px; height: 60px; background: #DCDCDC;
+				img { width: 100px; display: block; }
+			}
+
+			h3 {
+				float: left; margin-top: 17px; font-weight: 600; color: #5C5C54; font-size: 18px; text-decoration: none;
+			}
+
+			p.created-at { margin-top: 21px; margin-left: 20px; float: right; }
+
+		}
+	}
 }
