@@ -68,6 +68,7 @@ Thetoolbox::Application.configure do
   # Paperclip S3 stuff
   config.paperclip_defaults = {
     storage: :s3,
+    s3_protocol: :https,
     s3_credentials: {
       bucket: Settings.s3.bucket,
       access_key_id: Settings.s3.access_key_id,
