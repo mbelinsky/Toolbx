@@ -1,0 +1,1 @@
+Gibbon::API.api_key = Settings.mailchimp.api_key

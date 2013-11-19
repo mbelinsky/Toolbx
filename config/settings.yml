@@ -2,6 +2,9 @@ s3:
   access_key_id: AKIAIL5LTKXQ5S3VBUKQ
   secret_access_key: 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
 disqus_identifier_prefix: ''
+mailchimp:
+  api_key: 593f3892819a471009f92a2179a08a2a-us7
+  list_id: 8595fd25a7
 email:
   from: toolbot@thetoolbox.org
   to: info@thetoolbox.org

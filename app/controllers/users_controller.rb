@@ -21,6 +21,13 @@ class UsersController < ApplicationController
 
         UserMailer.welcome(@user).deliver
 
+        begin
+          Gibbon::API.lists.subscribe(id: Settings.mailchimp.list_id, email: {email: @user.email}, double_optin: false, update_existing: true, send_welcome: false, merge_vars: {:FNAME => @user.first_name, :LNAME => @user.last_name})
+        rescue Gibbon::MailChimpError => err
+          Rails.logger.error "Mailchimp error in users#create:"
+          Rails.logger.error "  #{err}"
+        end
+
         format.html { redirect_to root_url, notice: 'Thanks for signing up! Now go add some tools.' }
       else
         format.html { render action: 'new' }
@@ -31,17 +38,42 @@ class UsersController < ApplicationController
   def edit
     @has_footer = true
     @title = '» Settings'
+    @subscribed_to_newsletter = false
+
+    begin
+      member_info = Gibbon::API.lists.member_info(id: Settings.mailchimp.list_id, emails: [{email: current_user.email}])
+
+      if member_info['data'][0]['status'] == 'unsubscribed'
+        @subscribed_to_newsletter = false
+      else
+        @subscribed_to_newsletter = true
+      end
+    rescue Gibbon::MailChimpError => e
+      # not subscribed
+      @subscribed_to_newsletter = false
+    end
   end
 
   def update
     @has_footer = true
     @title = '» Settings'
 
+    begin
+      if params[:subscribed_to_newsletter] == 'on'
+        Gibbon::API.lists.subscribe(id: Settings.mailchimp.list_id, email: {email: current_user.email}, double_optin: false, update_existing: true, send_welcome: false, merge_vars: {:FNAME => current_user.first_name, :LNAME => current_user.last_name})
+        @subscribed_to_newsletter = true
+      else
+        Gibbon::API.lists.unsubscribe(id: Settings.mailchimp.list_id, email: {email: current_user.email})
+        @subscribed_to_newsletter = false
+      end
+    rescue Gibbon::MailChimpError => err
+      Rails.logger.error "Mailchimp error in users#update:"
+      Rails.logger.error "  #{err}"
+    end
+
     if params[:user][:password] || params[:user][:password_confirmation] || params[:current_password]
       # bail if no password entered
       if params[:current_password].blank?
-        puts params[:user]
-
         params[:user].delete :password
         params[:user].delete :password_confirmation
         params.delete :current_password

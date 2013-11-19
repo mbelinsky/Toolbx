@@ -74,3 +74,4 @@ gem 'omniauth-facebook' # facebook login
 gem 'tire' # elasticsearch
 gem 'redcarpet' # markdown!
 gem 'mixpanel-ruby' # mixpanel gem, just for the admin tracking stuff
+gem 'gibbon'

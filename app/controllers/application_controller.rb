@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :identify_known_bots, :identify_browser_and_os
 
 private
-
   def current_user
     @current_user ||= User.find_by_toolbox_auth_token!(cookies[:toolbox_auth_token]) if cookies[:toolbox_auth_token]
   end

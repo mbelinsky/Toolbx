@@ -28,7 +28,19 @@
 				<%= f.label :email, "Email" %>
 				<%= f.text_field :email %>
 			</div>
-			<div class="field inline last username">
+			<div class="field inline last">
+				<label for="subscribed_to_newsletter">Receive The Toolbox Newsletter</label>
+
+				<div class="slider-checkbox">
+					<%= check_box_tag 'subscribed_to_newsletter', 'yes', @subscribed_to_newsletter %>
+					<div class="slider group">
+						<span class="on">Yes</span>
+						<div class="selected-item"></div>
+						<span class="off">No</span>
+					</div>
+				</div>
+			</div>
+			<div class="field username">
 				<%= f.label :username %>
 				<%= f.text_field :username %>
 			</div>
