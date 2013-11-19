@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     begin
       member_info = Gibbon::API.lists.member_info(id: Settings.mailchimp.list_id, emails: [{email: current_user.email}])
 
-      if member_info['data'][0]['status'] == 'unsubscribed'
+      if !member_info['data'] || member_info['data'][0]['status'] == 'unsubscribed'
         @subscribed_to_newsletter = false
       else
         @subscribed_to_newsletter = true
