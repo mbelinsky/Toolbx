@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   include MarkdownTools
 
-  layout 'mailer'
+  layout 'mailer', except: [:welcome]
 
   def welcome(user)
     @user = user
