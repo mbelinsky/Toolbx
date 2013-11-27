@@ -33,7 +33,7 @@
 						<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
 							<tr>
 								<td style="background: #272722; text-align: center;">
-									<%= link_to root_path do %>
+									<%= link_to root_url do %>
 										<%= image_tag "/assets/mailers/user/logo.png", alt: "The Toolbox", style: "max-width: 600px;" %>
 									<% end %>
 								</td>
@@ -68,10 +68,16 @@
 													</tr>
 													<tr>
 														<td valign="top" style="background: #ffffff; border-radius: 5px; padding: 10px 25px 20px; text-align: center;">
+														<%= link_to tools_url do %>
 															<%= image_tag "/assets/mailers/user/discover-new-tools.png", alt: "The Toolbox - Discover New Tools" %>
+														<% end %>
+														<%= link_to tools_url do %>
 															<%= image_tag "/assets/mailers/user/categories.png", alt: "The Toolbox - Categories", style: "padding-top: 20px;" %>
+														<% end %>
 															<p>Browse our database and search by category.</p>
+														<% link_to tools_url do %>
 															<%= image_tag "/assets/mailers/user/suggest-tool.png", alt: "The Toolbox - Suggest A Tool", style: "padding-top: 25px;" %>
+														<% end %>
 															<p style="margin-top: 0;">Are we missing something? Tell us about it and we’ll add it to our collection.</p>
 														</td>
 													</tr>
@@ -80,8 +86,12 @@
 													</tr>
 													<tr>
 														<td valign="top" style="background: #ffffff; border-radius: 5px; padding: 10px 25px 20px; text-align: center;">
+														<%= link_to user_url(@user) do %>
 															<%= image_tag "/assets/mailers/user/curate.png", alt: "The Toolbox - Curate A Collection" %>
+														<% end %>
+														<%= link_to user_url(@user) do %>
 															<%= image_tag "/assets/mailers/user/add-button.png", alt: "The Toolbox - Add Button", style: "padding-top: 25px;" %>
+														<% end %>
 															<p>Add tools that you use or like to your profile.</p>
 														</td>
 													</tr>
@@ -90,8 +100,12 @@
 													</tr>
 													<tr>
 														<td valign="top" style="background: #ffffff; border-radius: 5px; padding: 10px 25px 10px; text-align: center;">
+														<%= link_to tools_url do %>
 															<%= image_tag "/assets/mailers/user/share.png", alt: "The Toolbox - Share!" %>
+														<% end %>
+														<%= link_to tools_url do %>
 															<%= image_tag "/assets/mailers/user/share-bar.png", alt: "The Toolbox - Share Bar", style: "padding-top: 25px;" %>
+														<% end %>
 															<p>Tools don’t work unless people use them :)</p>
 															<p style="border-top: 2px solid #F5F5F4; font-size: 13px; padding-top: 30px; margin-top: 30px; text-align: left;"><strong style="display: block;">At your service,</strong> The Toolbox Team</p>
 														</td>
