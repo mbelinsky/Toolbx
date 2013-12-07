@@ -75,11 +75,10 @@ li.article {
 			width: 100%;
 
 			h3 {
-				width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+				width: 100%; max-height: 50px;
 
-				a { font-weight: normal; color: #5C5C54; font-size: 18px; text-decoration: none; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+				a { font-weight: normal; color: #5C5C54; font-size: 18px; text-decoration: none; width: 100%; }
 			}
-
 
 			ul.categories {
 				list-style: none; font-size: 13px; font-style: italic;
