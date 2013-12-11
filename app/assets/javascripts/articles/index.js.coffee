@@ -24,6 +24,7 @@ if $('html').is('.articles.index:not(.admin)')
 				return path
 		, (newElements, inf) ->
 			$('.items').masonry 'appended', $(newElements), true
+			$('.items').find('h3').dotdotdot()
 
 			window.initializeArticles()
 
