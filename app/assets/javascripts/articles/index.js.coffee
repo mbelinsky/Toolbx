@@ -29,3 +29,9 @@ if $('html').is('.articles.index:not(.admin)')
 
 			if supportsPushState
 				history.replaceState null, null, "/articles/page/#{inf.state.currPage}#{window.location.search}"
+
+if $('html').is('.articles.index')
+	$(window).load ->
+		console.log "hello"
+		# Multiline text overflow
+		$('h3').dotdotdot()
