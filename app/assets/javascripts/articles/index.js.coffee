@@ -33,6 +33,5 @@ if $('html').is('.articles.index:not(.admin)')
 
 if $('html').is('.articles.index')
 	$(window).load ->
-		console.log "hello"
 		# Multiline text overflow
 		$('h3').dotdotdot()
