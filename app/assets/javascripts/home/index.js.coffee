@@ -22,3 +22,7 @@ if $('html').is '.home.index'
 			width = $(this).outerWidth()
 			# - 5px to account for icon padding
 			$(this).css {'margin-left': -((width / 2) - 5), 'width': width}
+
+	$(window).load ->
+		# Multiline text overflow
+		$('h3').dotdotdot()
