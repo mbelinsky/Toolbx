@@ -85,3 +85,16 @@ if $('html').is('.admin.tools.edit, .admin.tools.update, .admin.tools.new, .admi
 
       picker.find('.name').html(val.substr(val.lastIndexOf('\\') + 1))
       picker.find('img').remove()
+
+    # Character counter for article titles
+    charCounter = $('.char-counter')
+
+    charCounter.find('.count').text($('#tool_short_desc').val().length)
+    # Update on KeyPress
+    $("#tool_short_desc").keyup ->
+      charCounter.find('.count').text(0 + $(this).val().length)
+      # Bold the span if we reach the limit
+      if parseInt($('.count').text()) > 60
+        charCounter.addClass('warning')
+      else
+        charCounter.removeClass('warning')
