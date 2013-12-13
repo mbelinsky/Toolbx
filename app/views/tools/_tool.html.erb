@@ -22,7 +22,9 @@
 					<li itemprop="applicationCategory"><%= link_to category.title, tools_path(params: {category_ids: [category.id]}) %></li>
 				<% end %>
 			</ul>
-			<% unless tool.description.blank? %>
+			<% if !tool.short_desc.blank? %>
+				<p class="description" itemprop="description"><%= tool.short_desc %></p>
+			<% elsif !tool.description.blank? %>
 				<p class="description" itemprop="description"><%= tool.description.truncate(55) %></p>
 			<% end %>
 		</div>
