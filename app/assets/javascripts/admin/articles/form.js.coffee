@@ -45,3 +45,17 @@ if $('html').is('.admin.articles.edit, .admin.articles.update, .admin.articles.n
 
       fiTrigger.find('span').text(val.substr(val.lastIndexOf('\\') + 1))
       fiTrigger.siblings('img').remove()
+
+    # Character counter for article titles
+    charCounter = $('.char-counter')
+
+    $("#article_title").keyup ->
+      charCounter.find('.count').text(0 + $(this).val().length)
+
+      console.log "!!!", $('.count').text()
+
+      # Bold the span if we reach the limit
+      if parseInt($('.count').text()) > 60
+        charCounter.addClass('warning')
+      else
+        charCounter.removeClass('warning')
