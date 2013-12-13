@@ -4,6 +4,12 @@ html.admin.articles.new, html.admin.articles.create, html.admin.articles.edit, h
 	form.new_article, form.edit_article {
 		margin: 0 10px;
 
+		span.char-counter {
+			position: absolute; top: 2px; right: 0; color: #5D5D55; font-style: italic; font-size: 12px; @include transition(color 200ms ease-out);
+
+			&.warning { color: #E55453; }
+		}
+
 		div.left {
 			float: left; @include width(8);
 		}
