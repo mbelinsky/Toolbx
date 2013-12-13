@@ -41,6 +41,7 @@ class Tool < ActiveRecord::Base
     mapping do
       indexes :id, type: :integer, index: :not_analyzed
       indexes :name, analyzer: :snowball
+      indexes :short_desc, analyzer: :snowball
       indexes :description, analyzer: :snowball
       indexes :created_at, type: :date
       indexes :users_count, type: :integer
