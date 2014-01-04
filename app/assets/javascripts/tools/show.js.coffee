@@ -46,9 +46,11 @@ if $('html').is '.tools.show'
       if $(@).hasClass 'app-store'
         console.log "App Store"
         mixpanel.track('App Store Click', {'Tool Name': tool.find('h1').text()})
-      else if $(@).hasClass 'google-play'
+
+      if $(@).hasClass 'google-play'
         console.log "Google Play"
         mixpanel.track('Google Play Click', {'Tool Name': tool.find('h1').text()})
-      else if $(@).hasClass 'website'
+
+      if $(@).hasClass 'website'
         console.log "Website Link"
         mixpanel.track('Website Link Click', {'Tool Name': tool.find('h1').text()})
