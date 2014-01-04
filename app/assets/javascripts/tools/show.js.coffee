@@ -44,13 +44,10 @@ if $('html').is '.tools.show'
     # Mixpanel tracking for app & website links
     $('.stores').on 'click', 'a', ->
       if $(@).hasClass 'app-store'
-        console.log "App Store"
         mixpanel.track('App Store Click', {'Tool Name': tool.find('h1').text()})
 
       if $(@).hasClass 'google-play'
-        console.log "Google Play"
         mixpanel.track('Google Play Click', {'Tool Name': tool.find('h1').text()})
 
       if $(@).hasClass 'website'
-        console.log "Website Link"
         mixpanel.track('Website Link Click', {'Tool Name': tool.find('h1').text()})
