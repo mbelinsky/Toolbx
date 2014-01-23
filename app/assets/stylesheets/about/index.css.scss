@@ -38,6 +38,7 @@ html.about.index {
 		&.peter-gabriel { background-position: 0 -841px; }
 		&.wendy-levy { background-position: 0 -981px; }
 		&.yvette-alberdingk-thijm { background-position: 0 -1121px; }
+		&.maleeha-ahmad { background-position: 0 -1261px; margin-top: 45px; }
 	}
 
 	div.billboardish {
@@ -179,6 +180,8 @@ html.about.index {
 			}
 		}
 
+		div.person.maleeha-ahmad { margin-top: 0; }
+
 		div.the-organization {
 			ul {
 				li {
@@ -210,6 +213,8 @@ html.about.index {
 			> ul {
 				> li {
 					width: 192px;
+
+					&.last { margin-left: 0; }
 
 					&:first-child { margin-left: 0; }
 					&:last-child { margin-right: 0; }
