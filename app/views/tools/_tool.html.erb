@@ -2,7 +2,7 @@
 <% mini ||= false %>
 <% has_tool = current_user ? current_user.tools.exists?(tool.id) : nil %>
 
-<li class="tool <%= 'mini' if mini %>" itemscope itemtype="http://schema.org/SoftwareApplication">
+<li class="tool <% tool.categories.each do |c| %> <%= c.title.parameterize %> <% end %> <%= 'mini' if mini %>" itemscope itemtype="http://schema.org/SoftwareApplication">
 	<% unless mini %>
 		<div class="banner">
 			<%= link_to path do %>

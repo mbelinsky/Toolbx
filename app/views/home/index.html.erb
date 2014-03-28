@@ -57,7 +57,7 @@
 		<menu class="gray category-icons">
 			<% @categories.each do |category| %>
 				<li>
-					<%= link_to category.title, articles_path(params: {category_ids: [category.id]}), class: category.title.parameterize %>
+					<%= link_to category.title, articles_path(params: {category_ids: [category.id]}), class: category.title.parameterize, :data => { :category => category.title.parameterize } %>
 					<span class="tooltip"><%= category.title %></span>
 				</li>
 			<% end %>

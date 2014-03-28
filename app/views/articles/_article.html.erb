@@ -1,7 +1,7 @@
 <% path ||= article_path(article.slug) %>
 <% has_article = current_user ? current_user.articles.exists?(article.id) : nil %>
 
-<li class="article <%= 'unpublished' unless article.published %> <%= 'featured' if article.featured %>" itemscope itemtype="http://schema.org/BlogPosting">
+<li class="article <% article.categories.each do |c| %> <%= c.title.parameterize %> <% end %> <%= 'unpublished' unless article.published %> <%= 'featured' if article.featured %>" itemscope itemtype="http://schema.org/BlogPosting">
 	<div class="banner">
 		<%= link_to path do %>
 			<% if article.featured %>

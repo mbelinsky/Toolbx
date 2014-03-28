@@ -23,6 +23,24 @@ if $('html').is '.home.index'
 			# - 5px to account for icon padding
 			$(this).css {'margin-left': -((width / 2) - 5), 'width': width}
 
+		# Category live Filtering
+		$('#filter').find('a').on 'click', (e) ->
+			e.preventDefault()
+
+			category  = $(this).data('category')
+			$('.items').find("li:not(.#{category})").fadeOut(240, -> $(this).hide())
+
+			itemsToHide = $('.items.articles').masonry('get', "li:not(.#{category})")
+
+			console.log itemsToHide
+
+			# find("li:not(.#{category})")
+
+			$('.items').masonry( 'hide', itemsToHide )
+
+			$('.items').masonry()
+
+
 	$(window).load ->
 		# Multiline text overflow
 		$('h3').dotdotdot()
