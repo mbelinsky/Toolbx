@@ -47,48 +47,37 @@
 
 <%= render 'shared/flashes' %>
 
-<%= render 'shared/global_search' %>
-
 <div class="main">
 	<div class="inner group">
 		<h2 class="strike">
-			<span>Newest Articles</span>
-			<menu class="gray category-icons">
-				<% @categories.each do |category| %>
-					<li>
-						<%= link_to category.title, articles_path(params: {category_ids: [category.id]}), class: category.title.parameterize %>
-						<span class="tooltip"><%= category.title %></span>
-					</li>
-				<% end %>
-			</menu>
+			<span>Recent Articles &amp; Tools</span>
 		</h2>
-		<ul class="items articles">
-			<% @articles.each do |article| %>
-				<%= render 'articles/article', article: article %>
-			<% end %>
-		</ul>
 	</div>
-	<div class="fade"></div>
-	<%= link_to "See All Articles", articles_path, class: 'see-all button' %>
-
+	<div id="filter" class="inner group">
+		<menu class="gray category-icons">
+			<% @categories.each do |category| %>
+				<li>
+					<%= link_to category.title, articles_path(params: {category_ids: [category.id]}), class: category.title.parameterize %>
+					<span class="tooltip"><%= category.title %></span>
+				</li>
+			<% end %>
+		</menu>
+		<%= render 'shared/global_search' %>
+	</div>
 	<div class="inner group">
-		<h2 class="strike">
-			<span>Featured Tools</span>
-			<menu class="gray category-icons">
-				<% @categories.each do |category| %>
-					<li>
-						<%= link_to category.title, tools_path(params: {category_ids: [category.id]}), class: category.title.parameterize %>
-						<span class="tooltip"><%= category.title %></span>
-					</li>
+		<ul class="items articles">
+			<% @tools_and_articles.each do |item| %>
+				<% if item.is_a? Tool %>
+					<%= render 'tools/tool', tool: item %>
+				<% else %>
+					<%= render 'articles/article', article: item %>
 				<% end %>
-			</menu>
-		</h2>
-		<ul class="items">
-			<% @tools.each do |tool| %>
-				<%= render 'tools/tool', tool: tool %>
 			<% end %>
 		</ul>
 	</div>
 	<div class="fade"></div>
-	<%= link_to "See All Tools", tools_path, class: 'see-all button' %>
+	<div class="actions group inner">
+		<%= link_to "See All Tools", tools_path, class: 'see-all button' %>
+		<%= link_to "See All Articles", articles_path, class: 'see-all button' %>
+	</div>
 </div>
