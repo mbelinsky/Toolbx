@@ -1,46 +1,43 @@
 if $('html').is '.home.index'
-	$(document).ready ->
-		billboard = $('#billboard')
-		cta = $('#signup-cta')
+  $(document).ready ->
+    billboard = $('#billboard')
+    cta = $('#signup-cta')
 
-		if cta.length
-			ctaOffTop = cta.offset().top
+    if cta.length
+      ctaOffTop = cta.offset().top
 
-			# Update offset if window size changes (for media query stuff)
-			$(window).on 'resize', ->
-				ctaOffTop = cta.offset().top
+      # Update offset if window size changes (for media query stuff)
+      $(window).on 'resize', ->
+        ctaOffTop = cta.offset().top
 
-			$(window).on 'scroll', ->
-				if $(document).scrollTop() >= (ctaOffTop - 50)
-					cta.addClass 'docked'
-					billboard.addClass 'cta-docked'
-				else
-					cta.removeClass 'docked'
-					billboard.removeClass 'cta-docked'
+      $(window).on 'scroll', ->
+        if $(document).scrollTop() >= (ctaOffTop - 50)
+          cta.addClass 'docked'
+          billboard.addClass 'cta-docked'
+        else
+          cta.removeClass 'docked'
+          billboard.removeClass 'cta-docked'
 
-		$('.tooltip').each ->
-			width = $(this).outerWidth()
-			# - 5px to account for icon padding
-			$(this).css {'margin-left': -((width / 2) - 5), 'width': width}
+    $('.tooltip').each ->
+      width = $(this).outerWidth()
+      # - 5px to account for icon padding
+      $(this).css {'margin-left': -((width / 2) - 5), 'width': width}
 
-		# Category live Filtering
-		$('#filter').find('a').on 'click', (e) ->
-			e.preventDefault()
+    masonryContainer = $('.items.articles')
 
-			category  = $(this).data('category')
-			$('.items').find("li:not(.#{category})").fadeOut(240, -> $(this).hide())
+    # Category live Filtering
+    $('#filter').find('a').on 'click', (e) ->
+      e.preventDefault()
 
-			itemsToHide = $('.items.articles').masonry('get', "li:not(.#{category})")
+      $('#filter').find('a').removeClass 'active'
+      $(this).addClass 'active'
 
-			console.log itemsToHide
+      category = $(this).data('category')
 
-			# find("li:not(.#{category})")
+      masonryContainer.find('.item').show()
+      masonryContainer.find(".item:not(.#{category})").hide()
+      masonryContainer.masonry()
 
-			$('.items').masonry( 'hide', itemsToHide )
-
-			$('.items').masonry()
-
-
-	$(window).load ->
-		# Multiline text overflow
-		$('h3').dotdotdot()
+  $(window).load ->
+    # Multiline text overflow
+    $('h3').dotdotdot()
