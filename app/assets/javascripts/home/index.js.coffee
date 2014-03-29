@@ -23,20 +23,30 @@ if $('html').is '.home.index'
       # - 5px to account for icon padding
       $(this).css {'margin-left': -((width / 2) - 5), 'width': width}
 
-    masonryContainer = $('.items.articles')
 
     # Category live Filtering
-    $('#filter').find('a').on 'click', (e) ->
+    masonryContainer = $('.items.articles')
+
+    $('#atf').on 'click', 'a', (e) ->
       e.preventDefault()
 
-      $('#filter').find('a').removeClass 'active'
-      $(this).addClass 'active'
+      console.log $(this)
 
-      category = $(this).data('category')
+      if $(this).hasClass 'active'
+        $('#atf').find('a').removeClass 'active'
 
-      masonryContainer.find('.item').show()
-      masonryContainer.find(".item:not(.#{category})").hide()
-      masonryContainer.masonry()
+        masonryContainer.find('.item').show()
+        masonryContainer.masonry()
+
+      else
+        $('#atf').find('a').removeClass 'active'
+        $(this).addClass 'active'
+
+        category = $(this).data('category')
+
+        masonryContainer.find('.item').show()
+        masonryContainer.find(".item:not(.#{category})").hide()
+        masonryContainer.masonry()
 
   $(window).load ->
     # Multiline text overflow

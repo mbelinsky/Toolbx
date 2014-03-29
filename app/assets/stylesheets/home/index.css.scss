@@ -71,7 +71,7 @@ html.home.index {
 	}
 
 	// Category Filters
-	#filter {
+	#atf {
 		margin-bottom: 75px;
 
 		li { position: relative; }
@@ -101,7 +101,9 @@ html.home.index {
 
 	// Tools & Articles
 	ul.items {
-		height: 1149px !important; overflow: hidden; position: relative;
+		max-height: 1149px !important; min-height: 350px !important; overflow: hidden; position: relative;
+
+		@include transition(height 500ms ease-in-out);
 
 		> li {
 			max-height: 300px; @include transition(opacity 240ms ease-in-out);
