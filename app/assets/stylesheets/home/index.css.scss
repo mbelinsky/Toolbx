@@ -88,7 +88,7 @@ html.home.index {
 
 	// Global Search Box
 	#global-search {
-		width: 360px; margin-top: 10px; float: left; padding: 0; background-color: #BFBDB6; margin-left: 10px;
+		width: 590px; margin-top: 10px; float: left; padding: 0; background-color: #BFBDB6; margin-left: 10px;
 
 		[type=text] {
 			background-color: #BFBDB6; color: #fff; font-size: 13px; padding: 10px 40px 10px 10px;
@@ -192,6 +192,17 @@ html.home.index {
 				}
 			}
 		}
+
+		#global-search { width: 300px; }
+
+		.items {
+			.item { max-height: 100%; }
+		}
+
+		.actions {
+			.button + .button { margin-top: 20px !important; }
+		}
+
 	}
 
 	//two columns
@@ -229,5 +240,7 @@ html.home.index {
 				}
 			}
 		}
+
+		#global-search { width: 270px; }
 	}
 }
