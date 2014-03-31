@@ -2,6 +2,12 @@ if $('html').is '.home.index'
   $(document).ready ->
     billboard = $('#billboard')
     cta = $('#signup-cta')
+    masonryContainer = $('.items.articles')
+
+    # This is kind of hacky, but forces relayout on masonry items for msall screens
+    # because featured articles and tools are taller.
+    if $(window).width() < 960
+      masonryContainer.masonry()
 
     if cta.length
       ctaOffTop = cta.offset().top
@@ -9,6 +15,7 @@ if $('html').is '.home.index'
       # Update offset if window size changes (for media query stuff)
       $(window).on 'resize', ->
         ctaOffTop = cta.offset().top
+        masonryContainer.masonry()
 
       $(window).on 'scroll', ->
         if $(document).scrollTop() >= (ctaOffTop - 50)
@@ -25,12 +32,8 @@ if $('html').is '.home.index'
 
 
     # Category live Filtering
-    masonryContainer = $('.items.articles')
-
     $('#atf').on 'click', 'a', (e) ->
       e.preventDefault()
-
-      console.log $(this)
 
       if $(this).hasClass 'active'
         $('#atf').find('a').removeClass 'active'
