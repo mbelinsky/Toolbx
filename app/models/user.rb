@@ -40,8 +40,12 @@ class User < ActiveRecord::Base
   validates_attachment_size :profile_picture, less_than: 500.kilobytes
 
   def profile_picture_remote_url=(url)
-    self.profile_picture = URI.parse(url)
-    @profile_picture_remote_url = url
+    begin
+      self.profile_picture = URI.parse(url)
+      @profile_picture_remote_url = url
+    rescue Exception => e
+      Rails.logger.warn "Error setting profile_picture_remote_url: #{e.message}"
+    end
   end
 
   def self.from_omniauth(auth)
