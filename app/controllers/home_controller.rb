@@ -6,6 +6,8 @@ class HomeController < ApplicationController
     tools = Tool.order('featured DESC, users_count DESC, created_at DESC').limit(8).all
     articles = Article.where(published: true).order('created_at DESC').limit(22).all
 
+    #
+
     @tools_and_articles = tools.concat(articles).shuffle
   end
 
