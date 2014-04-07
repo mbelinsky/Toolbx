@@ -67,6 +67,8 @@
 	<div class="inner group">
 		<ul class="items articles">
 			<% @tools_and_articles.each do |item| %>
+				<% next unless item %>
+
 				<% if item.is_a? Tool %>
 					<%= render 'tools/tool', tool: item %>
 				<% else %>
