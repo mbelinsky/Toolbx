@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @has_footer = true
     @categories = Category.all
 
-    tools = Tool.order('featured DESC, users_count DESC, created_at DESC').limit(8).all.shuffle
+    tools = Tool.featured.limit(8).all.shuffle
     articles = Article.where(published: true).order('created_at DESC').limit(22).all
 
     # @tools_and_articles = tools.concat(articles).shuffle

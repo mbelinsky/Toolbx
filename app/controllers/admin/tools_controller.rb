@@ -1,6 +1,6 @@
 class Admin::ToolsController < AdminController
   def index
-    @orders = {'Recently Added' => 'created_at DESC', 'Most Popular' => 'users_count DESC, created_at DESC', 'Featured' => 'featured DESC, users_count DESC, created_at DESC'}
+    @orders = {'Recently Added' => 'created_at DESC', 'Most Popular' => 'users_count DESC, created_at DESC', 'Featured' => 'featured DESC, created_at DESC'}
     params[:order] ||= 'Recently Added'
 
     @tools = Tool.search(params)

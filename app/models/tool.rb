@@ -2,6 +2,8 @@ class Tool < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
 
+  scope :featured, -> { order('featured DESC, created_at DESC') }
+
   belongs_to :license
   has_many :user_tools, dependent: :destroy
   has_many :users, through: :user_tools
@@ -111,7 +113,7 @@ class Tool < ActiveRecord::Base
       elsif params[:order] == 'Featured'
         sort do
           by :featured, :desc
-          by :users_count, :desc
+          # by :users_count, :desc
           by :created_at, :desc
         end
       end

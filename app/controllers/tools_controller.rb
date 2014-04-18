@@ -5,7 +5,7 @@ class ToolsController < ApplicationController
 
   def index
     @title = "» Tools"
-    @orders = {'Recently Added' => 'created_at DESC', 'Most Popular' => 'users_count DESC, created_at DESC', 'Featured' => 'featured DESC, users_count DESC, created_at DESC'}
+    @orders = {'Recently Added' => 'created_at DESC', 'Most Popular' => 'users_count DESC, created_at DESC', 'Featured' => 'featured DESC, created_at DESC'}
     params[:order] ||= 'Featured'
 
     @tools = Tool.search(params)
