@@ -1,0 +1,2 @@
+module ApptivistsHelper
+end

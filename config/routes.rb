@@ -22,6 +22,7 @@ Thetoolbox::Application.routes.draw do
   get 'signup' => 'users#new', as: 'signup'
 
   get 'about' => 'about#index', as: 'about'
+  get 'apptivists' => 'apptivists#index', as: 'apptivists'
 
   get 'contact' => 'contact#new', as: 'contact'
   post 'contact' => 'contact#create', as: 'contact'
