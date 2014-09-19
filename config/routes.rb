@@ -22,7 +22,6 @@ Thetoolbox::Application.routes.draw do
   get 'signup' => 'users#new', as: 'signup'
 
   get 'about' => 'about#index', as: 'about'
-  get 'apptivists' => 'apptivists#index', as: 'apptivists'
 
   get 'contact' => 'contact#new', as: 'contact'
   post 'contact' => 'contact#create', as: 'contact'
@@ -67,6 +66,11 @@ Thetoolbox::Application.routes.draw do
     get 'page/:page', action: :index, on: :collection
   end
 
+  # Apptivists
+  resources :apptivists, only: [:index, :show] do
+    get 'page/:page', action: :index, on: :collection
+  end
+
   # Admin
   get '/admin' => redirect('/admin/tools')
   namespace :admin do
@@ -83,6 +87,10 @@ Thetoolbox::Application.routes.draw do
     end
 
     resources :article_images, only: [:index, :create]
+
+    resources :apptivists do
+      get 'page/:page', action: :index, on: :collection
+    end
   end
 
   # Login/out
