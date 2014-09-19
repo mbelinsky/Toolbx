@@ -1,0 +1,12 @@
+@import '../mixins.css.scss';
+
+.admin.apptivists {
+
+    .left { float: left; @include width(8); }
+    .right { float: right; @include width(4); }
+
+    .group {
+        .inline + .inline { float: right; margin: 0; }
+    }
+
+}

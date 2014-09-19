@@ -1,5 +1,9 @@
 <%= render 'header' %>
 
+<% if current_user.admin %>
+	<p><%= link_to 'Revoke this users Apptivist status', revoke_apptivist_path(@user.id), remote: true, method: :post %></p>
+<% end %>
+
 <h2 class="strike">
 	<span><%= @user.first_name %>'s Toolbox</span>
 	<menu>

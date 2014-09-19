@@ -83,7 +83,13 @@ Thetoolbox::Application.routes.draw do
     end
 
     resources :article_images, only: [:index, :create]
+
+    resources :apptivists do
+      get 'page/:page', action: :index, on: :collection
+    end
   end
+
+  post 'users/:id/toggle_apptivist' => 'admin/apptivists#toggle_apptivist', as: 'apptivist'
 
   # Login/out
   resources :sessions

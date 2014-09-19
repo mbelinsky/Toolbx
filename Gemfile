@@ -50,6 +50,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'guard-rspec'
+  gem 'awesome_print'
 end
 group :test do
   gem 'faker'
