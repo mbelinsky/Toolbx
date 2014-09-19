@@ -1,3 +1,12 @@
-// Place all the styles related to the admin/apptivists controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import '../mixins.css.scss';
+
+.admin.apptivists {
+
+    .left { float: left; @include width(8); }
+    .right { float: right; @include width(4); }
+
+    .group {
+        .inline + .inline { float: right; margin: 0; }
+    }
+
+}

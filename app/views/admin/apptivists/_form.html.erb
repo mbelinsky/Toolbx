@@ -1,0 +1,67 @@
+<%= render 'shared/flashes' %>
+<%= form_for @apptivist do |f| %>
+    <% if @apptivist.errors.any? %>
+        <div id="error_explanation">
+            <ul>
+                <% @apptivist.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="left group">
+        <div class="field full">
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+        </div>
+
+        <div class="field full">
+            <%= f.label :category_ids, "Categories" %>
+            <%= f.collection_select :category_ids, Category.order(:title), :id, :title, {}, {multiple: true, class: 'chosen'} %>
+        </div>
+
+        <div class="field full">
+            <%= f.label :description %>
+            <%= f.text_area :description %>
+        </div>
+
+        <div class="group">
+            <div class="field inline">
+                <%= f.label :website_url %>
+                <%= f.text_field :website_url %>
+            </div>
+
+            <div class="field inline">
+                <%= f.label :appstore_url %>
+                <%= f.text_field :appstore_url %>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="field inline">
+                <%= f.label :google_play_url %>
+                <%= f.text_field :google_play_url %>
+            </div>
+
+            <div class="field inline">
+                <%= f.label :github_url %>
+                <%= f.text_field :github_url %>
+            </div>
+        </div>
+    </div>
+
+    <div class="right group">
+        <div class="field full">
+            <%= f.label :tool_ids, "Related Tools" %>
+            <%= f.collection_select :tool_ids, Tool.order(:name), :id, :name, {}, {multiple: true, class: 'chosen'} %>
+        </div>
+    </div>
+
+
+    <div class="actions group">
+        <%= f.submit @apptivist.new_record? ? "Add Apptivist" : "Update Apptivist", class: "submit button" %>
+        <%= link_to "View Apptivist", article_path(@apptivist), class: 'view button' unless @apptivist.new_record? %>
+        <%= link_to "Delete Apptivist", admin_article_path(@apptivist), class: 'delete', method: :delete, confirm: "Are you sure you want to permanently delete #{@apptivist.title}?" unless @apptivist.new_record? %>
+    </div>
+<% end %>

@@ -93,6 +93,8 @@ Thetoolbox::Application.routes.draw do
     end
   end
 
+  post 'users/:id/toggle_apptivist' => 'admin/apptivists#toggle_apptivist', as: 'apptivist'
+
   # Login/out
   resources :sessions
   get 'auth/:provider/callback', to: 'sessions#create_omniauth'

@@ -1,10 +1,5 @@
 class ApptivistsController < ApplicationController
+  def index
 
-    def index
-
-    end
-
-    def show
-
-    end
+  end
 end
