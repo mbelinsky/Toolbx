@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20140918184128) do
     t.string   "title"
     t.integer  "author_id"
     t.text     "body"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.boolean  "featured",                    :default => false
     t.integer  "users_count",                 :default => 0
     t.boolean  "published",                   :default => false

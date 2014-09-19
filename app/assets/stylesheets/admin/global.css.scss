@@ -1,7 +1,7 @@
 @import '../mixins.css.scss';
 
 html.admin {
-	h1.strike { @include width(12); }
+	h1.strike { @include width(12); margin-top: 80px !important; }
 
 	div.flash { @include width(12); }
 

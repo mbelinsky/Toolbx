@@ -3,6 +3,11 @@
 class UsersController < ApplicationController
   before_filter :authorize, except: [:show_tools, :show_articles, :new, :create]
 
+  def index
+    @title = "» Apptivists"
+    @users = User.where(apptivist: true)
+  end
+
   def new
     @title = "» Sign Up"
     @user = User.new
@@ -134,4 +139,5 @@ class UsersController < ApplicationController
   def remove_tool
     @tool = Tool.find(params[:id])
   end
+
 end

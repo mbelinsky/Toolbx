@@ -67,7 +67,7 @@ Thetoolbox::Application.routes.draw do
   end
 
   # Apptivists
-  get 'apptivists' => 'apptivists#index', as: :apptivists
+  get 'apptivists' => 'users#index', as: :apptivists
 
   # Admin
   get '/admin' => redirect('/admin/tools')
@@ -86,12 +86,12 @@ Thetoolbox::Application.routes.draw do
 
     resources :article_images, only: [:index, :create]
 
-    resources :apptivists do
+    resources :users do
       get 'page/:page', action: :index, on: :collection
     end
   end
 
-  post 'users/:id/toggle_apptivist' => 'admin/apptivists#toggle_apptivist', as: 'apptivist'
+  post 'users/:id/toggle_apptivist' => 'admin/users#toggle_apptivist', as: 'apptivist'
 
   # Login/out
   resources :sessions

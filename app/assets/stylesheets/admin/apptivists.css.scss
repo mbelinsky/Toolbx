@@ -1,12 +1,15 @@
 @import '../mixins.css.scss';
 
-.admin.apptivists {
+.admin.users {
 
     .left { float: left; @include width(8); }
-    .right { float: right; @include width(4); }
 
-    .group {
-        .inline + .inline { float: right; margin: 0; }
+    .right {
+        float: right;
+        @include width(4);
+
+        .full { width: 100%; }
     }
 
+    .role-dropdown .chosen-search { display: none; }
 }

@@ -54,6 +54,11 @@
     </div>
 
     <div class="right group">
+        <div class="field full role-dropdown">
+            <%= f.label :role, "Role" %>
+            <%= f.select :role, ["", "Developer", "Designer", "Founder"], {}, { prompt: '- select -', class: 'chosen' } %>
+        </div>
+
         <div class="field full">
             <%= f.label :tool_ids, "Related Tools" %>
             <%= f.collection_select :tool_ids, Tool.order(:name), :id, :name, {}, {multiple: true, class: 'chosen'} %>

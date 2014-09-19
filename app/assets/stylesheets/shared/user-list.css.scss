@@ -8,6 +8,7 @@
         width: 300px;
         margin-top: 40px;
         vertical-align: top;
+        position: relative
     }
 
     a {
@@ -39,18 +40,97 @@
         font-weight: normal;
         margin-bottom: 24px;
     }
+
+    .tool-icons {
+        position: absolute;
+        top: 90px; left: 50%;
+        margin-left: 40px;
+        border-radius: 6px;
+        width: 60px; height: 60px;
+        background: #dcdcdc;
+        padding: 4px;
+
+        img {
+            border-radius: 4px;
+            display: block;
+        }
+
+        &.count-0 { display: none; }
+
+        &.count-1 {
+            padding: 0;
+            img { width: 60px; height: 60px; }
+        }
+
+        &.count-2 {
+
+            img { width: 52px; height: 52px; }
+
+            .img-container {
+                width: 44%;
+                overflow: hidden;
+                border-radius: 4px;
+                position: absolute;
+
+                + .img-container { left: 52%; }
+            }
+        }
+
+        &.count-3,
+        &.count-4,
+        &.count-4plus {
+            padding: 2px;
+
+            img,
+            .others {
+                width: 24px; height: 24px;
+                height: auto;
+                float: left;
+                margin: 2px;
+                background: #f2f1ed;
+            }
+
+            .others {
+                line-height: 24px;
+                border-radius: 4px;
+                font-size: 12px;
+            }
+        }
+    }
 }
 
-.admin.apptivists {
+.admin.users .user-list {
 
-    li,h3,h4 { transition: all 150ms ease; }
-    li:active { transform: scale(.98) }
+    a,h3,h4 { transition: all 150ms ease; }
+
+    a { display: inline-block; }
+    a:active { transform: scale(.98) }
+
+    li { position: relative; }
 
     h3,h4 { opacity: .5; }
+
+    .btn-settings {
+        display: none;
+        position: absolute;
+        top: 0; left: 50%;
+        margin-left: 65px;
+        z-index: 1;
+        opacity: .1;
+        transition: opacity 200ms ease;
+
+        &:hover { opacity: 1; }
+    }
 
     // active apptivist
     .is-apptivist {
         .person { border: 4px solid #E55453; }
         h3,h4 { opacity: 1; }
+        .btn-settings { display: block; }
+
+        &:hover .btn-settings {
+            opacity: .3;
+            &:hover { opacity: 1; }
+        }
     }
 }

@@ -1,6 +1,6 @@
 <div class="inner group top-section">
-    <div class="how">
-        <h2 class="strike"><span>What is an apptivist?</span></h2>
+    <h2 class="strike"><span>What is an apptivist?</span></h2>
+    <div class="columns">
         <p>The Toolbox aims to transform the crowd noise that dominates the web today into effective communities of action.</p>
         <p>We envision a single platform where citizen activists can be deeply engaged in a range of issues and events around the world. This virtual space will provide easy access to the most useful information and tools for social change as well as clear avenues for taking meaningful action. Toolbox will connect disparate individuals, organizations and networks into a powerful global community of advocates working for social good.</p>
     </div>
@@ -10,7 +10,7 @@
     <h2 class="strike"><span>Apptivists</span></h2>
 
     <ul class="group user-list">
-        <% @apptivists.each do |user| %>
+        <% @users.each do |user| %>
           <li>
                 <%= link_to user_path(user) do %>
                     <%= image_tag user.profile_picture.url(:medium), class: 'person' %>
@@ -18,16 +18,39 @@
                     <h4 class="title">
                         <% if user.tools.count == 1 %><%# 1 tool %>
                             <%= user.tools.first.name %>
+
                         <% elsif user.tools.count >= 1 && user.tools.count <= 4 %><%# 2-4 tools %>
                             <% user.tools.each do |tool| %>
                                 <% if tool != user.tools.last %><%= tool.name %>, <% end %>
                                 <% if tool == user.tools.last %>and <%= tool.name %><% end %>
                             <% end %>
+
                         <% elsif user.tools.count > 4 %><%# 4+ tools %>
-                            <%= user.tools.first.name %>, <%= user.tools.second.name %>, and <%= user.tools.count-2 %> Others
+                            <%= user.tools[0].name %>, <%= user.tools[1].name %>, <%= user.tools[3].name %>, and <%= user.tools.count-2 %> Others
+
                         <% end %>
                     </h4>
-                    <%= image_tag user.tools.first.icon.url(:small), class: 'icon', itemprop: 'image' %>
+                    <div class="tool-icons count-<% if user.tools.count < 5 %><%= user.tools.count %><% else %>4plus<% end %>">
+                        <% if user.tools.count == 1 %><%# 1 tool %>
+                          <%= image_tag user.tools.first.icon.url(:small), itemprop: 'image' %>
+
+                        <% elsif user.tools.count == 2 %><%# 2 tools %>
+                            <% user.tools.each do |tool| %>
+                                <div class="img-container"><%= image_tag tool.icon.url(:small), itemprop: 'image' %></div>
+                            <% end %>
+
+                        <% elsif user.tools.count == 3 || user.tools.count == 4 %><%# 3-4 tools %>
+                            <% user.tools.each do |tool| %>
+                                <%= image_tag tool.icon.url(:small), itemprop: 'image' %>
+                            <% end %>
+
+                        <% elsif user.tools.count > 4 %><%# 4+ tools %>
+                            <%= image_tag user.tools[0].icon.url(:small), itemprop: 'image' %>
+                            <%= image_tag user.tools[1].icon.url(:small), itemprop: 'image' %>
+                            <%= image_tag user.tools[2].icon.url(:small), itemprop: 'image' %>
+                            <div class="others">+<%= user.tools.count-3 %></div>
+                        <% end %>
+                    </div>
                 <% end %>
           </li>
         <% end %>

@@ -1,4 +1,4 @@
-if $('html').is '.admin.apptivists'
+if $('html').is '.admin.users'
   $(document).ready ->
 
     $('.toggleApptivist').bind 'ajax:success', (data) ->
