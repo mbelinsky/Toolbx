@@ -25,7 +25,7 @@ class Admin::ApptivistsController < AdminController
     end
 
     respond_to do |format|
-      format.json { render :json => @apptivist }
+      format.json { render json: @apptivist }
     end
   end
 end

@@ -10,17 +10,26 @@
     <h2 class="strike"><span>Apptivists</span></h2>
 
     <ul class="group user-list">
-        <li>
-            <img src="http://placehold.it/200x200" alt="" class="person" />
-            <h3 class="din med">Peter Gabriel</h3>
-            <h4 class="title">Founder asodho ashd ijasidbasid biahsd has idjhasi </h4>
-        </li>
-        <% 8.times do %>
-        <li>
-            <img src="http://placehold.it/200x200" alt="" class="person" />
-            <h3 class="din med">Peter Gabriel</h3>
-            <h4 class="title">Founder</h4>
-        </li>
+        <% @apptivists.each do |user| %>
+          <li>
+                <%= link_to user_path(user) do %>
+                    <%= image_tag user.profile_picture.url(:medium), class: 'person' %>
+                    <h3 class="din med"><%= user.first_name %> <%= user.last_name %></h3>
+                    <h4 class="title">
+                        <% if user.tools.count == 1 %><%# 1 tool %>
+                            <%= user.tools.first.name %>
+                        <% elsif user.tools.count >= 1 && user.tools.count <= 4 %><%# 2-4 tools %>
+                            <% user.tools.each do |tool| %>
+                                <% if tool != user.tools.last %><%= tool.name %>, <% end %>
+                                <% if tool == user.tools.last %>and <%= tool.name %><% end %>
+                            <% end %>
+                        <% elsif user.tools.count > 4 %><%# 4+ tools %>
+                            <%= user.tools.first.name %>, <%= user.tools.second.name %>, and <%= user.tools.count-2 %> Others
+                        <% end %>
+                    </h4>
+                    <%= image_tag user.tools.first.icon.url(:small), class: 'icon', itemprop: 'image' %>
+                <% end %>
+          </li>
         <% end %>
     </ul>
 </div>

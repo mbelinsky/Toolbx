@@ -10,12 +10,18 @@
         vertical-align: top;
     }
 
+    a {
+        color: inherit;
+        text-decoration: inherit;
+    }
+
     .person {
         width: 140px; height: 140px;
         border-radius: 50%;
         display: block;
         margin: 0 auto;
-        background: #807e77
+        background: #807e77;
+        border: 4px solid transparent;
     }
 
     h3 {
@@ -32,5 +38,19 @@
         color: #E65453;
         font-weight: normal;
         margin-bottom: 24px;
+    }
+}
+
+.admin.apptivists {
+
+    li,h3,h4 { transition: all 150ms ease; }
+    li:active { transform: scale(.98) }
+
+    h3,h4 { opacity: .5; }
+
+    // active apptivist
+    .is-apptivist {
+        .person { border: 4px solid #E55453; }
+        h3,h4 { opacity: 1; }
     }
 }

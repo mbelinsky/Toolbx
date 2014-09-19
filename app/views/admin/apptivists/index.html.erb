@@ -4,9 +4,9 @@
 
 <ul class="user-list">
     <% @users.each do |user| %>
-        <li>
-            <%= link_to apptivist_path(user.id), remote: true, method: :post do %>
-                <div class="person"></div>
+        <li <% if user.apptivist %>class="is-apptivist"<% end %>>
+            <%= link_to apptivist_path(user.id), remote: true, method: :post, class: 'toggleApptivist' do %>
+                <%= image_tag user.profile_picture.url(:medium), class: 'person' %>
                 <h3 class="din med"><%= user.first_name %> <%= user.last_name %></h3>
                 <h4 class="title">Founder</h4>
             <% end %>

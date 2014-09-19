@@ -67,9 +67,7 @@ Thetoolbox::Application.routes.draw do
   end
 
   # Apptivists
-  resources :apptivists, only: [:index, :show] do
-    get 'page/:page', action: :index, on: :collection
-  end
+  get 'apptivists' => 'apptivists#index', as: :apptivists
 
   # Admin
   get '/admin' => redirect('/admin/tools')

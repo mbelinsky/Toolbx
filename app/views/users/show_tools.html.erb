@@ -1,7 +1,24 @@
 <%= render 'header' %>
 
 <% if current_user.admin %>
-	<p><%= link_to 'Revoke this users Apptivist status', revoke_apptivist_path(@user.id), remote: true, method: :post %></p>
+	<p><%= link_to 'Toggle apptivist status', apptivist_path(@user.id), remote: true, method: :post %></p>
+<% end %>
+
+<% if @user.apptivist %>
+	<h2 class="strike">
+		<span><%= @user.first_name %>'s Content</span>
+		<menu>
+			<li><%= link_to 'Tools', tools_user_path, class: 'current' %></li>
+			<li><%= link_to 'Articles', articles_user_path %></li>
+			<li><%= link_to 'Featured', articles_user_path %></li>
+		</menu>
+	</h2>
+
+	<ul class="items">
+		<% @tools.each do |tool| %>
+			<%= render 'tools/tool', tool: tool %>
+		<% end %>
+	</ul>
 <% end %>
 
 <h2 class="strike">
