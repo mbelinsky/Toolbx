@@ -4,6 +4,6 @@ class AddApptivistToUsers < ActiveRecord::Migration
     add_column :users, :role, :string
     add_column :users, :appstore_url, :string
     add_column :users, :google_play_url, :string
-    add_column :users, :github_url, :string
+    add_column :users, :github_username, :string
   end
 end

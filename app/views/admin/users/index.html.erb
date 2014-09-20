@@ -7,7 +7,7 @@
             <%= link_to apptivist_path(user.id), remote: true, method: :post, class: 'toggleApptivist' do %>
                 <%= image_tag user.profile_picture.url(:medium), class: 'person' %>
                 <h3 class="din med"><%= user.first_name %> <%= user.last_name %></h3>
-                <h4 class="title">Founder</h4>
+                <% if user.role %><h4 class="title"><%= user.role %></h4><% end %>
             <% end %>
             <%= link_to edit_admin_user_path(user.id), class: 'btn-settings' do %>
                 <%= image_tag("icon-settings.png", size: "20x20") %>

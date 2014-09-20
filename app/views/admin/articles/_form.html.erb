@@ -94,6 +94,13 @@
 			</div>
 		</div>
 
+		<div class="field author">
+			<div class="inside">
+				<%= f.label :featured_apptivist_ids, 'Featured Apptivists' %>
+				<%= f.collection_select :featured_apptivist_ids, User.where(apptivist: true), :id, :full_name, {}, {multiple: true, class: 'chosen'} %>
+			</div>
+		</div>
+
 	</div>
 
 	<div class="actions group">

@@ -4,7 +4,9 @@ $(document).ready ->
     offLeft: -65
 
   # Chosen Selects
-  $('.chosen').chosen()
+  $('.chosen').chosen
+    placeholder_text_multiple: "- select -"
+    placeholder_text_single: "- select -"
 
   # Masonry
   $('.items.articles').masonry

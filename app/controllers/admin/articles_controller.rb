@@ -26,6 +26,12 @@ class Admin::ArticlesController < AdminController
           id: @article.id
         }
       else
+        puts @article.apptivist_articles.first.errors.inspect
+        puts 'asd'
+        puts 'asd'
+        puts 'asd'
+        puts 'asd'
+        puts 'asd'
         format.html { render action: 'new' }
       end
     end

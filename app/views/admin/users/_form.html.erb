@@ -42,8 +42,8 @@
         </div>
 
         <div class="field inline last">
-            <%= f.label :github_url %>
-            <%= f.text_field :github_url %>
+            <%= f.label :github_username %>
+            <%= f.text_field :github_username %>
         </div>
 
         <div class="field full">
@@ -60,8 +60,8 @@
         </div>
 
         <div class="field full">
-            <%= f.label :tool_ids, "Related Tools" %>
-            <%= f.collection_select :tool_ids, Tool.order(:name), :id, :name, {}, {multiple: true, class: 'chosen'} %>
+            <%= f.label :owned_tool_ids, "Tools" %>
+            <%= f.collection_select :owned_tool_ids, Tool.order(:name), :id, :name, {}, {multiple: true, class: 'chosen'} %>
         </div>
     </div>
 

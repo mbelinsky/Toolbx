@@ -15,7 +15,7 @@
 	</h2>
 
 	<ul class="items">
-		<% @tools.each do |tool| %>
+		<% @owned_tools.each do |tool| %>
 			<%= render 'tools/tool', tool: tool %>
 		<% end %>
 	</ul>

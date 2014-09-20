@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140918184128) do
+ActiveRecord::Schema.define(:version => 20140919233607) do
+
+  create_table "apptivist_articles", :force => true do |t|
+    t.integer  "apptivist_id"
+    t.integer  "article_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "apptivist_articles", ["apptivist_id"], :name => "index_apptivist_articles_on_apptivist_id"
+  add_index "apptivist_articles", ["article_id"], :name => "index_apptivist_articles_on_article_id"
+
+  create_table "apptivist_tools", :force => true do |t|
+    t.integer  "apptivist_id"
+    t.integer  "tool_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "apptivist_tools", ["apptivist_id"], :name => "index_apptivist_tools_on_apptivist_id"
+  add_index "apptivist_tools", ["tool_id"], :name => "index_apptivist_tools_on_tool_id"
 
   create_table "article_categories", :force => true do |t|
     t.integer  "article_id"
@@ -56,8 +76,8 @@ ActiveRecord::Schema.define(:version => 20140918184128) do
     t.string   "title"
     t.integer  "author_id"
     t.text     "body"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
     t.boolean  "featured",                    :default => false
     t.integer  "users_count",                 :default => 0
     t.boolean  "published",                   :default => false
@@ -266,7 +286,7 @@ ActiveRecord::Schema.define(:version => 20140918184128) do
     t.string   "role"
     t.string   "appstore_url"
     t.string   "google_play_url"
-    t.string   "github_url"
+    t.string   "github_username"
   end
 
   add_index "users", ["city_id"], :name => "index_users_on_city_id"

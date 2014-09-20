@@ -70,6 +70,19 @@ html.users.show_tools, html.users.show_articles {
 								background-position: 0 -360px;
 								&:hover { background-position: 0 -320px; }
 							}
+
+							&.appstore {
+								background-position: 0 -440px;
+								&:hover { background-position: 0 -400px; }
+							}
+							&.google-play {
+								background-position: 0 -520px;
+								&:hover { background-position: 0 -480px; }
+							}
+							&.github {
+								background-position: 0 -600px;
+								&:hover { background-position: 0 -560px; }
+							}
 						}
 					}
 				}
