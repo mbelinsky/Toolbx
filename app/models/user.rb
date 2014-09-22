@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :owned_tools, through: :apptivist_tools, source: :tool
 
   has_many :apptivist_articles, dependent: :destroy, foreign_key: :apptivist_id
-  has_many :features, through: :apptivist_articles
+  has_many :features, through: :apptivist_articles, source: :article
 
   has_many :user_articles, dependent: :destroy
   has_many :articles, through: :user_articles

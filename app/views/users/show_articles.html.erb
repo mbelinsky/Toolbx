@@ -16,7 +16,7 @@
 
 	<ul class="items">
 		<% @features.each do |article| %>
-			asd
+			<%= render 'articles/article', article: article %>
 		<% end %>
 	</ul>
 <% end %>

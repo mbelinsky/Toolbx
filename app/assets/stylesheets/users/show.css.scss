@@ -40,15 +40,17 @@ html.users.show_tools, html.users.show_articles {
 
 			nav.social {
 				float: right;
+				max-width: 270px;
+				text-align: right;
 
 				ul {
 					list-style: none;
 
 					li {
-						float: left; margin-left: 10px;
+						display: inline-block; margin-left: 10px; margin-bottom: 10px;
 
 						a {
-							background: url("/assets/users/social-icons.png"); width: 40px; height: 40px; text-indent: -9999px; display: block; position: relative;
+							background: url("/assets/users/social-icons.png"); width: 40px; text-align: left; height: 40px; text-indent: -9999px; display: block; position: relative;
 
 							&.facebook {
 								background-position: 0 -40px;
@@ -133,7 +135,7 @@ html.users.show_tools, html.users.show_articles {
 				nav.social {
 					text-align: center; float: none; display: block; width: 100%; position: relative; bottom: auto; right: auto; margin-top: 20px;
 
-					ul li { display: inline-block; float: none; margin: 0 5px; }
+					ul li { display: inline-block; float: none; }
 				}
 
 				nav.toolbox { display: none; }

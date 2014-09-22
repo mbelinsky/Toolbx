@@ -24,7 +24,7 @@
 				<% unless @user.website_url.blank? %><li><%= link_to 'Website', @user.formatted_website_url, class: 'website', target: '_blank' %></li><% end %>
 				<% unless @user.appstore_url.blank? %><li><%= link_to 'Appstore', @user.appstore_url, class: 'appstore', target: '_blank' %></li><% end %>
 				<% unless @user.google_play_url.blank? %><li><%= link_to 'Google Play', @user.google_play_url, class: 'google-play', target: '_blank' %></li><% end %>
-				<% unless @user.github_url.blank? %><li><%= link_to 'Github', @user.github_url, class: 'github', target: '_blank' %></li><% end %>
+				<% unless @user.github_username.blank? %><li><%= link_to 'Github', @user.github_url, class: 'github', target: '_blank' %></li><% end %>
 			</ul>
 		</nav>
 
