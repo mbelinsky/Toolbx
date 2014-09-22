@@ -39,6 +39,7 @@ Thetoolbox::Application.routes.draw do
     get 'tools/page/:page', action: :show_tools, on: :member
     get 'articles', action: :show_articles, on: :member
     get 'articles/page/:page', action: :show_articles, on: :member
+    get 'features', action: :show_features, on: :member
   end
 
   # Global search

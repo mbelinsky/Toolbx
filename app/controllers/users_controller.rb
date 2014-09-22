@@ -131,6 +131,13 @@ class UsersController < ApplicationController
     @user = User.find_by_username(params[:id]) || User.find(params[:id])
     @title = "» #{@user.full_name} » Articles"
     @articles = @user.articles.page(params[:page]).per(36)
+    @user_articles = Article.where(author_id: @user.id).page(params[:page]).per(36)
+  end
+
+  def show_features
+    @user = User.find_by_username(params[:id]) || User.find(params[:id])
+    @title = "» #{@user.full_name} » Articles"
+    @articles = @user.articles.page(params[:page]).per(36)
     @features = @user.features
   end
 
