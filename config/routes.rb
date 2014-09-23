@@ -69,6 +69,7 @@ Thetoolbox::Application.routes.draw do
 
   # Apptivists
   get 'apptivists' => 'users#index', as: :apptivists
+  post 'apptivists' => 'users#index', as: :apptivists
 
   # Admin
   get '/admin' => redirect('/admin/tools')

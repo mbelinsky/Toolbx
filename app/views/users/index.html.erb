@@ -9,9 +9,15 @@
 <div class="inner the-team">
     <h2 class="strike">
         <span>Apptivists</span>
-        <%= form_for :role do |f| %>
-          <%= f.select :role, [["All", ""], "Developer", "Designer", "Founder"], {}, { class: 'chosen' } %>
-        <% end %>
+        <form id="filterForm" action="/apptivists" method="post">
+            <select name="role" class="chosen" data-active="<%= params[:role] %>">
+                <option val="<%= params[:role] %>"><%= params[:role] %></option>
+                <option val="">All</option>
+                <option val="Designer">Designer</option>
+                <option val="Developer">Developer</option>
+                <option val="Founder">Founder</option>
+            </select>
+        </form>
     </h2>
 
     <ul class="group user-list">

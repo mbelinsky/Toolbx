@@ -1,5 +1,10 @@
-if $('html').is '.user.index'
+if $('html').is '.users.index'
 
-  $('.strike select').on 'change', ->
-    console.log "as"
-    $('.strike form').submit()
+  $(document).ready ->
+
+    setActive = ->
+      active = $('[data-active]').data("active")
+      $('#filterForm').find("[val=#{active}]").addClass("asd")
+
+    $('.strike select').on 'change', ->
+      $('#filterForm').submit()
