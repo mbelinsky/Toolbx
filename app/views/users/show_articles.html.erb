@@ -1,9 +1,5 @@
 <%= render 'header' %>
 
-<% if current_user.admin %>
-	<p><%= link_to 'Toggle apptivist status', apptivist_path(@user.id), remote: true, method: :post %></p>
-<% end %>
-
 <% if @user.apptivist %>
 	<h2 class="strike">
 		<span><%= @user.first_name %>'s Content</span>
