@@ -7,14 +7,18 @@ html.users.show_tools, html.users.show_articles, html.users.show_features {
 		div.left {
 			float: left; border-right: 2px solid #EFEEED;
 
-			img { @include border-radius(90px); display: block; float: left; position: relative; }
+			.img { @include border-radius(90px); display: block; float: left; position: relative; }
 
 			div.about {
 				float: left; margin-left: 20px; width: 450px; padding-right: 27px;
 
 				h1 { font-size: 32px; }
 
-				div.location {
+				.role {
+					color: #999791; font-style: italic; padding: 0 0 6px 0; margin: -4px 2em 0 0;
+				}
+
+				.location {
 					color: #999791; font-style: italic; padding: 0 0 6px 0; margin-top: -4px;
 
 					&:before { content: ""; display: inline-block; width: 8px; height: 10px; background: url("/assets/location-marker.png") no-repeat left top; padding-right: 4px; }
@@ -31,7 +35,21 @@ html.users.show_tools, html.users.show_articles, html.users.show_features {
 					}
 				}
 
+				a.contact-item {
+					color: #E55352; margin-right: 2em; text-decoration: none;
+				}
+
+				a.button.email-apptivist {
+					background: #f2f1ed; color: #bfbdb6; text-transform: capitalize;
+
+					&:hover { color: #999 }
+
+					img { display: inline-block; vertical-align: middle; position: relative; margin: -2px 5px 0 -3px; }
+				}
+
 				p.bio { clear: both; font-size: 13px; line-height: 20px; padding-top: 12px; overflow: hidden; white-space: pre-wrap; }
+
+				p { clear: both; }
 			}
 		}
 
