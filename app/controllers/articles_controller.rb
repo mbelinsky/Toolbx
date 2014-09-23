@@ -19,5 +19,6 @@ class ArticlesController < ApplicationController
     @title = "» #{@article.title}"
     @has_footer = true
     @has_control_bar = true
+    @similar = Article.where(published: true).in_categories(@article.categories.map {|cat| cat.id}).where('articles.id != ?', @article.id).order('created_at DESC, users_count DESC').limit(3)
   end
 end
