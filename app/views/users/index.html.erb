@@ -11,7 +11,9 @@
         <span>Apptivists</span>
         <form id="filterForm" action="/apptivists" method="post">
             <select name="role" class="chosen" data-active="<%= params[:role] %>">
-                <option val="<%= params[:role] %>"><%= params[:role] %></option>
+                <% if params[:role] %>
+                    <option val="<%= params[:role] %>"><%= params[:role] %></option>
+                <% end %>
                 <option val="">All</option>
                 <option val="Designer">Designer</option>
                 <option val="Developer">Developer</option>
