@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def index
     @title = "» Apptivists"
     @users = User.where(apptivist: true)
-    if params[:role].present?
+    if params[:role].present? && params[:role] != 'All'
       @users = @users.where(role: params[:role])
     end
     @users = @users.page(params[:page]).per(12)

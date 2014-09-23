@@ -69,9 +69,9 @@ Thetoolbox::Application.routes.draw do
 
   # Apptivists
 
-  resources :apptivists, controller: "users" do
+  resources :apptivists, controller: 'users' do
     get '/' => 'users#index'
-    post '/' => 'users#index'
+
     get 'page/:page', action: :index, on: :collection
   end
 
