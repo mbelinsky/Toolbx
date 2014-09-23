@@ -34,7 +34,7 @@ Thetoolbox::Application.routes.draw do
   # User
   get '/users/:id' => redirect('/users/%{id}/tools'), as: 'user'
 
-  resources :users, except: [:show, :edit, :update, :destroy] do
+  resources :users, except: [:index, :show, :edit, :update, :destroy] do
     get 'tools', action: :show_tools, on: :member
     get 'tools/page/:page', action: :show_tools, on: :member
     get 'articles', action: :show_articles, on: :member
@@ -68,8 +68,12 @@ Thetoolbox::Application.routes.draw do
   end
 
   # Apptivists
-  get 'apptivists' => 'users#index', as: :apptivists
-  post 'apptivists' => 'users#index', as: :apptivists
+
+  resources :apptivists, controller: "users" do
+    get '/' => 'users#index'
+    post '/' => 'users#index'
+    get 'page/:page', action: :index, on: :collection
+  end
 
   # Admin
   get '/admin' => redirect('/admin/tools')

@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     if params[:role].present?
       @users = @users.where(role: params[:role])
     end
+    @users = @users.page(params[:page]).per(12)
   end
 
   def new
