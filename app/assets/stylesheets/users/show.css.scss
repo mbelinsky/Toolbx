@@ -121,6 +121,14 @@ html.users.show_tools, html.users.show_articles, html.users.show_features {
 		}
 	}
 
+	.toggle-button {
+		text-align: right;
+		margin: 10px 0;
+
+		a { display: inline-block; text-decoration: none; color: #999; margin-right: 10px; }
+		a:hover { color: #333; }
+	}
+
 	h2.strike { margin-top: 42px; }
 
 	//one column
