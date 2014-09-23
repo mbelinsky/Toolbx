@@ -2,7 +2,39 @@
 
 html.users.index {
 
-    .strike { margin: 50px 0 20px; }
+    .strike {
+        margin: 50px 0 20px;
+
+        form {
+            float: right;
+            padding-left: 18px;
+            background: #F2F1ED;
+            position: relative;
+            z-index: 1;
+
+            .chosen-container { min-width: 150px; }
+
+            span { background: none; }
+
+            .chosen-search { display: none; }
+
+            /*
+
+            .highlighted { background: none; }
+
+            .chosen-drop,
+            .chosen-single {
+                background: #e8534f;
+                border: 0;
+                border-radius: 20px;
+            }
+
+            .chosen-with-drop {
+                .chosen-single { border-radius: 20px 20px 0 0; }
+                .chosen-drop { border-radius:  0 0 20px 20px; }
+            } */
+        }
+    }
 
     .columns {
         @media only screen and (min-width: 768px)  {

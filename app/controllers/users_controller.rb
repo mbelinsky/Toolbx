@@ -1,11 +1,14 @@
 #!/bin/env ruby
 # encoding: utf-8
 class UsersController < ApplicationController
-  before_filter :authorize, except: [:show_tools, :show_articles, :new, :create]
+  before_filter :authorize, except: [:index, :show_tools, :show_articles, :show_features, :new, :create]
 
   def index
     @title = "» Apptivists"
     @users = User.where(apptivist: true)
+    if params[:role].present?
+      @users = @users.where(role: params[:role])
+    end
   end
 
   def new
