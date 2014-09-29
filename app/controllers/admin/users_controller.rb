@@ -12,7 +12,7 @@ class Admin::UsersController < AdminController
   def update
     @has_footer = true
     @title = '» Update Apptivist'
-    @user = User.find_by_username(params[:id])
+    @user = User.find_by_username(params[:id]) || User.find(params[:id])
 
     if @user.update_attributes(params[:user])
       redirect_to :back, notice: "Changes saved."
