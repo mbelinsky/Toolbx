@@ -14,7 +14,7 @@
 			</ul>
 			<p>
 				<% if @user.website_url %><a href="<%= @user.website_url %>" class="contact-item"><%= @user.website_url %></a><% end %>
-				<% if @user.email %><a href="mailto:<%= @user.email %>" class="contact-item"><%= @user.email %></a><% end %>
+				<% if !@user.apptivist && @user.email %><a href="mailto:<%= @user.email %>" class="contact-item"><%= @user.email %></a><% end %>
 			</p>
 
 			<% unless @user.bio.blank? %><p class="bio" itemprop="description"><%= @user.bio %></p><% end %>
