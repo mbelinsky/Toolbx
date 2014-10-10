@@ -1,7 +1,10 @@
 class Admin::UsersController < AdminController
   def index
+    @orders = {'Recently Added' => 'users.created_at DESC', 'By Name' => 'users.first_name ASC, users.created_at DESC'}
+    params[:order] ||= 'By Name'
+
     @page_header = 'Manage Apptivists'
-    @users = User.all
+    @users = User.search(params)
   end
 
   def edit

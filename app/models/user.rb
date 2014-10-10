@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+
   has_secure_password
+
   belongs_to :city
   has_many :languages, through: :user_languages
 
@@ -44,6 +48,40 @@ class User < ActiveRecord::Base
   has_attached_file :profile_picture, styles: { medium: "140x140#", small: "60x60#", thumb: "30x30#" }, default_url: 'profile-default/missing_:style.png'
   validates_attachment_content_type :profile_picture, content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/xpng', 'image/gif'], message: 'please upload a jpg, png, or gif file'
   validates_attachment_size :profile_picture, less_than: 500.kilobytes
+
+  tire do
+    settings analysis: {
+      analyzer: {
+        default: {
+          type: :snowball
+        }
+      }
+    }
+
+    mapping do
+      indexes :id, type: :integer, index: :not_analyzed
+      indexes :first_name, analyzer: :snowball
+      indexes :last_name, analyzer: :snowball
+      indexes :email, analyzer: :snowball
+      indexes :created_at, type: :date
+
+      indexes :categories do
+        indexes :id, type: :integer, index: :not_analyzed
+        indexes :title, type: :string, index: :not_analyzed
+      end
+    end
+  end
+
+  def to_indexed_json
+    to_json(
+      methods: [ :profile_pic ],
+      include: [ :categories ]
+    )
+  end
+
+  def profile_pic
+    profile_picture.url(:medium)
+  end
 
   def profile_picture_remote_url=(url)
     begin
@@ -99,6 +137,37 @@ class User < ActiveRecord::Base
       user.username = nick if nick.match(/^[\d\w-]+$/) && !User.exists?(username: nick)
 
       user.new_user = true # This is for mixpanel, so we know to alias
+    end
+  end
+
+  def self.search(params)
+    tire.search(page: params[:page], per_page: 36) do
+      # generate the actual
+      query do
+        if params[:keyword].blank? && params[:category_ids].blank?
+          all
+        else
+          boolean do
+            must {string params[:keyword], default_operator: 'AND'} if params[:keyword].present?
+            must {terms 'categories.id', params[:category_ids]} if params[:category_ids].present?
+          end
+        end
+      end
+
+      # order the results
+      if params[:order] == 'Recently Added'
+        sort { by :created_at, 'desc' }
+      elsif params[:order] == 'By Name'
+        sort do
+          by :first_name, :asc
+          by :created_at, :desc
+        end
+      end
+
+      # facets for has_many associations
+      facet 'categories' do
+        terms :category_id
+      end
     end
   end
 

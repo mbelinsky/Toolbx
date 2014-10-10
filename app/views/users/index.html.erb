@@ -27,23 +27,20 @@
 
     <ul class="group user-list">
         <% @users.each do |user| %>
-          <li>
+            <li>
                 <%= link_to user_path(user) do %>
                     <%= image_tag user.profile_picture.url(:medium), class: 'person' %>
                     <h3 class="din med"><%= user.first_name %> <%= user.last_name %></h3>
                     <h4 class="title">
                         <% if user.owned_tools.count == 1 %><%# 1 tool %>
                             <%= user.owned_tools.first.name %>
-
                         <% elsif user.owned_tools.count >= 1 && user.owned_tools.count <= 4 %><%# 2-4 owned_tools %>
                             <% user.owned_tools.each do |tool| %>
                                 <% if tool != user.owned_tools.last %><%= tool.name %>, <% end %>
                                 <% if tool == user.owned_tools.last %>and <%= tool.name %><% end %>
                             <% end %>
-
                         <% elsif user.owned_tools.count > 4 %><%# 4+ owned_tools %>
                             <%= user.owned_tools[0].name %>, <%= user.owned_tools[1].name %>, <%= user.owned_tools[3].name %>, and <%= user.owned_tools.count-3 %> Others
-
                         <% end %>
                     </h4>
                     <div class="tool-icons count-<% if user.owned_tools.count < 5 %><%= user.owned_tools.count %><% else %>4plus<% end %>">
@@ -68,7 +65,7 @@
                         <% end %>
                     </div>
                 <% end %>
-          </li>
+            </li>
         <% end %>
     </ul>
 </div>
