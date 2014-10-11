@@ -1,0 +1,9 @@
+<% path ||= roundup_path(roundup) %>
+<% mini ||= false %>
+
+<li class="tool">
+    <%= link_to path do %>
+        <h3 itemprop="name"><%= roundup.title %></h3>
+        <p class="created-at"><%= roundup.created_at.strftime("%b %d %Y") %></p>
+    <% end %>
+</li>

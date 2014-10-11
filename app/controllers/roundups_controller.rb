@@ -1,0 +1,2 @@
+class RoundupsController < ApplicationController
+end

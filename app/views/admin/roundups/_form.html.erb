@@ -1,0 +1,45 @@
+<%= render 'shared/flashes' %>
+<%= form_for [:admin, @roundup] do |f| %>
+    <% if @roundup.errors.any? %>
+        <div id="error_explanation">
+            <ul>
+                <% @roundup.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="left group">
+        <div class="field full">
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </div>
+
+        <div class="field full">
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+        </div>
+
+        <div class="field full">
+            <%= f.label :tool_ids, "Tools" %>
+            <%= f.collection_select :tool_ids, Tool.order(:name), :id, :name, {}, {multiple: true, class: 'chosen'} %>
+        </div>
+
+        <div class="field full">
+            <%= f.label :article_ids, "Articles" %>
+            <%= f.collection_select :article_ids, Article.order(:id), :id, :title, {}, {multiple: true, class: 'chosen'} %>
+        </div>
+
+        <div class="field full">
+            <%= f.label :user_ids, "Users" %>
+            <%= f.collection_select :user_ids, User.order(:first_name), :id, :first_name, {}, {multiple: true, class: 'chosen'} %>
+        </div>
+    </div>
+
+    <div class="actions group">
+        <%= f.submit @roundup.new_record? ? "Add Tool" : "Update Tool Roundup", class: "submit button" %>
+        <%= link_to "View Tool Roundup", roundup_path(@roundup), class: 'view button' unless @roundup.new_record? %>
+        <%= link_to "Delete Tool Roundup", admin_roundup_path(@roundup), class: 'delete', method: :delete, confirm: "Are you sure you want to permanently delete #{@roundup.title}?" unless @roundup.new_record? %>
+    </div>
+<% end %>

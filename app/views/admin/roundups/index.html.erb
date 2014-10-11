@@ -1,0 +1,14 @@
+<%= render 'admin/header' %>
+<%= render 'shared/flashes' %>
+
+<ul class="items full-width">
+    <li class="link">
+        <%= link_to new_admin_tool_path do %><span class="add">Add Tool</span><% end %>
+    </li>
+
+    <% @roundups.each do |roundup| %>
+        <%= render 'admin/roundups/roundup', roundup: roundup, path: edit_admin_roundup_path(roundup) %>
+    <% end %>
+</ul>
+
+<div id="infinite-indicator" class="group"></div>
