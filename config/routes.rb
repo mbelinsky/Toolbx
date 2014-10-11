@@ -75,6 +75,11 @@ Thetoolbox::Application.routes.draw do
     get 'page/:page', action: :index, on: :collection
   end
 
+  # Tools Roundup
+  resources :roundups, only: [:index, :show] do
+    get 'page/:page', action: :index, on: :collection
+  end
+
   # Admin
   get '/admin' => redirect('/admin/tools')
   namespace :admin do
@@ -93,6 +98,10 @@ Thetoolbox::Application.routes.draw do
     resources :article_images, only: [:index, :create]
 
     resources :users do
+      get 'page/:page', action: :index, on: :collection
+    end
+
+    resources :roundups do
       get 'page/:page', action: :index, on: :collection
     end
   end

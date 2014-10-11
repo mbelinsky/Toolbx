@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140919233607) do
+ActiveRecord::Schema.define(:version => 20141010225853) do
 
   create_table "apptivist_articles", :force => true do |t|
     t.integer  "apptivist_id"
@@ -139,6 +139,23 @@ ActiveRecord::Schema.define(:version => 20140919233607) do
     t.string  "name",       :limit => 35
     t.string  "short_name", :limit => 25
     t.integer "country_id", :limit => 2
+  end
+
+  create_table "roundup_items", :force => true do |t|
+    t.integer  "roundup_id"
+    t.integer  "item_id"
+    t.string   "item_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "roundup_items", ["roundup_id"], :name => "index_roundup_items_on_roundup_id"
+
+  create_table "roundups", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "screens", :force => true do |t|
