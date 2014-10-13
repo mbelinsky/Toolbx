@@ -38,8 +38,8 @@
     </div>
 
     <div class="actions group">
-        <%= f.submit @roundup.new_record? ? "Add Tool" : "Update Tool Roundup", class: "submit button" %>
-        <%= link_to "View Tool Roundup", roundup_path(@roundup), class: 'view button' unless @roundup.new_record? %>
-        <%= link_to "Delete Tool Roundup", admin_roundup_path(@roundup), class: 'delete', method: :delete, confirm: "Are you sure you want to permanently delete #{@roundup.title}?" unless @roundup.new_record? %>
+        <%= f.submit @roundup.new_record? ? "Add Roundup" : "Update Roundup", class: "submit button" %>
+        <%= link_to "View Roundup", roundup_path(@roundup), class: 'view button' unless @roundup.new_record? %>
+        <%= link_to "Delete Roundup", admin_roundup_path(@roundup), class: 'delete', method: :delete, confirm: "Are you sure you want to permanently delete #{@roundup.title}?" unless @roundup.new_record? %>
     </div>
 <% end %>

@@ -5,12 +5,12 @@ class Admin::RoundupsController < ApplicationController
   end
 
   def new
-    @page_header = 'Add Tool Roundup'
+    @page_header = 'Add Roundup'
     @roundup = Roundup.new
   end
 
   def create
-    @page_header = 'Edit Tool Roundup'
+    @page_header = 'Edit Roundup'
     @roundup = Roundup.new(params[:roundup])
 
     respond_to do |format|
@@ -23,12 +23,12 @@ class Admin::RoundupsController < ApplicationController
   end
 
   def edit
-    @page_header = 'Edit Tool Roundup'
+    @page_header = 'Edit Roundup'
     @roundup = Roundup.find(params[:id])
   end
 
   def update
-    @page_header = 'Edit Tool Roundup'
+    @page_header = 'Edit Roundup'
     @roundup = Roundup.find(params[:id])
 
     respond_to do |format|

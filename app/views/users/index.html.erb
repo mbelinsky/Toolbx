@@ -27,7 +27,7 @@
 
     <ul class="group user-list">
         <% @users.each do |user| %>
-            <li class="user">
+            <li class="user-block">
                 <%= link_to user_path(user) do %>
                     <%= image_tag user.profile_picture.url(:medium), class: 'person' %>
                     <h3 class="din med"><%= user.first_name %> <%= user.last_name %></h3>
