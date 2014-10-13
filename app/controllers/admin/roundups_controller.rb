@@ -9,6 +9,19 @@ class Admin::RoundupsController < ApplicationController
     @roundup = Roundup.new
   end
 
+  def create
+    @page_header = 'Edit Tool Roundup'
+    @roundup = Roundup.new(params[:roundup])
+
+    respond_to do |format|
+      if @roundup.save
+        format.html { redirect_to edit_admin_roundup_path(@roundup), notice: "#{@roundup.title} has been created." }
+      else
+        format.html { render action: 'new' }
+      end
+    end
+  end
+
   def edit
     @page_header = 'Edit Tool Roundup'
     @roundup = Roundup.find(params[:id])

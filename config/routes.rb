@@ -76,8 +76,8 @@ Thetoolbox::Application.routes.draw do
   end
 
   # Tools Roundup
-  resources :roundups, only: [:index, :show] do
-    get 'page/:page', action: :index, on: :collection
+  resources :roundups do
+    get 'roundup/:id' => 'roundups#show'
   end
 
   # Admin

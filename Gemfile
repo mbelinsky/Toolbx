@@ -51,6 +51,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-rspec'
   gem 'awesome_print'
+  gem 'quiet_assets'
 end
 group :test do
   gem 'faker'
