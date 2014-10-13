@@ -1,0 +1,40 @@
+<% user ||= item %>
+<li class="user-block">
+    <%= link_to user_path(user) do %>
+        <%= image_tag user.profile_picture.url(:medium), class: 'person' %>
+        <h3 class="din med"><%= user.first_name %> <%= user.last_name %></h3>
+        <h4 class="title">
+            <% if user.owned_tools.count == 1 %><%# 1 tool %>
+                <%= user.owned_tools.first.name %>
+            <% elsif user.owned_tools.count >= 1 && user.owned_tools.count <= 4 %><%# 2-4 owned_tools %>
+                <% user.owned_tools.each do |tool| %>
+                    <% if tool != user.owned_tools.last %><%= tool.name %>, <% end %>
+                    <% if tool == user.owned_tools.last %>and <%= tool.name %><% end %>
+                <% end %>
+            <% elsif user.owned_tools.count > 4 %><%# 4+ owned_tools %>
+                <%= user.owned_tools[0].name %>, <%= user.owned_tools[1].name %>, <%= user.owned_tools[3].name %>, and <%= user.owned_tools.count-3 %> Others
+            <% end %>
+        </h4>
+        <div class="tool-icons count-<% if user.owned_tools.count < 5 %><%= user.owned_tools.count %><% else %>4plus<% end %>">
+            <% if user.owned_tools.count == 1 %><%# 1 tool %>
+              <%= image_tag user.owned_tools.first.icon.url(:small), itemprop: 'image' %>
+
+            <% elsif user.owned_tools.count == 2 %><%# 2 owned_tools %>
+                <% user.owned_tools.each do |tool| %>
+                    <div class="img-container"><%= image_tag tool.icon.url(:small), itemprop: 'image' %></div>
+                <% end %>
+
+            <% elsif user.owned_tools.count == 3 || user.owned_tools.count == 4 %><%# 3-4 owned_tools %>
+                <% user.owned_tools.each do |tool| %>
+                    <%= image_tag tool.icon.url(:small), itemprop: 'image' %>
+                <% end %>
+
+            <% elsif user.owned_tools.count > 4 %><%# 4+ owned_tools %>
+                <%= image_tag user.owned_tools[0].icon.url(:small), itemprop: 'image' %>
+                <%= image_tag user.owned_tools[1].icon.url(:small), itemprop: 'image' %>
+                <%= image_tag user.owned_tools[2].icon.url(:small), itemprop: 'image' %>
+                <div class="others">+<%= user.owned_tools.count-3 %></div>
+            <% end %>
+        </div>
+    <% end %>
+</li>

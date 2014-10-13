@@ -4,7 +4,7 @@
 
 <ul class="user-list">
     <% @users.each do |user| %>
-        <li <% if user.apptivist %>class="is-apptivist"<% end %>>
+        <li class="user-block<% if user.apptivist %> is-apptivist<% end %>">
             <%= link_to apptivist_path(user.id), remote: true, method: :post, class: 'toggleApptivist' do %>
                 <%= image_tag user.profile_pic, class: 'person' %>
                 <h3 class="din med"><%= user.first_name %> <%= user.last_name %></h3>

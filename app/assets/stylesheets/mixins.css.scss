@@ -22,6 +22,14 @@
 	}
 }
 
+@mixin clear {
+	&:after {
+    	content: "";
+    	display: table;
+    	clear: both;
+  	}
+}
+
 @mixin media-max-width($width) {
 	@media screen and (max-width: $width) {
 		@content;

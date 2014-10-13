@@ -1,2 +1,14 @@
-<h1>Roundups#show</h1>
-<p><%= :id %></p>
+<header class="roundups-header">
+    <h1><%= @roundup.title %></h1>
+    <% if @roundup.description %><p><%= @roundup.description %></p><% end %>
+</header>
+
+<ul class="mixed-list">
+    <% @items.each do |item| %>
+        <%= render item.item_type, item: item %>
+    <% end %>
+</ul>
+
+<p class="btn">
+    <%= link_to "See all tools", tools_path, class: "button" %>
+</p>

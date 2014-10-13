@@ -52,6 +52,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'awesome_print'
   gem 'quiet_assets'
+  gem 'meta_request'
 end
 group :test do
   gem 'faker'

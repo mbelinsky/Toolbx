@@ -1,0 +1,19 @@
+@import '../mixins.css.scss';
+
+.roundups .mixed-list {
+    > li {
+        float: left;
+        margin: 10px !important;
+        text-align: left;
+        height: 315px !important;
+    }
+
+    .user-block {
+        text-align: center;
+        a {
+            display: inline-block;
+            margin-top: 50px;
+            position: relative;
+        }
+    }
+}
