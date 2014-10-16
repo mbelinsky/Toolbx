@@ -61,6 +61,11 @@
             <%= f.hidden_field :city_id %>
             <input type="text" id="city-picker" value="<%= current_user.city_name %>" placeholder="Search by city…">
         </div>
+
+        <div class="field inline">
+            <%= f.label :featured %>
+            <%= f.check_box :featured %>
+        </div>
     </div>
 
     <div class="right group">

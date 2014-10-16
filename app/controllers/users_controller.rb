@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @title = "» Apptivists"
-    @users = User.where(apptivist: true)
+    @users = User.where(apptivist: true).order("featured DESC, created_at")
     if params[:role].present? && params[:role] != 'All'
       @users = @users.where(role: params[:role])
     end
