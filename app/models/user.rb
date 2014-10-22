@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :new_user
 
-  attr_accessible :description, :email, :facebook_username, :linkedin_username, :google_plus_id, :first_name, :password_digest, :last_name, :twitter_username, :website_url, :password, :password_confirmation, :username, :category_ids, :profile_picture, :city_id, :city_name, :bio, :role, :apptivist, :appstore_url, :google_play_url, :github_username, :tool_ids, :owned_tool_ids, :featured
+  attr_accessible :description, :email, :facebook_username, :hide_email, :linkedin_username, :google_plus_id, :first_name, :password_digest, :last_name, :twitter_username, :website_url, :password, :password_confirmation, :username, :category_ids, :profile_picture, :city_id, :city_name, :bio, :role, :apptivist, :appstore_url, :google_play_url, :github_username, :tool_ids, :owned_tool_ids, :featured
 
   validates_length_of :bio, maximum: 1000, allow_blank: true
 

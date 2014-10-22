@@ -21,11 +21,13 @@
 
 			<% unless @user.bio.blank? %><p class="bio" itemprop="description"><%= @user.bio %></p><% end %>
 
-			<p style="margin-top: 20px;">
-				<a href="mailto:<%= @user.email %>?subject=Apptivist+Inquiry" id="emailApptivist" class="button email-apptivist" data-to-name="<%= @user.full_name %>" data-to-email="<%= @user.email %>" data-from-name="<% if current_user %><%= current_user.full_name %><% else %>Non-member<% end %>" data-from-email="<% if current_user %><%= current_user.email %><% else %>n/a<% end %>">
-					<%= image_tag("users/email.png") %> Contact <%= @user.first_name %>
-				</a>
-			</p>
+			<% unless @user.hide_email %>
+				<p style="margin: 20px 0;">
+					<a href="mailto:<%= @user.email %>?subject=The%20Toolbox%20Inquiry" id="emailApptivist" class="button email-apptivist" data-to-name="<%= @user.full_name %>" data-to-email="<%= @user.email %>" data-from-name="<% if current_user %><%= current_user.full_name %><% else %>Non-member<% end %>" data-from-email="<% if current_user %><%= current_user.email %><% else %>n/a<% end %>">
+						<%= image_tag("users/email.png") %> Contact <%= @user.first_name %>
+					</a>
+				</p>
+			<% end %>
 		</div>
 	</div>
 

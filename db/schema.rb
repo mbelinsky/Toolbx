@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141016204143) do
+ActiveRecord::Schema.define(:version => 20141022231749) do
 
   create_table "apptivist_articles", :force => true do |t|
     t.integer  "apptivist_id"
@@ -320,6 +320,7 @@ ActiveRecord::Schema.define(:version => 20141016204143) do
     t.string   "google_play_url"
     t.string   "github_username"
     t.boolean  "featured"
+    t.boolean  "hide_email"
   end
 
   add_index "users", ["city_id"], :name => "index_users_on_city_id"
