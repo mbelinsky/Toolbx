@@ -33,7 +33,7 @@
 
         <div class="field full">
             <%= f.label :user_ids, "Users" %>
-            <%= f.collection_select :user_ids, User.order(:first_name), :id, :first_name, {}, {multiple: true, class: 'chosen'} %>
+            <%= f.collection_select :user_ids, User.order(:first_name), :id, :full_name, {}, {multiple: true, class: 'chosen'} %>
         </div>
     </div>
 
