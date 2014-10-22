@@ -7,15 +7,17 @@
 				<% if @user.role %><span class="role"><%= @user.role %></span><% end %>
 				<% if @user.city_id %><span class="location"><%= @user.city_name %></span><% end %>
 			</p>
-			<ul class="categories">
-				<% @user.categories.each do |category| %>
-					<li><%= category.title %></li>
-				<% end %>
-			</ul>
-			<p>
-				<% if @user.website_url %><a href="<%= @user.website_url %>" class="contact-item"><%= @user.website_url %></a><% end %>
-				<% if !@user.apptivist && @user.email %><a href="mailto:<%= @user.email %>" class="contact-item"><%= @user.email %></a><% end %>
-			</p>
+			<% if @user.categories.size %>
+				<ul class="categories">
+					<% @user.categories.each do |category| %>
+						<li><%= category.title %></li>
+					<% end %>
+				</ul>
+			<% end %>
+
+			<% if @user.website_url %><a href="<%= @user.website_url %>" class="contact-item">
+				<p><%= @user.website_url %></a></p>
+			<% end %>
 
 			<% unless @user.bio.blank? %><p class="bio" itemprop="description"><%= @user.bio %></p><% end %>
 

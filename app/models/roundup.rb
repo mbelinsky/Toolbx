@@ -5,4 +5,8 @@ class Roundup < ActiveRecord::Base
   has_many :tools, through: :roundup_items, source: :item, source_type: 'Tool'
   has_many :users, through: :roundup_items, source: :item, source_type: 'User'
   has_many :articles, through: :roundup_items, source: :item, source_type: 'Article'
+
+  def to_param
+    "#{id} #{title}".parameterize
+  end
 end
