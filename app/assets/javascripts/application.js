@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.ui.sortable
 //= require jquery-migrate
 //= require jquery_ujs
 //= require jquery.ui.autocomplete

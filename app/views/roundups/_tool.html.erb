@@ -3,7 +3,7 @@
 <% mini ||= false %>
 <% has_tool = current_user ? current_user.tools.exists?(tool.id) : nil %>
 
-<li class="tool item <% tool.categories.each do |c| %> <%= c.title.parameterize %> <% end %> <%= 'mini' if mini %>" itemscope itemtype="http://schema.org/SoftwareApplication">
+<li id="roundup_item_<%= item.item_id %>" class="tool item <% tool.categories.each do |c| %> <%= c.title.parameterize %> <% end %> <%= 'mini' if mini %>" itemscope itemtype="http://schema.org/SoftwareApplication">
     <% unless mini %>
         <div class="banner">
             <%= link_to path do %>

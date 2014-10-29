@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141022231749) do
+ActiveRecord::Schema.define(:version => 20141029232120) do
 
   create_table "apptivist_articles", :force => true do |t|
     t.integer  "apptivist_id"
@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(:version => 20141022231749) do
     t.string   "item_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "position"
   end
 
   add_index "roundup_items", ["roundup_id"], :name => "index_roundup_items_on_roundup_id"

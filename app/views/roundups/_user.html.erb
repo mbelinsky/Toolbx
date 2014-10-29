@@ -1,5 +1,5 @@
 <% user ||= item %>
-<li class="user-block">
+<li id="roundup_item_<%= item.item_id %>" class="user-block">
     <%= link_to user_path(user) do %>
         <%= image_tag user.profile_picture.url(:medium), class: 'person' %>
         <h3 class="din med"><%= user.first_name %> <%= user.last_name %></h3>

@@ -78,6 +78,7 @@ Thetoolbox::Application.routes.draw do
   # Tools Roundup
   resources :roundups do
     get 'roundup/:id' => 'roundups#show'
+    collection { post :sort }
   end
 
   # Admin

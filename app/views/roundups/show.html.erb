@@ -3,7 +3,7 @@
     <% if @roundup.description %><p><%= @roundup.description %></p><% end %>
 </header>
 
-<ul class="mixed-list">
+<ul class="mixed-list" <% if current_user && current_user.admin %> data-sort-url="<%= sort_roundups_url %>" id="sortableRoundups"<% end %>>
     <% @items.each do |item| %>
         <%= render item.item_type, item: item %>
     <% end %>
