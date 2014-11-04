@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141029232120) do
+ActiveRecord::Schema.define(:version => 20141104202849) do
 
   create_table "apptivist_articles", :force => true do |t|
     t.integer  "apptivist_id"
@@ -99,33 +99,22 @@ ActiveRecord::Schema.define(:version => 20141029232120) do
   end
 
   create_table "cities", :force => true do |t|
-    t.string   "name"
-    t.string   "short_name"
-    t.integer  "region_id"
-    t.integer  "country_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string  "name",       :limit => 70
+    t.string  "short_name", :limit => 60
+    t.integer "region_id",  :limit => 2
+    t.integer "country_id", :limit => 2
   end
 
-  add_index "cities", ["country_id"], :name => "index_cities_on_country_id"
-  add_index "cities", ["region_id"], :name => "index_cities_on_region_id"
-
   create_table "continents", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string "name", :limit => 25
   end
 
   create_table "countries", :force => true do |t|
-    t.string   "name"
-    t.string   "short_name"
-    t.integer  "continent_id"
-    t.integer  "dial_code"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string  "name",         :limit => 40
+    t.string  "short_name",   :limit => 30
+    t.integer "continent_id", :limit => 1
+    t.integer "dial_code",    :limit => 2
   end
-
-  add_index "countries", ["continent_id"], :name => "index_countries_on_continent_id"
 
   create_table "languages", :force => true do |t|
     t.string   "name"
@@ -147,22 +136,18 @@ ActiveRecord::Schema.define(:version => 20141029232120) do
   end
 
   create_table "regions", :force => true do |t|
-    t.string   "name"
-    t.string   "short_name"
-    t.integer  "country_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string  "name",       :limit => 35
+    t.string  "short_name", :limit => 25
+    t.integer "country_id", :limit => 2
   end
-
-  add_index "regions", ["country_id"], :name => "index_regions_on_country_id"
 
   create_table "roundup_items", :force => true do |t|
     t.integer  "roundup_id"
     t.integer  "item_id"
     t.string   "item_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "position"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "position",   :default => 0, :null => false
   end
 
   add_index "roundup_items", ["roundup_id"], :name => "index_roundup_items_on_roundup_id"
