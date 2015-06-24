@@ -27,7 +27,7 @@ html.about.index {
 	}
 
 	div.person {
-		width: 140px; height: 140px; background: url("/assets/about/people.png"); margin: 0 auto;
+		width: 140px; height: 140px; background: url("/assets/about/people.png"); margin: 0 auto; border-radius: 50%;
 
 		&.alejandro-de-onis { background-position: 0 0; }
 		&.vienna-maglio { background-position: 0 -141px; }
@@ -42,13 +42,17 @@ html.about.index {
 		&.robin { background-position: 0 -1401px; }
 
 		// new additions
-		&.mitzy-bautista { background: url("/assets/about/mitzy-bautista.jpg") }
-		&.alexandra { background: url("/assets/about/alexandra.jpg") }
-		&.emma-stamm { background: url("/assets/about/emma-stamm.jpg") }
-		&.bryan-nunez { background: url("/assets/about/bryan-nunez.jpg") }
-		&.pritha { background: url("/assets/about/pritha.jpg") }
-		&.ruthie { background: url("/assets/about/ruthie.jpg") }
-		&.vivian { background: url("/assets/about/vivian.jpg") }
+		&.mitzy-bautista { background: url("/assets/about/mitzy-bautista.jpg"); }
+		&.alexandra { background: url("/assets/about/alexandra.jpg"); }
+		&.emma-stamm { background: url("/assets/about/emma-stamm.jpg"); }
+		&.bryan-nunez { background: url("/assets/about/bryan-nunez.jpg"); }
+		&.pritha { background: url("/assets/about/pritha.jpg"); }
+		&.ruthie { background: url("/assets/about/ruthie.jpg"); }
+		&.vivian { background: url("/assets/about/vivian.jpg"); }
+
+		&.alisha-golden { background: url("/assets/about/alisha-golden.jpg"); background-size: cover; background-position: center; }
+		&.william-hoffman { background: url("/assets/about/william-hoffman.jpg"); background-size: cover; background-position: center; }
+		&.amanda-noonen { background: url("/assets/about/amanda-noonen.jpg"); background-size: cover; background-position: center; }
 	}
 
 	div.billboardish {
