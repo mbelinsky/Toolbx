@@ -5,7 +5,7 @@ class RoundupsController < ApplicationController
 
     @items = []
     @roundup.roundup_items.each do |item|
-      @item = item.item_type.constantize.find_by(id: item.item_id)
+      @item = item.item_type.constantize.find_by_id(item.item_id)
       next unless @item
       @item[:item_type] = item.item_type.downcase
       @item[:item_id] = item.id
