@@ -72,20 +72,4 @@ class Admin::ToolsController < AdminController
       }
     end
   end
-
-private
-  def sanitize_search_tags(search_tags)
-    real_ids = []
-
-    # TODO why doesn't `map` work here
-    search_tags.join.split(',').each do |search_tag_id_or_name|
-      search_tag = SearchTag.find_by_id(search_tag_id_or_name)
-
-      search_tag = SearchTag.create(name: search_tag_id_or_name) if search_tag.nil?
-
-      real_ids.push search_tag.id
-    end
-
-    return real_ids
-  end
 end

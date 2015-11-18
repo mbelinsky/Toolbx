@@ -79,4 +79,19 @@ private
   def mixpanel
     @mixpanel ||= Mixpanel::Tracker.new Settings.mixpanel_token
   end
+
+  def sanitize_search_tags(search_tags)
+    real_ids = []
+
+    search_tags.join.split(',').each do |search_tag_id_or_name|
+      # attempt to find by id
+      search_tag = SearchTag.find_by_id(search_tag_id_or_name)
+      # fall back to find/create by name
+      search_tag = SearchTag.find_or_create_by_name(search_tag_id_or_name) if search_tag.nil?
+
+      real_ids.push search_tag.id
+    end
+
+    return real_ids
+  end
 end
