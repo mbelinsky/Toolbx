@@ -1,13 +1,10 @@
 #!/bin/env ruby
 # encoding: utf-8
 class SessionsController < ApplicationController
-  force_ssl
-
   def new
     @title = "» Log In"
     @has_footer = true
   end
-
 
   def create
     @title = "» Log In"

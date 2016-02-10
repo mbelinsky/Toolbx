@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  force_ssl
-
   before_filter :identify_known_bots, :identify_browser_and_os
 
 private
