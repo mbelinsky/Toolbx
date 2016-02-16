@@ -29,6 +29,8 @@ Thetoolbox::Application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
+  # karianna - temporarily do not allow the forcing of SSL as we have no certificate to support it
+config.force_ssl = false
 
   # See everything in the log (default is :info)
   # config.log_level = :debug

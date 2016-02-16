@@ -1,8 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :identify_known_bots, :identify_browser_and_os
+  # karianna - modified to add a call to expire_hsts
+  before_filter :identify_known_bots, :identify_browser_and_os, :expire_hsts
 
 private
+
+  # karianna - Temporary Attempt to tell browsers not to request SSL connections (I'm looking at you Chrome)
+  def expire_hsts
+    response.headers["Strict-Transport-Security"] = 'max-age=0'
+  end
+
   def current_user
     @current_user ||= User.find_by_toolbox_auth_token!(cookies[:toolbox_auth_token]) if cookies[:toolbox_auth_token]
   end

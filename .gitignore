@@ -21,3 +21,6 @@ config/environments/*.local.yml
 
 .DS_Store
 .swp
+
+# Ignore IntellJ IDE metadata
+.idea/
